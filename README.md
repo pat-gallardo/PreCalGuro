@@ -12,3 +12,5 @@
 # - pyqt5   ( pip install pyqt5 ) 
 # - pyqt5Designer ( pip install pyqt5Designer )
 # - pyrebase4 ( pip install pyrebase4 )
+
+# to run app in the python file, only compile and run controller.py
