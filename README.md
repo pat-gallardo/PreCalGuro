@@ -1,5 +1,5 @@
 # mathguro
-
+(this uses python 3.9)
 # create virtual environment(.venv) before installing libraries to python
 
 # to install libraries
