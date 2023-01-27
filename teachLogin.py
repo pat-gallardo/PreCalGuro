@@ -9,258 +9,259 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys, res
-
-class moWidget (QtWidgets.QWidget):
-    def __init__(self, parent=None):
-        super(moWidget, self).__init__(parent)
-        self.parent = parent
-    def mousePressEvent(self, event):
-        if event.button() == QtCore.Qt.LeftButton:
-                self.dragPosition = event.globalPos() - self.parent.frameGeometry().topLeft()
-                event.accept()
-    def mouseMoveEvent(self, event):
-        if event.buttons() == QtCore.Qt.LeftButton:
-                self.parent.move(event.globalPos() - self.dragPosition)
-                event.accept()
+import res, sys
 
 class Ui_teachLoginWindow(object):
     def setupUi(self, teachLoginWindow):
         teachLoginWindow.setObjectName("teachLoginWindow")
-        teachLoginWindow.resize(447, 572)
-        teachLoginWindow.setFixedSize(447, 572)
+        teachLoginWindow.resize(378, 502)
+        teachLoginWindow.setFixedSize(378, 502)
         # to remove close,minimize,maximize button
         teachLoginWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         # to remove the constant background of the app
         teachLoginWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(teachLoginWindow.sizePolicy().hasHeightForWidth())
-        teachLoginWindow.setSizePolicy(sizePolicy)
-        self.centralwidget = moWidget(teachLoginWindow)
+        self.centralwidget = QtWidgets.QWidget(teachLoginWindow)
+        self.centralwidget.setStyleSheet("*{\n"
+"border: none;\n"
+"background-color: transparent;\n"
+"background: transparent;\n"
+"padding: 0;\n"
+"margin: 0;\n"
+"color: #fff\n"
+"}\n"
+"\n"
+"#frame{\n"
+"border-image: url(:/images/back1.png);\n"
+"border-radius: 20px;\n"
+"}\n"
+"#frame_4{\n"
+"background-color:rgba(0,0,0,175);\n"
+"border-radius: 20px;\n"
+"}\n"
+"\n"
+"#label, #label_2, #label_3, #label_4{\n"
+"color: rgba(255, 255, 255,210);\n"
+"}\n"
+"QPushButton#closeButton,#loginTeachButton,#backButton{\n"
+"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
+"    color:rgba();\n"
+"    color:rgba(255,255,255,210);\n"
+"    border-radius:5px;\n"
+"}\n"
+"QPushButton#closeButton:hover, #loginTeachButton:hover, #backButton:hover{\n"
+"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
+"}\n"
+"QPushButton#closeButton:pressed, #loginTeachButton:pressed, #backButton:pressed{\n"
+"    padding-left:5px;\n"
+"    padding-top:5px;\n"
+"    background-color:rgba(105, 118, 132, 200)\n"
+"}\n"
+"#teachEmail_lineEdit, #teachPass_lineEdit{\n"
+"background-color:rgba(0,0,0,0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"padding-bottom:7px\n"
+"}\n"
+"")
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(80, 60, 300, 420))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy)
-        self.label.setMinimumSize(QtCore.QSize(300, 420))
-        self.label.setStyleSheet("border-image: url(:/images/back1.png);\n"
-"border-radius: 20px;")
-        self.label.setText("")
+        self.frame = QtWidgets.QFrame(self.centralwidget)
+        self.frame.setGeometry(QtCore.QRect(40, 30, 291, 411))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.frame)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.frame_4 = QtWidgets.QFrame(self.frame)
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_4)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.frame_2 = QtWidgets.QFrame(self.frame_4)
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame_2)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setSpacing(20)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.widget_3 = QtWidgets.QWidget(self.frame_2)
+        self.widget_3.setObjectName("widget_3")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget_3)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setSpacing(0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.closeButton = QtWidgets.QPushButton(self.widget_3)
+        self.closeButton.setStyleSheet("")
+        self.closeButton.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icons/icons/x.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.closeButton.setIcon(icon)
+        self.closeButton.setIconSize(QtCore.QSize(25, 25))
+        self.closeButton.setObjectName("closeButton")
+        self.horizontalLayout_2.addWidget(self.closeButton)
+        self.verticalLayout_2.addWidget(self.widget_3, 0, QtCore.Qt.AlignRight|QtCore.Qt.AlignTop)
+        self.widget_7 = QtWidgets.QWidget(self.frame_2)
+        font = QtGui.QFont()
+        font.setPointSize(1)
+        self.widget_7.setFont(font)
+        self.widget_7.setObjectName("widget_7")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.widget_7)
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_10.setSpacing(20)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
+        self.label = QtWidgets.QLabel(self.widget_7)
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.label.setFont(font)
         self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(90, 70, 280, 401))
-        self.label_2.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0.715909, stop:0 rgba(0, 0, 0, 9), stop:0.835227 rgba(0, 0, 0, 75));\n"
-"border-radius: 20px;")
-        self.label_2.setText("")
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(90, 70, 280, 390))
-        self.label_3.setStyleSheet("background-color:rgba(0,0,0,150);\n"
-"border-radius:15px;")
-        self.label_3.setText("")
-        self.label_3.setObjectName("label_3")
-        self.teachBackToMain_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.teachBackToMain_pushButton.setGeometry(QtCore.QRect(280, 330, 51, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.teachBackToMain_pushButton.setFont(font)
-        self.teachBackToMain_pushButton.setStyleSheet("QPushButton#teachBackToMain_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
-"    color:rgba();\n"
-"    color:rgba(255,255,255,210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"QPushButton#teachBackToMain_pushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
-"}\n"
-"QPushButton#teachBackToMain_pushButton:pressed{\n"
-"    padding-left:5px;\n"
-"    padding-top:5px;\n"
-"    background-color:rgba(105, 118, 132, 200)\n"
-"}\n"
-"")
-        self.teachBackToMain_pushButton.setObjectName("teachBackToMain_pushButton")
-        self.teachToForgetEmail_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.teachToForgetEmail_pushButton.setGeometry(QtCore.QRect(150, 380, 161, 20))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachToForgetEmail_pushButton.setFont(font)
-        self.teachToForgetEmail_pushButton.setStyleSheet("QPushButton#teachToForgetEmail_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
-"    color:rgba(255,255,255,140)\n"
-"}\n"
-"QPushButton#teachToForgetEmail_pushButton:pressed{\n"
-"    color: rgba(251, 153, 93, 1);\n"
-"}\n"
-"")
-        self.teachToForgetEmail_pushButton.setAutoDefault(False)
-        self.teachToForgetEmail_pushButton.setDefault(False)
-        self.teachToForgetEmail_pushButton.setFlat(True)
-        self.teachToForgetEmail_pushButton.setObjectName("teachToForgetEmail_pushButton")
-        self.teachEmail_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachEmail_lineEdit.setGeometry(QtCore.QRect(130, 200, 200, 40))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachEmail_lineEdit.setFont(font)
-        self.teachEmail_lineEdit.setAutoFillBackground(False)
-        self.teachEmail_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
-        self.teachEmail_lineEdit.setText("")
-        self.teachEmail_lineEdit.setObjectName("teachEmail_lineEdit")
-        self.teachLogin_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.teachLogin_pushButton.setGeometry(QtCore.QRect(129, 330, 141, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.teachLogin_pushButton.setFont(font)
-        self.teachLogin_pushButton.setStyleSheet("QPushButton#teachLogin_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
-"    color:rgba();\n"
-"    color:rgba(255,255,255,210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"QPushButton#teachLogin_pushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
-"}\n"
-"QPushButton#teachLogin_pushButton:pressed{\n"
-"    padding-left:5px;\n"
-"    padding-top:5px;\n"
-"    background-color:rgba(105, 118, 132, 200)\n"
-"}\n"
-"")
-        self.teachLogin_pushButton.setObjectName("teachLogin_pushButton")
-        self.teachPass_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachPass_lineEdit.setGeometry(QtCore.QRect(130, 250, 200, 40))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachPass_lineEdit.setFont(font)
-        self.teachPass_lineEdit.setAutoFillBackground(False)
-        self.teachPass_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
-        self.teachPass_lineEdit.setText("")
-        self.teachPass_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.teachPass_lineEdit.setObjectName("teachPass_lineEdit")
-        self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(160, 140, 151, 40))
+        self.verticalLayout_10.addWidget(self.label, 0, QtCore.Qt.AlignHCenter)
+        self.label_4 = QtWidgets.QLabel(self.widget_7)
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(13)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_6.setFont(font)
-        self.label_6.setStyleSheet("color: rgba(255, 255, 255,210);\n"
-"")
-        self.label_6.setScaledContents(False)
-        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_6.setWordWrap(False)
-        self.label_6.setIndent(-1)
-        self.label_6.setObjectName("label_6")
-        self.teachToRegister_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.teachToRegister_pushButton.setGeometry(QtCore.QRect(130, 400, 201, 20))
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_10.addWidget(self.label_4, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_2.addWidget(self.widget_7, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.widget_6 = QtWidgets.QWidget(self.frame_2)
+        self.widget_6.setObjectName("widget_6")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.widget_6)
+        self.verticalLayout_9.setContentsMargins(40, 10, 40, 0)
+        self.verticalLayout_9.setSpacing(20)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.teachEmail_lineEdit = QtWidgets.QLineEdit(self.widget_6)
         font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachToRegister_pushButton.setFont(font)
-        self.teachToRegister_pushButton.setStyleSheet("QPushButton#teachToRegister_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
-"    color:rgba(255,255,255,140)\n"
-"}\n"
-"QPushButton#teachToRegister_pushButton:pressed{\n"
-"    color: rgba(251, 153, 93, 1);\n"
-"}\n"
-"")
-        self.teachToRegister_pushButton.setAutoDefault(False)
-        self.teachToRegister_pushButton.setDefault(False)
-        self.teachToRegister_pushButton.setFlat(True)
-        self.teachToRegister_pushButton.setObjectName("teachToRegister_pushButton")
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(160, 90, 151, 40))
+        font.setPointSize(10)
+        self.teachEmail_lineEdit.setFont(font)
+        self.teachEmail_lineEdit.setStyleSheet("")
+        self.teachEmail_lineEdit.setText("")
+        self.teachEmail_lineEdit.setObjectName("teachEmail_lineEdit")
+        self.verticalLayout_9.addWidget(self.teachEmail_lineEdit)
+        self.teachPass_lineEdit = QtWidgets.QLineEdit(self.widget_6)
         font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(24)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_5.setFont(font)
-        self.label_5.setStyleSheet("color: rgba(255, 255, 255,210);\n"
-"")
-        self.label_5.setObjectName("label_5")
-        self.exitProgram_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.exitProgram_pushButton.setGeometry(QtCore.QRect(340, 70, 31, 20))
+        font.setPointSize(10)
+        self.teachPass_lineEdit.setFont(font)
+        self.teachPass_lineEdit.setStyleSheet("")
+        self.teachPass_lineEdit.setText("")
+        self.teachPass_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.teachPass_lineEdit.setObjectName("teachPass_lineEdit")
+        self.verticalLayout_9.addWidget(self.teachPass_lineEdit)
+        self.verticalLayout_2.addWidget(self.widget_6)
+        self.verticalLayout.addWidget(self.frame_2)
+        self.frame_3 = QtWidgets.QFrame(self.frame_4)
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_3)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setSpacing(15)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.widget_5 = QtWidgets.QWidget(self.frame_3)
+        self.widget_5.setObjectName("widget_5")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.widget_5)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.widget = QtWidgets.QWidget(self.widget_5)
+        self.widget.setObjectName("widget")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.widget)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 5, 0)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.loginTeachButton = QtWidgets.QPushButton(self.widget)
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.exitProgram_pushButton.setFont(font)
-        self.exitProgram_pushButton.setStyleSheet("QPushButton#exitProgram_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
-"    color:rgba();\n"
-"    color:rgba(255,255,255,210);\n"
-"    border-radius:5px;\n"
+        self.loginTeachButton.setFont(font)
+        self.loginTeachButton.setStyleSheet("    padding: 10px 40px;\n"
+"    border-top-left-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;")
+        self.loginTeachButton.setIconSize(QtCore.QSize(12, 12))
+        self.loginTeachButton.setAutoDefault(False)
+        self.loginTeachButton.setDefault(False)
+        self.loginTeachButton.setFlat(False)
+        self.loginTeachButton.setObjectName("loginTeachButton")
+        self.horizontalLayout_3.addWidget(self.loginTeachButton)
+        self.horizontalLayout.addWidget(self.widget)
+        self.widget_4 = QtWidgets.QWidget(self.widget_5)
+        self.widget_4.setObjectName("widget_4")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.widget_4)
+        self.horizontalLayout_4.setContentsMargins(5, 0, 0, 0)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.backButton = QtWidgets.QPushButton(self.widget_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.backButton.sizePolicy().hasHeightForWidth())
+        self.backButton.setSizePolicy(sizePolicy)
+        self.backButton.setBaseSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.backButton.setFont(font)
+        self.backButton.setStyleSheet("    padding: 10px 10px;\n"
+"")
+        self.backButton.setIconSize(QtCore.QSize(16, 16))
+        self.backButton.setObjectName("backButton")
+        self.horizontalLayout_4.addWidget(self.backButton)
+        self.horizontalLayout.addWidget(self.widget_4)
+        self.verticalLayout_3.addWidget(self.widget_5, 0, QtCore.Qt.AlignHCenter)
+        self.widget_2 = QtWidgets.QWidget(self.frame_3)
+        self.widget_2.setObjectName("widget_2")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.widget_2)
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_5.setSpacing(8)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.toForgotPassTeachButton = QtWidgets.QPushButton(self.widget_2)
+        self.toForgotPassTeachButton.setStyleSheet("QPushButton#toForgotPassTeachButton{\n"
+"    color:rgba(255,255,255,140)\n"
 "}\n"
-"QPushButton#exitProgram_pushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
-"}\n"
-"QPushButton#exitProgram_pushButton:pressed{\n"
-"    padding-left:5px;\n"
-"    padding-top:5px;\n"
-"    background-color:rgba(105, 118, 132, 200)\n"
+"QPushButton#toForgotPassTeachButton:pressed{\n"
+"    color: rgba(251, 153, 93, 1);\n"
 "}\n"
 "")
-        self.exitProgram_pushButton.setObjectName("exitProgram_pushButton")
+        self.toForgotPassTeachButton.setDefault(False)
+        self.toForgotPassTeachButton.setFlat(True)
+        self.toForgotPassTeachButton.setObjectName("toForgotPassTeachButton")
+        self.verticalLayout_5.addWidget(self.toForgotPassTeachButton, 0, QtCore.Qt.AlignBottom)
+        self.toRegisterTeachButton = QtWidgets.QPushButton(self.widget_2)
+        self.toRegisterTeachButton.setStyleSheet("QPushButton#toRegisterTeachButton{\n"
+"    color:rgba(255,255,255,140)\n"
+"}\n"
+"QPushButton#toRegisterTeachButton:pressed{\n"
+"    color: rgba(251, 153, 93, 1);\n"
+"}\n"
+"")
+        self.toRegisterTeachButton.setFlat(True)
+        self.toRegisterTeachButton.setObjectName("toRegisterTeachButton")
+        self.verticalLayout_5.addWidget(self.toRegisterTeachButton, 0, QtCore.Qt.AlignTop)
+        self.verticalLayout_3.addWidget(self.widget_2, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout.addWidget(self.frame_3, 0, QtCore.Qt.AlignVCenter)
+        self.verticalLayout_8.addWidget(self.frame_4)
         teachLoginWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(teachLoginWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 447, 21))
-        self.menubar.setObjectName("menubar")
-        teachLoginWindow.setMenuBar(self.menubar)
-
-        self.label.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=0, yOffset=0, color=QtGui.QColor(234, 221, 186, 100)))
-        self.label_3.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=0, yOffset=0, color=QtGui.QColor(105, 118, 132, 100)))
-        self.teachLogin_pushButton.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=3, yOffset=3, color=QtGui.QColor(105, 118, 132, 100)))
-        self.teachBackToMain_pushButton.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=3, yOffset=3, color=QtGui.QColor(105, 118, 132, 100)))
 
         self.retranslateUi(teachLoginWindow)
         QtCore.QMetaObject.connectSlotsByName(teachLoginWindow)
 
-        self.teachToRegister_pushButton.clicked.connect(teachLoginWindow.toRegister) #REGISTER ACCOUNT
-        self.teachLogin_pushButton.clicked.connect(teachLoginWindow.toLogToApp)      #LOG IN ACCOUNT 
-        self.teachToForgetEmail_pushButton.clicked.connect(teachLoginWindow.forgetAcc) #FORGET ACCOUNT
-        self.teachBackToMain_pushButton.clicked.connect(teachLoginWindow.goBack)     #GO TO MAIN
-        self.exitProgram_pushButton.clicked.connect(teachLoginWindow.toExitProg)     #TERMINATE APP
-
     def retranslateUi(self, teachLoginWindow):
         _translate = QtCore.QCoreApplication.translate
         teachLoginWindow.setWindowTitle(_translate("teachLoginWindow", "MainWindow"))
-        self.teachBackToMain_pushButton.setText(_translate("teachLoginWindow", "Back"))
-        self.teachToForgetEmail_pushButton.setText(_translate("teachLoginWindow", "Forgot your Email or Password ?"))
-        self.teachEmail_lineEdit.setPlaceholderText(_translate("teachLoginWindow", " Email :"))
-        self.teachLogin_pushButton.setText(_translate("teachLoginWindow", "Log In"))
-        self.teachPass_lineEdit.setPlaceholderText(_translate("teachLoginWindow", " Password :"))
-        self.label_6.setText(_translate("teachLoginWindow", "Teacher\'s Log In"))
-        self.teachToRegister_pushButton.setText(_translate("teachLoginWindow", "Don\'t have an Account? Register Here"))
-        self.label_5.setText(_translate("teachLoginWindow", "Mathguro"))
-        self.exitProgram_pushButton.setText(_translate("teachLoginWindow", "X"))
+        self.label.setText(_translate("teachLoginWindow", "Mathguro"))
+        self.label_4.setText(_translate("teachLoginWindow", "Teacher\'s Log In"))
+        self.teachEmail_lineEdit.setPlaceholderText(_translate("teachLoginWindow", "Email:"))
+        self.teachPass_lineEdit.setPlaceholderText(_translate("teachLoginWindow", "Password:"))
+        self.loginTeachButton.setText(_translate("teachLoginWindow", "Log In"))
+        self.backButton.setText(_translate("teachLoginWindow", "Back"))
+        self.toForgotPassTeachButton.setText(_translate("teachLoginWindow", "Forgot your Email or Password ?"))
+        self.toRegisterTeachButton.setText(_translate("teachLoginWindow", "Don\'t have and Account? Register Here"))
+
 
 if __name__ == "__main__":
     import sys

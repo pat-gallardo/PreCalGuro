@@ -9,307 +9,490 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys, res
 
-class moWidget (QtWidgets.QWidget):
-    def __init__(self, parent=None):
-        super(moWidget, self).__init__(parent)
-        self.parent = parent
-    def mousePressEvent(self, event):
-        if event.button() == QtCore.Qt.LeftButton:
-                self.dragPosition = event.globalPos() - self.parent.frameGeometry().topLeft()
-                event.accept()
-    def mouseMoveEvent(self, event):
-        if event.buttons() == QtCore.Qt.LeftButton:
-                self.parent.move(event.globalPos() - self.dragPosition)
-                event.accept()
 
 class Ui_teachRegisterWindow(object):
     def setupUi(self, teachRegisterWindow):
         teachRegisterWindow.setObjectName("teachRegisterWindow")
-        teachRegisterWindow.resize(587, 685)
-        teachRegisterWindow.setFixedSize(587, 685)
+        teachRegisterWindow.resize(391, 673)
+        teachRegisterWindow.setFixedSize(391, 673)
         # to remove close,minimize,maximize button
         teachRegisterWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         # to remove the constant background of the app
         teachRegisterWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(teachRegisterWindow.sizePolicy().hasHeightForWidth())
-        teachRegisterWindow.setSizePolicy(sizePolicy)
-        teachRegisterWindow.setMinimumSize(QtCore.QSize(305, 596))
-        self.centralwidget = moWidget(teachRegisterWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(150, 40, 300, 571))
-        self.label.setStyleSheet("border-image: url(:/images/back1.png);\n"
-"border-radius: 20px;")
-        self.label.setText("")
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(159, 50, 281, 551))
-        self.label_2.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0.715909, stop:0 rgba(0, 0, 0, 9), stop:0.835227 rgba(0, 0, 0, 75));\n"
-"border-radius: 20px;")
-        self.label_2.setText("")
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(160, 90, 280, 501))
-        self.label_3.setStyleSheet("background-color:rgba(0,0,0,150);\n"
-"border-radius:15px;")
-        self.label_3.setText("")
-        self.label_3.setObjectName("label_3")
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(230, 70, 141, 40))
-        font = QtGui.QFont()
-        font.setFamily("Consolas")
-        font.setPointSize(24)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_5.setFont(font)
-        self.label_5.setStyleSheet("color: rgba(255, 255, 255,210);\n"
+        self.centralwidget = QtWidgets.QWidget(teachRegisterWindow)
+        self.centralwidget.setStyleSheet("*{\n"
+"border: none;\n"
+"background-color: transparent;\n"
+"background: transparent;\n"
+"padding: 0;\n"
+"margin: 0;\n"
+"color: #fff\n"
+"}\n"
+"\n"
+"#frame{\n"
+"border-image: url(:/images/back1.png);\n"
+"border-radius: 20px;\n"
+"}\n"
+"#frame_4{\n"
+"background-color:rgba(0,0,0,175);\n"
+"border-radius: 20px;\n"
+"}\n"
+"\n"
+"#label, #label_2, #label_3, #label_4{\n"
+"color: rgba(255, 255, 255,210);\n"
+"}\n"
+"QPushButton#closeButton,#registerTeachButton,#backButton{\n"
+"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
+"    color:rgba();\n"
+"    color:rgba(255,255,255,210);\n"
+"    border-radius:5px;\n"
+"}\n"
+"QPushButton#closeButton:hover,#registerTeachButton:hover,#backButton:hover{\n"
+"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
+"}\n"
+"QPushButton#closeButton:pressed,#registerTeachButton:pressed,#backButton:pressed{\n"
+"    padding-left:5px;\n"
+"    padding-top:5px;\n"
+"    background-color:rgba(105, 118, 132, 200)\n"
+"}\n"
+"#teachEmail_lineEdit, #teachPass_lineEdit, #teachLast_lineEdit, #teachSchool_lineEdit\n"
+", #teachID_lineEdit, #teachMiddle_lineEdit, #teachFirst_lineEdit{\n"
+"background-color:rgba(0,0,0,0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"padding-bottom:7px\n"
+"}\n"
 "")
-        self.label_5.setObjectName("label_5")
-        self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(220, 120, 161, 40))
+        self.centralwidget.setObjectName("centralwidget")
+        self.frame = QtWidgets.QFrame(self.centralwidget)
+        self.frame.setGeometry(QtCore.QRect(50, 30, 295, 451))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.frame)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.frame_4 = QtWidgets.QFrame(self.frame)
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_4)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.frame_6 = QtWidgets.QFrame(self.frame_4)
+        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_6.setObjectName("frame_6")
+        self.verticalLayout_19 = QtWidgets.QVBoxLayout(self.frame_6)
+        self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_19.setSpacing(0)
+        self.verticalLayout_19.setObjectName("verticalLayout_19")
+        self.frame_2 = QtWidgets.QFrame(self.frame_6)
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame_2)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.widget_3 = QtWidgets.QWidget(self.frame_2)
+        self.widget_3.setObjectName("widget_3")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget_3)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setSpacing(0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.closeButton = QtWidgets.QPushButton(self.widget_3)
+        self.closeButton.setStyleSheet("")
+        self.closeButton.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icons/icons/x.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.closeButton.setIcon(icon)
+        self.closeButton.setIconSize(QtCore.QSize(25, 25))
+        self.closeButton.setObjectName("closeButton")
+        self.horizontalLayout_2.addWidget(self.closeButton)
+        self.verticalLayout_2.addWidget(self.widget_3, 0, QtCore.Qt.AlignRight|QtCore.Qt.AlignTop)
+        self.widget_7 = QtWidgets.QWidget(self.frame_2)
+        font = QtGui.QFont()
+        font.setPointSize(1)
+        self.widget_7.setFont(font)
+        self.widget_7.setObjectName("widget_7")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.widget_7)
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 5)
+        self.verticalLayout_10.setSpacing(20)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
+        self.label = QtWidgets.QLabel(self.widget_7)
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.verticalLayout_10.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_4 = QtWidgets.QLabel(self.widget_7)
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(13)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_6.setFont(font)
-        self.label_6.setStyleSheet("color: rgba(255, 255, 255,210);\n"
-"")
-        self.label_6.setScaledContents(False)
-        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_6.setWordWrap(False)
-        self.label_6.setIndent(-1)
-        self.label_6.setObjectName("label_6")
-        self.teachBackToMain_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.teachBackToMain_pushButton.setGeometry(QtCore.QRect(350, 480, 51, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.teachBackToMain_pushButton.setFont(font)
-        self.teachBackToMain_pushButton.setStyleSheet("QPushButton#teachBackToMain_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
-"    color:rgba();\n"
-"    color:rgba(255,255,255,210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"QPushButton#teachBackToMain_pushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
-"}\n"
-"QPushButton#teachBackToMain_pushButton:pressed{\n"
-"    padding-left:5px;\n"
-"    padding-top:5px;\n"
-"    background-color:rgba(105, 118, 132, 200)\n"
-"}\n"
-"")
-        self.teachBackToMain_pushButton.setObjectName("teachBackToMain_pushButton")
-        self.teachEmail_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachEmail_lineEdit.setGeometry(QtCore.QRect(200, 360, 200, 40))
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_10.addWidget(self.label_4, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.verticalLayout_2.addWidget(self.widget_7, 0, QtCore.Qt.AlignTop)
+        self.verticalLayout_19.addWidget(self.frame_2, 0, QtCore.Qt.AlignTop)
+        self.frame_5 = QtWidgets.QFrame(self.frame_6)
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frame_5)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 10)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.widget_6 = QtWidgets.QWidget(self.frame_5)
+        self.widget_6.setObjectName("widget_6")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.widget_6)
+        self.verticalLayout_6.setContentsMargins(0, 5, 0, 0)
+        self.verticalLayout_6.setSpacing(5)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.widget_8 = QtWidgets.QWidget(self.widget_6)
+        self.widget_8.setObjectName("widget_8")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.widget_8)
+        self.horizontalLayout_5.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_5.setSpacing(5)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.widget_9 = QtWidgets.QWidget(self.widget_8)
+        self.widget_9.setObjectName("widget_9")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.widget_9)
+        self.verticalLayout_9.setContentsMargins(30, 0, 0, 0)
+        self.verticalLayout_9.setSpacing(0)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.teachFirst_lineEdit = QtWidgets.QLineEdit(self.widget_9)
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachEmail_lineEdit.setFont(font)
-        self.teachEmail_lineEdit.setAutoFillBackground(False)
-        self.teachEmail_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
-        self.teachEmail_lineEdit.setText("")
-        self.teachEmail_lineEdit.setObjectName("teachEmail_lineEdit")
-        self.teachFirstName_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachFirstName_lineEdit.setGeometry(QtCore.QRect(200, 160, 131, 40))
+        self.teachFirst_lineEdit.setFont(font)
+        self.teachFirst_lineEdit.setStyleSheet("")
+        self.teachFirst_lineEdit.setText("")
+        self.teachFirst_lineEdit.setObjectName("teachFirst_lineEdit")
+        self.verticalLayout_9.addWidget(self.teachFirst_lineEdit)
+        self.horizontalLayout_5.addWidget(self.widget_9)
+        self.widget_10 = QtWidgets.QWidget(self.widget_8)
+        self.widget_10.setObjectName("widget_10")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.widget_10)
+        self.verticalLayout_7.setContentsMargins(0, 0, 30, 0)
+        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.teachMiddle_lineEdit = QtWidgets.QLineEdit(self.widget_10)
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachFirstName_lineEdit.setFont(font)
-        self.teachFirstName_lineEdit.setAutoFillBackground(False)
-        self.teachFirstName_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
-        self.teachFirstName_lineEdit.setText("")
-        self.teachFirstName_lineEdit.setObjectName("teachFirstName_lineEdit")
-        self.teachId_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachId_lineEdit.setGeometry(QtCore.QRect(200, 260, 200, 40))
+        self.teachMiddle_lineEdit.setFont(font)
+        self.teachMiddle_lineEdit.setStyleSheet("")
+        self.teachMiddle_lineEdit.setText("")
+        self.teachMiddle_lineEdit.setObjectName("teachMiddle_lineEdit")
+        self.verticalLayout_7.addWidget(self.teachMiddle_lineEdit)
+        self.horizontalLayout_5.addWidget(self.widget_10, 0, QtCore.Qt.AlignLeft)
+        self.verticalLayout_6.addWidget(self.widget_8)
+        self.widget_11 = QtWidgets.QWidget(self.widget_6)
+        self.widget_11.setObjectName("widget_11")
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.widget_11)
+        self.verticalLayout_11.setContentsMargins(30, 0, 30, 0)
+        self.verticalLayout_11.setSpacing(8)
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.warningFname = QtWidgets.QWidget(self.widget_11)
+        self.warningFname.setObjectName("warningFname")
+        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.warningFname)
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName("verticalLayout_15")
+        self.label_14 = QtWidgets.QLabel(self.warningFname)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(10)
+        self.label_14.setFont(font)
+        self.label_14.setTextFormat(QtCore.Qt.RichText)
+        self.label_14.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_14.setObjectName("label_14")
+        self.verticalLayout_15.addWidget(self.label_14)
+        self.verticalLayout_11.addWidget(self.warningFname)
+        self.teachLast_lineEdit = QtWidgets.QLineEdit(self.widget_11)
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachId_lineEdit.setFont(font)
-        self.teachId_lineEdit.setAutoFillBackground(False)
-        self.teachId_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
-        self.teachId_lineEdit.setText("")
-        self.teachId_lineEdit.setObjectName("teachId_lineEdit")
-        self.teachLastName_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachLastName_lineEdit.setGeometry(QtCore.QRect(200, 210, 200, 40))
+        self.teachLast_lineEdit.setFont(font)
+        self.teachLast_lineEdit.setStyleSheet("")
+        self.teachLast_lineEdit.setText("")
+        self.teachLast_lineEdit.setObjectName("teachLast_lineEdit")
+        self.verticalLayout_11.addWidget(self.teachLast_lineEdit)
+        self.warningLname = QtWidgets.QWidget(self.widget_11)
+        self.warningLname.setObjectName("warningLname")
+        self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.warningLname)
+        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_16.setSpacing(0)
+        self.verticalLayout_16.setObjectName("verticalLayout_16")
+        self.label_15 = QtWidgets.QLabel(self.warningLname)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(10)
+        self.label_15.setFont(font)
+        self.label_15.setTextFormat(QtCore.Qt.RichText)
+        self.label_15.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_15.setObjectName("label_15")
+        self.verticalLayout_16.addWidget(self.label_15)
+        self.verticalLayout_11.addWidget(self.warningLname)
+        self.teachID_lineEdit = QtWidgets.QLineEdit(self.widget_11)
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachLastName_lineEdit.setFont(font)
-        self.teachLastName_lineEdit.setAutoFillBackground(False)
-        self.teachLastName_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
-        self.teachLastName_lineEdit.setText("")
-        self.teachLastName_lineEdit.setObjectName("teachLastName_lineEdit")
-        self.teachMiddleInit_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachMiddleInit_lineEdit.setGeometry(QtCore.QRect(340, 160, 61, 40))
+        self.teachID_lineEdit.setFont(font)
+        self.teachID_lineEdit.setStyleSheet("")
+        self.teachID_lineEdit.setText("")
+        self.teachID_lineEdit.setObjectName("teachID_lineEdit")
+        self.verticalLayout_11.addWidget(self.teachID_lineEdit)
+        self.warningYrSec = QtWidgets.QWidget(self.widget_11)
+        self.warningYrSec.setObjectName("warningYrSec")
+        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.warningYrSec)
+        self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_17.setSpacing(0)
+        self.verticalLayout_17.setObjectName("verticalLayout_17")
+        self.label_16 = QtWidgets.QLabel(self.warningYrSec)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(10)
+        self.label_16.setFont(font)
+        self.label_16.setTextFormat(QtCore.Qt.RichText)
+        self.label_16.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_16.setObjectName("label_16")
+        self.verticalLayout_17.addWidget(self.label_16)
+        self.verticalLayout_11.addWidget(self.warningYrSec)
+        self.teachSchool_lineEdit = QtWidgets.QLineEdit(self.widget_11)
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachMiddleInit_lineEdit.setFont(font)
-        self.teachMiddleInit_lineEdit.setAutoFillBackground(False)
-        self.teachMiddleInit_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
-        self.teachMiddleInit_lineEdit.setText("")
-        self.teachMiddleInit_lineEdit.setObjectName("teachMiddleInit_lineEdit")
-        self.teachPass_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachPass_lineEdit.setGeometry(QtCore.QRect(200, 410, 200, 40))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachPass_lineEdit.setFont(font)
-        self.teachPass_lineEdit.setAutoFillBackground(False)
-        self.teachPass_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
-        self.teachPass_lineEdit.setText("")
-        self.teachPass_lineEdit.setObjectName("teachPass_lineEdit")
-        self.teachSchool_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.teachSchool_lineEdit.setGeometry(QtCore.QRect(200, 310, 200, 40))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
         self.teachSchool_lineEdit.setFont(font)
-        self.teachSchool_lineEdit.setAutoFillBackground(False)
-        self.teachSchool_lineEdit.setStyleSheet("background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 118, 132, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"padding-bottom:7px")
+        self.teachSchool_lineEdit.setStyleSheet("")
         self.teachSchool_lineEdit.setText("")
         self.teachSchool_lineEdit.setObjectName("teachSchool_lineEdit")
-        self.teachRegister_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.teachRegister_pushButton.setGeometry(QtCore.QRect(200, 480, 141, 41))
+        self.verticalLayout_11.addWidget(self.teachSchool_lineEdit)
+        self.warningSchool = QtWidgets.QWidget(self.widget_11)
+        self.warningSchool.setObjectName("warningSchool")
+        self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.warningSchool)
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName("verticalLayout_18")
+        self.label_17 = QtWidgets.QLabel(self.warningSchool)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(10)
+        self.label_17.setFont(font)
+        self.label_17.setTextFormat(QtCore.Qt.RichText)
+        self.label_17.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_17.setObjectName("label_17")
+        self.verticalLayout_18.addWidget(self.label_17)
+        self.verticalLayout_11.addWidget(self.warningSchool)
+        self.teachEmail_lineEdit = QtWidgets.QLineEdit(self.widget_11)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.teachEmail_lineEdit.setFont(font)
+        self.teachEmail_lineEdit.setStyleSheet("")
+        self.teachEmail_lineEdit.setText("")
+        self.teachEmail_lineEdit.setObjectName("teachEmail_lineEdit")
+        self.verticalLayout_11.addWidget(self.teachEmail_lineEdit)
+        self.warningEmail = QtWidgets.QWidget(self.widget_11)
+        self.warningEmail.setObjectName("warningEmail")
+        self.verticalLayout_20 = QtWidgets.QVBoxLayout(self.warningEmail)
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_20.setSpacing(0)
+        self.verticalLayout_20.setObjectName("verticalLayout_20")
+        self.label_18 = QtWidgets.QLabel(self.warningEmail)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(10)
+        self.label_18.setFont(font)
+        self.label_18.setTextFormat(QtCore.Qt.RichText)
+        self.label_18.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_18.setObjectName("label_18")
+        self.verticalLayout_20.addWidget(self.label_18)
+        self.verticalLayout_11.addWidget(self.warningEmail)
+        self.teachPass_lineEdit = QtWidgets.QLineEdit(self.widget_11)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.teachPass_lineEdit.setFont(font)
+        self.teachPass_lineEdit.setStyleSheet("")
+        self.teachPass_lineEdit.setText("")
+        self.teachPass_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.teachPass_lineEdit.setObjectName("teachPass_lineEdit")
+        self.verticalLayout_11.addWidget(self.teachPass_lineEdit)
+        self.warningPass = QtWidgets.QWidget(self.widget_11)
+        self.warningPass.setObjectName("warningPass")
+        self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.warningPass)
+        self.verticalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_21.setSpacing(0)
+        self.verticalLayout_21.setObjectName("verticalLayout_21")
+        self.label_19 = QtWidgets.QLabel(self.warningPass)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(10)
+        self.label_19.setFont(font)
+        self.label_19.setTextFormat(QtCore.Qt.RichText)
+        self.label_19.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_19.setObjectName("label_19")
+        self.verticalLayout_21.addWidget(self.label_19)
+        self.verticalLayout_11.addWidget(self.warningPass)
+        self.verticalLayout_6.addWidget(self.widget_11)
+        self.verticalLayout_4.addWidget(self.widget_6)
+        self.verticalLayout_19.addWidget(self.frame_5)
+        self.frame_3 = QtWidgets.QFrame(self.frame_6)
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_3)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 20)
+        self.verticalLayout_3.setSpacing(3)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.warningContainer = QtWidgets.QWidget(self.frame_3)
+        self.warningContainer.setObjectName("warningContainer")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.warningContainer)
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.warningContainerMenu = QtWidgets.QStackedWidget(self.warningContainer)
+        self.warningContainerMenu.setObjectName("warningContainerMenu")
+        self.errorWidget = QtWidgets.QWidget()
+        self.errorWidget.setObjectName("errorWidget")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.errorWidget)
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.label_12 = QtWidgets.QLabel(self.errorWidget)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(10)
+        self.label_12.setFont(font)
+        self.label_12.setTextFormat(QtCore.Qt.RichText)
+        self.label_12.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_12.setObjectName("label_12")
+        self.verticalLayout_13.addWidget(self.label_12)
+        self.warningContainerMenu.addWidget(self.errorWidget)
+        self.acceptWidget = QtWidgets.QWidget()
+        self.acceptWidget.setObjectName("acceptWidget")
+        self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.acceptWidget)
+        self.verticalLayout_14.setObjectName("verticalLayout_14")
+        self.label_13 = QtWidgets.QLabel(self.acceptWidget)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(10)
+        self.label_13.setFont(font)
+        self.label_13.setTextFormat(QtCore.Qt.RichText)
+        self.label_13.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_13.setObjectName("label_13")
+        self.verticalLayout_14.addWidget(self.label_13)
+        self.warningContainerMenu.addWidget(self.acceptWidget)
+        self.verticalLayout_12.addWidget(self.warningContainerMenu)
+        self.verticalLayout_3.addWidget(self.warningContainer)
+        self.widget_5 = QtWidgets.QWidget(self.frame_3)
+        self.widget_5.setObjectName("widget_5")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.widget_5)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.widget = QtWidgets.QWidget(self.widget_5)
+        self.widget.setObjectName("widget")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.widget)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 5, 0)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.registerTeachButton = QtWidgets.QPushButton(self.widget)
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.teachRegister_pushButton.setFont(font)
-        self.teachRegister_pushButton.setStyleSheet("QPushButton#teachRegister_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
-"    color:rgba();\n"
-"    color:rgba(255,255,255,210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"QPushButton#teachRegister_pushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
-"}\n"
-"QPushButton#teachRegister_pushButton:pressed{\n"
-"    padding-left:5px;\n"
-"    padding-top:5px;\n"
-"    background-color:rgba(105, 118, 132, 200)\n"
-"}\n"
-"")
-        self.teachRegister_pushButton.setObjectName("teachRegister_pushButton")
-        self.teachToLogIn_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.teachToLogIn_pushButton.setGeometry(QtCore.QRect(210, 530, 191, 20))
+        self.registerTeachButton.setFont(font)
+        self.registerTeachButton.setStyleSheet("    padding: 10px 25px;\n"
+"    border-top-left-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;")
+        self.registerTeachButton.setIconSize(QtCore.QSize(12, 12))
+        self.registerTeachButton.setAutoDefault(False)
+        self.registerTeachButton.setDefault(False)
+        self.registerTeachButton.setFlat(False)
+        self.registerTeachButton.setObjectName("registerTeachButton")
+        self.horizontalLayout_3.addWidget(self.registerTeachButton)
+        self.horizontalLayout.addWidget(self.widget)
+        self.widget_4 = QtWidgets.QWidget(self.widget_5)
+        self.widget_4.setObjectName("widget_4")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.widget_4)
+        self.horizontalLayout_4.setContentsMargins(5, 0, 0, 0)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.backButton = QtWidgets.QPushButton(self.widget_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.backButton.sizePolicy().hasHeightForWidth())
+        self.backButton.setSizePolicy(sizePolicy)
+        self.backButton.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.teachToLogIn_pushButton.setFont(font)
-        self.teachToLogIn_pushButton.setStyleSheet("QPushButton#teachToLogIn_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.backButton.setFont(font)
+        self.backButton.setStyleSheet("    padding: 10px 10px;\n"
+"")
+        self.backButton.setIconSize(QtCore.QSize(16, 16))
+        self.backButton.setObjectName("backButton")
+        self.horizontalLayout_4.addWidget(self.backButton)
+        self.horizontalLayout.addWidget(self.widget_4)
+        self.verticalLayout_3.addWidget(self.widget_5, 0, QtCore.Qt.AlignHCenter)
+        self.widget_2 = QtWidgets.QWidget(self.frame_3)
+        self.widget_2.setMinimumSize(QtCore.QSize(0, 0))
+        self.widget_2.setObjectName("widget_2")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.widget_2)
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_5.setSpacing(0)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.toLoginTeachButton = QtWidgets.QPushButton(self.widget_2)
+        self.toLoginTeachButton.setStyleSheet("QPushButton#toLoginTeachButton{\n"
 "    color:rgba(255,255,255,140)\n"
 "}\n"
-"QPushButton#teachToLogIn_pushButton:pressed{\n"
+"QPushButton#toLoginTeachButton:pressed{\n"
 "    color: rgba(251, 153, 93, 1);\n"
 "}\n"
 "")
-        self.teachToLogIn_pushButton.setAutoDefault(False)
-        self.teachToLogIn_pushButton.setDefault(False)
-        self.teachToLogIn_pushButton.setFlat(True)
-        self.teachToLogIn_pushButton.setObjectName("teachToLogIn_pushButton")
-        self.exitProgram_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.exitProgram_pushButton.setGeometry(QtCore.QRect(410, 50, 31, 20))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.exitProgram_pushButton.setFont(font)
-        self.exitProgram_pushButton.setStyleSheet("QPushButton#exitProgram_pushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
-"    color:rgba();\n"
-"    color:rgba(255,255,255,210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"QPushButton#exitProgram_pushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
-"}\n"
-"QPushButton#exitProgram_pushButton:pressed{\n"
-"    padding-left:5px;\n"
-"    padding-top:5px;\n"
-"    background-color:rgba(105, 118, 132, 200)\n"
-"}\n"
-"")
-        self.exitProgram_pushButton.setObjectName("exitProgram_pushButton")
+        self.toLoginTeachButton.setFlat(False)
+        self.toLoginTeachButton.setObjectName("toLoginTeachButton")
+        self.verticalLayout_5.addWidget(self.toLoginTeachButton, 0, QtCore.Qt.AlignTop)
+        self.verticalLayout_3.addWidget(self.widget_2, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_19.addWidget(self.frame_3, 0, QtCore.Qt.AlignVCenter)
+        self.verticalLayout.addWidget(self.frame_6)
+        self.verticalLayout_8.addWidget(self.frame_4)
         teachRegisterWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(teachRegisterWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 587, 21))
-        self.menubar.setObjectName("menubar")
-        teachRegisterWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(teachRegisterWindow)
+        self.warningContainerMenu.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(teachRegisterWindow)
-
-        self.teachRegister_pushButton.clicked.connect(teachRegisterWindow.toRegisterDb)
-        self.teachToLogIn_pushButton.clicked.connect(teachRegisterWindow.goBack)
-        self.teachBackToMain_pushButton.clicked.connect(teachRegisterWindow.goBack)
-        self.exitProgram_pushButton.clicked.connect(teachRegisterWindow.toExitProg)
-
 
     def retranslateUi(self, teachRegisterWindow):
         _translate = QtCore.QCoreApplication.translate
         teachRegisterWindow.setWindowTitle(_translate("teachRegisterWindow", "MainWindow"))
-        self.label_5.setText(_translate("teachRegisterWindow", "Mathguro"))
-        self.label_6.setText(_translate("teachRegisterWindow", "Teacher\'s Register"))
-        self.teachBackToMain_pushButton.setText(_translate("teachRegisterWindow", "Back"))
-        self.teachEmail_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", " Email:"))
-        self.teachFirstName_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "First Name:"))
-        self.teachId_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", " Teacher\'s School I.D.:"))
-        self.teachLastName_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "Last Name:"))
-        self.teachMiddleInit_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "M.I:"))
-        self.teachPass_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", " Password:"))
-        self.teachSchool_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", " School:"))
-        self.teachRegister_pushButton.setText(_translate("teachRegisterWindow", "Register"))
-        self.teachToLogIn_pushButton.setText(_translate("teachRegisterWindow", "Already have an Account? Log In Here"))
-        self.exitProgram_pushButton.setText(_translate("teachRegisterWindow", "X"))
+        self.label.setText(_translate("teachRegisterWindow", "Mathguro"))
+        self.label_4.setText(_translate("teachRegisterWindow", "Teacher\'s Register"))
+        self.teachFirst_lineEdit.setToolTip(_translate("teachRegisterWindow", "Required*"))
+        self.teachFirst_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "First Name:"))
+        self.teachMiddle_lineEdit.setToolTip(_translate("teachRegisterWindow", "Required*"))
+        self.teachMiddle_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "M.I:"))
+        self.label_14.setText(_translate("teachRegisterWindow", "<html><head/><body><p><span style=\" color:#ff9393;\">Please enter your First Name</span></p></body></html>"))
+        self.teachLast_lineEdit.setToolTip(_translate("teachRegisterWindow", "Required*"))
+        self.teachLast_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "Last Name:"))
+        self.label_15.setText(_translate("teachRegisterWindow", "<html><head/><body><p><span style=\" color:#ff9393;\">Please enter your Last Name</span></p></body></html>"))
+        self.teachID_lineEdit.setToolTip(_translate("teachRegisterWindow", "Required*"))
+        self.teachID_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "Teacher\'s School I.D."))
+        self.label_16.setText(_translate("teachRegisterWindow", "<html><head/><body><p><span style=\" color:#ff9393;\">Please enter your Year &amp; Section</span></p></body></html>"))
+        self.teachSchool_lineEdit.setToolTip(_translate("teachRegisterWindow", "Required*"))
+        self.teachSchool_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "School:"))
+        self.label_17.setText(_translate("teachRegisterWindow", "<html><head/><body><p><span style=\" color:#ff9393;\">Please enter your School</span></p></body></html>"))
+        self.teachEmail_lineEdit.setToolTip(_translate("teachRegisterWindow", "Required*"))
+        self.teachEmail_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "Email:"))
+        self.label_18.setText(_translate("teachRegisterWindow", "<html><head/><body><p><span style=\" color:#ff9393;\">Please enter your Valid Email</span></p></body></html>"))
+        self.teachPass_lineEdit.setToolTip(_translate("teachRegisterWindow", "Required*"))
+        self.teachPass_lineEdit.setPlaceholderText(_translate("teachRegisterWindow", "Password:"))
+        self.label_19.setText(_translate("teachRegisterWindow", "<html><head/><body><p><span style=\" font-size:8pt; color:#ff9393;\">Must be 8 or more alphanumeric characters</span></p></body></html>"))
+        self.label_12.setText(_translate("teachRegisterWindow", "<html><head/><body><p><span style=\" color:#ff9393;\">Please enter the required information</span></p></body></html>"))
+        self.label_13.setText(_translate("teachRegisterWindow", "<html><head/><body><p><span style=\" color:#9eff99;\">Account Registered</span></p></body></html>"))
+        self.registerTeachButton.setText(_translate("teachRegisterWindow", "Register"))
+        self.backButton.setText(_translate("teachRegisterWindow", "Back"))
+        self.toLoginTeachButton.setText(_translate("teachRegisterWindow", "Already have an Account? Log In Here"))
+import res, sys
 
 
 if __name__ == "__main__":
