@@ -9,13 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import res, sys
+
 
 class Ui_teachLoginWindow(object):
     def setupUi(self, teachLoginWindow):
         teachLoginWindow.setObjectName("teachLoginWindow")
-        teachLoginWindow.resize(378, 502)
-        teachLoginWindow.setFixedSize(378, 502)
+        teachLoginWindow.resize(378, 503)
         # to remove close,minimize,maximize button
         teachLoginWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         # to remove the constant background of the app
@@ -56,7 +55,7 @@ class Ui_teachLoginWindow(object):
 "    padding-top:5px;\n"
 "    background-color:rgba(105, 118, 132, 200)\n"
 "}\n"
-"#teachEmail_lineEdit, #teachPass_lineEdit{\n"
+"#teachEmail_lineEdit, #teachPass_lineEdit, #teachID_lineEdit{\n"
 "background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(105, 118, 132, 255);\n"
@@ -66,7 +65,7 @@ class Ui_teachLoginWindow(object):
 "")
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(40, 30, 291, 411))
+        self.frame.setGeometry(QtCore.QRect(40, 30, 291, 421))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -129,10 +128,18 @@ class Ui_teachLoginWindow(object):
         self.verticalLayout_2.addWidget(self.widget_7, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.widget_6 = QtWidgets.QWidget(self.frame_2)
         self.widget_6.setObjectName("widget_6")
-        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.widget_6)
-        self.verticalLayout_9.setContentsMargins(40, 10, 40, 0)
-        self.verticalLayout_9.setSpacing(20)
-        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.widget_6)
+        self.verticalLayout_6.setContentsMargins(40, 10, 40, 0)
+        self.verticalLayout_6.setSpacing(10)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.teachID_lineEdit = QtWidgets.QLineEdit(self.widget_6)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.teachID_lineEdit.setFont(font)
+        self.teachID_lineEdit.setStyleSheet("")
+        self.teachID_lineEdit.setText("")
+        self.teachID_lineEdit.setObjectName("teachID_lineEdit")
+        self.verticalLayout_6.addWidget(self.teachID_lineEdit)
         self.teachEmail_lineEdit = QtWidgets.QLineEdit(self.widget_6)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -140,7 +147,7 @@ class Ui_teachLoginWindow(object):
         self.teachEmail_lineEdit.setStyleSheet("")
         self.teachEmail_lineEdit.setText("")
         self.teachEmail_lineEdit.setObjectName("teachEmail_lineEdit")
-        self.verticalLayout_9.addWidget(self.teachEmail_lineEdit)
+        self.verticalLayout_6.addWidget(self.teachEmail_lineEdit)
         self.teachPass_lineEdit = QtWidgets.QLineEdit(self.widget_6)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -149,7 +156,23 @@ class Ui_teachLoginWindow(object):
         self.teachPass_lineEdit.setText("")
         self.teachPass_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.teachPass_lineEdit.setObjectName("teachPass_lineEdit")
-        self.verticalLayout_9.addWidget(self.teachPass_lineEdit)
+        self.verticalLayout_6.addWidget(self.teachPass_lineEdit)
+        self.warning_Widget = QtWidgets.QWidget(self.widget_6)
+        self.warning_Widget.setObjectName("warning_Widget")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.warning_Widget)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.label_5 = QtWidgets.QLabel(self.warning_Widget)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(8)
+        self.label_5.setFont(font)
+        self.label_5.setTextFormat(QtCore.Qt.RichText)
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_4.addWidget(self.label_5)
+        self.verticalLayout_6.addWidget(self.warning_Widget)
         self.verticalLayout_2.addWidget(self.widget_6)
         self.verticalLayout.addWidget(self.frame_2)
         self.frame_3 = QtWidgets.QFrame(self.frame_4)
@@ -255,12 +278,15 @@ class Ui_teachLoginWindow(object):
         teachLoginWindow.setWindowTitle(_translate("teachLoginWindow", "MainWindow"))
         self.label.setText(_translate("teachLoginWindow", "Mathguro"))
         self.label_4.setText(_translate("teachLoginWindow", "Teacher\'s Log In"))
+        self.teachID_lineEdit.setPlaceholderText(_translate("teachLoginWindow", "Teacher ID:"))
         self.teachEmail_lineEdit.setPlaceholderText(_translate("teachLoginWindow", "Email:"))
         self.teachPass_lineEdit.setPlaceholderText(_translate("teachLoginWindow", "Password:"))
+        self.label_5.setText(_translate("teachLoginWindow", "<html><head/><body><p><span style=\" font-size:10pt; color:#ff9393;\">Wrong Email or Password</span></p></body></html>"))
         self.loginTeachButton.setText(_translate("teachLoginWindow", "Log In"))
         self.backButton.setText(_translate("teachLoginWindow", "Back"))
         self.toForgotPassTeachButton.setText(_translate("teachLoginWindow", "Forgot your Email or Password ?"))
         self.toRegisterTeachButton.setText(_translate("teachLoginWindow", "Don\'t have and Account? Register Here"))
+import res, sys
 
 
 if __name__ == "__main__":

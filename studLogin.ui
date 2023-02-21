@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>378</width>
-    <height>502</height>
+    <height>520</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,7 +49,7 @@ QPushButton#closeButton:pressed, #loginStudButton:pressed, #backButton:pressed{
 	padding-top:5px;
 	background-color:rgba(105, 118, 132, 200)
 }
-#studEmail_lineEdit, #studPass_lineEdit{
+#studEmail_lineEdit, #studPass_lineEdit, #studID_lineEdit{
 background-color:rgba(0,0,0,0);
 border:none;
 border-bottom:2px solid rgba(105, 118, 132, 255);
@@ -61,10 +61,10 @@ padding-bottom:7px
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>30</y>
       <width>291</width>
-      <height>411</height>
+      <height>451</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -216,15 +216,15 @@ padding-bottom:7px
            </item>
            <item>
             <widget class="QWidget" name="widget_6" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_9">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
               <property name="spacing">
-               <number>20</number>
+               <number>15</number>
               </property>
               <property name="leftMargin">
                <number>40</number>
               </property>
               <property name="topMargin">
-               <number>10</number>
+               <number>0</number>
               </property>
               <property name="rightMargin">
                <number>40</number>
@@ -232,6 +232,24 @@ padding-bottom:7px
               <property name="bottomMargin">
                <number>0</number>
               </property>
+              <item>
+               <widget class="QLineEdit" name="studID_lineEdit">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Student ID.:</string>
+                </property>
+               </widget>
+              </item>
               <item>
                <widget class="QLineEdit" name="studEmail_lineEdit">
                 <property name="font">
@@ -271,7 +289,7 @@ padding-bottom:7px
                 </property>
                </widget>
               </item>
-              <item>
+              <item alignment="Qt::AlignTop">
                <widget class="QWidget" name="warning_Widget" native="true">
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <property name="spacing">
@@ -281,7 +299,7 @@ padding-bottom:7px
                   <number>0</number>
                  </property>
                  <property name="topMargin">
-                  <number>0</number>
+                  <number>6</number>
                  </property>
                  <property name="rightMargin">
                   <number>0</number>
@@ -290,22 +308,56 @@ padding-bottom:7px
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="label_5">
-                   <property name="font">
-                    <font>
-                     <family>MS Shell Dlg 2</family>
-                     <pointsize>8</pointsize>
-                    </font>
+                  <widget class="QStackedWidget" name="warningPages">
+                   <property name="currentIndex">
+                    <number>0</number>
                    </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt;Wrong Email or Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                   <property name="textFormat">
-                    <enum>Qt::RichText</enum>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
+                   <widget class="QWidget" name="page">
+                    <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <item>
+                      <widget class="QLabel" name="label_5">
+                       <property name="font">
+                        <font>
+                         <family>MS Shell Dlg 2</family>
+                         <pointsize>8</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt;Wrong ID, Email or Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                       <property name="textFormat">
+                        <enum>Qt::RichText</enum>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="page_2">
+                    <layout class="QVBoxLayout" name="verticalLayout_9">
+                     <item>
+                      <widget class="QLabel" name="label_6">
+                       <property name="font">
+                        <font>
+                         <family>MS Shell Dlg 2</family>
+                         <pointsize>8</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt;User Doesn't Exist&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                       <property name="textFormat">
+                        <enum>Qt::RichText</enum>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
                   </widget>
                  </item>
                 </layout>
@@ -317,7 +369,7 @@ padding-bottom:7px
           </layout>
          </widget>
         </item>
-        <item alignment="Qt::AlignVCenter">
+        <item>
          <widget class="QFrame" name="frame_3">
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -327,7 +379,7 @@ padding-bottom:7px
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <property name="spacing">
-            <number>15</number>
+            <number>10</number>
            </property>
            <property name="leftMargin">
             <number>0</number>
@@ -341,7 +393,7 @@ padding-bottom:7px
            <property name="bottomMargin">
             <number>0</number>
            </property>
-           <item alignment="Qt::AlignHCenter">
+           <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
             <widget class="QWidget" name="widget_5" native="true">
              <layout class="QHBoxLayout" name="horizontalLayout">
               <property name="spacing">
@@ -474,7 +526,7 @@ padding-bottom:7px
              </layout>
             </widget>
            </item>
-           <item alignment="Qt::AlignHCenter">
+           <item alignment="Qt::AlignHCenter|Qt::AlignTop">
             <widget class="QWidget" name="widget_2" native="true">
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <property name="spacing">
@@ -490,7 +542,7 @@ padding-bottom:7px
                <number>0</number>
               </property>
               <property name="bottomMargin">
-               <number>0</number>
+               <number>10</number>
               </property>
               <item alignment="Qt::AlignBottom">
                <widget class="QPushButton" name="toForgotPassStudButton">
@@ -504,7 +556,7 @@ QPushButton#toForgotPassStudButton:pressed{
 </string>
                 </property>
                 <property name="text">
-                 <string>Forgot your Email or Password ?</string>
+                 <string>Forgot you Password ?</string>
                 </property>
                 <property name="default">
                  <bool>false</bool>
