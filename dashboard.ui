@@ -974,7 +974,7 @@ QPushButton#help_pushButton:pressed{
                 <item>
                  <widget class="QStackedWidget" name="centerMenuPages">
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page">
                    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1337,7 +1337,7 @@ border-radius:10px;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>133</width>
+                                        <width>145</width>
                                         <height>1111</height>
                                        </rect>
                                       </property>
@@ -1913,9 +1913,8 @@ QPushButton#module1_pushButton:pressed{
 </string>
                             </property>
                             <property name="text">
-                             <string>Module 1:
-Analytic 
-Geometry</string>
+                             <string>Lesson 1:
+The Conics</string>
                             </property>
                             <property name="iconSize">
                              <size>
@@ -1943,72 +1942,16 @@ QPushButton#module2_pushButton:pressed{
 </string>
                             </property>
                             <property name="text">
-                             <string>Module 2:
-Series and
-Mathematical
-Induction</string>
+                             <string>Lesson 2: 
+Systems of
+Non-Linear 
+Equation</string>
                             </property>
                             <property name="iconSize">
                              <size>
                               <width>50</width>
                               <height>50</height>
                              </size>
-                            </property>
-                           </widget>
-                          </item>
-                          <item alignment="Qt::AlignHCenter">
-                           <widget class="QPushButton" name="module3_pushButton">
-                            <property name="font">
-                             <font>
-                              <pointsize>12</pointsize>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">QPushButton#module3_pushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#module3_pushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                            </property>
-                            <property name="text">
-                             <string>Module 3:
-The Circular
-Functions</string>
-                            </property>
-                            <property name="iconSize">
-                             <size>
-                              <width>50</width>
-                              <height>50</height>
-                             </size>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QPushButton" name="module4_pushButton">
-                            <property name="font">
-                             <font>
-                              <pointsize>12</pointsize>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">QPushButton#module4_pushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#module4_pushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                            </property>
-                            <property name="text">
-                             <string>Module 4:
-Inverse Circular,
-Trigonometric
-Equations,
-Polar Coordinate</string>
                             </property>
                            </widget>
                           </item>
@@ -2287,7 +2230,7 @@ Polar Coordinate</string>
                                           <property name="bottomMargin">
                                            <number>0</number>
                                           </property>
-                                          <item alignment="Qt::AlignTop">
+                                          <item>
                                            <widget class="QWidget" name="widget_18" native="true">
                                             <layout class="QVBoxLayout" name="verticalLayout_36">
                                              <property name="topMargin">
@@ -2311,52 +2254,6 @@ Polar Coordinate</string>
                                                 <property name="bottomMargin">
                                                  <number>0</number>
                                                 </property>
-                                                <item>
-                                                 <widget class="QWidget" name="widget_11" native="true">
-                                                  <property name="styleSheet">
-                                                   <string notr="true">	background-color: rgb(0, 34, 50);	</string>
-                                                  </property>
-                                                  <layout class="QVBoxLayout" name="verticalLayout_61">
-                                                   <property name="spacing">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="leftMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="topMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="rightMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="bottomMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_1pushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_1pushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_1pushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string> Lesson 1.1 - The Conics</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                  </layout>
-                                                 </widget>
-                                                </item>
                                                 <item>
                                                  <widget class="QWidget" name="lesson1_1Container" native="true">
                                                   <layout class="QVBoxLayout" name="verticalLayout_62">
@@ -2476,163 +2373,6 @@ QPushButton#lesson1_1DpushButton:pressed{
 	border-radius: 5px
 }
 QPushButton#lesson1_1TestpushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>Unit Test</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                  </layout>
-                                                 </widget>
-                                                </item>
-                                                <item>
-                                                 <widget class="QWidget" name="widget_13" native="true">
-                                                  <property name="styleSheet">
-                                                   <string notr="true">	background-color: rgb(0, 34, 50);	</string>
-                                                  </property>
-                                                  <layout class="QVBoxLayout" name="verticalLayout_63">
-                                                   <property name="spacing">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="leftMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="topMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="rightMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="bottomMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_2pushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_2pushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_2pushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string> Lesson 1.2 - Systems of 
-Non-Linear Equations</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                  </layout>
-                                                 </widget>
-                                                </item>
-                                                <item>
-                                                 <widget class="QWidget" name="lesson1_2Container" native="true">
-                                                  <layout class="QVBoxLayout" name="verticalLayout_64">
-                                                   <property name="spacing">
-                                                    <number>5</number>
-                                                   </property>
-                                                   <property name="leftMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="topMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="rightMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="bottomMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_2ApushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_2ApushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_2ApushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>1) Substitution Method</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_2BpushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_2BpushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_2BpushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>2) Elimination Method</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_2CpushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_2CpushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_2CpushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>3) Graphical Solutions 
-and Equations</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_2TestpushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_2TestpushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_2TestpushButton:pressed{
 	color: rgb(244, 77, 0);
 }
 </string>
@@ -3316,483 +3056,6 @@ QPushButton#lesson1_2TestpushButton:pressed{
                                               </item>
                                              </layout>
                                             </widget>
-                                            <widget class="QWidget" name="page_18">
-                                             <layout class="QVBoxLayout" name="verticalLayout_86">
-                                              <item>
-                                               <widget class="QFrame" name="frame_56">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_93">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLabel" name="label_46">
-                                                   <property name="text">
-                                                    <string>Systems of Non-Linear Equations Photo</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_57">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_94">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLineEdit" name="lineEdit_6">
-                                                   <property name="text">
-                                                    <string>Systems of Non-Linear Equations Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
-                                            <widget class="QWidget" name="page_19">
-                                             <layout class="QVBoxLayout" name="verticalLayout_85">
-                                              <item>
-                                               <widget class="QFrame" name="frame_58">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_95">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLabel" name="label_47">
-                                                   <property name="text">
-                                                    <string>Substitution Method Photo</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_59">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_96">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLineEdit" name="lineEdit_7">
-                                                   <property name="text">
-                                                    <string>Substitution Method Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_96">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_165">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson1_2A_pushButton">
-                                                   <property name="font">
-                                                    <font>
-                                                     <pointsize>12</pointsize>
-                                                    </font>
-                                                   </property>
-                                                   <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson1_2A_pushButton{
-	background-color: rgb(8, 94, 87);	
-	padding-right: 10px;
-}
-#proceedLesson1_2A_pushButton:hover{
-	background-color: rgb(4, 59, 54);
-}
-#proceedLesson1_2A_pushButton:pressed{
-	background-color: rgb(150, 150, 150);
-}
-
-</string>
-                                                   </property>
-                                                   <property name="text">
-                                                    <string>Proceed</string>
-                                                   </property>
-                                                   <property name="icon">
-                                                    <iconset resource="res.qrc">
-                                                     <normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</iconset>
-                                                   </property>
-                                                   <property name="iconSize">
-                                                    <size>
-                                                     <width>60</width>
-                                                     <height>60</height>
-                                                    </size>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
-                                            <widget class="QWidget" name="page_20">
-                                             <layout class="QVBoxLayout" name="verticalLayout_84">
-                                              <item>
-                                               <widget class="QFrame" name="frame_60">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_97">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLabel" name="label_48">
-                                                   <property name="text">
-                                                    <string>Elimination Method Photo</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_61">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_98">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLineEdit" name="lineEdit_8">
-                                                   <property name="text">
-                                                    <string>Elimination Method Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_95">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_166">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson1_2B_pushButton">
-                                                   <property name="font">
-                                                    <font>
-                                                     <pointsize>12</pointsize>
-                                                    </font>
-                                                   </property>
-                                                   <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson1_2B_pushButton{
-	background-color: rgb(8, 94, 87);	
-	padding-right: 10px;
-}
-#proceedLesson1_2B_pushButton:hover{
-	background-color: rgb(4, 59, 54);
-}
-#proceedLesson1_2B_pushButton:pressed{
-	background-color: rgb(150, 150, 150);
-}
-
-</string>
-                                                   </property>
-                                                   <property name="text">
-                                                    <string>Proceed</string>
-                                                   </property>
-                                                   <property name="icon">
-                                                    <iconset resource="res.qrc">
-                                                     <normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</iconset>
-                                                   </property>
-                                                   <property name="iconSize">
-                                                    <size>
-                                                     <width>60</width>
-                                                     <height>60</height>
-                                                    </size>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
-                                            <widget class="QWidget" name="page_21">
-                                             <layout class="QVBoxLayout" name="verticalLayout_83">
-                                              <item>
-                                               <widget class="QFrame" name="frame_62">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_99">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLabel" name="label_49">
-                                                   <property name="text">
-                                                    <string>Graphical Solutions and Equations Photo</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_63">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_100">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLineEdit" name="lineEdit_9">
-                                                   <property name="text">
-                                                    <string>Graphical Solutions and Equations Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_94">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_164">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson1_2C_pushButton">
-                                                   <property name="font">
-                                                    <font>
-                                                     <pointsize>12</pointsize>
-                                                    </font>
-                                                   </property>
-                                                   <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson1_2C_pushButton{
-	background-color: rgb(8, 94, 87);	
-	padding-right: 10px;
-}
-#proceedLesson1_2C_pushButton:hover{
-	background-color: rgb(4, 59, 54);
-}
-#proceedLesson1_2C_pushButton:pressed{
-	background-color: rgb(150, 150, 150);
-}
-
-</string>
-                                                   </property>
-                                                   <property name="text">
-                                                    <string>Proceed</string>
-                                                   </property>
-                                                   <property name="icon">
-                                                    <iconset resource="res.qrc">
-                                                     <normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</iconset>
-                                                   </property>
-                                                   <property name="iconSize">
-                                                    <size>
-                                                     <width>60</width>
-                                                     <height>60</height>
-                                                    </size>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
                                             <widget class="QWidget" name="page_37">
                                              <layout class="QVBoxLayout" name="verticalLayout_140">
                                               <item>
@@ -3903,141 +3166,6 @@ QPushButton#lesson1_2TestpushButton:pressed{
 	background-color: rgb(4, 59, 54);
 }
 #proceedLesson1_1Test_pushButton:pressed{
-	background-color: rgb(150, 150, 150);
-}
-
-</string>
-                                                   </property>
-                                                   <property name="text">
-                                                    <string>Proceed</string>
-                                                   </property>
-                                                   <property name="icon">
-                                                    <iconset resource="res.qrc">
-                                                     <normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</iconset>
-                                                   </property>
-                                                   <property name="iconSize">
-                                                    <size>
-                                                     <width>60</width>
-                                                     <height>60</height>
-                                                    </size>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
-                                            <widget class="QWidget" name="page_38">
-                                             <layout class="QVBoxLayout" name="verticalLayout_144">
-                                              <item>
-                                               <widget class="QFrame" name="frame_81">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_145">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLabel" name="label_55">
-                                                   <property name="text">
-                                                    <string>Unit Test Systems</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_82">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_146">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLineEdit" name="lineEdit_17">
-                                                   <property name="text">
-                                                    <string>Unit Test Systems Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_83">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_147">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson1_2Test_pushButton">
-                                                   <property name="font">
-                                                    <font>
-                                                     <pointsize>12</pointsize>
-                                                    </font>
-                                                   </property>
-                                                   <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson1_2Test_pushButton{
-	background-color: rgb(8, 94, 87);	
-	padding-right: 10px;
-}
-#proceedLesson1_2Test_pushButton:hover{
-	background-color: rgb(4, 59, 54);
-}
-#proceedLesson1_2Test_pushButton:pressed{
 	background-color: rgb(150, 150, 150);
 }
 
@@ -4204,7 +3332,7 @@ QPushButton#lesson1_2TestpushButton:pressed{
                                           <property name="bottomMargin">
                                            <number>0</number>
                                           </property>
-                                          <item alignment="Qt::AlignTop">
+                                          <item>
                                            <widget class="QWidget" name="widget_16" native="true">
                                             <layout class="QVBoxLayout" name="verticalLayout_102">
                                              <property name="topMargin">
@@ -4228,53 +3356,6 @@ QPushButton#lesson1_2TestpushButton:pressed{
                                                 <property name="bottomMargin">
                                                  <number>0</number>
                                                 </property>
-                                                <item>
-                                                 <widget class="QWidget" name="widget_19" native="true">
-                                                  <property name="styleSheet">
-                                                   <string notr="true">	background-color: rgb(0, 34, 50);	</string>
-                                                  </property>
-                                                  <layout class="QVBoxLayout" name="verticalLayout_104">
-                                                   <property name="spacing">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="leftMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="topMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="rightMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="bottomMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson2_1pushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson2_1pushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson2_1pushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string> Lesson 2.1 - Sequences
- and Series</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                  </layout>
-                                                 </widget>
-                                                </item>
                                                 <item>
                                                  <widget class="QWidget" name="lesson2_1Container" native="true">
                                                   <layout class="QVBoxLayout" name="verticalLayout_105">
@@ -4311,7 +3392,7 @@ QPushButton#lesson2_1ApushButton:pressed{
 </string>
                                                      </property>
                                                      <property name="text">
-                                                      <string>1) Sequences</string>
+                                                      <string>1) Substitution Method</string>
                                                      </property>
                                                     </widget>
                                                    </item>
@@ -4333,7 +3414,7 @@ QPushButton#lesson2_1BpushButton:pressed{
 </string>
                                                      </property>
                                                      <property name="text">
-                                                      <string>2) Sigma Notation</string>
+                                                      <string>2) Elimination Method</string>
                                                      </property>
                                                     </widget>
                                                    </item>
@@ -4355,7 +3436,7 @@ QPushButton#lesson2_1CpushButton:pressed{
 </string>
                                                      </property>
                                                      <property name="text">
-                                                      <string>3) Series</string>
+                                                      <string>3) Graphical Solutions and Equations</string>
                                                      </property>
                                                     </widget>
                                                    </item>
@@ -4372,118 +3453,6 @@ QPushButton#lesson2_1CpushButton:pressed{
 	border-radius: 5px
 }
 QPushButton#lesson2_1TestpushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>Unit Test</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                  </layout>
-                                                 </widget>
-                                                </item>
-                                                <item>
-                                                 <widget class="QWidget" name="widget_21" native="true">
-                                                  <property name="styleSheet">
-                                                   <string notr="true">	background-color: rgb(0, 34, 50);	</string>
-                                                  </property>
-                                                  <layout class="QVBoxLayout" name="verticalLayout_106">
-                                                   <property name="spacing">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="leftMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="topMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="rightMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="bottomMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson2_2pushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson2_2pushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson2_2pushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string> Lesson 2.2 - Mathematical 
-Induction</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                  </layout>
-                                                 </widget>
-                                                </item>
-                                                <item>
-                                                 <widget class="QWidget" name="lesson2_2Container" native="true">
-                                                  <layout class="QVBoxLayout" name="verticalLayout_107">
-                                                   <property name="spacing">
-                                                    <number>5</number>
-                                                   </property>
-                                                   <property name="leftMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="topMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="rightMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="bottomMargin">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson2_2ApushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson2_2ApushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson2_2ApushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>1) The Binomial Theorem</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson2_2TestpushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson2_2TestpushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson2_2TestpushButton:pressed{
 	color: rgb(244, 77, 0);
 }
 </string>
@@ -4556,16 +3525,16 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                           <item>
                                            <widget class="QStackedWidget" name="lessonInfo2SubContainer">
                                             <widget class="QWidget" name="page_22">
-                                             <layout class="QVBoxLayout" name="verticalLayout_110">
+                                             <layout class="QVBoxLayout" name="verticalLayout_63">
                                               <item>
-                                               <widget class="QFrame" name="frame_65">
+                                               <widget class="QFrame" name="frame_56">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_111">
+                                                <layout class="QVBoxLayout" name="verticalLayout_93">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4582,9 +3551,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLabel" name="label_23">
+                                                  <widget class="QLabel" name="label_46">
                                                    <property name="text">
-                                                    <string>Sequence and Series Photo</string>
+                                                    <string>Systems of Non-Linear Equations Photo</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -4592,14 +3561,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_66">
+                                               <widget class="QFrame" name="frame_57">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_112">
+                                                <layout class="QVBoxLayout" name="verticalLayout_94">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4616,9 +3585,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLineEdit" name="lineEdit_10">
+                                                  <widget class="QLineEdit" name="lineEdit_6">
                                                    <property name="text">
-                                                    <string>Sequence and Series Info</string>
+                                                    <string>Systems of Non-Linear Equations Info</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -4628,16 +3597,16 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                              </layout>
                                             </widget>
                                             <widget class="QWidget" name="page_23">
-                                             <layout class="QVBoxLayout" name="verticalLayout_113">
+                                             <layout class="QVBoxLayout" name="verticalLayout_61">
                                               <item>
-                                               <widget class="QFrame" name="frame_67">
+                                               <widget class="QFrame" name="frame_58">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_114">
+                                                <layout class="QVBoxLayout" name="verticalLayout_95">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4654,9 +3623,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLabel" name="label_50">
+                                                  <widget class="QLabel" name="label_47">
                                                    <property name="text">
-                                                    <string>Sequence Photo</string>
+                                                    <string>Substitution Method Photo</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -4664,14 +3633,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_68">
+                                               <widget class="QFrame" name="frame_59">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_115">
+                                                <layout class="QVBoxLayout" name="verticalLayout_96">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4688,9 +3657,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLineEdit" name="lineEdit_11">
+                                                  <widget class="QLineEdit" name="lineEdit_7">
                                                    <property name="text">
-                                                    <string>Sequence Info</string>
+                                                    <string>Substitution Method Info</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -4698,14 +3667,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_84">
+                                               <widget class="QFrame" name="frame_96">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_148">
+                                                <layout class="QVBoxLayout" name="verticalLayout_165">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4722,21 +3691,21 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson2_1A_pushButton">
+                                                  <widget class="QPushButton" name="proceedLesson1_2A_pushButton">
                                                    <property name="font">
                                                     <font>
                                                      <pointsize>12</pointsize>
                                                     </font>
                                                    </property>
                                                    <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson2_1A_pushButton{
+                                                    <string notr="true">#proceedLesson1_2A_pushButton{
 	background-color: rgb(8, 94, 87);	
 	padding-right: 10px;
 }
-#proceedLesson2_1A_pushButton:hover{
+#proceedLesson1_2A_pushButton:hover{
 	background-color: rgb(4, 59, 54);
 }
-#proceedLesson2_1A_pushButton:pressed{
+#proceedLesson1_2A_pushButton:pressed{
 	background-color: rgb(150, 150, 150);
 }
 
@@ -4763,16 +3732,16 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                              </layout>
                                             </widget>
                                             <widget class="QWidget" name="page_24">
-                                             <layout class="QVBoxLayout" name="verticalLayout_116">
+                                             <layout class="QVBoxLayout" name="verticalLayout_64">
                                               <item>
-                                               <widget class="QFrame" name="frame_69">
+                                               <widget class="QFrame" name="frame_60">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_117">
+                                                <layout class="QVBoxLayout" name="verticalLayout_97">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4789,9 +3758,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLabel" name="label_51">
+                                                  <widget class="QLabel" name="label_48">
                                                    <property name="text">
-                                                    <string>Sigma Notation Photo</string>
+                                                    <string>Elimination Method Photo</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -4799,14 +3768,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_70">
+                                               <widget class="QFrame" name="frame_61">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_118">
+                                                <layout class="QVBoxLayout" name="verticalLayout_98">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4823,9 +3792,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLineEdit" name="lineEdit_12">
+                                                  <widget class="QLineEdit" name="lineEdit_8">
                                                    <property name="text">
-                                                    <string>Sigma Notation Info</string>
+                                                    <string>Elimination Method Info</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -4833,14 +3802,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_85">
+                                               <widget class="QFrame" name="frame_95">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_149">
+                                                <layout class="QVBoxLayout" name="verticalLayout_166">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4857,21 +3826,21 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson2_1B_pushButton">
+                                                  <widget class="QPushButton" name="proceedLesson1_2B_pushButton">
                                                    <property name="font">
                                                     <font>
                                                      <pointsize>12</pointsize>
                                                     </font>
                                                    </property>
                                                    <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson2_1B_pushButton{
+                                                    <string notr="true">#proceedLesson1_2B_pushButton{
 	background-color: rgb(8, 94, 87);	
 	padding-right: 10px;
 }
-#proceedLesson2_1B_pushButton:hover{
+#proceedLesson1_2B_pushButton:hover{
 	background-color: rgb(4, 59, 54);
 }
-#proceedLesson2_1B_pushButton:pressed{
+#proceedLesson1_2B_pushButton:pressed{
 	background-color: rgb(150, 150, 150);
 }
 
@@ -4898,16 +3867,16 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                              </layout>
                                             </widget>
                                             <widget class="QWidget" name="page_25">
-                                             <layout class="QVBoxLayout" name="verticalLayout_119">
+                                             <layout class="QVBoxLayout" name="verticalLayout_104">
                                               <item>
-                                               <widget class="QFrame" name="frame_71">
+                                               <widget class="QFrame" name="frame_62">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_120">
+                                                <layout class="QVBoxLayout" name="verticalLayout_99">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4924,9 +3893,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLabel" name="label_52">
+                                                  <widget class="QLabel" name="label_49">
                                                    <property name="text">
-                                                    <string>Series Photo</string>
+                                                    <string>Graphical Solutions and Equations Photo</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -4934,14 +3903,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_72">
+                                               <widget class="QFrame" name="frame_63">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_121">
+                                                <layout class="QVBoxLayout" name="verticalLayout_100">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4958,9 +3927,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLineEdit" name="lineEdit_13">
+                                                  <widget class="QLineEdit" name="lineEdit_9">
                                                    <property name="text">
-                                                    <string>Series Info</string>
+                                                    <string>Graphical Solutions and Equations Info</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -4968,14 +3937,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_86">
+                                               <widget class="QFrame" name="frame_94">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_150">
+                                                <layout class="QVBoxLayout" name="verticalLayout_164">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -4992,21 +3961,21 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson2_1C_pushButton">
+                                                  <widget class="QPushButton" name="proceedLesson1_2C_pushButton">
                                                    <property name="font">
                                                     <font>
                                                      <pointsize>12</pointsize>
                                                     </font>
                                                    </property>
                                                    <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson2_1C_pushButton{
+                                                    <string notr="true">#proceedLesson1_2C_pushButton{
 	background-color: rgb(8, 94, 87);	
 	padding-right: 10px;
 }
-#proceedLesson2_1C_pushButton:hover{
+#proceedLesson1_2C_pushButton:hover{
 	background-color: rgb(4, 59, 54);
 }
-#proceedLesson2_1C_pushButton:pressed{
+#proceedLesson1_2C_pushButton:pressed{
 	background-color: rgb(150, 150, 150);
 }
 
@@ -5033,16 +4002,16 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                              </layout>
                                             </widget>
                                             <widget class="QWidget" name="page_26">
-                                             <layout class="QVBoxLayout" name="verticalLayout_122">
+                                             <layout class="QVBoxLayout" name="verticalLayout_106">
                                               <item>
-                                               <widget class="QFrame" name="frame_73">
+                                               <widget class="QFrame" name="frame_81">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_123">
+                                                <layout class="QVBoxLayout" name="verticalLayout_145">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -5059,9 +4028,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLabel" name="label_53">
+                                                  <widget class="QLabel" name="label_55">
                                                    <property name="text">
-                                                    <string>Mathematical Induction Photo</string>
+                                                    <string>Unit Test Systems</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -5069,14 +4038,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_74">
+                                               <widget class="QFrame" name="frame_82">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_124">
+                                                <layout class="QVBoxLayout" name="verticalLayout_146">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -5093,47 +4062,9 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item>
-                                                  <widget class="QLineEdit" name="lineEdit_14">
+                                                  <widget class="QLineEdit" name="lineEdit_17">
                                                    <property name="text">
-                                                    <string>Mathematical Induction Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
-                                            <widget class="QWidget" name="page_27">
-                                             <layout class="QVBoxLayout" name="verticalLayout_125">
-                                              <item>
-                                               <widget class="QFrame" name="frame_75">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_126">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLabel" name="label_54">
-                                                   <property name="text">
-                                                    <string>Binomial Theorem Photo</string>
+                                                    <string>Unit Test Systems Info</string>
                                                    </property>
                                                   </widget>
                                                  </item>
@@ -5141,48 +4072,14 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                </widget>
                                               </item>
                                               <item>
-                                               <widget class="QFrame" name="frame_76">
+                                               <widget class="QFrame" name="frame_83">
                                                 <property name="frameShape">
                                                  <enum>QFrame::StyledPanel</enum>
                                                 </property>
                                                 <property name="frameShadow">
                                                  <enum>QFrame::Raised</enum>
                                                 </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_127">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLineEdit" name="lineEdit_15">
-                                                   <property name="text">
-                                                    <string>Binomial Theorem Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_87">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_151">
+                                                <layout class="QVBoxLayout" name="verticalLayout_147">
                                                  <property name="spacing">
                                                   <number>0</number>
                                                  </property>
@@ -5199,288 +4096,21 @@ QPushButton#lesson2_2TestpushButton:pressed{
                                                   <number>0</number>
                                                  </property>
                                                  <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson2_2A_pushButton">
+                                                  <widget class="QPushButton" name="proceedLesson1_2Test_pushButton">
                                                    <property name="font">
                                                     <font>
                                                      <pointsize>12</pointsize>
                                                     </font>
                                                    </property>
                                                    <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson2_2A_pushButton{
+                                                    <string notr="true">#proceedLesson1_2Test_pushButton{
 	background-color: rgb(8, 94, 87);	
 	padding-right: 10px;
 }
-#proceedLesson2_2A_pushButton:hover{
+#proceedLesson1_2Test_pushButton:hover{
 	background-color: rgb(4, 59, 54);
 }
-#proceedLesson2_2A_pushButton:pressed{
-	background-color: rgb(150, 150, 150);
-}
-
-</string>
-                                                   </property>
-                                                   <property name="text">
-                                                    <string>Proceed</string>
-                                                   </property>
-                                                   <property name="icon">
-                                                    <iconset resource="res.qrc">
-                                                     <normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</iconset>
-                                                   </property>
-                                                   <property name="iconSize">
-                                                    <size>
-                                                     <width>60</width>
-                                                     <height>60</height>
-                                                    </size>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
-                                            <widget class="QWidget" name="page_39">
-                                             <layout class="QVBoxLayout" name="verticalLayout_152">
-                                              <item>
-                                               <widget class="QFrame" name="frame_88">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_156">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLabel" name="label_56">
-                                                   <property name="text">
-                                                    <string>Unit Test Sequences</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_89">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_155">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLineEdit" name="lineEdit_19">
-                                                   <property name="text">
-                                                    <string>Unit Test Sequences Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_90">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_154">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson2_1Test_pushButton">
-                                                   <property name="font">
-                                                    <font>
-                                                     <pointsize>12</pointsize>
-                                                    </font>
-                                                   </property>
-                                                   <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson2_1Test_pushButton{
-	background-color: rgb(8, 94, 87);	
-	padding-right: 10px;
-}
-#proceedLesson2_1Test_pushButton:hover{
-	background-color: rgb(4, 59, 54);
-}
-#proceedLesson2_1Test_pushButton:pressed{
-	background-color: rgb(150, 150, 150);
-}
-
-</string>
-                                                   </property>
-                                                   <property name="text">
-                                                    <string>Proceed</string>
-                                                   </property>
-                                                   <property name="icon">
-                                                    <iconset resource="res.qrc">
-                                                     <normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</normaloff>:/greenIcons/greenColorIcons/arrow-right.svg</iconset>
-                                                   </property>
-                                                   <property name="iconSize">
-                                                    <size>
-                                                     <width>60</width>
-                                                     <height>60</height>
-                                                    </size>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
-                                            <widget class="QWidget" name="page_40">
-                                             <layout class="QVBoxLayout" name="verticalLayout_153">
-                                              <item>
-                                               <widget class="QFrame" name="frame_91">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_157">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLabel" name="label_57">
-                                                   <property name="text">
-                                                    <string>Unit Test Mathematical Induction</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_92">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_158">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QLineEdit" name="lineEdit_18">
-                                                   <property name="text">
-                                                    <string>Unit Test Mathematical Induction Info</string>
-                                                   </property>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                              <item>
-                                               <widget class="QFrame" name="frame_93">
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_159">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item alignment="Qt::AlignHCenter">
-                                                  <widget class="QPushButton" name="proceedLesson2_2Test_pushButton">
-                                                   <property name="font">
-                                                    <font>
-                                                     <pointsize>12</pointsize>
-                                                    </font>
-                                                   </property>
-                                                   <property name="styleSheet">
-                                                    <string notr="true">#proceedLesson2_2Test_pushButton{
-	background-color: rgb(8, 94, 87);	
-	padding-right: 10px;
-}
-#proceedLesson2_2Test_pushButton:hover{
-	background-color: rgb(4, 59, 54);
-}
-#proceedLesson2_2Test_pushButton:pressed{
+#proceedLesson1_2Test_pushButton:pressed{
 	background-color: rgb(150, 150, 150);
 }
 
@@ -8620,6 +7250,7 @@ QPushButton#lesson3_4TestpushButton:pressed{
 }
 #closeRightMenu_pushButton:pressed{
 	background-color: rgb(78, 93, 100);
+	border-radius: 20px
 }</string>
                      </property>
                      <property name="text">
@@ -8643,7 +7274,7 @@ QPushButton#lesson3_4TestpushButton:pressed{
                 <item>
                  <widget class="QStackedWidget" name="rightMenuPages">
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page_4">
                    <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -9399,49 +8030,29 @@ background-color: rgb(12, 127, 119);
                           <number>1</number>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_45">
-                          <property name="spacing">
-                           <number>6</number>
-                          </property>
-                          <property name="sizeConstraint">
-                           <enum>QLayout::SetDefaultConstraint</enum>
-                          </property>
-                          <property name="bottomMargin">
-                           <number>9</number>
-                          </property>
                           <item>
-                           <widget class="QTextEdit" name="chatReplies_TextEdit">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                              <horstretch>0</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="cursor" stdset="0">
-                             <cursorShape>ArrowCursor</cursorShape>
-                            </property>
+                           <widget class="QScrollArea" name="scrollArea_2">
                             <property name="styleSheet">
                              <string notr="true">background-color: rgb(255, 255, 255);
-border-radius:10px;
-color: rgb(0, 0, 0)</string>
-                            </property>
-                            <property name="frameShape">
-                             <enum>QFrame::VLine</enum>
+border-radius:10px;	</string>
                             </property>
                             <property name="horizontalScrollBarPolicy">
                              <enum>Qt::ScrollBarAlwaysOff</enum>
                             </property>
-                            <property name="sizeAdjustPolicy">
-                             <enum>QAbstractScrollArea::AdjustToContents</enum>
-                            </property>
-                            <property name="readOnly">
+                            <property name="widgetResizable">
                              <bool>true</bool>
                             </property>
-                            <property name="tabStopDistance">
-                             <double>81.000000000000000</double>
-                            </property>
-                            <property name="placeholderText">
-                             <string>No Messages</string>
-                            </property>
+                            <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                             <property name="geometry">
+                              <rect>
+                               <x>0</x>
+                               <y>0</y>
+                               <width>213</width>
+                               <height>226</height>
+                              </rect>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_83"/>
+                            </widget>
                            </widget>
                           </item>
                          </layout>
@@ -10396,11 +9007,23 @@ border-radius: 5px;
                              </property>
                              <item>
                               <widget class="QTextEdit" name="chatSends_TextEdit">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
                                <property name="styleSheet">
                                 <string notr="true">color: rgb(0, 0, 0)</string>
                                </property>
                                <property name="sizeAdjustPolicy">
                                 <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+                               </property>
+                               <property name="html">
+                                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                </property>
                                <property name="placeholderText">
                                 <string>Ask Math Chat Bot About Pre-Calculus Questions</string>

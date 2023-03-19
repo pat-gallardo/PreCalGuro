@@ -436,6 +436,7 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_2.setSpacing(5)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame_4 = QtWidgets.QFrame(self.centerMenuSubContainer)
+        self.frame_4.setStyleSheet("background-color: rgb(12, 127, 119);")
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
@@ -516,12 +517,14 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_56.setSpacing(0)
         self.verticalLayout_56.setObjectName("verticalLayout_56")
         self.frame_43 = QtWidgets.QFrame(self.frame_42)
+        self.frame_43.setStyleSheet("")
         self.frame_43.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_43.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_43.setObjectName("frame_43")
         self.verticalLayout_58 = QtWidgets.QVBoxLayout(self.frame_43)
         self.verticalLayout_58.setObjectName("verticalLayout_58")
         self.frame_45 = QtWidgets.QFrame(self.frame_43)
+        self.frame_45.setStyleSheet("    background-color: rgb(0, 34, 50);    ")
         self.frame_45.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_45.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_45.setObjectName("frame_45")
@@ -533,7 +536,7 @@ class Ui_dashboardWindow(object):
         font = QtGui.QFont()
         font.setPointSize(13)
         self.label_8.setFont(font)
-        self.label_8.setStyleSheet("    background-color: rgb(0, 34, 50);    \n"
+        self.label_8.setStyleSheet("background-color: rgb(12, 127, 119);\n"
 "    padding-top: 20px;\n"
 "    padding-bottom: 20px;")
         self.label_8.setTextFormat(QtCore.Qt.RichText)
@@ -602,13 +605,14 @@ class Ui_dashboardWindow(object):
         sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
         self.scrollArea.setSizePolicy(sizePolicy)
         self.scrollArea.setMinimumSize(QtCore.QSize(0, 450))
+        self.scrollArea.setStyleSheet("    background-color: rgb(0, 34, 50);    ")
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.scrollArea.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 133, 1111))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 145, 1111))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -625,7 +629,7 @@ class Ui_dashboardWindow(object):
         font = QtGui.QFont()
         font.setPointSize(13)
         self.label_7.setFont(font)
-        self.label_7.setStyleSheet("    background-color: rgb(0, 34, 50);    ")
+        self.label_7.setStyleSheet("background-color: rgb(12, 127, 119);")
         self.label_7.setTextFormat(QtCore.Qt.RichText)
         self.label_7.setObjectName("label_7")
         self.verticalLayout_70.addWidget(self.label_7, 0, QtCore.Qt.AlignVCenter)
@@ -904,35 +908,6 @@ class Ui_dashboardWindow(object):
         self.module2_pushButton.setIconSize(QtCore.QSize(50, 50))
         self.module2_pushButton.setObjectName("module2_pushButton")
         self.horizontalLayout_13.addWidget(self.module2_pushButton, 0, QtCore.Qt.AlignHCenter)
-        self.module3_pushButton = QtWidgets.QPushButton(self.frame_14)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.module3_pushButton.setFont(font)
-        self.module3_pushButton.setStyleSheet("QPushButton#module3_pushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#module3_pushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.module3_pushButton.setIconSize(QtCore.QSize(50, 50))
-        self.module3_pushButton.setObjectName("module3_pushButton")
-        self.horizontalLayout_13.addWidget(self.module3_pushButton, 0, QtCore.Qt.AlignHCenter)
-        self.module4_pushButton = QtWidgets.QPushButton(self.frame_14)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.module4_pushButton.setFont(font)
-        self.module4_pushButton.setStyleSheet("QPushButton#module4_pushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#module4_pushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.module4_pushButton.setObjectName("module4_pushButton")
-        self.horizontalLayout_13.addWidget(self.module4_pushButton)
         self.verticalLayout_23.addWidget(self.frame_14)
         self.verticalLayout_40.addWidget(self.frame_15, 0, QtCore.Qt.AlignTop)
         self.frame_30 = QtWidgets.QFrame(self.widget)
@@ -1047,28 +1022,6 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_65.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_65.setSpacing(10)
         self.verticalLayout_65.setObjectName("verticalLayout_65")
-        self.widget_11 = QtWidgets.QWidget(self.widget_15)
-        self.widget_11.setStyleSheet("    background-color: rgb(0, 34, 50);    ")
-        self.widget_11.setObjectName("widget_11")
-        self.verticalLayout_61 = QtWidgets.QVBoxLayout(self.widget_11)
-        self.verticalLayout_61.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_61.setSpacing(0)
-        self.verticalLayout_61.setObjectName("verticalLayout_61")
-        self.lesson1_1pushButton = QtWidgets.QPushButton(self.widget_11)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson1_1pushButton.setFont(font)
-        self.lesson1_1pushButton.setStyleSheet("QPushButton#lesson1_1pushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson1_1pushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson1_1pushButton.setObjectName("lesson1_1pushButton")
-        self.verticalLayout_61.addWidget(self.lesson1_1pushButton, 0, QtCore.Qt.AlignLeft)
-        self.verticalLayout_65.addWidget(self.widget_11)
         self.lesson1_1Container = QtWidgets.QWidget(self.widget_15)
         self.lesson1_1Container.setObjectName("lesson1_1Container")
         self.verticalLayout_62 = QtWidgets.QVBoxLayout(self.lesson1_1Container)
@@ -1146,93 +1099,8 @@ class Ui_dashboardWindow(object):
         self.lesson1_1TestpushButton.setObjectName("lesson1_1TestpushButton")
         self.verticalLayout_62.addWidget(self.lesson1_1TestpushButton, 0, QtCore.Qt.AlignLeft)
         self.verticalLayout_65.addWidget(self.lesson1_1Container)
-        self.widget_13 = QtWidgets.QWidget(self.widget_15)
-        self.widget_13.setStyleSheet("    background-color: rgb(0, 34, 50);    ")
-        self.widget_13.setObjectName("widget_13")
-        self.verticalLayout_63 = QtWidgets.QVBoxLayout(self.widget_13)
-        self.verticalLayout_63.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_63.setSpacing(0)
-        self.verticalLayout_63.setObjectName("verticalLayout_63")
-        self.lesson1_2pushButton = QtWidgets.QPushButton(self.widget_13)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson1_2pushButton.setFont(font)
-        self.lesson1_2pushButton.setStyleSheet("QPushButton#lesson1_2pushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson1_2pushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson1_2pushButton.setObjectName("lesson1_2pushButton")
-        self.verticalLayout_63.addWidget(self.lesson1_2pushButton, 0, QtCore.Qt.AlignLeft)
-        self.verticalLayout_65.addWidget(self.widget_13)
-        self.lesson1_2Container = QtWidgets.QWidget(self.widget_15)
-        self.lesson1_2Container.setObjectName("lesson1_2Container")
-        self.verticalLayout_64 = QtWidgets.QVBoxLayout(self.lesson1_2Container)
-        self.verticalLayout_64.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_64.setSpacing(5)
-        self.verticalLayout_64.setObjectName("verticalLayout_64")
-        self.lesson1_2ApushButton = QtWidgets.QPushButton(self.lesson1_2Container)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson1_2ApushButton.setFont(font)
-        self.lesson1_2ApushButton.setStyleSheet("QPushButton#lesson1_2ApushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson1_2ApushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson1_2ApushButton.setObjectName("lesson1_2ApushButton")
-        self.verticalLayout_64.addWidget(self.lesson1_2ApushButton, 0, QtCore.Qt.AlignLeft)
-        self.lesson1_2BpushButton = QtWidgets.QPushButton(self.lesson1_2Container)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson1_2BpushButton.setFont(font)
-        self.lesson1_2BpushButton.setStyleSheet("QPushButton#lesson1_2BpushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson1_2BpushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson1_2BpushButton.setObjectName("lesson1_2BpushButton")
-        self.verticalLayout_64.addWidget(self.lesson1_2BpushButton, 0, QtCore.Qt.AlignLeft)
-        self.lesson1_2CpushButton = QtWidgets.QPushButton(self.lesson1_2Container)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson1_2CpushButton.setFont(font)
-        self.lesson1_2CpushButton.setStyleSheet("QPushButton#lesson1_2CpushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson1_2CpushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson1_2CpushButton.setObjectName("lesson1_2CpushButton")
-        self.verticalLayout_64.addWidget(self.lesson1_2CpushButton, 0, QtCore.Qt.AlignLeft)
-        self.lesson1_2TestpushButton = QtWidgets.QPushButton(self.lesson1_2Container)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson1_2TestpushButton.setFont(font)
-        self.lesson1_2TestpushButton.setStyleSheet("QPushButton#lesson1_2TestpushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson1_2TestpushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson1_2TestpushButton.setObjectName("lesson1_2TestpushButton")
-        self.verticalLayout_64.addWidget(self.lesson1_2TestpushButton, 0, QtCore.Qt.AlignLeft)
-        self.verticalLayout_65.addWidget(self.lesson1_2Container)
         self.verticalLayout_36.addWidget(self.widget_15)
-        self.verticalLayout_60.addWidget(self.widget_18, 0, QtCore.Qt.AlignTop)
+        self.verticalLayout_60.addWidget(self.widget_18)
         self.verticalLayout_57.addWidget(self.frame_22)
         self.horizontalLayout_2.addWidget(self.frame_6)
         self.frame_7 = QtWidgets.QFrame(self.frame_5)
@@ -1244,6 +1112,7 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_72.setSpacing(0)
         self.verticalLayout_72.setObjectName("verticalLayout_72")
         self.lessonInfo1Container = QtWidgets.QWidget(self.frame_7)
+        self.lessonInfo1Container.setStyleSheet("background-color: rgb(12, 127, 119);")
         self.lessonInfo1Container.setObjectName("lessonInfo1Container")
         self.verticalLayout_73 = QtWidgets.QVBoxLayout(self.lessonInfo1Container)
         self.verticalLayout_73.setContentsMargins(0, 0, 0, 0)
@@ -1316,17 +1185,29 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_160.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_160.setSpacing(0)
         self.verticalLayout_160.setObjectName("verticalLayout_160")
-        self.pushButton_33 = QtWidgets.QPushButton(self.frame_100)
+        self.proceedLesson1_1A_pushButton = QtWidgets.QPushButton(self.frame_100)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_33.setFont(font)
+        self.proceedLesson1_1A_pushButton.setFont(font)
+        self.proceedLesson1_1A_pushButton.setStyleSheet("#proceedLesson1_1A_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_1A_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_1A_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
         icon14 = QtGui.QIcon()
         icon14.addPixmap(QtGui.QPixmap(":/greenIcons/greenColorIcons/arrow-right.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_33.setIcon(icon14)
-        self.pushButton_33.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_33.setObjectName("pushButton_33")
-        self.verticalLayout_160.addWidget(self.pushButton_33)
-        self.verticalLayout_77.addWidget(self.frame_100)
+        self.proceedLesson1_1A_pushButton.setIcon(icon14)
+        self.proceedLesson1_1A_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_1A_pushButton.setObjectName("proceedLesson1_1A_pushButton")
+        self.verticalLayout_160.addWidget(self.proceedLesson1_1A_pushButton)
+        self.verticalLayout_77.addWidget(self.frame_100, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.lessonInfoSubContainer.addWidget(self.page_14)
         self.page_15 = QtWidgets.QWidget()
         self.page_15.setObjectName("page_15")
@@ -1364,14 +1245,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_161.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_161.setSpacing(0)
         self.verticalLayout_161.setObjectName("verticalLayout_161")
-        self.pushButton_34 = QtWidgets.QPushButton(self.frame_99)
+        self.proceedLesson1_1B_pushButton = QtWidgets.QPushButton(self.frame_99)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_34.setFont(font)
-        self.pushButton_34.setIcon(icon14)
-        self.pushButton_34.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_34.setObjectName("pushButton_34")
-        self.verticalLayout_161.addWidget(self.pushButton_34)
+        self.proceedLesson1_1B_pushButton.setFont(font)
+        self.proceedLesson1_1B_pushButton.setStyleSheet("#proceedLesson1_1B_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_1B_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_1B_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson1_1B_pushButton.setIcon(icon14)
+        self.proceedLesson1_1B_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_1B_pushButton.setObjectName("proceedLesson1_1B_pushButton")
+        self.verticalLayout_161.addWidget(self.proceedLesson1_1B_pushButton, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.verticalLayout_78.addWidget(self.frame_99)
         self.lessonInfoSubContainer.addWidget(self.page_15)
         self.page_16 = QtWidgets.QWidget()
@@ -1410,14 +1303,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_162.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_162.setSpacing(0)
         self.verticalLayout_162.setObjectName("verticalLayout_162")
-        self.pushButton_35 = QtWidgets.QPushButton(self.frame_98)
+        self.proceedLesson1_1C_pushButton = QtWidgets.QPushButton(self.frame_98)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_35.setFont(font)
-        self.pushButton_35.setIcon(icon14)
-        self.pushButton_35.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_35.setObjectName("pushButton_35")
-        self.verticalLayout_162.addWidget(self.pushButton_35)
+        self.proceedLesson1_1C_pushButton.setFont(font)
+        self.proceedLesson1_1C_pushButton.setStyleSheet("#proceedLesson1_1C_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_1C_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_1C_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson1_1C_pushButton.setIcon(icon14)
+        self.proceedLesson1_1C_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_1C_pushButton.setObjectName("proceedLesson1_1C_pushButton")
+        self.verticalLayout_162.addWidget(self.proceedLesson1_1C_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_88.addWidget(self.frame_98)
         self.lessonInfoSubContainer.addWidget(self.page_16)
         self.page_17 = QtWidgets.QWidget()
@@ -1456,183 +1361,28 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_163.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_163.setSpacing(0)
         self.verticalLayout_163.setObjectName("verticalLayout_163")
-        self.pushButton_36 = QtWidgets.QPushButton(self.frame_97)
+        self.proceedLesson1_1D_pushButton = QtWidgets.QPushButton(self.frame_97)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_36.setFont(font)
-        self.pushButton_36.setIcon(icon14)
-        self.pushButton_36.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_36.setObjectName("pushButton_36")
-        self.verticalLayout_163.addWidget(self.pushButton_36)
+        self.proceedLesson1_1D_pushButton.setFont(font)
+        self.proceedLesson1_1D_pushButton.setStyleSheet("#proceedLesson1_1D_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_1D_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_1D_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson1_1D_pushButton.setIcon(icon14)
+        self.proceedLesson1_1D_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_1D_pushButton.setObjectName("proceedLesson1_1D_pushButton")
+        self.verticalLayout_163.addWidget(self.proceedLesson1_1D_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_87.addWidget(self.frame_97)
         self.lessonInfoSubContainer.addWidget(self.page_17)
-        self.page_18 = QtWidgets.QWidget()
-        self.page_18.setObjectName("page_18")
-        self.verticalLayout_86 = QtWidgets.QVBoxLayout(self.page_18)
-        self.verticalLayout_86.setObjectName("verticalLayout_86")
-        self.frame_56 = QtWidgets.QFrame(self.page_18)
-        self.frame_56.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_56.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_56.setObjectName("frame_56")
-        self.verticalLayout_93 = QtWidgets.QVBoxLayout(self.frame_56)
-        self.verticalLayout_93.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_93.setSpacing(0)
-        self.verticalLayout_93.setObjectName("verticalLayout_93")
-        self.label_46 = QtWidgets.QLabel(self.frame_56)
-        self.label_46.setObjectName("label_46")
-        self.verticalLayout_93.addWidget(self.label_46)
-        self.verticalLayout_86.addWidget(self.frame_56)
-        self.frame_57 = QtWidgets.QFrame(self.page_18)
-        self.frame_57.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_57.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_57.setObjectName("frame_57")
-        self.verticalLayout_94 = QtWidgets.QVBoxLayout(self.frame_57)
-        self.verticalLayout_94.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_94.setSpacing(0)
-        self.verticalLayout_94.setObjectName("verticalLayout_94")
-        self.lineEdit_6 = QtWidgets.QLineEdit(self.frame_57)
-        self.lineEdit_6.setObjectName("lineEdit_6")
-        self.verticalLayout_94.addWidget(self.lineEdit_6)
-        self.verticalLayout_86.addWidget(self.frame_57)
-        self.lessonInfoSubContainer.addWidget(self.page_18)
-        self.page_19 = QtWidgets.QWidget()
-        self.page_19.setObjectName("page_19")
-        self.verticalLayout_85 = QtWidgets.QVBoxLayout(self.page_19)
-        self.verticalLayout_85.setObjectName("verticalLayout_85")
-        self.frame_58 = QtWidgets.QFrame(self.page_19)
-        self.frame_58.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_58.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_58.setObjectName("frame_58")
-        self.verticalLayout_95 = QtWidgets.QVBoxLayout(self.frame_58)
-        self.verticalLayout_95.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_95.setSpacing(0)
-        self.verticalLayout_95.setObjectName("verticalLayout_95")
-        self.label_47 = QtWidgets.QLabel(self.frame_58)
-        self.label_47.setObjectName("label_47")
-        self.verticalLayout_95.addWidget(self.label_47)
-        self.verticalLayout_85.addWidget(self.frame_58)
-        self.frame_59 = QtWidgets.QFrame(self.page_19)
-        self.frame_59.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_59.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_59.setObjectName("frame_59")
-        self.verticalLayout_96 = QtWidgets.QVBoxLayout(self.frame_59)
-        self.verticalLayout_96.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_96.setSpacing(0)
-        self.verticalLayout_96.setObjectName("verticalLayout_96")
-        self.lineEdit_7 = QtWidgets.QLineEdit(self.frame_59)
-        self.lineEdit_7.setObjectName("lineEdit_7")
-        self.verticalLayout_96.addWidget(self.lineEdit_7)
-        self.verticalLayout_85.addWidget(self.frame_59)
-        self.frame_96 = QtWidgets.QFrame(self.page_19)
-        self.frame_96.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_96.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_96.setObjectName("frame_96")
-        self.verticalLayout_165 = QtWidgets.QVBoxLayout(self.frame_96)
-        self.verticalLayout_165.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_165.setSpacing(0)
-        self.verticalLayout_165.setObjectName("verticalLayout_165")
-        self.pushButton_38 = QtWidgets.QPushButton(self.frame_96)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton_38.setFont(font)
-        self.pushButton_38.setIcon(icon14)
-        self.pushButton_38.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_38.setObjectName("pushButton_38")
-        self.verticalLayout_165.addWidget(self.pushButton_38)
-        self.verticalLayout_85.addWidget(self.frame_96)
-        self.lessonInfoSubContainer.addWidget(self.page_19)
-        self.page_20 = QtWidgets.QWidget()
-        self.page_20.setObjectName("page_20")
-        self.verticalLayout_84 = QtWidgets.QVBoxLayout(self.page_20)
-        self.verticalLayout_84.setObjectName("verticalLayout_84")
-        self.frame_60 = QtWidgets.QFrame(self.page_20)
-        self.frame_60.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_60.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_60.setObjectName("frame_60")
-        self.verticalLayout_97 = QtWidgets.QVBoxLayout(self.frame_60)
-        self.verticalLayout_97.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_97.setSpacing(0)
-        self.verticalLayout_97.setObjectName("verticalLayout_97")
-        self.label_48 = QtWidgets.QLabel(self.frame_60)
-        self.label_48.setObjectName("label_48")
-        self.verticalLayout_97.addWidget(self.label_48)
-        self.verticalLayout_84.addWidget(self.frame_60)
-        self.frame_61 = QtWidgets.QFrame(self.page_20)
-        self.frame_61.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_61.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_61.setObjectName("frame_61")
-        self.verticalLayout_98 = QtWidgets.QVBoxLayout(self.frame_61)
-        self.verticalLayout_98.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_98.setSpacing(0)
-        self.verticalLayout_98.setObjectName("verticalLayout_98")
-        self.lineEdit_8 = QtWidgets.QLineEdit(self.frame_61)
-        self.lineEdit_8.setObjectName("lineEdit_8")
-        self.verticalLayout_98.addWidget(self.lineEdit_8)
-        self.verticalLayout_84.addWidget(self.frame_61)
-        self.frame_95 = QtWidgets.QFrame(self.page_20)
-        self.frame_95.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_95.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_95.setObjectName("frame_95")
-        self.verticalLayout_166 = QtWidgets.QVBoxLayout(self.frame_95)
-        self.verticalLayout_166.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_166.setSpacing(0)
-        self.verticalLayout_166.setObjectName("verticalLayout_166")
-        self.pushButton_39 = QtWidgets.QPushButton(self.frame_95)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton_39.setFont(font)
-        self.pushButton_39.setIcon(icon14)
-        self.pushButton_39.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_39.setObjectName("pushButton_39")
-        self.verticalLayout_166.addWidget(self.pushButton_39)
-        self.verticalLayout_84.addWidget(self.frame_95)
-        self.lessonInfoSubContainer.addWidget(self.page_20)
-        self.page_21 = QtWidgets.QWidget()
-        self.page_21.setObjectName("page_21")
-        self.verticalLayout_83 = QtWidgets.QVBoxLayout(self.page_21)
-        self.verticalLayout_83.setObjectName("verticalLayout_83")
-        self.frame_62 = QtWidgets.QFrame(self.page_21)
-        self.frame_62.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_62.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_62.setObjectName("frame_62")
-        self.verticalLayout_99 = QtWidgets.QVBoxLayout(self.frame_62)
-        self.verticalLayout_99.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_99.setSpacing(0)
-        self.verticalLayout_99.setObjectName("verticalLayout_99")
-        self.label_49 = QtWidgets.QLabel(self.frame_62)
-        self.label_49.setObjectName("label_49")
-        self.verticalLayout_99.addWidget(self.label_49)
-        self.verticalLayout_83.addWidget(self.frame_62)
-        self.frame_63 = QtWidgets.QFrame(self.page_21)
-        self.frame_63.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_63.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_63.setObjectName("frame_63")
-        self.verticalLayout_100 = QtWidgets.QVBoxLayout(self.frame_63)
-        self.verticalLayout_100.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_100.setSpacing(0)
-        self.verticalLayout_100.setObjectName("verticalLayout_100")
-        self.lineEdit_9 = QtWidgets.QLineEdit(self.frame_63)
-        self.lineEdit_9.setObjectName("lineEdit_9")
-        self.verticalLayout_100.addWidget(self.lineEdit_9)
-        self.verticalLayout_83.addWidget(self.frame_63)
-        self.frame_94 = QtWidgets.QFrame(self.page_21)
-        self.frame_94.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_94.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_94.setObjectName("frame_94")
-        self.verticalLayout_164 = QtWidgets.QVBoxLayout(self.frame_94)
-        self.verticalLayout_164.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_164.setSpacing(0)
-        self.verticalLayout_164.setObjectName("verticalLayout_164")
-        self.pushButton_37 = QtWidgets.QPushButton(self.frame_94)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton_37.setFont(font)
-        self.pushButton_37.setIcon(icon14)
-        self.pushButton_37.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_37.setObjectName("pushButton_37")
-        self.verticalLayout_164.addWidget(self.pushButton_37)
-        self.verticalLayout_83.addWidget(self.frame_94)
-        self.lessonInfoSubContainer.addWidget(self.page_21)
         self.page_37 = QtWidgets.QWidget()
         self.page_37.setObjectName("page_37")
         self.verticalLayout_140 = QtWidgets.QVBoxLayout(self.page_37)
@@ -1669,62 +1419,28 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_143.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_143.setSpacing(0)
         self.verticalLayout_143.setObjectName("verticalLayout_143")
-        self.pushButton_25 = QtWidgets.QPushButton(self.frame_80)
+        self.proceedLesson1_1Test_pushButton = QtWidgets.QPushButton(self.frame_80)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_25.setFont(font)
-        self.pushButton_25.setIcon(icon14)
-        self.pushButton_25.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_25.setObjectName("pushButton_25")
-        self.verticalLayout_143.addWidget(self.pushButton_25)
+        self.proceedLesson1_1Test_pushButton.setFont(font)
+        self.proceedLesson1_1Test_pushButton.setStyleSheet("#proceedLesson1_1Test_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_1Test_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_1Test_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson1_1Test_pushButton.setIcon(icon14)
+        self.proceedLesson1_1Test_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_1Test_pushButton.setObjectName("proceedLesson1_1Test_pushButton")
+        self.verticalLayout_143.addWidget(self.proceedLesson1_1Test_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_140.addWidget(self.frame_80)
         self.lessonInfoSubContainer.addWidget(self.page_37)
-        self.page_38 = QtWidgets.QWidget()
-        self.page_38.setObjectName("page_38")
-        self.verticalLayout_144 = QtWidgets.QVBoxLayout(self.page_38)
-        self.verticalLayout_144.setObjectName("verticalLayout_144")
-        self.frame_81 = QtWidgets.QFrame(self.page_38)
-        self.frame_81.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_81.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_81.setObjectName("frame_81")
-        self.verticalLayout_145 = QtWidgets.QVBoxLayout(self.frame_81)
-        self.verticalLayout_145.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_145.setSpacing(0)
-        self.verticalLayout_145.setObjectName("verticalLayout_145")
-        self.label_55 = QtWidgets.QLabel(self.frame_81)
-        self.label_55.setObjectName("label_55")
-        self.verticalLayout_145.addWidget(self.label_55)
-        self.verticalLayout_144.addWidget(self.frame_81)
-        self.frame_82 = QtWidgets.QFrame(self.page_38)
-        self.frame_82.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_82.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_82.setObjectName("frame_82")
-        self.verticalLayout_146 = QtWidgets.QVBoxLayout(self.frame_82)
-        self.verticalLayout_146.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_146.setSpacing(0)
-        self.verticalLayout_146.setObjectName("verticalLayout_146")
-        self.lineEdit_17 = QtWidgets.QLineEdit(self.frame_82)
-        self.lineEdit_17.setObjectName("lineEdit_17")
-        self.verticalLayout_146.addWidget(self.lineEdit_17)
-        self.verticalLayout_144.addWidget(self.frame_82)
-        self.frame_83 = QtWidgets.QFrame(self.page_38)
-        self.frame_83.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_83.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_83.setObjectName("frame_83")
-        self.verticalLayout_147 = QtWidgets.QVBoxLayout(self.frame_83)
-        self.verticalLayout_147.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_147.setSpacing(0)
-        self.verticalLayout_147.setObjectName("verticalLayout_147")
-        self.pushButton_26 = QtWidgets.QPushButton(self.frame_83)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton_26.setFont(font)
-        self.pushButton_26.setIcon(icon14)
-        self.pushButton_26.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_26.setObjectName("pushButton_26")
-        self.verticalLayout_147.addWidget(self.pushButton_26)
-        self.verticalLayout_144.addWidget(self.frame_83)
-        self.lessonInfoSubContainer.addWidget(self.page_38)
         self.verticalLayout_73.addWidget(self.lessonInfoSubContainer)
         self.verticalLayout_72.addWidget(self.lessonInfo1Container)
         self.horizontalLayout_2.addWidget(self.frame_7)
@@ -1786,28 +1502,6 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_103.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_103.setSpacing(10)
         self.verticalLayout_103.setObjectName("verticalLayout_103")
-        self.widget_19 = QtWidgets.QWidget(self.widget_17)
-        self.widget_19.setStyleSheet("    background-color: rgb(0, 34, 50);    ")
-        self.widget_19.setObjectName("widget_19")
-        self.verticalLayout_104 = QtWidgets.QVBoxLayout(self.widget_19)
-        self.verticalLayout_104.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_104.setSpacing(0)
-        self.verticalLayout_104.setObjectName("verticalLayout_104")
-        self.lesson2_1pushButton = QtWidgets.QPushButton(self.widget_19)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson2_1pushButton.setFont(font)
-        self.lesson2_1pushButton.setStyleSheet("QPushButton#lesson2_1pushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson2_1pushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson2_1pushButton.setObjectName("lesson2_1pushButton")
-        self.verticalLayout_104.addWidget(self.lesson2_1pushButton, 0, QtCore.Qt.AlignLeft)
-        self.verticalLayout_103.addWidget(self.widget_19)
         self.lesson2_1Container = QtWidgets.QWidget(self.widget_17)
         self.lesson2_1Container.setObjectName("lesson2_1Container")
         self.verticalLayout_105 = QtWidgets.QVBoxLayout(self.lesson2_1Container)
@@ -1871,65 +1565,8 @@ class Ui_dashboardWindow(object):
         self.lesson2_1TestpushButton.setObjectName("lesson2_1TestpushButton")
         self.verticalLayout_105.addWidget(self.lesson2_1TestpushButton, 0, QtCore.Qt.AlignLeft)
         self.verticalLayout_103.addWidget(self.lesson2_1Container)
-        self.widget_21 = QtWidgets.QWidget(self.widget_17)
-        self.widget_21.setStyleSheet("    background-color: rgb(0, 34, 50);    ")
-        self.widget_21.setObjectName("widget_21")
-        self.verticalLayout_106 = QtWidgets.QVBoxLayout(self.widget_21)
-        self.verticalLayout_106.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_106.setSpacing(0)
-        self.verticalLayout_106.setObjectName("verticalLayout_106")
-        self.lesson2_2pushButton = QtWidgets.QPushButton(self.widget_21)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson2_2pushButton.setFont(font)
-        self.lesson2_2pushButton.setStyleSheet("QPushButton#lesson2_2pushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson2_2pushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson2_2pushButton.setObjectName("lesson2_2pushButton")
-        self.verticalLayout_106.addWidget(self.lesson2_2pushButton, 0, QtCore.Qt.AlignLeft)
-        self.verticalLayout_103.addWidget(self.widget_21)
-        self.lesson2_2Container = QtWidgets.QWidget(self.widget_17)
-        self.lesson2_2Container.setObjectName("lesson2_2Container")
-        self.verticalLayout_107 = QtWidgets.QVBoxLayout(self.lesson2_2Container)
-        self.verticalLayout_107.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_107.setSpacing(5)
-        self.verticalLayout_107.setObjectName("verticalLayout_107")
-        self.lesson2_2ApushButton = QtWidgets.QPushButton(self.lesson2_2Container)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson2_2ApushButton.setFont(font)
-        self.lesson2_2ApushButton.setStyleSheet("QPushButton#lesson2_2ApushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson2_2ApushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson2_2ApushButton.setObjectName("lesson2_2ApushButton")
-        self.verticalLayout_107.addWidget(self.lesson2_2ApushButton, 0, QtCore.Qt.AlignLeft)
-        self.lesson2_2TestpushButton = QtWidgets.QPushButton(self.lesson2_2Container)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lesson2_2TestpushButton.setFont(font)
-        self.lesson2_2TestpushButton.setStyleSheet("QPushButton#lesson2_2TestpushButton:hover{\n"
-"    color: rgb(145, 173, 179);\n"
-"    border-radius: 5px\n"
-"}\n"
-"QPushButton#lesson2_2TestpushButton:pressed{\n"
-"    color: rgb(244, 77, 0);\n"
-"}\n"
-"")
-        self.lesson2_2TestpushButton.setObjectName("lesson2_2TestpushButton")
-        self.verticalLayout_107.addWidget(self.lesson2_2TestpushButton, 0, QtCore.Qt.AlignLeft)
-        self.verticalLayout_103.addWidget(self.lesson2_2Container)
         self.verticalLayout_102.addWidget(self.widget_17)
-        self.verticalLayout_101.addWidget(self.widget_16, 0, QtCore.Qt.AlignTop)
+        self.verticalLayout_101.addWidget(self.widget_16)
         self.verticalLayout_37.addWidget(self.frame_64)
         self.horizontalLayout_3.addWidget(self.frame_25)
         self.frame_26 = QtWidgets.QFrame(self.frame_24)
@@ -1941,6 +1578,7 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_108.setSpacing(0)
         self.verticalLayout_108.setObjectName("verticalLayout_108")
         self.lessonInfo2Container = QtWidgets.QWidget(self.frame_26)
+        self.lessonInfo2Container.setStyleSheet("background-color: rgb(12, 127, 119);")
         self.lessonInfo2Container.setObjectName("lessonInfo2Container")
         self.verticalLayout_109 = QtWidgets.QVBoxLayout(self.lessonInfo2Container)
         self.verticalLayout_109.setContentsMargins(0, 0, 0, 0)
@@ -1950,338 +1588,265 @@ class Ui_dashboardWindow(object):
         self.lessonInfo2SubContainer.setObjectName("lessonInfo2SubContainer")
         self.page_22 = QtWidgets.QWidget()
         self.page_22.setObjectName("page_22")
-        self.verticalLayout_110 = QtWidgets.QVBoxLayout(self.page_22)
-        self.verticalLayout_110.setObjectName("verticalLayout_110")
-        self.frame_65 = QtWidgets.QFrame(self.page_22)
-        self.frame_65.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_65.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_65.setObjectName("frame_65")
-        self.verticalLayout_111 = QtWidgets.QVBoxLayout(self.frame_65)
-        self.verticalLayout_111.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_111.setSpacing(0)
-        self.verticalLayout_111.setObjectName("verticalLayout_111")
-        self.label_23 = QtWidgets.QLabel(self.frame_65)
-        self.label_23.setObjectName("label_23")
-        self.verticalLayout_111.addWidget(self.label_23)
-        self.verticalLayout_110.addWidget(self.frame_65)
-        self.frame_66 = QtWidgets.QFrame(self.page_22)
-        self.frame_66.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_66.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_66.setObjectName("frame_66")
-        self.verticalLayout_112 = QtWidgets.QVBoxLayout(self.frame_66)
-        self.verticalLayout_112.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_112.setSpacing(0)
-        self.verticalLayout_112.setObjectName("verticalLayout_112")
-        self.lineEdit_10 = QtWidgets.QLineEdit(self.frame_66)
-        self.lineEdit_10.setObjectName("lineEdit_10")
-        self.verticalLayout_112.addWidget(self.lineEdit_10)
-        self.verticalLayout_110.addWidget(self.frame_66)
+        self.verticalLayout_63 = QtWidgets.QVBoxLayout(self.page_22)
+        self.verticalLayout_63.setObjectName("verticalLayout_63")
+        self.frame_56 = QtWidgets.QFrame(self.page_22)
+        self.frame_56.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_56.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_56.setObjectName("frame_56")
+        self.verticalLayout_93 = QtWidgets.QVBoxLayout(self.frame_56)
+        self.verticalLayout_93.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_93.setSpacing(0)
+        self.verticalLayout_93.setObjectName("verticalLayout_93")
+        self.label_46 = QtWidgets.QLabel(self.frame_56)
+        self.label_46.setObjectName("label_46")
+        self.verticalLayout_93.addWidget(self.label_46)
+        self.verticalLayout_63.addWidget(self.frame_56)
+        self.frame_57 = QtWidgets.QFrame(self.page_22)
+        self.frame_57.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_57.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_57.setObjectName("frame_57")
+        self.verticalLayout_94 = QtWidgets.QVBoxLayout(self.frame_57)
+        self.verticalLayout_94.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_94.setSpacing(0)
+        self.verticalLayout_94.setObjectName("verticalLayout_94")
+        self.lineEdit_6 = QtWidgets.QLineEdit(self.frame_57)
+        self.lineEdit_6.setObjectName("lineEdit_6")
+        self.verticalLayout_94.addWidget(self.lineEdit_6)
+        self.verticalLayout_63.addWidget(self.frame_57)
         self.lessonInfo2SubContainer.addWidget(self.page_22)
         self.page_23 = QtWidgets.QWidget()
         self.page_23.setObjectName("page_23")
-        self.verticalLayout_113 = QtWidgets.QVBoxLayout(self.page_23)
-        self.verticalLayout_113.setObjectName("verticalLayout_113")
-        self.frame_67 = QtWidgets.QFrame(self.page_23)
-        self.frame_67.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_67.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_67.setObjectName("frame_67")
-        self.verticalLayout_114 = QtWidgets.QVBoxLayout(self.frame_67)
-        self.verticalLayout_114.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_114.setSpacing(0)
-        self.verticalLayout_114.setObjectName("verticalLayout_114")
-        self.label_50 = QtWidgets.QLabel(self.frame_67)
-        self.label_50.setObjectName("label_50")
-        self.verticalLayout_114.addWidget(self.label_50)
-        self.verticalLayout_113.addWidget(self.frame_67)
-        self.frame_68 = QtWidgets.QFrame(self.page_23)
-        self.frame_68.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_68.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_68.setObjectName("frame_68")
-        self.verticalLayout_115 = QtWidgets.QVBoxLayout(self.frame_68)
-        self.verticalLayout_115.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_115.setSpacing(0)
-        self.verticalLayout_115.setObjectName("verticalLayout_115")
-        self.lineEdit_11 = QtWidgets.QLineEdit(self.frame_68)
-        self.lineEdit_11.setObjectName("lineEdit_11")
-        self.verticalLayout_115.addWidget(self.lineEdit_11)
-        self.verticalLayout_113.addWidget(self.frame_68)
-        self.frame_84 = QtWidgets.QFrame(self.page_23)
-        self.frame_84.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_84.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_84.setObjectName("frame_84")
-        self.verticalLayout_148 = QtWidgets.QVBoxLayout(self.frame_84)
-        self.verticalLayout_148.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_148.setSpacing(0)
-        self.verticalLayout_148.setObjectName("verticalLayout_148")
-        self.pushButton_27 = QtWidgets.QPushButton(self.frame_84)
+        self.verticalLayout_61 = QtWidgets.QVBoxLayout(self.page_23)
+        self.verticalLayout_61.setObjectName("verticalLayout_61")
+        self.frame_58 = QtWidgets.QFrame(self.page_23)
+        self.frame_58.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_58.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_58.setObjectName("frame_58")
+        self.verticalLayout_95 = QtWidgets.QVBoxLayout(self.frame_58)
+        self.verticalLayout_95.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_95.setSpacing(0)
+        self.verticalLayout_95.setObjectName("verticalLayout_95")
+        self.label_47 = QtWidgets.QLabel(self.frame_58)
+        self.label_47.setObjectName("label_47")
+        self.verticalLayout_95.addWidget(self.label_47)
+        self.verticalLayout_61.addWidget(self.frame_58)
+        self.frame_59 = QtWidgets.QFrame(self.page_23)
+        self.frame_59.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_59.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_59.setObjectName("frame_59")
+        self.verticalLayout_96 = QtWidgets.QVBoxLayout(self.frame_59)
+        self.verticalLayout_96.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_96.setSpacing(0)
+        self.verticalLayout_96.setObjectName("verticalLayout_96")
+        self.lineEdit_7 = QtWidgets.QLineEdit(self.frame_59)
+        self.lineEdit_7.setObjectName("lineEdit_7")
+        self.verticalLayout_96.addWidget(self.lineEdit_7)
+        self.verticalLayout_61.addWidget(self.frame_59)
+        self.frame_96 = QtWidgets.QFrame(self.page_23)
+        self.frame_96.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_96.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_96.setObjectName("frame_96")
+        self.verticalLayout_165 = QtWidgets.QVBoxLayout(self.frame_96)
+        self.verticalLayout_165.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_165.setSpacing(0)
+        self.verticalLayout_165.setObjectName("verticalLayout_165")
+        self.proceedLesson1_2A_pushButton = QtWidgets.QPushButton(self.frame_96)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_27.setFont(font)
-        self.pushButton_27.setIcon(icon14)
-        self.pushButton_27.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_27.setObjectName("pushButton_27")
-        self.verticalLayout_148.addWidget(self.pushButton_27)
-        self.verticalLayout_113.addWidget(self.frame_84)
+        self.proceedLesson1_2A_pushButton.setFont(font)
+        self.proceedLesson1_2A_pushButton.setStyleSheet("#proceedLesson1_2A_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_2A_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_2A_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson1_2A_pushButton.setIcon(icon14)
+        self.proceedLesson1_2A_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_2A_pushButton.setObjectName("proceedLesson1_2A_pushButton")
+        self.verticalLayout_165.addWidget(self.proceedLesson1_2A_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_61.addWidget(self.frame_96)
         self.lessonInfo2SubContainer.addWidget(self.page_23)
         self.page_24 = QtWidgets.QWidget()
         self.page_24.setObjectName("page_24")
-        self.verticalLayout_116 = QtWidgets.QVBoxLayout(self.page_24)
-        self.verticalLayout_116.setObjectName("verticalLayout_116")
-        self.frame_69 = QtWidgets.QFrame(self.page_24)
-        self.frame_69.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_69.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_69.setObjectName("frame_69")
-        self.verticalLayout_117 = QtWidgets.QVBoxLayout(self.frame_69)
-        self.verticalLayout_117.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_117.setSpacing(0)
-        self.verticalLayout_117.setObjectName("verticalLayout_117")
-        self.label_51 = QtWidgets.QLabel(self.frame_69)
-        self.label_51.setObjectName("label_51")
-        self.verticalLayout_117.addWidget(self.label_51)
-        self.verticalLayout_116.addWidget(self.frame_69)
-        self.frame_70 = QtWidgets.QFrame(self.page_24)
-        self.frame_70.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_70.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_70.setObjectName("frame_70")
-        self.verticalLayout_118 = QtWidgets.QVBoxLayout(self.frame_70)
-        self.verticalLayout_118.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_118.setSpacing(0)
-        self.verticalLayout_118.setObjectName("verticalLayout_118")
-        self.lineEdit_12 = QtWidgets.QLineEdit(self.frame_70)
-        self.lineEdit_12.setObjectName("lineEdit_12")
-        self.verticalLayout_118.addWidget(self.lineEdit_12)
-        self.verticalLayout_116.addWidget(self.frame_70)
-        self.frame_85 = QtWidgets.QFrame(self.page_24)
-        self.frame_85.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_85.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_85.setObjectName("frame_85")
-        self.verticalLayout_149 = QtWidgets.QVBoxLayout(self.frame_85)
-        self.verticalLayout_149.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_149.setSpacing(0)
-        self.verticalLayout_149.setObjectName("verticalLayout_149")
-        self.pushButton_28 = QtWidgets.QPushButton(self.frame_85)
+        self.verticalLayout_64 = QtWidgets.QVBoxLayout(self.page_24)
+        self.verticalLayout_64.setObjectName("verticalLayout_64")
+        self.frame_60 = QtWidgets.QFrame(self.page_24)
+        self.frame_60.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_60.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_60.setObjectName("frame_60")
+        self.verticalLayout_97 = QtWidgets.QVBoxLayout(self.frame_60)
+        self.verticalLayout_97.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_97.setSpacing(0)
+        self.verticalLayout_97.setObjectName("verticalLayout_97")
+        self.label_48 = QtWidgets.QLabel(self.frame_60)
+        self.label_48.setObjectName("label_48")
+        self.verticalLayout_97.addWidget(self.label_48)
+        self.verticalLayout_64.addWidget(self.frame_60)
+        self.frame_61 = QtWidgets.QFrame(self.page_24)
+        self.frame_61.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_61.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_61.setObjectName("frame_61")
+        self.verticalLayout_98 = QtWidgets.QVBoxLayout(self.frame_61)
+        self.verticalLayout_98.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_98.setSpacing(0)
+        self.verticalLayout_98.setObjectName("verticalLayout_98")
+        self.lineEdit_8 = QtWidgets.QLineEdit(self.frame_61)
+        self.lineEdit_8.setObjectName("lineEdit_8")
+        self.verticalLayout_98.addWidget(self.lineEdit_8)
+        self.verticalLayout_64.addWidget(self.frame_61)
+        self.frame_95 = QtWidgets.QFrame(self.page_24)
+        self.frame_95.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_95.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_95.setObjectName("frame_95")
+        self.verticalLayout_166 = QtWidgets.QVBoxLayout(self.frame_95)
+        self.verticalLayout_166.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_166.setSpacing(0)
+        self.verticalLayout_166.setObjectName("verticalLayout_166")
+        self.proceedLesson1_2B_pushButton = QtWidgets.QPushButton(self.frame_95)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_28.setFont(font)
-        self.pushButton_28.setIcon(icon14)
-        self.pushButton_28.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_28.setObjectName("pushButton_28")
-        self.verticalLayout_149.addWidget(self.pushButton_28)
-        self.verticalLayout_116.addWidget(self.frame_85)
+        self.proceedLesson1_2B_pushButton.setFont(font)
+        self.proceedLesson1_2B_pushButton.setStyleSheet("#proceedLesson1_2B_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_2B_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_2B_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson1_2B_pushButton.setIcon(icon14)
+        self.proceedLesson1_2B_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_2B_pushButton.setObjectName("proceedLesson1_2B_pushButton")
+        self.verticalLayout_166.addWidget(self.proceedLesson1_2B_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_64.addWidget(self.frame_95)
         self.lessonInfo2SubContainer.addWidget(self.page_24)
         self.page_25 = QtWidgets.QWidget()
         self.page_25.setObjectName("page_25")
-        self.verticalLayout_119 = QtWidgets.QVBoxLayout(self.page_25)
-        self.verticalLayout_119.setObjectName("verticalLayout_119")
-        self.frame_71 = QtWidgets.QFrame(self.page_25)
-        self.frame_71.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_71.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_71.setObjectName("frame_71")
-        self.verticalLayout_120 = QtWidgets.QVBoxLayout(self.frame_71)
-        self.verticalLayout_120.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_120.setSpacing(0)
-        self.verticalLayout_120.setObjectName("verticalLayout_120")
-        self.label_52 = QtWidgets.QLabel(self.frame_71)
-        self.label_52.setObjectName("label_52")
-        self.verticalLayout_120.addWidget(self.label_52)
-        self.verticalLayout_119.addWidget(self.frame_71)
-        self.frame_72 = QtWidgets.QFrame(self.page_25)
-        self.frame_72.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_72.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_72.setObjectName("frame_72")
-        self.verticalLayout_121 = QtWidgets.QVBoxLayout(self.frame_72)
-        self.verticalLayout_121.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_121.setSpacing(0)
-        self.verticalLayout_121.setObjectName("verticalLayout_121")
-        self.lineEdit_13 = QtWidgets.QLineEdit(self.frame_72)
-        self.lineEdit_13.setObjectName("lineEdit_13")
-        self.verticalLayout_121.addWidget(self.lineEdit_13)
-        self.verticalLayout_119.addWidget(self.frame_72)
-        self.frame_86 = QtWidgets.QFrame(self.page_25)
-        self.frame_86.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_86.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_86.setObjectName("frame_86")
-        self.verticalLayout_150 = QtWidgets.QVBoxLayout(self.frame_86)
-        self.verticalLayout_150.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_150.setSpacing(0)
-        self.verticalLayout_150.setObjectName("verticalLayout_150")
-        self.pushButton_29 = QtWidgets.QPushButton(self.frame_86)
+        self.verticalLayout_104 = QtWidgets.QVBoxLayout(self.page_25)
+        self.verticalLayout_104.setObjectName("verticalLayout_104")
+        self.frame_62 = QtWidgets.QFrame(self.page_25)
+        self.frame_62.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_62.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_62.setObjectName("frame_62")
+        self.verticalLayout_99 = QtWidgets.QVBoxLayout(self.frame_62)
+        self.verticalLayout_99.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_99.setSpacing(0)
+        self.verticalLayout_99.setObjectName("verticalLayout_99")
+        self.label_49 = QtWidgets.QLabel(self.frame_62)
+        self.label_49.setObjectName("label_49")
+        self.verticalLayout_99.addWidget(self.label_49)
+        self.verticalLayout_104.addWidget(self.frame_62)
+        self.frame_63 = QtWidgets.QFrame(self.page_25)
+        self.frame_63.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_63.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_63.setObjectName("frame_63")
+        self.verticalLayout_100 = QtWidgets.QVBoxLayout(self.frame_63)
+        self.verticalLayout_100.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_100.setSpacing(0)
+        self.verticalLayout_100.setObjectName("verticalLayout_100")
+        self.lineEdit_9 = QtWidgets.QLineEdit(self.frame_63)
+        self.lineEdit_9.setObjectName("lineEdit_9")
+        self.verticalLayout_100.addWidget(self.lineEdit_9)
+        self.verticalLayout_104.addWidget(self.frame_63)
+        self.frame_94 = QtWidgets.QFrame(self.page_25)
+        self.frame_94.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_94.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_94.setObjectName("frame_94")
+        self.verticalLayout_164 = QtWidgets.QVBoxLayout(self.frame_94)
+        self.verticalLayout_164.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_164.setSpacing(0)
+        self.verticalLayout_164.setObjectName("verticalLayout_164")
+        self.proceedLesson1_2C_pushButton = QtWidgets.QPushButton(self.frame_94)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_29.setFont(font)
-        self.pushButton_29.setIcon(icon14)
-        self.pushButton_29.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_29.setObjectName("pushButton_29")
-        self.verticalLayout_150.addWidget(self.pushButton_29)
-        self.verticalLayout_119.addWidget(self.frame_86)
+        self.proceedLesson1_2C_pushButton.setFont(font)
+        self.proceedLesson1_2C_pushButton.setStyleSheet("#proceedLesson1_2C_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_2C_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_2C_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson1_2C_pushButton.setIcon(icon14)
+        self.proceedLesson1_2C_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_2C_pushButton.setObjectName("proceedLesson1_2C_pushButton")
+        self.verticalLayout_164.addWidget(self.proceedLesson1_2C_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_104.addWidget(self.frame_94)
         self.lessonInfo2SubContainer.addWidget(self.page_25)
         self.page_26 = QtWidgets.QWidget()
         self.page_26.setObjectName("page_26")
-        self.verticalLayout_122 = QtWidgets.QVBoxLayout(self.page_26)
-        self.verticalLayout_122.setObjectName("verticalLayout_122")
-        self.frame_73 = QtWidgets.QFrame(self.page_26)
-        self.frame_73.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_73.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_73.setObjectName("frame_73")
-        self.verticalLayout_123 = QtWidgets.QVBoxLayout(self.frame_73)
-        self.verticalLayout_123.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_123.setSpacing(0)
-        self.verticalLayout_123.setObjectName("verticalLayout_123")
-        self.label_53 = QtWidgets.QLabel(self.frame_73)
-        self.label_53.setObjectName("label_53")
-        self.verticalLayout_123.addWidget(self.label_53)
-        self.verticalLayout_122.addWidget(self.frame_73)
-        self.frame_74 = QtWidgets.QFrame(self.page_26)
-        self.frame_74.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_74.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_74.setObjectName("frame_74")
-        self.verticalLayout_124 = QtWidgets.QVBoxLayout(self.frame_74)
-        self.verticalLayout_124.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_124.setSpacing(0)
-        self.verticalLayout_124.setObjectName("verticalLayout_124")
-        self.lineEdit_14 = QtWidgets.QLineEdit(self.frame_74)
-        self.lineEdit_14.setObjectName("lineEdit_14")
-        self.verticalLayout_124.addWidget(self.lineEdit_14)
-        self.verticalLayout_122.addWidget(self.frame_74)
+        self.verticalLayout_106 = QtWidgets.QVBoxLayout(self.page_26)
+        self.verticalLayout_106.setObjectName("verticalLayout_106")
+        self.frame_81 = QtWidgets.QFrame(self.page_26)
+        self.frame_81.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_81.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_81.setObjectName("frame_81")
+        self.verticalLayout_145 = QtWidgets.QVBoxLayout(self.frame_81)
+        self.verticalLayout_145.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_145.setSpacing(0)
+        self.verticalLayout_145.setObjectName("verticalLayout_145")
+        self.label_55 = QtWidgets.QLabel(self.frame_81)
+        self.label_55.setObjectName("label_55")
+        self.verticalLayout_145.addWidget(self.label_55)
+        self.verticalLayout_106.addWidget(self.frame_81)
+        self.frame_82 = QtWidgets.QFrame(self.page_26)
+        self.frame_82.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_82.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_82.setObjectName("frame_82")
+        self.verticalLayout_146 = QtWidgets.QVBoxLayout(self.frame_82)
+        self.verticalLayout_146.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_146.setSpacing(0)
+        self.verticalLayout_146.setObjectName("verticalLayout_146")
+        self.lineEdit_17 = QtWidgets.QLineEdit(self.frame_82)
+        self.lineEdit_17.setObjectName("lineEdit_17")
+        self.verticalLayout_146.addWidget(self.lineEdit_17)
+        self.verticalLayout_106.addWidget(self.frame_82)
+        self.frame_83 = QtWidgets.QFrame(self.page_26)
+        self.frame_83.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_83.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_83.setObjectName("frame_83")
+        self.verticalLayout_147 = QtWidgets.QVBoxLayout(self.frame_83)
+        self.verticalLayout_147.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_147.setSpacing(0)
+        self.verticalLayout_147.setObjectName("verticalLayout_147")
+        self.proceedLesson1_2Test_pushButton = QtWidgets.QPushButton(self.frame_83)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.proceedLesson1_2Test_pushButton.setFont(font)
+        self.proceedLesson1_2Test_pushButton.setStyleSheet("#proceedLesson1_2Test_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson1_2Test_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson1_2Test_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson1_2Test_pushButton.setIcon(icon14)
+        self.proceedLesson1_2Test_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson1_2Test_pushButton.setObjectName("proceedLesson1_2Test_pushButton")
+        self.verticalLayout_147.addWidget(self.proceedLesson1_2Test_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_106.addWidget(self.frame_83)
         self.lessonInfo2SubContainer.addWidget(self.page_26)
-        self.page_27 = QtWidgets.QWidget()
-        self.page_27.setObjectName("page_27")
-        self.verticalLayout_125 = QtWidgets.QVBoxLayout(self.page_27)
-        self.verticalLayout_125.setObjectName("verticalLayout_125")
-        self.frame_75 = QtWidgets.QFrame(self.page_27)
-        self.frame_75.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_75.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_75.setObjectName("frame_75")
-        self.verticalLayout_126 = QtWidgets.QVBoxLayout(self.frame_75)
-        self.verticalLayout_126.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_126.setSpacing(0)
-        self.verticalLayout_126.setObjectName("verticalLayout_126")
-        self.label_54 = QtWidgets.QLabel(self.frame_75)
-        self.label_54.setObjectName("label_54")
-        self.verticalLayout_126.addWidget(self.label_54)
-        self.verticalLayout_125.addWidget(self.frame_75)
-        self.frame_76 = QtWidgets.QFrame(self.page_27)
-        self.frame_76.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_76.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_76.setObjectName("frame_76")
-        self.verticalLayout_127 = QtWidgets.QVBoxLayout(self.frame_76)
-        self.verticalLayout_127.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_127.setSpacing(0)
-        self.verticalLayout_127.setObjectName("verticalLayout_127")
-        self.lineEdit_15 = QtWidgets.QLineEdit(self.frame_76)
-        self.lineEdit_15.setObjectName("lineEdit_15")
-        self.verticalLayout_127.addWidget(self.lineEdit_15)
-        self.verticalLayout_125.addWidget(self.frame_76)
-        self.frame_87 = QtWidgets.QFrame(self.page_27)
-        self.frame_87.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_87.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_87.setObjectName("frame_87")
-        self.verticalLayout_151 = QtWidgets.QVBoxLayout(self.frame_87)
-        self.verticalLayout_151.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_151.setSpacing(0)
-        self.verticalLayout_151.setObjectName("verticalLayout_151")
-        self.pushButton_30 = QtWidgets.QPushButton(self.frame_87)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton_30.setFont(font)
-        self.pushButton_30.setIcon(icon14)
-        self.pushButton_30.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_30.setObjectName("pushButton_30")
-        self.verticalLayout_151.addWidget(self.pushButton_30)
-        self.verticalLayout_125.addWidget(self.frame_87)
-        self.lessonInfo2SubContainer.addWidget(self.page_27)
-        self.page_39 = QtWidgets.QWidget()
-        self.page_39.setObjectName("page_39")
-        self.verticalLayout_152 = QtWidgets.QVBoxLayout(self.page_39)
-        self.verticalLayout_152.setObjectName("verticalLayout_152")
-        self.frame_88 = QtWidgets.QFrame(self.page_39)
-        self.frame_88.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_88.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_88.setObjectName("frame_88")
-        self.verticalLayout_156 = QtWidgets.QVBoxLayout(self.frame_88)
-        self.verticalLayout_156.setContentsMargins(0, 0, -1, 0)
-        self.verticalLayout_156.setSpacing(0)
-        self.verticalLayout_156.setObjectName("verticalLayout_156")
-        self.label_56 = QtWidgets.QLabel(self.frame_88)
-        self.label_56.setObjectName("label_56")
-        self.verticalLayout_156.addWidget(self.label_56)
-        self.verticalLayout_152.addWidget(self.frame_88)
-        self.frame_89 = QtWidgets.QFrame(self.page_39)
-        self.frame_89.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_89.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_89.setObjectName("frame_89")
-        self.verticalLayout_155 = QtWidgets.QVBoxLayout(self.frame_89)
-        self.verticalLayout_155.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_155.setSpacing(0)
-        self.verticalLayout_155.setObjectName("verticalLayout_155")
-        self.lineEdit_19 = QtWidgets.QLineEdit(self.frame_89)
-        self.lineEdit_19.setObjectName("lineEdit_19")
-        self.verticalLayout_155.addWidget(self.lineEdit_19)
-        self.verticalLayout_152.addWidget(self.frame_89)
-        self.frame_90 = QtWidgets.QFrame(self.page_39)
-        self.frame_90.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_90.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_90.setObjectName("frame_90")
-        self.verticalLayout_154 = QtWidgets.QVBoxLayout(self.frame_90)
-        self.verticalLayout_154.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_154.setSpacing(0)
-        self.verticalLayout_154.setObjectName("verticalLayout_154")
-        self.pushButton_32 = QtWidgets.QPushButton(self.frame_90)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton_32.setFont(font)
-        self.pushButton_32.setIcon(icon14)
-        self.pushButton_32.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_32.setObjectName("pushButton_32")
-        self.verticalLayout_154.addWidget(self.pushButton_32)
-        self.verticalLayout_152.addWidget(self.frame_90)
-        self.lessonInfo2SubContainer.addWidget(self.page_39)
-        self.page_40 = QtWidgets.QWidget()
-        self.page_40.setObjectName("page_40")
-        self.verticalLayout_153 = QtWidgets.QVBoxLayout(self.page_40)
-        self.verticalLayout_153.setObjectName("verticalLayout_153")
-        self.frame_91 = QtWidgets.QFrame(self.page_40)
-        self.frame_91.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_91.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_91.setObjectName("frame_91")
-        self.verticalLayout_157 = QtWidgets.QVBoxLayout(self.frame_91)
-        self.verticalLayout_157.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_157.setSpacing(0)
-        self.verticalLayout_157.setObjectName("verticalLayout_157")
-        self.label_57 = QtWidgets.QLabel(self.frame_91)
-        self.label_57.setObjectName("label_57")
-        self.verticalLayout_157.addWidget(self.label_57)
-        self.verticalLayout_153.addWidget(self.frame_91)
-        self.frame_92 = QtWidgets.QFrame(self.page_40)
-        self.frame_92.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_92.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_92.setObjectName("frame_92")
-        self.verticalLayout_158 = QtWidgets.QVBoxLayout(self.frame_92)
-        self.verticalLayout_158.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_158.setSpacing(0)
-        self.verticalLayout_158.setObjectName("verticalLayout_158")
-        self.lineEdit_18 = QtWidgets.QLineEdit(self.frame_92)
-        self.lineEdit_18.setObjectName("lineEdit_18")
-        self.verticalLayout_158.addWidget(self.lineEdit_18)
-        self.verticalLayout_153.addWidget(self.frame_92)
-        self.frame_93 = QtWidgets.QFrame(self.page_40)
-        self.frame_93.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_93.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_93.setObjectName("frame_93")
-        self.verticalLayout_159 = QtWidgets.QVBoxLayout(self.frame_93)
-        self.verticalLayout_159.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_159.setSpacing(0)
-        self.verticalLayout_159.setObjectName("verticalLayout_159")
-        self.pushButton_31 = QtWidgets.QPushButton(self.frame_93)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton_31.setFont(font)
-        self.pushButton_31.setIcon(icon14)
-        self.pushButton_31.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_31.setObjectName("pushButton_31")
-        self.verticalLayout_159.addWidget(self.pushButton_31)
-        self.verticalLayout_153.addWidget(self.frame_93)
-        self.lessonInfo2SubContainer.addWidget(self.page_40)
         self.verticalLayout_109.addWidget(self.lessonInfo2SubContainer)
         self.verticalLayout_108.addWidget(self.lessonInfo2Container)
         self.horizontalLayout_3.addWidget(self.frame_26)
@@ -2408,11 +1973,11 @@ class Ui_dashboardWindow(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.lesson3_1CpushButton.setFont(font)
-        self.lesson3_1CpushButton.setStyleSheet("QPushButton#lesson3_1BpushButton:hover{\n"
+        self.lesson3_1CpushButton.setStyleSheet("QPushButton#lesson3_1CpushButton:hover{\n"
 "    color: rgb(145, 173, 179);\n"
 "    border-radius: 5px\n"
 "}\n"
-"QPushButton#lesson3_1BpushButton:pressed{\n"
+"QPushButton#lesson3_1CpushButton:pressed{\n"
 "    color: rgb(244, 77, 0);\n"
 "}\n"
 "")
@@ -2638,6 +2203,7 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_128.setSpacing(0)
         self.verticalLayout_128.setObjectName("verticalLayout_128")
         self.lessonInfo3Container = QtWidgets.QWidget(self.frame_28)
+        self.lessonInfo3Container.setStyleSheet("background-color: rgb(12, 127, 119);")
         self.lessonInfo3Container.setObjectName("lessonInfo3Container")
         self.verticalLayout_131 = QtWidgets.QVBoxLayout(self.lessonInfo3Container)
         self.verticalLayout_131.setContentsMargins(0, 0, 0, 0)
@@ -2710,14 +2276,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_186.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_186.setSpacing(0)
         self.verticalLayout_186.setObjectName("verticalLayout_186")
-        self.pushButton_41 = QtWidgets.QPushButton(self.frame_106)
+        self.proceedLesson3_1A_pushButton = QtWidgets.QPushButton(self.frame_106)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_41.setFont(font)
-        self.pushButton_41.setIcon(icon14)
-        self.pushButton_41.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_41.setObjectName("pushButton_41")
-        self.verticalLayout_186.addWidget(self.pushButton_41)
+        self.proceedLesson3_1A_pushButton.setFont(font)
+        self.proceedLesson3_1A_pushButton.setStyleSheet("#proceedLesson3_1A_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_1A_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_1A_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_1A_pushButton.setIcon(icon14)
+        self.proceedLesson3_1A_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_1A_pushButton.setObjectName("proceedLesson3_1A_pushButton")
+        self.verticalLayout_186.addWidget(self.proceedLesson3_1A_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_168.addWidget(self.frame_106)
         self.lessonInfo3SubContainer.addWidget(self.page_36)
         self.page_41 = QtWidgets.QWidget()
@@ -2756,14 +2334,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_183.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_183.setSpacing(0)
         self.verticalLayout_183.setObjectName("verticalLayout_183")
-        self.pushButton_42 = QtWidgets.QPushButton(self.frame_109)
+        self.proceedLesson3_1B_pushButton = QtWidgets.QPushButton(self.frame_109)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_42.setFont(font)
-        self.pushButton_42.setIcon(icon14)
-        self.pushButton_42.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_42.setObjectName("pushButton_42")
-        self.verticalLayout_183.addWidget(self.pushButton_42)
+        self.proceedLesson3_1B_pushButton.setFont(font)
+        self.proceedLesson3_1B_pushButton.setStyleSheet("#proceedLesson3_1B_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_1B_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_1B_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_1B_pushButton.setIcon(icon14)
+        self.proceedLesson3_1B_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_1B_pushButton.setObjectName("proceedLesson3_1B_pushButton")
+        self.verticalLayout_183.addWidget(self.proceedLesson3_1B_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_169.addWidget(self.frame_109)
         self.lessonInfo3SubContainer.addWidget(self.page_41)
         self.page_42 = QtWidgets.QWidget()
@@ -2802,14 +2392,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_191.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_191.setSpacing(0)
         self.verticalLayout_191.setObjectName("verticalLayout_191")
-        self.pushButton_43 = QtWidgets.QPushButton(self.frame_112)
+        self.proceedLesson3_1C_pushButton = QtWidgets.QPushButton(self.frame_112)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_43.setFont(font)
-        self.pushButton_43.setIcon(icon14)
-        self.pushButton_43.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_43.setObjectName("pushButton_43")
-        self.verticalLayout_191.addWidget(self.pushButton_43)
+        self.proceedLesson3_1C_pushButton.setFont(font)
+        self.proceedLesson3_1C_pushButton.setStyleSheet("#proceedLesson3_1C_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_1C_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_1C_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_1C_pushButton.setIcon(icon14)
+        self.proceedLesson3_1C_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_1C_pushButton.setObjectName("proceedLesson3_1C_pushButton")
+        self.verticalLayout_191.addWidget(self.proceedLesson3_1C_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_170.addWidget(self.frame_112)
         self.lessonInfo3SubContainer.addWidget(self.page_42)
         self.page_43 = QtWidgets.QWidget()
@@ -2848,14 +2450,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_194.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_194.setSpacing(0)
         self.verticalLayout_194.setObjectName("verticalLayout_194")
-        self.pushButton_44 = QtWidgets.QPushButton(self.frame_115)
+        self.proceedLesson3_1Test_pushButton = QtWidgets.QPushButton(self.frame_115)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_44.setFont(font)
-        self.pushButton_44.setIcon(icon14)
-        self.pushButton_44.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_44.setObjectName("pushButton_44")
-        self.verticalLayout_194.addWidget(self.pushButton_44)
+        self.proceedLesson3_1Test_pushButton.setFont(font)
+        self.proceedLesson3_1Test_pushButton.setStyleSheet("#proceedLesson3_1Test_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_1Test_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_1Test_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_1Test_pushButton.setIcon(icon14)
+        self.proceedLesson3_1Test_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_1Test_pushButton.setObjectName("proceedLesson3_1Test_pushButton")
+        self.verticalLayout_194.addWidget(self.proceedLesson3_1Test_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_171.addWidget(self.frame_115)
         self.lessonInfo3SubContainer.addWidget(self.page_43)
         self.page_44 = QtWidgets.QWidget()
@@ -2888,14 +2502,26 @@ class Ui_dashboardWindow(object):
         self.frame_118.setObjectName("frame_118")
         self.verticalLayout_197 = QtWidgets.QVBoxLayout(self.frame_118)
         self.verticalLayout_197.setObjectName("verticalLayout_197")
-        self.pushButton_45 = QtWidgets.QPushButton(self.frame_118)
+        self.proceedLesson3_2_pushButton = QtWidgets.QPushButton(self.frame_118)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_45.setFont(font)
-        self.pushButton_45.setIcon(icon14)
-        self.pushButton_45.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_45.setObjectName("pushButton_45")
-        self.verticalLayout_197.addWidget(self.pushButton_45)
+        self.proceedLesson3_2_pushButton.setFont(font)
+        self.proceedLesson3_2_pushButton.setStyleSheet("#proceedLesson3_2_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_2_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_2_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_2_pushButton.setIcon(icon14)
+        self.proceedLesson3_2_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_2_pushButton.setObjectName("proceedLesson3_2_pushButton")
+        self.verticalLayout_197.addWidget(self.proceedLesson3_2_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_172.addWidget(self.frame_118)
         self.lessonInfo3SubContainer.addWidget(self.page_44)
         self.page_45 = QtWidgets.QWidget()
@@ -2963,14 +2589,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_202.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_202.setSpacing(0)
         self.verticalLayout_202.setObjectName("verticalLayout_202")
-        self.pushButton_47 = QtWidgets.QPushButton(self.frame_124)
+        self.proceedLesson3_3A_pushButton = QtWidgets.QPushButton(self.frame_124)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_47.setFont(font)
-        self.pushButton_47.setIcon(icon14)
-        self.pushButton_47.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_47.setObjectName("pushButton_47")
-        self.verticalLayout_202.addWidget(self.pushButton_47)
+        self.proceedLesson3_3A_pushButton.setFont(font)
+        self.proceedLesson3_3A_pushButton.setStyleSheet("#proceedLesson3_3A_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_3A_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_3A_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_3A_pushButton.setIcon(icon14)
+        self.proceedLesson3_3A_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_3A_pushButton.setObjectName("proceedLesson3_3A_pushButton")
+        self.verticalLayout_202.addWidget(self.proceedLesson3_3A_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_174.addWidget(self.frame_124)
         self.lessonInfo3SubContainer.addWidget(self.page_46)
         self.page_47 = QtWidgets.QWidget()
@@ -3009,14 +2647,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_205.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_205.setSpacing(0)
         self.verticalLayout_205.setObjectName("verticalLayout_205")
-        self.pushButton_48 = QtWidgets.QPushButton(self.frame_127)
+        self.proceedLesson3_3B_pushButton = QtWidgets.QPushButton(self.frame_127)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_48.setFont(font)
-        self.pushButton_48.setIcon(icon14)
-        self.pushButton_48.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_48.setObjectName("pushButton_48")
-        self.verticalLayout_205.addWidget(self.pushButton_48)
+        self.proceedLesson3_3B_pushButton.setFont(font)
+        self.proceedLesson3_3B_pushButton.setStyleSheet("#proceedLesson3_3B_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_3B_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_3B_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_3B_pushButton.setIcon(icon14)
+        self.proceedLesson3_3B_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_3B_pushButton.setObjectName("proceedLesson3_3B_pushButton")
+        self.verticalLayout_205.addWidget(self.proceedLesson3_3B_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_175.addWidget(self.frame_127)
         self.lessonInfo3SubContainer.addWidget(self.page_47)
         self.page_48 = QtWidgets.QWidget()
@@ -3055,14 +2705,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_208.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_208.setSpacing(0)
         self.verticalLayout_208.setObjectName("verticalLayout_208")
-        self.pushButton_49 = QtWidgets.QPushButton(self.frame_130)
+        self.proceedLesson3_3C_pushButton = QtWidgets.QPushButton(self.frame_130)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_49.setFont(font)
-        self.pushButton_49.setIcon(icon14)
-        self.pushButton_49.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_49.setObjectName("pushButton_49")
-        self.verticalLayout_208.addWidget(self.pushButton_49)
+        self.proceedLesson3_3C_pushButton.setFont(font)
+        self.proceedLesson3_3C_pushButton.setStyleSheet("#proceedLesson3_3C_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_3C_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_3C_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_3C_pushButton.setIcon(icon14)
+        self.proceedLesson3_3C_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_3C_pushButton.setObjectName("proceedLesson3_3C_pushButton")
+        self.verticalLayout_208.addWidget(self.proceedLesson3_3C_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_176.addWidget(self.frame_130)
         self.lessonInfo3SubContainer.addWidget(self.page_48)
         self.page_49 = QtWidgets.QWidget()
@@ -3101,14 +2763,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_211.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_211.setSpacing(0)
         self.verticalLayout_211.setObjectName("verticalLayout_211")
-        self.pushButton_50 = QtWidgets.QPushButton(self.frame_133)
+        self.proceedLesson3_3Test_pushButton = QtWidgets.QPushButton(self.frame_133)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_50.setFont(font)
-        self.pushButton_50.setIcon(icon14)
-        self.pushButton_50.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_50.setObjectName("pushButton_50")
-        self.verticalLayout_211.addWidget(self.pushButton_50)
+        self.proceedLesson3_3Test_pushButton.setFont(font)
+        self.proceedLesson3_3Test_pushButton.setStyleSheet("#proceedLesson3_3Test_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_3Test_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_3Test_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_3Test_pushButton.setIcon(icon14)
+        self.proceedLesson3_3Test_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_3Test_pushButton.setObjectName("proceedLesson3_3Test_pushButton")
+        self.verticalLayout_211.addWidget(self.proceedLesson3_3Test_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_177.addWidget(self.frame_133)
         self.lessonInfo3SubContainer.addWidget(self.page_49)
         self.page_50 = QtWidgets.QWidget()
@@ -3176,14 +2850,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_216.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_216.setSpacing(0)
         self.verticalLayout_216.setObjectName("verticalLayout_216")
-        self.pushButton_52 = QtWidgets.QPushButton(self.frame_139)
+        self.proceedLesson3_4A_pushButton = QtWidgets.QPushButton(self.frame_139)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_52.setFont(font)
-        self.pushButton_52.setIcon(icon14)
-        self.pushButton_52.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_52.setObjectName("pushButton_52")
-        self.verticalLayout_216.addWidget(self.pushButton_52)
+        self.proceedLesson3_4A_pushButton.setFont(font)
+        self.proceedLesson3_4A_pushButton.setStyleSheet("#proceedLesson3_4A_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_4A_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_4A_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_4A_pushButton.setIcon(icon14)
+        self.proceedLesson3_4A_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_4A_pushButton.setObjectName("proceedLesson3_4A_pushButton")
+        self.verticalLayout_216.addWidget(self.proceedLesson3_4A_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_179.addWidget(self.frame_139)
         self.lessonInfo3SubContainer.addWidget(self.page_51)
         self.page_52 = QtWidgets.QWidget()
@@ -3222,14 +2908,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_219.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_219.setSpacing(0)
         self.verticalLayout_219.setObjectName("verticalLayout_219")
-        self.pushButton_53 = QtWidgets.QPushButton(self.frame_142)
+        self.proceedLesson3_4B_pushButton = QtWidgets.QPushButton(self.frame_142)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_53.setFont(font)
-        self.pushButton_53.setIcon(icon14)
-        self.pushButton_53.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_53.setObjectName("pushButton_53")
-        self.verticalLayout_219.addWidget(self.pushButton_53)
+        self.proceedLesson3_4B_pushButton.setFont(font)
+        self.proceedLesson3_4B_pushButton.setStyleSheet("#proceedLesson3_4B_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_4B_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_4B_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_4B_pushButton.setIcon(icon14)
+        self.proceedLesson3_4B_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_4B_pushButton.setObjectName("proceedLesson3_4B_pushButton")
+        self.verticalLayout_219.addWidget(self.proceedLesson3_4B_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_180.addWidget(self.frame_142)
         self.lessonInfo3SubContainer.addWidget(self.page_52)
         self.page_53 = QtWidgets.QWidget()
@@ -3268,14 +2966,26 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_222.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_222.setSpacing(0)
         self.verticalLayout_222.setObjectName("verticalLayout_222")
-        self.pushButton_54 = QtWidgets.QPushButton(self.frame_145)
+        self.proceedLesson3_4C_pushButton = QtWidgets.QPushButton(self.frame_145)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_54.setFont(font)
-        self.pushButton_54.setIcon(icon14)
-        self.pushButton_54.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_54.setObjectName("pushButton_54")
-        self.verticalLayout_222.addWidget(self.pushButton_54)
+        self.proceedLesson3_4C_pushButton.setFont(font)
+        self.proceedLesson3_4C_pushButton.setStyleSheet("#proceedLesson3_4C_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_4C_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_4C_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_4C_pushButton.setIcon(icon14)
+        self.proceedLesson3_4C_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_4C_pushButton.setObjectName("proceedLesson3_4C_pushButton")
+        self.verticalLayout_222.addWidget(self.proceedLesson3_4C_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_181.addWidget(self.frame_145)
         self.lessonInfo3SubContainer.addWidget(self.page_53)
         self.page_54 = QtWidgets.QWidget()
@@ -3314,16 +3024,33 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_225.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_225.setSpacing(0)
         self.verticalLayout_225.setObjectName("verticalLayout_225")
-        self.pushButton_55 = QtWidgets.QPushButton(self.frame_148)
+        self.proceedLesson3_4Test_pushButton = QtWidgets.QPushButton(self.frame_148)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.pushButton_55.setFont(font)
-        self.pushButton_55.setIcon(icon14)
-        self.pushButton_55.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_55.setObjectName("pushButton_55")
-        self.verticalLayout_225.addWidget(self.pushButton_55)
+        self.proceedLesson3_4Test_pushButton.setFont(font)
+        self.proceedLesson3_4Test_pushButton.setStyleSheet("#proceedLesson3_4Test_pushButton{\n"
+"    background-color: rgb(8, 94, 87);    \n"
+"    padding-right: 10px;\n"
+"}\n"
+"#proceedLesson3_4Test_pushButton:hover{\n"
+"    background-color: rgb(4, 59, 54);\n"
+"}\n"
+"#proceedLesson3_4Test_pushButton:pressed{\n"
+"    background-color: rgb(150, 150, 150);\n"
+"}\n"
+"\n"
+"")
+        self.proceedLesson3_4Test_pushButton.setIcon(icon14)
+        self.proceedLesson3_4Test_pushButton.setIconSize(QtCore.QSize(60, 60))
+        self.proceedLesson3_4Test_pushButton.setObjectName("proceedLesson3_4Test_pushButton")
+        self.verticalLayout_225.addWidget(self.proceedLesson3_4Test_pushButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_182.addWidget(self.frame_148)
         self.lessonInfo3SubContainer.addWidget(self.page_54)
+        self.page_28 = QtWidgets.QWidget()
+        self.page_28.setObjectName("page_28")
+        self.verticalLayout_238 = QtWidgets.QVBoxLayout(self.page_28)
+        self.verticalLayout_238.setObjectName("verticalLayout_238")
+        self.lessonInfo3SubContainer.addWidget(self.page_28)
         self.verticalLayout_131.addWidget(self.lessonInfo3SubContainer)
         self.verticalLayout_128.addWidget(self.lessonInfo3Container)
         self.horizontalLayout_4.addWidget(self.frame_28)
@@ -3471,6 +3198,7 @@ class Ui_dashboardWindow(object):
         self.horizontalLayout_6.addWidget(self.mainContentsContainer)
         self.rightMenuContainer = QtWidgets.QWidget(self.mainBodyContent)
         self.rightMenuContainer.setMinimumSize(QtCore.QSize(0, 0))
+        self.rightMenuContainer.setMaximumSize(QtCore.QSize(250, 16777215))
         self.rightMenuContainer.setObjectName("rightMenuContainer")
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.rightMenuContainer)
         self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
@@ -3484,6 +3212,7 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_13.setSpacing(5)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
         self.frame_8 = QtWidgets.QFrame(self.rightMenuSubContainer)
+        self.frame_8.setStyleSheet("background-color: rgb(12, 127, 119);")
         self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_8.setObjectName("frame_8")
@@ -3503,6 +3232,7 @@ class Ui_dashboardWindow(object):
 "}\n"
 "#closeRightMenu_pushButton:pressed{\n"
 "    background-color: rgb(78, 93, 100);\n"
+"    border-radius: 20px\n"
 "}")
         self.closeRightMenu_pushButton.setText("")
         self.closeRightMenu_pushButton.setIcon(icon13)
@@ -3552,7 +3282,7 @@ class Ui_dashboardWindow(object):
         font = QtGui.QFont()
         font.setPointSize(13)
         self.label_11.setFont(font)
-        self.label_11.setStyleSheet("    background-color: rgb(0, 34, 50);    ")
+        self.label_11.setStyleSheet("background-color: rgb(12, 127, 119);")
         self.label_11.setAlignment(QtCore.Qt.AlignCenter)
         self.label_11.setObjectName("label_11")
         self.verticalLayout_49.addWidget(self.label_11)
@@ -3570,49 +3300,148 @@ class Ui_dashboardWindow(object):
         self.frame_37.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_37.setObjectName("frame_37")
         self.verticalLayout_50 = QtWidgets.QVBoxLayout(self.frame_37)
-        self.verticalLayout_50.setContentsMargins(0, 10, 0, 10)
-        self.verticalLayout_50.setSpacing(10)
+        self.verticalLayout_50.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_50.setSpacing(5)
         self.verticalLayout_50.setObjectName("verticalLayout_50")
-        self.label = QtWidgets.QLabel(self.frame_37)
+        self.frame_162 = QtWidgets.QFrame(self.frame_37)
+        self.frame_162.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_162.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_162.setObjectName("frame_162")
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.frame_162)
+        self.horizontalLayout_23.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_23.setSpacing(0)
+        self.horizontalLayout_23.setObjectName("horizontalLayout_23")
+        self.frame_165 = QtWidgets.QFrame(self.frame_162)
+        self.frame_165.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_165.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_165.setObjectName("frame_165")
+        self.verticalLayout_239 = QtWidgets.QVBoxLayout(self.frame_165)
+        self.verticalLayout_239.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_239.setSpacing(0)
+        self.verticalLayout_239.setObjectName("verticalLayout_239")
+        self.label = QtWidgets.QLabel(self.frame_165)
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label.setFont(font)
-        self.label.setScaledContents(False)
-        self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label.setObjectName("label")
-        self.verticalLayout_50.addWidget(self.label)
-        self.label_2 = QtWidgets.QLabel(self.frame_37)
+        self.verticalLayout_239.addWidget(self.label)
+        self.horizontalLayout_23.addWidget(self.frame_165)
+        self.frame_164 = QtWidgets.QFrame(self.frame_162)
+        self.frame_164.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_164.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_164.setObjectName("frame_164")
+        self.verticalLayout_240 = QtWidgets.QVBoxLayout(self.frame_164)
+        self.verticalLayout_240.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_240.setSpacing(0)
+        self.verticalLayout_240.setObjectName("verticalLayout_240")
+        self.profNameLineEdit = QtWidgets.QTextEdit(self.frame_164)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.profNameLineEdit.sizePolicy().hasHeightForWidth())
+        self.profNameLineEdit.setSizePolicy(sizePolicy)
+        self.profNameLineEdit.setMaximumSize(QtCore.QSize(16777215, 60))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.profNameLineEdit.setFont(font)
+        self.profNameLineEdit.setReadOnly(True)
+        self.profNameLineEdit.setObjectName("profNameLineEdit")
+        self.verticalLayout_240.addWidget(self.profNameLineEdit)
+        self.horizontalLayout_23.addWidget(self.frame_164)
+        self.verticalLayout_50.addWidget(self.frame_162, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.frame_163 = QtWidgets.QFrame(self.frame_37)
+        self.frame_163.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_163.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_163.setObjectName("frame_163")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout(self.frame_163)
+        self.horizontalLayout_24.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_24.setSpacing(0)
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.frame_167 = QtWidgets.QFrame(self.frame_163)
+        self.frame_167.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_167.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_167.setObjectName("frame_167")
+        self.verticalLayout_241 = QtWidgets.QVBoxLayout(self.frame_167)
+        self.verticalLayout_241.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_241.setSpacing(0)
+        self.verticalLayout_241.setObjectName("verticalLayout_241")
+        self.label_2 = QtWidgets.QLabel(self.frame_167)
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label_2.setFont(font)
-        self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_2.setObjectName("label_2")
-        self.verticalLayout_50.addWidget(self.label_2)
-        self.label_3 = QtWidgets.QLabel(self.frame_37)
+        self.verticalLayout_241.addWidget(self.label_2)
+        self.horizontalLayout_24.addWidget(self.frame_167)
+        self.frame_168 = QtWidgets.QFrame(self.frame_163)
+        self.frame_168.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_168.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_168.setObjectName("frame_168")
+        self.verticalLayout_242 = QtWidgets.QVBoxLayout(self.frame_168)
+        self.verticalLayout_242.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_242.setSpacing(0)
+        self.verticalLayout_242.setObjectName("verticalLayout_242")
+        self.profCourseLineEdit = QtWidgets.QTextEdit(self.frame_168)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.profCourseLineEdit.sizePolicy().hasHeightForWidth())
+        self.profCourseLineEdit.setSizePolicy(sizePolicy)
+        self.profCourseLineEdit.setMaximumSize(QtCore.QSize(16777215, 26))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.profCourseLineEdit.setFont(font)
+        self.profCourseLineEdit.setReadOnly(True)
+        self.profCourseLineEdit.setObjectName("profCourseLineEdit")
+        self.verticalLayout_242.addWidget(self.profCourseLineEdit)
+        self.horizontalLayout_24.addWidget(self.frame_168)
+        self.verticalLayout_50.addWidget(self.frame_163)
+        self.frame_166 = QtWidgets.QFrame(self.frame_37)
+        self.frame_166.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_166.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_166.setObjectName("frame_166")
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout(self.frame_166)
+        self.horizontalLayout_25.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_25.setSpacing(0)
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.frame_169 = QtWidgets.QFrame(self.frame_166)
+        self.frame_169.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_169.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_169.setObjectName("frame_169")
+        self.verticalLayout_243 = QtWidgets.QVBoxLayout(self.frame_169)
+        self.verticalLayout_243.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_243.setSpacing(0)
+        self.verticalLayout_243.setObjectName("verticalLayout_243")
+        self.label_3 = QtWidgets.QLabel(self.frame_169)
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label_3.setFont(font)
-        self.label_3.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_3.setObjectName("label_3")
-        self.verticalLayout_50.addWidget(self.label_3)
-        self.label_29 = QtWidgets.QLabel(self.frame_37)
+        self.verticalLayout_243.addWidget(self.label_3)
+        self.horizontalLayout_25.addWidget(self.frame_169)
+        self.frame_170 = QtWidgets.QFrame(self.frame_166)
+        self.frame_170.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_170.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_170.setObjectName("frame_170")
+        self.verticalLayout_244 = QtWidgets.QVBoxLayout(self.frame_170)
+        self.verticalLayout_244.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_244.setSpacing(0)
+        self.verticalLayout_244.setObjectName("verticalLayout_244")
+        self.profSchoolLineEdit = QtWidgets.QTextEdit(self.frame_170)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.profSchoolLineEdit.sizePolicy().hasHeightForWidth())
+        self.profSchoolLineEdit.setSizePolicy(sizePolicy)
+        self.profSchoolLineEdit.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setPointSize(11)
-        self.label_29.setFont(font)
-        self.label_29.setObjectName("label_29")
-        self.verticalLayout_50.addWidget(self.label_29)
-        self.label_28 = QtWidgets.QLabel(self.frame_37)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.label_28.setFont(font)
-        self.label_28.setObjectName("label_28")
-        self.verticalLayout_50.addWidget(self.label_28)
-        self.label_16 = QtWidgets.QLabel(self.frame_37)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.label_16.setFont(font)
-        self.label_16.setObjectName("label_16")
-        self.verticalLayout_50.addWidget(self.label_16)
+        self.profSchoolLineEdit.setFont(font)
+        self.profSchoolLineEdit.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.profSchoolLineEdit.setReadOnly(True)
+        self.profSchoolLineEdit.setObjectName("profSchoolLineEdit")
+        self.verticalLayout_244.addWidget(self.profSchoolLineEdit)
+        self.horizontalLayout_25.addWidget(self.frame_170)
+        self.verticalLayout_50.addWidget(self.frame_166)
         self.verticalLayout_51.addWidget(self.frame_37)
         self.verticalLayout_48.addWidget(self.frame_38)
         self.frame_40 = QtWidgets.QFrame(self.frame_35)
@@ -3628,19 +3457,23 @@ class Ui_dashboardWindow(object):
         font.setPointSize(12)
         self.updateAcc_pushButton.setFont(font)
         self.updateAcc_pushButton.setStyleSheet("#updateAcc_pushButton{\n"
-"    background-color: rgb(0, 34, 50);    \n"
-"    border-radius: 20px;\n"
-"    padding: 10px 5px;    \n"
+"background-color: rgb(12, 127, 119);    \n"
+"    border-radius: 3px;\n"
+"    padding: 10px 3px;    \n"
 "}\n"
 "\n"
 "#updateAcc_pushButton:hover{\n"
 "    background-color: rgb(145, 173, 179);\n"
-"    border-radius: 20px\n"
+"    border-radius: 3px\n"
 "}\n"
 "#updateAcc_pushButton:pressed{\n"
 "    background-color: rgb(78, 93, 100);\n"
 "}\n"
 "")
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap(":/icons/icons/rotate-ccw.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.updateAcc_pushButton.setIcon(icon15)
+        self.updateAcc_pushButton.setIconSize(QtCore.QSize(25, 25))
         self.updateAcc_pushButton.setObjectName("updateAcc_pushButton")
         self.horizontalLayout_22.addWidget(self.updateAcc_pushButton)
         self.logoutAcc_pushButton = QtWidgets.QPushButton(self.frame_40)
@@ -3648,19 +3481,23 @@ class Ui_dashboardWindow(object):
         font.setPointSize(12)
         self.logoutAcc_pushButton.setFont(font)
         self.logoutAcc_pushButton.setStyleSheet("#logoutAcc_pushButton{\n"
-"    background-color: rgb(0, 34, 50);    \n"
-"    border-radius: 20px;\n"
+"background-color: rgb(12, 127, 119);\n"
+"    border-radius: 3px;\n"
 "    padding: 10px 5px;    \n"
 "}\n"
 "\n"
 "#logoutAcc_pushButton:hover{\n"
 "    background-color: rgb(145, 173, 179);\n"
-"    border-radius: 20px\n"
+"    border-radius: 3px\n"
 "}\n"
 "#logoutAcc_pushButton:pressed{\n"
 "    background-color: rgb(78, 93, 100);\n"
 "}\n"
 "")
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap(":/icons/icons/log-out.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.logoutAcc_pushButton.setIcon(icon16)
+        self.logoutAcc_pushButton.setIconSize(QtCore.QSize(25, 25))
         self.logoutAcc_pushButton.setObjectName("logoutAcc_pushButton")
         self.horizontalLayout_22.addWidget(self.logoutAcc_pushButton)
         self.verticalLayout_48.addWidget(self.frame_40, 0, QtCore.Qt.AlignBottom)
@@ -3698,7 +3535,7 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_20.setSpacing(0)
         self.verticalLayout_20.setObjectName("verticalLayout_20")
         self.frame_31 = QtWidgets.QFrame(self.widget_4)
-        self.frame_31.setStyleSheet("    background-color: rgb(0, 52, 76);\n"
+        self.frame_31.setStyleSheet("background-color: rgb(12, 127, 119);\n"
 "    border-radius: 10px;")
         self.frame_31.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_31.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -3733,27 +3570,20 @@ class Ui_dashboardWindow(object):
         self.frame_32.setLineWidth(1)
         self.frame_32.setObjectName("frame_32")
         self.verticalLayout_45 = QtWidgets.QVBoxLayout(self.frame_32)
-        self.verticalLayout_45.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
-        self.verticalLayout_45.setContentsMargins(-1, -1, -1, 9)
-        self.verticalLayout_45.setSpacing(6)
         self.verticalLayout_45.setObjectName("verticalLayout_45")
-        self.chatReplies_TextEdit = QtWidgets.QTextEdit(self.frame_32)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.chatReplies_TextEdit.sizePolicy().hasHeightForWidth())
-        self.chatReplies_TextEdit.setSizePolicy(sizePolicy)
-        self.chatReplies_TextEdit.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.chatReplies_TextEdit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius:10px;\n"
-"color: rgb(0, 0, 0)")
-        self.chatReplies_TextEdit.setFrameShape(QtWidgets.QFrame.VLine)
-        self.chatReplies_TextEdit.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.chatReplies_TextEdit.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.chatReplies_TextEdit.setReadOnly(True)
-        self.chatReplies_TextEdit.setTabStopDistance(81.0)
-        self.chatReplies_TextEdit.setObjectName("chatReplies_TextEdit")
-        self.verticalLayout_45.addWidget(self.chatReplies_TextEdit)
+        self.scrollArea_2 = QtWidgets.QScrollArea(self.frame_32)
+        self.scrollArea_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;    ")
+        self.scrollArea_2.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollArea_2.setObjectName("scrollArea_2")
+        self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 213, 226))
+        self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
+        self.verticalLayout_83 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_83.setObjectName("verticalLayout_83")
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_45.addWidget(self.scrollArea_2)
         self.verticalLayout_43.addWidget(self.frame_32)
         self.verticalLayout_41.addWidget(self.widget_5)
         self.widget_39 = QtWidgets.QWidget(self.page_12)
@@ -4274,6 +4104,9 @@ class Ui_dashboardWindow(object):
         self.verticalLayout_44.setSpacing(0)
         self.verticalLayout_44.setObjectName("verticalLayout_44")
         self.chatSends_TextEdit = QtWidgets.QTextEdit(self.frame_9)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.chatSends_TextEdit.setFont(font)
         self.chatSends_TextEdit.setStyleSheet("color: rgb(0, 0, 0)")
         self.chatSends_TextEdit.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
         self.chatSends_TextEdit.setObjectName("chatSends_TextEdit")
@@ -4304,35 +4137,12 @@ class Ui_dashboardWindow(object):
 "\n"
 "")
         self.checkEquation_Button.setText("")
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(":/icons/icons/check-square.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.checkEquation_Button.setIcon(icon15)
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap(":/icons/icons/check-square.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.checkEquation_Button.setIcon(icon17)
         self.checkEquation_Button.setIconSize(QtCore.QSize(20, 20))
         self.checkEquation_Button.setObjectName("checkEquation_Button")
         self.verticalLayout_42.addWidget(self.checkEquation_Button)
-        self.openFunc_Button = QtWidgets.QPushButton(self.frame_10)
-        self.openFunc_Button.setStyleSheet("#openFunc_Button{\n"
-"    background-color: rgb(0, 34, 50);    \n"
-"    border-radius: 10px;\n"
-"    padding: 4 4 4 4;\n"
-"}\n"
-"#openFunc_Button:hover{\n"
-"    background-color: rgb(145, 173, 179);\n"
-"    border-radius: 20px\n"
-"}\n"
-"#openFunc_Button:pressed{\n"
-"    background-color: rgb(78, 93, 100);\n"
-"}\n"
-"\n"
-"\n"
-"")
-        self.openFunc_Button.setText("")
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(":/images/icons8-formula-fx-100.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.openFunc_Button.setIcon(icon16)
-        self.openFunc_Button.setIconSize(QtCore.QSize(20, 20))
-        self.openFunc_Button.setObjectName("openFunc_Button")
-        self.verticalLayout_42.addWidget(self.openFunc_Button)
         self.sendChat_Button = QtWidgets.QPushButton(self.frame_10)
         self.sendChat_Button.setStyleSheet("#sendChat_Button{\n"
 "    background-color: rgb(0, 34, 50);    \n"
@@ -4350,9 +4160,9 @@ class Ui_dashboardWindow(object):
 "\n"
 "")
         self.sendChat_Button.setText("")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap(":/icons/icons/send.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.sendChat_Button.setIcon(icon17)
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap(":/icons/icons/send.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.sendChat_Button.setIcon(icon18)
         self.sendChat_Button.setIconSize(QtCore.QSize(20, 20))
         self.sendChat_Button.setObjectName("sendChat_Button")
         self.verticalLayout_42.addWidget(self.sendChat_Button)
@@ -4394,10 +4204,10 @@ class Ui_dashboardWindow(object):
         dashboardWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(dashboardWindow)
-        self.centerMenuPages.setCurrentIndex(0)
+        self.centerMenuPages.setCurrentIndex(2)
         self.menuPages.setCurrentIndex(1)
         self.moduleMenuPages.setCurrentIndex(0)
-        self.rightMenuPages.setCurrentIndex(0)
+        self.rightMenuPages.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(dashboardWindow)
 
     def retranslateUi(self, dashboardWindow):
@@ -4450,98 +4260,53 @@ class Ui_dashboardWindow(object):
         self.assessment_pushButton.setText(_translate("dashboardWindow", "Assessment"))
         self.label_14.setText(_translate("dashboardWindow", "Modules"))
         self.label_20.setText(_translate("dashboardWindow", "Pre-Calculus Modules"))
-        self.module1_pushButton.setText(_translate("dashboardWindow", "Module 1:\n"
-"Analytic \n"
-"Geometry"))
-        self.module2_pushButton.setText(_translate("dashboardWindow", "Module 2:\n"
-"Series and\n"
-"Mathematical\n"
-"Induction"))
-        self.module3_pushButton.setText(_translate("dashboardWindow", "Module 3:\n"
-"The Circular\n"
-"Functions"))
-        self.module4_pushButton.setText(_translate("dashboardWindow", "Module 4:\n"
-"Inverse Circular,\n"
-"Trigonometric\n"
-"Equations,\n"
-"Polar Coordinate"))
+        self.module1_pushButton.setText(_translate("dashboardWindow", "Lesson 1:\n"
+"The Conics"))
+        self.module2_pushButton.setText(_translate("dashboardWindow", "Lesson 2: \n"
+"Systems of\n"
+"Non-Linear \n"
+"Equation"))
         self.label_26.setText(_translate("dashboardWindow", "Lessons ..."))
-        self.lesson1_1pushButton.setText(_translate("dashboardWindow", " Lesson 1.1 - The Conics"))
         self.lesson1_1ApushButton.setText(_translate("dashboardWindow", "1) Circle"))
         self.lesson1_1BpushButton.setText(_translate("dashboardWindow", "2) Parabola"))
         self.lesson1_1CpushButton.setText(_translate("dashboardWindow", "3) Ellipses"))
         self.lesson1_1DpushButton.setText(_translate("dashboardWindow", "4) Hyperbola"))
         self.lesson1_1TestpushButton.setText(_translate("dashboardWindow", "Unit Test"))
-        self.lesson1_2pushButton.setText(_translate("dashboardWindow", " Lesson 1.2 - Systems of \n"
-"Non-Linear Equations"))
-        self.lesson1_2ApushButton.setText(_translate("dashboardWindow", "1) Substitution Method"))
-        self.lesson1_2BpushButton.setText(_translate("dashboardWindow", "2) Elimination Method"))
-        self.lesson1_2CpushButton.setText(_translate("dashboardWindow", "3) Graphical Solutions \n"
-"and Equations"))
-        self.lesson1_2TestpushButton.setText(_translate("dashboardWindow", "Unit Test"))
         self.label_4.setText(_translate("dashboardWindow", "The Conics Photo"))
         self.lineEdit.setText(_translate("dashboardWindow", "The Conics Info"))
         self.label_9.setText(_translate("dashboardWindow", "Circle Photo"))
         self.lineEdit_2.setText(_translate("dashboardWindow", "Circle Info"))
-        self.pushButton_33.setText(_translate("dashboardWindow", "PushButton"))
+        self.proceedLesson1_1A_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_17.setText(_translate("dashboardWindow", "Parabola Photo"))
         self.lineEdit_3.setText(_translate("dashboardWindow", "Parabola Ino"))
-        self.pushButton_34.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson1_1B_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_22.setText(_translate("dashboardWindow", "Ellipses Photo"))
         self.lineEdit_4.setText(_translate("dashboardWindow", "Ellipses Info"))
-        self.pushButton_35.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson1_1C_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_45.setText(_translate("dashboardWindow", "Hyperbola Photo"))
         self.lineEdit_5.setText(_translate("dashboardWindow", "Hyperbola Info"))
-        self.pushButton_36.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson1_1D_pushButton.setText(_translate("dashboardWindow", "Proceed"))
+        self.label_24.setText(_translate("dashboardWindow", "Unit Test Conics"))
+        self.lineEdit_16.setText(_translate("dashboardWindow", "Unit Test Conics Info"))
+        self.proceedLesson1_1Test_pushButton.setText(_translate("dashboardWindow", "Proceed"))
+        self.lesson2_1ApushButton.setText(_translate("dashboardWindow", "1) Substitution Method"))
+        self.lesson2_1BpushButton.setText(_translate("dashboardWindow", "2) Elimination Method"))
+        self.lesson2_1CpushButton.setText(_translate("dashboardWindow", "3) Graphical Solutions and Equations"))
+        self.lesson2_1TestpushButton.setText(_translate("dashboardWindow", "Unit Test"))
         self.label_46.setText(_translate("dashboardWindow", "Systems of Non-Linear Equations Photo"))
         self.lineEdit_6.setText(_translate("dashboardWindow", "Systems of Non-Linear Equations Info"))
         self.label_47.setText(_translate("dashboardWindow", "Substitution Method Photo"))
         self.lineEdit_7.setText(_translate("dashboardWindow", "Substitution Method Info"))
-        self.pushButton_38.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson1_2A_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_48.setText(_translate("dashboardWindow", "Elimination Method Photo"))
         self.lineEdit_8.setText(_translate("dashboardWindow", "Elimination Method Info"))
-        self.pushButton_39.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson1_2B_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_49.setText(_translate("dashboardWindow", "Graphical Solutions and Equations Photo"))
         self.lineEdit_9.setText(_translate("dashboardWindow", "Graphical Solutions and Equations Info"))
-        self.pushButton_37.setText(_translate("dashboardWindow", "Proceed"))
-        self.label_24.setText(_translate("dashboardWindow", "Unit Test Conics"))
-        self.lineEdit_16.setText(_translate("dashboardWindow", "Unit Test Conics Info"))
-        self.pushButton_25.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson1_2C_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_55.setText(_translate("dashboardWindow", "Unit Test Systems"))
         self.lineEdit_17.setText(_translate("dashboardWindow", "Unit Test Systems Info"))
-        self.pushButton_26.setText(_translate("dashboardWindow", "Proceed"))
-        self.lesson2_1pushButton.setText(_translate("dashboardWindow", " Lesson 2.1 - Sequences\n"
-" and Series"))
-        self.lesson2_1ApushButton.setText(_translate("dashboardWindow", "1) Sequences"))
-        self.lesson2_1BpushButton.setText(_translate("dashboardWindow", "2) Sigma Notation"))
-        self.lesson2_1CpushButton.setText(_translate("dashboardWindow", "3) Series"))
-        self.lesson2_1TestpushButton.setText(_translate("dashboardWindow", "Unit Test"))
-        self.lesson2_2pushButton.setText(_translate("dashboardWindow", " Lesson 2.2 - Mathematical \n"
-"Induction"))
-        self.lesson2_2ApushButton.setText(_translate("dashboardWindow", "1) The Binomial Theorem"))
-        self.lesson2_2TestpushButton.setText(_translate("dashboardWindow", "Unit Test"))
-        self.label_23.setText(_translate("dashboardWindow", "Sequence and Series Photo"))
-        self.lineEdit_10.setText(_translate("dashboardWindow", "Sequence and Series Info"))
-        self.label_50.setText(_translate("dashboardWindow", "Sequence Photo"))
-        self.lineEdit_11.setText(_translate("dashboardWindow", "Sequence Info"))
-        self.pushButton_27.setText(_translate("dashboardWindow", "Proceed"))
-        self.label_51.setText(_translate("dashboardWindow", "Sigma Notation Photo"))
-        self.lineEdit_12.setText(_translate("dashboardWindow", "Sigma Notation Info"))
-        self.pushButton_28.setText(_translate("dashboardWindow", "Proceed"))
-        self.label_52.setText(_translate("dashboardWindow", "Series Photo"))
-        self.lineEdit_13.setText(_translate("dashboardWindow", "Series Info"))
-        self.pushButton_29.setText(_translate("dashboardWindow", "Proceed"))
-        self.label_53.setText(_translate("dashboardWindow", "Mathematical Induction Photo"))
-        self.lineEdit_14.setText(_translate("dashboardWindow", "Mathematical Induction Info"))
-        self.label_54.setText(_translate("dashboardWindow", "Binomial Theorem Photo"))
-        self.lineEdit_15.setText(_translate("dashboardWindow", "Binomial Theorem Info"))
-        self.pushButton_30.setText(_translate("dashboardWindow", "Proceed"))
-        self.label_56.setText(_translate("dashboardWindow", "Unit Test Sequences"))
-        self.lineEdit_19.setText(_translate("dashboardWindow", "Unit Test Sequences Info"))
-        self.pushButton_32.setText(_translate("dashboardWindow", "Proceed"))
-        self.label_57.setText(_translate("dashboardWindow", "Unit Test Mathematical Induction"))
-        self.lineEdit_18.setText(_translate("dashboardWindow", "Unit Test Mathematical Induction Info"))
-        self.pushButton_31.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson1_2Test_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.lesson3_1pushButton.setText(_translate("dashboardWindow", " Lesson 3.1 - Angles in \n"
 "Standard Positions"))
         self.lesson3_1ApushButton.setText(_translate("dashboardWindow", "1) Measuring Angles in Radians"))
@@ -4565,63 +4330,74 @@ class Ui_dashboardWindow(object):
         self.lineEdit_20.setText(_translate("dashboardWindow", "Angels in Standard Positions Info"))
         self.label_59.setText(_translate("dashboardWindow", "Measuring Angels in Radians Photo"))
         self.lineEdit_21.setText(_translate("dashboardWindow", "Measuring Angles in Radians Info"))
-        self.pushButton_41.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_1A_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_60.setText(_translate("dashboardWindow", "Coterminal Angles Photo"))
         self.lineEdit_22.setText(_translate("dashboardWindow", "Coterminal Angles Info"))
-        self.pushButton_42.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_1B_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_61.setText(_translate("dashboardWindow", "Reference Angles Photo"))
         self.lineEdit_23.setText(_translate("dashboardWindow", "Reference Angles Info"))
-        self.pushButton_43.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_1C_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_62.setText(_translate("dashboardWindow", "Unit Test Angles in Standard "))
         self.lineEdit_24.setText(_translate("dashboardWindow", "Unit Test Angles in Standard Info"))
-        self.pushButton_44.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_1Test_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_63.setText(_translate("dashboardWindow", "Circular Funtion Photo"))
         self.lineEdit_25.setText(_translate("dashboardWindow", "Circular Function Info"))
-        self.pushButton_45.setText(_translate("dashboardWindow", "PushButton"))
+        self.proceedLesson3_2_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_64.setText(_translate("dashboardWindow", "Graphs of Circular Function Photo"))
         self.lineEdit_26.setText(_translate("dashboardWindow", "Graphs of Circular Function Info"))
         self.label_65.setText(_translate("dashboardWindow", "Graphs of Sine Cosine Photo"))
         self.lineEdit_27.setText(_translate("dashboardWindow", "Graphs of Sine Cosine Info"))
-        self.pushButton_47.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_3A_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_66.setText(_translate("dashboardWindow", "Graph of Other Circular Function Photo"))
         self.lineEdit_28.setText(_translate("dashboardWindow", "Graph of Other Circular Function Info"))
-        self.pushButton_48.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_3B_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_67.setText(_translate("dashboardWindow", "Odd Even Function Photo"))
         self.lineEdit_29.setText(_translate("dashboardWindow", "Odd Even Function Info"))
-        self.pushButton_49.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_3C_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_68.setText(_translate("dashboardWindow", "Unit Test Graph of Circular Function"))
         self.lineEdit_30.setText(_translate("dashboardWindow", "Unit Test Graph of Circular Function Info"))
-        self.pushButton_50.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_3Test_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_69.setText(_translate("dashboardWindow", "Trigonometric Identities Photo"))
         self.lineEdit_31.setText(_translate("dashboardWindow", "Trigonometric Identities Info"))
         self.label_70.setText(_translate("dashboardWindow", "Additional Formula Photo"))
         self.lineEdit_32.setText(_translate("dashboardWindow", "Additional Formula Info"))
-        self.pushButton_52.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_4A_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_71.setText(_translate("dashboardWindow", "Double Angle Half Angle Photo"))
         self.lineEdit_33.setText(_translate("dashboardWindow", "Double Angle Half Angle Info"))
-        self.pushButton_53.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_4B_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_72.setText(_translate("dashboardWindow", "Conversion between Sum Products Photo"))
         self.lineEdit_34.setText(_translate("dashboardWindow", "Conversion between Sum Products Info"))
-        self.pushButton_54.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_4C_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_73.setText(_translate("dashboardWindow", "Unit Test Trigonometric Identity"))
         self.lineEdit_35.setText(_translate("dashboardWindow", "Unit Test Trigonometric Identity Info"))
-        self.pushButton_55.setText(_translate("dashboardWindow", "Proceed"))
+        self.proceedLesson3_4Test_pushButton.setText(_translate("dashboardWindow", "Proceed"))
         self.label_15.setText(_translate("dashboardWindow", "Progress Matrix"))
         self.label_25.setText(_translate("dashboardWindow", "Assessment Result"))
         self.label_10.setText(_translate("dashboardWindow", "Right Menu"))
         self.closeRightMenu_pushButton.setToolTip(_translate("dashboardWindow", "Close Menu"))
         self.label_11.setText(_translate("dashboardWindow", "Profile"))
-        self.label.setText(_translate("dashboardWindow", "First Name"))
-        self.label_2.setText(_translate("dashboardWindow", "M.I."))
-        self.label_3.setText(_translate("dashboardWindow", "Last Name"))
-        self.label_29.setText(_translate("dashboardWindow", "Email"))
-        self.label_28.setText(_translate("dashboardWindow", "School"))
-        self.label_16.setText(_translate("dashboardWindow", "yrSec"))
+        self.label.setText(_translate("dashboardWindow", "Name:"))
+        self.profNameLineEdit.setHtml(_translate("dashboardWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.label_2.setText(_translate("dashboardWindow", "Course:"))
+        self.profCourseLineEdit.setHtml(_translate("dashboardWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.label_3.setText(_translate("dashboardWindow", "School: "))
+        self.profSchoolLineEdit.setHtml(_translate("dashboardWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.updateAcc_pushButton.setText(_translate("dashboardWindow", "Update"))
         self.logoutAcc_pushButton.setText(_translate("dashboardWindow", "Logout"))
         self.label_12.setText(_translate("dashboardWindow", "More..."))
         self.label_27.setText(_translate("dashboardWindow", "Math Chatbot"))
-        self.chatReplies_TextEdit.setPlaceholderText(_translate("dashboardWindow", "No Messages"))
         self.func1_pushButton.setToolTip(_translate("dashboardWindow", "power of 2"))
         self.func1_pushButton.setText(_translate("dashboardWindow", "x^2"))
         self.func2_pushButton.setToolTip(_translate("dashboardWindow", "power of n"))
@@ -4670,9 +4446,13 @@ class Ui_dashboardWindow(object):
         self.func23_pushButton.setText(_translate("dashboardWindow", "·"))
         self.func24_pushButton.setToolTip(_translate("dashboardWindow", "inverse"))
         self.func24_pushButton.setText(_translate("dashboardWindow", "invrs"))
+        self.chatSends_TextEdit.setHtml(_translate("dashboardWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.chatSends_TextEdit.setPlaceholderText(_translate("dashboardWindow", "Ask Math Chat Bot About Pre-Calculus Questions"))
         self.checkEquation_Button.setToolTip(_translate("dashboardWindow", "Display Equation"))
-        self.openFunc_Button.setToolTip(_translate("dashboardWindow", "Open Functions"))
         self.sendChat_Button.setToolTip(_translate("dashboardWindow", "Send "))
         self.label_18.setText(_translate("dashboardWindow", "Copyright Mathguro"))
 import res, sys

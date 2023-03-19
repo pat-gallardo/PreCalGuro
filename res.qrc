@@ -11,6 +11,21 @@
     <file>logo.png</file>
     <file>back1.png</file>
   </qresource>
+  <qresource prefix="lessonIcons">
+    <file>lessonPhotos/standEquatHyperbola.png</file>
+    <file>lessonPhotos/hyperbola_labeled.png</file>
+    <file>lessonPhotos/hyperbola_summ.png</file>
+    <file>lessonPhotos/ellipse_stand.png</file>
+    <file>lessonPhotos/standEquatEllipse.png</file>
+    <file>lessonPhotos/parabola_summ.png</file>
+    <file>lessonPhotos/ellipse_labeled.png</file>
+    <file>lessonPhotos/equatCircle.png</file>
+    <file>lessonPhotos/standEquatParabola.png</file>
+    <file>lessonPhotos/circleEx1.png</file>
+    <file>lessonPhotos/parabola_labeled.png</file>
+    <file>lessonPhotos/circle_labeled.png</file>
+    <file>lessonPhotos/figureOfConics.png</file>
+  </qresource>
   <qresource prefix="icons">
     <file>icons/activity.svg</file>
     <file>icons/airplay.svg</file>
