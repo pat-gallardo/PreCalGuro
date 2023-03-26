@@ -9,13 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys, res
+
 
 class Ui_studLoginWindow(object):
     def setupUi(self, studLoginWindow):
         studLoginWindow.setObjectName("studLoginWindow")
         studLoginWindow.resize(378, 502)
-        studLoginWindow.setFixedSize(378, 502)
         # to remove close,minimize,maximize button
         studLoginWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         # to remove the constant background of the app
@@ -55,7 +54,7 @@ class Ui_studLoginWindow(object):
 "    padding-top:5px;\n"
 "    background-color:rgba(105, 118, 132, 200)\n"
 "}\n"
-"#studEmail_lineEdit, #studPass_lineEdit{\n"
+"#studEmail_lineEdit, #studPass_lineEdit, #studID_lineEdit{\n"
 "background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(105, 118, 132, 255);\n"
@@ -128,10 +127,16 @@ class Ui_studLoginWindow(object):
         self.verticalLayout_2.addWidget(self.widget_7, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.widget_6 = QtWidgets.QWidget(self.frame_2)
         self.widget_6.setObjectName("widget_6")
-        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.widget_6)
-        self.verticalLayout_9.setContentsMargins(40, 10, 40, 0)
-        self.verticalLayout_9.setSpacing(20)
-        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.widget_6)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.studID_lineEdit = QtWidgets.QLineEdit(self.widget_6)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.studID_lineEdit.setFont(font)
+        self.studID_lineEdit.setStyleSheet("")
+        self.studID_lineEdit.setText("")
+        self.studID_lineEdit.setObjectName("studID_lineEdit")
+        self.verticalLayout_6.addWidget(self.studID_lineEdit)
         self.studEmail_lineEdit = QtWidgets.QLineEdit(self.widget_6)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -139,7 +144,7 @@ class Ui_studLoginWindow(object):
         self.studEmail_lineEdit.setStyleSheet("")
         self.studEmail_lineEdit.setText("")
         self.studEmail_lineEdit.setObjectName("studEmail_lineEdit")
-        self.verticalLayout_9.addWidget(self.studEmail_lineEdit)
+        self.verticalLayout_6.addWidget(self.studEmail_lineEdit)
         self.studPass_lineEdit = QtWidgets.QLineEdit(self.widget_6)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -148,7 +153,23 @@ class Ui_studLoginWindow(object):
         self.studPass_lineEdit.setText("")
         self.studPass_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.studPass_lineEdit.setObjectName("studPass_lineEdit")
-        self.verticalLayout_9.addWidget(self.studPass_lineEdit)
+        self.verticalLayout_6.addWidget(self.studPass_lineEdit)
+        self.warning_Widget = QtWidgets.QWidget(self.widget_6)
+        self.warning_Widget.setObjectName("warning_Widget")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.warning_Widget)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.label_5 = QtWidgets.QLabel(self.warning_Widget)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(8)
+        self.label_5.setFont(font)
+        self.label_5.setTextFormat(QtCore.Qt.RichText)
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_4.addWidget(self.label_5)
+        self.verticalLayout_6.addWidget(self.warning_Widget)
         self.verticalLayout_2.addWidget(self.widget_6)
         self.verticalLayout.addWidget(self.frame_2)
         self.frame_3 = QtWidgets.QFrame(self.frame_4)
@@ -254,12 +275,15 @@ class Ui_studLoginWindow(object):
         studLoginWindow.setWindowTitle(_translate("studLoginWindow", "MainWindow"))
         self.label.setText(_translate("studLoginWindow", "Mathguro"))
         self.label_4.setText(_translate("studLoginWindow", "Student\'s Log In"))
+        self.studID_lineEdit.setPlaceholderText(_translate("studLoginWindow", "Student ID.:"))
         self.studEmail_lineEdit.setPlaceholderText(_translate("studLoginWindow", "Email:"))
         self.studPass_lineEdit.setPlaceholderText(_translate("studLoginWindow", "Password:"))
+        self.label_5.setText(_translate("studLoginWindow", "<html><head/><body><p><span style=\" font-size:10pt; color:#ff9393;\">Wrong Email or Password</span></p></body></html>"))
         self.loginStudButton.setText(_translate("studLoginWindow", "Log In"))
         self.backButton.setText(_translate("studLoginWindow", "Back"))
         self.toForgotPassStudButton.setText(_translate("studLoginWindow", "Forgot your Email or Password ?"))
         self.toRegisterStudButton.setText(_translate("studLoginWindow", "Don\'t have and Account? Register Here"))
+import res, sys
 
 
 if __name__ == "__main__":
