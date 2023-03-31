@@ -1,29 +1,44 @@
-# mathguro
+# Mathguro 
 
-(this uses python 3.9)
-# create virtual environment(.venv) before installing libraries to python
+The mathguro repository is a math tutor that helps senior highschool students in solving Pre-Calculus lessons, such as Conic Sections and Non-Linear Equations 
 
-# to install libraries
-ex. pip(3.9.4) install pyqt5
-pip(3.9.4) - for python version
-install pyqt5 - installation of pyqt5
+## Getting Started
 
-# to run install:
-=======
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-create virtual environment(.venv) before installing libraries to python
+### Prerequisites
 
-# to install libraries
-ex. pip(3.9.4) install pyqt5
-- pip(3.9.4) - for python version
-- install pyqt5 - installation of pyqt5
+1. **Python (v3.9+)** - This project was developed on version 3.9
+2. **Open AI Account** - This project uses Open AI in one of its features and needed the Key for it to be run.
 
-# to run , do install:
-- python (3.9.4 currently used) 
-- pyqt5   ( pip install pyqt5 ) 
-- pyqt5Designer ( pip install pyqt5Designer )
-- pyrebase4 ( pip install pyrebase4 )
+## Installing 
 
-# to run app in the python file, only compile and run controller.py
+To run the application you need to make sure that the prerequisites is already installed in your local machine.
 
-Coder
+Once that is finished, It is recommended to create a Python virtual environment to isolate packages required by this project from the main environment to prevent any breaking changes to your other python projects
+
+1. Start by installing Python 3.9+ and creating a virtual environment using `venv` or `conda`.
+    - Install Python 3.9+
+     - Create your `mathguro` conda environment:
+        ```bash
+        > conda create -n mathguro python=3.9
+        ```
+    - Activate your `mathguro` conda environment:
+        ```bash
+        > conda activate mathguro
+        ```
+
+2. After installing Python 3.9+, you can install the required python packages by running this in the project root directory
+
+   ```bash
+   $ pip install -r requirements.txt
+   ```
+## Running the Application
+
+To run the GUI application, simply run this on the project root directory.
+
+```bash
+    > python controller.py
+```
+
+or press the shortcut key for run code (Ctrl + Alt + n)
