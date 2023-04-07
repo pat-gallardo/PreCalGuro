@@ -10,8 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
-sys.path.append("assets")
-import res
+from data import res
 
 class Ui_dashboardWindow(object):
     def setupUi(self, dashboardWindow):
