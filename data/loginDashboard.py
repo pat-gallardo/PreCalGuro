@@ -5276,8 +5276,7 @@ class Ui_loginDashboardWindow(object):
         self.sendChat_Button.setToolTip(_translate("loginDashboardWindow", "Send "))
         self.label_18.setText(_translate("loginDashboardWindow", "Copyright Mathguro"))
 import sys
-sys.path.append("assets")
-import res
+from data import res
 
 if __name__ == "__main__":
     import sys

@@ -286,8 +286,7 @@ class Ui_teachLoginWindow(object):
         self.toForgotPassTeachButton.setText(_translate("teachLoginWindow", "Forgot your Email or Password ?"))
         self.toRegisterTeachButton.setText(_translate("teachLoginWindow", "Don\'t have and Account? Register Here"))
 import sys
-sys.path.append("assets")
-import res
+from data import res
 
 if __name__ == "__main__":
     import sys

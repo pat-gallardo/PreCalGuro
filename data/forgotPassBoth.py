@@ -741,8 +741,7 @@ class Ui_forgotPassBothWindow(object):
         self.teachChangePass_Button.setText(_translate("forgotPassBothWindow", "Enter"))
         self.backButton_5.setText(_translate("forgotPassBothWindow", "Back"))
 import sys
-sys.path.append("assets")
-import res
+from data import res
 
 if __name__ == "__main__":
     import sys

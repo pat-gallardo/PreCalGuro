@@ -16,12 +16,13 @@ from data.studRegister import Ui_studRegisterWindow
 from data.teachLogin import Ui_teachLoginWindow
 from data.teachRegister import Ui_teachRegisterWindow
 from data.dashboard import Ui_dashboardWindow
+from data.loadingScreen1 import Ui_loadingScreenWindow
 from data.dashboardTeach import Ui_dashboardTeachWindow
 from data.forgotPassBoth import Ui_forgotPassBothWindow
 from data.updateInfo import Ui_updateInfoDialog
 from data.lessonDashboard import Ui_topicLessonMainWindow
 from data.warningToLogout import Ui_logoutDialog
-from data.graph import * 
+from data.graph import *
 from data.training import *
 import data.scores
 import time
@@ -29,23 +30,21 @@ import time
 import pyrebase
 import openai
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 idKey = ""
 submit_unit1 = False
 submit_unit2 = False
-
-#stud87313
-#dummyemail@gmail.com
-#thisispass
-
-#560498750
-#dummybot@gmail.com
-#passisthis
-
-#stud87343
-#steveHernandez@gmail.com
-#Stevie8912
 
 firebaseConfig = { "apiKey": "AIzaSyDyihbb440Vb2o0CIMINI_UfQLRln0uvXs",
   "authDomain": "mathguro-46712.firebaseapp.com",
@@ -63,6 +62,10 @@ db=firebase.database()
 # uid = userInput
 #auth.delete_user(uid) // DELETE A USER IN AUTHENTICATION
 
+if getattr(sys, 'frozen', False):
+    import pyi_splash
+
+
 class toStudTeach(QMainWindow):
     def __init__(self):
         super(toStudTeach, self).__init__()
@@ -74,7 +77,7 @@ class toStudTeach(QMainWindow):
 
         loadUi("data/studTeach.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro"
         self.setWindowTitle(title)
 
@@ -122,7 +125,7 @@ class toStudLogin(QMainWindow):
 
         loadUi("data/studLogin.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro"
         self.setWindowTitle(title)
 
@@ -180,8 +183,9 @@ class toStudLogin(QMainWindow):
                     print(password)
 
                     self.hide()
-                    self.toLogin = function()
-                    self.toLogin.loading()
+                    self.toLogin = splashScreen()
+                    self.toLogin.show()
+                    self.toLogin.progress()     
 
                 else:
                     self.warning_Widget.setVisible(True)
@@ -217,7 +221,7 @@ class toStudForgotPass(QMainWindow):
 
         loadUi("data/forgotPassBoth.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro"
         self.setWindowTitle(title)
 
@@ -278,7 +282,7 @@ class toStudRegister(QMainWindow):
 
         loadUi("data/studRegister.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro"
         self.setWindowTitle(title)
 
@@ -426,7 +430,7 @@ class toTeachLogin(QMainWindow):
         self.offset = None
 
         loadUi("data/teachLogin.ui",self)
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro"
         self.setWindowTitle(title)
 
@@ -484,8 +488,10 @@ class toTeachLogin(QMainWindow):
                     print(password)
                     
                     self.hide()
-                    self.toLogin = functionTeach()
-                    self.toLogin.loading()
+                    self.toLogin = toSplashScreen()
+                    self.toLogin.show()
+                    self.toLogin.progress()
+
                 else:
                     self.warning_Widget.setVisible(True)
                     print("Invalid email or password.")
@@ -517,7 +523,7 @@ class toTeachForgotPass(QMainWindow):
 
         loadUi("data/forgotPassBoth.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro"
         self.setWindowTitle(title)
 
@@ -578,7 +584,7 @@ class toTeachRegister(QMainWindow):
 
         loadUi("data/teachRegister.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro"
         self.setWindowTitle(title)
 
@@ -716,7 +722,7 @@ class toStudUpdateProfile(QDialog):
         self.offset = None
 
         loadUi("data/updateInfo.ui",self)
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
 
         self.setWindowTitle(title)
@@ -823,7 +829,7 @@ class toDashboard(QMainWindow):
 
         loadUi("data/dashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -1247,14 +1253,7 @@ class toDashboard(QMainWindow):
 
     def checkEquat(self):
         def tex2svg(formula, fontsize=40, dpi=300):
-        # """Render TeX formula to SVG.
-        # Args:
-        #     formula (str): TeX formula.
-        #     fontsize (int, optional): Font size.
-        #     dpi (int, optional): DPI.
-        # Returns:
-        #     str: SVG render.
-        # """
+
             fig = plt.figure(figsize=(0.01, 0.01))
             fig.text(50, 0, (r"$%s$" %formula), fontsize=fontsize)
 
@@ -1268,14 +1267,7 @@ class toDashboard(QMainWindow):
             return output.read()
         
         def errorFunc(formula, fontsize=20, dpi=300):
-        # """Render TeX formula to SVG.
-        # Args:
-        #     formula (str): TeX formula.
-        #     fontsize (int, optional): Font size.
-        #     dpi (int, optional): DPI.
-        # Returns:
-        #     str: SVG render.
-        # """
+ 
             fig = plt.figure(figsize=(0.01, 0.01))
             fig.text(50, 0, "There is an error\nin your input.\nEither a\n-Double backslash \neg.(\\\\right),\n-Incomplete figures in parameters \neg.(\left( , {\circ  )\n-Blank Input\neg.( )", fontsize=fontsize)
 
@@ -1287,8 +1279,6 @@ class toDashboard(QMainWindow):
 
             output.seek(0)
             return output.read()
-        
-        # matplotlib: force computer modern font set
         
         plt.rc("'mathtext', fontset='cm'")
         word = self.chatSends_TextEdit.toPlainText()
@@ -1302,7 +1292,6 @@ class toDashboard(QMainWindow):
         except:
             self.svg.load(errorFunc(FORMULA))
             self.svg.show()
-
 
     def sendMessage(self):
 
@@ -1612,7 +1601,7 @@ class toStudLogout(QDialog):
         self.offset = None
 
         loadUi("data/warningToLogout.ui",self)
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -1648,30 +1637,28 @@ class toStudLogout(QDialog):
         self.offset = None
         super().mouseReleaseEvent(event)
 
-class function:
-    def loading(self):
-        self.screen = splashScreen()
-        self.screen.show()
-        for i in range(100):
-            self.screen.progressBar.setValue(i)
-            QApplication.processEvents()
-            time.sleep(0.1)
-        self.screen.close()
-        self.next = toDashboard()
-        self.next.show()
-
-class splashScreen(QSplashScreen):
+class splashScreen(QMainWindow):
     def __init__(self):
-        super(QSplashScreen, self).__init__()
-        loadUi("data/loadingScreen.ui", self)
-        self.setWindowIcon(QIcon(":images/logo.png"))
+        super(splashScreen, self).__init__()
+        loadUi("data/loadingScreen1.ui", self)
+
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
+
         self.setWindowFlag(Qt.FramelessWindowHint)
-        pixmap = QPixmap("assets/load1.jpg")
-        self.setPixmap(pixmap)
+
     def mousePressEvent(self, event):
         pass
+
+    def progress(self):
+        for i in range(100):
+            self.progressBar.setValue(i)
+            QApplication.processEvents()
+            time.sleep(0.1)
+        self.close()
+        self.next = toDashboard()
+        self.next.show()
 
 class topicLesson1(QMainWindow):
     def __init__(self):
@@ -1683,8 +1670,7 @@ class topicLesson1(QMainWindow):
         self.offset = None
 
         loadUi("data/lessonDashboard.ui",self)
-
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -1776,7 +1762,7 @@ class topicLesson2(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -1893,7 +1879,7 @@ class topicLesson3(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -2010,7 +1996,7 @@ class topicLesson4(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -2129,7 +2115,7 @@ class topicLesson5(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -2215,7 +2201,7 @@ class topicLesson6(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -2301,7 +2287,7 @@ class topicLesson7(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -2387,7 +2373,7 @@ class assessmentWindow(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -2539,7 +2525,7 @@ class unitTest_1(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
         
@@ -2996,7 +2982,7 @@ class unitTest_2(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -3384,7 +3370,7 @@ class postAssessmentWindow_accept(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -3536,7 +3522,7 @@ class postAssessmentWindow_failed(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
@@ -3603,7 +3589,7 @@ class toTeachUpdateProfile(QDialog):
 
         loadUi("data/updateInfo.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Teacher"
         self.setWindowTitle(title)
 
@@ -3708,10 +3694,9 @@ class toDashboardTeach(QMainWindow):
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.offset = None
-
         loadUi("data/dashboardTeach.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Teacher"
         self.setWindowTitle(title)
 
@@ -3793,10 +3778,6 @@ class toDashboardTeach(QMainWindow):
             self.animaRightContainer2.setEndValue(0)
             self.animaRightContainer2.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animaRightContainer2.start() 
-
-
-        # self.rightMenuContainer.setVisible(False)
-        # self.lessonsContainer.setVisible(False)
 
         self.closeBtn.clicked.connect(self.showMinimized)
         self.restoreBtn.clicked.connect(self.bigWindow)
@@ -4059,7 +4040,7 @@ class toTeachLogout(QDialog):
 
         loadUi("data/warningToLogout.ui",self)
 
-        self.setWindowIcon(QIcon(":/images/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Teacher"
         self.setWindowTitle(title)
 
@@ -4095,47 +4076,36 @@ class toTeachLogout(QDialog):
         self.offset = None
         super().mouseReleaseEvent(event)
 
-class functionTeach:
-    def loading(self):
-        self.screen = toSplashScreen()
-        self.screen.show()
-        for i in range(100):
-            self.screen.progressBar.setValue(i)
-            QApplication.processEvents()
-            time.sleep(0.1)
-        self.screen.close()
-        print("yes")
-        self.next = toDashboardTeach()
-        self.next.show()
-
-class toSplashScreen(QSplashScreen):
+class toSplashScreen(QMainWindow):
     def __init__(self):
-        super(QSplashScreen, self).__init__()
-        loadUi("data/loadingScreen.ui", self)
-        self.setWindowIcon(QIcon(":images/logo.png"))
+        super(toSplashScreen, self).__init__()
+
+        loadUi("data/loadingScreen1.ui", self)
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
         title = "Mathguro Teacher"
         self.setWindowTitle(title)
 
         self.setWindowFlag(Qt.FramelessWindowHint)
-        pixmap = QPixmap("assets/load1.jpg")
-        self.setPixmap(pixmap)
     def mousePressEvent(self, event):
         pass
+
+    def progress(self):
+        for i in range(100):
+            self.progressBar.setValue(i)
+            QApplication.processEvents()
+            time.sleep(0.1)
+        self.close()
+        print("yes")
+        self.next = toDashboardTeach()
+        self.next.show()
 ##################################################################################
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
+    if getattr(sys, 'frozen', False):
+        pyi_splash.close()
+
     w = toStudTeach()
-    # w = toDashboard()
-    # w = toDashboardTeach()
-    # w = unitTest_1()
     w.show()
     sys.exit(app.exec_())
-
-
-
-
-
-
-

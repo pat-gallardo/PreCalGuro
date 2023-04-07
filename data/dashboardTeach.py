@@ -2376,8 +2376,7 @@ class Ui_dashboardTeachWindow(object):
         self.sendChat_Button.setToolTip(_translate("dashboardTeachWindow", "Send "))
         self.label_18.setText(_translate("dashboardTeachWindow", "Copyright Mathguro"))
 import sys
-sys.path.append("assets")
-import res
+from data import res
 
 if __name__ == "__main__":
     import sys
