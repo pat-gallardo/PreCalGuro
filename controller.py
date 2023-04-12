@@ -347,10 +347,11 @@ class toStudRegister(QMainWindow):
         if section == "" or year == "Year" or course == "Course":
             self.yrSecError = 1
         if school == "":
+            
             self.schoolError = 1
         if email == "":
             self.emailError = 1
-        if password == "" and password.isdigit() == False and len(password)+1 < 8:
+        if password == "" or toTeachRegister.checkIfHasNumber(password) == False or len(password)+1 <= 8:
             self.passError = 1
         if studentSchoolID == "":
             self.studIDError = 1
@@ -617,6 +618,9 @@ class toTeachRegister(QMainWindow):
         self.offset = None
         super().mouseReleaseEvent(event)
 
+    def checkIfHasNumber(inputString):
+        return any(char.isdigit() for char in inputString)
+
     def register(self):
         self.fnameError = 0
         self.lnameError = 0
@@ -635,7 +639,7 @@ class toTeachRegister(QMainWindow):
 
         email = self.teachEmail_lineEdit.text()
         password = self.teachPass_lineEdit.text()
-
+        
 # REGISTER CHECKING
         if fname == "":
             self.fnameError = 1
@@ -649,7 +653,7 @@ class toTeachRegister(QMainWindow):
             self.schoolError = 1
         if email == "":
             self.emailError = 1
-        if password == "" and password.isdigit() == False and len(password)+1 < 8:
+        if password == "" or toTeachRegister.checkIfHasNumber(password) == False or len(password)+1 <= 8:
             self.passError = 1
 
         if self.fnameError == 1:
@@ -683,8 +687,7 @@ class toTeachRegister(QMainWindow):
             self.teachMiddle_lineEdit.clear()
             self.teachLast_lineEdit.clear()
             self.teachSchool_lineEdit.clear()
-            self.teachSec_lineEdit.clear()
-            self.teachSchoolID_lineEdit.clear()
+            self.teachID_lineEdit.clear()
             self.teachEmail_lineEdit.clear()
             self.teachPass_lineEdit.clear()
             print(fname)
@@ -1048,8 +1051,8 @@ class toDashboard(QMainWindow):
                 studUnitTest1_score =(student.val()["unitTest1_score"])
                 studUnitTest2_score =(student.val()["unitTest2_score"])
                 
-        ave_unitTest1 = (int(studUnitTest1_score) / 35) * 100  
-        ave_unitTest2 = (int(studUnitTest2_score) / 30) * 100  
+        ave_unitTest1 = (int(studUnitTest1_score) / 35) * 100  # 91
+        ave_unitTest2 = (int(studUnitTest2_score) / 30) * 100  #
         if ave_unitTest1 > 80 and ave_unitTest2 > 80:
             self.postAssessment = postAssessmentWindow_accept()
         else:
