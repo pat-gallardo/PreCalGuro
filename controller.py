@@ -1678,6 +1678,13 @@ class topicLesson1(QMainWindow):
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(0)
+        self.parabolaEx1PlotButton.clicked.connect(self.parabolaGraph1)
+        self.parabolaEx2PlotButton.clicked.connect(self.parabolaGraph2)
+        self.ellipseEx1PlotButton.clicked.connect(self.ellipseGraph1)
+        self.ellipseEx2PlotButton.clicked.connect(self.ellipseGraph2)
+        self.hyperbolaEx1aPlotButton.clicked.connect(self.hyperbolaGraph1)
+        self.hyperbolaEx1bPlotButton.clicked.connect(self.hyperbolaGraph2)
+
         self.nextPage1Button.clicked.connect(self.nextPage0)
         self.nextPage2Button.clicked.connect(self.nextPage1)
         self.nextPage3Button.clicked.connect(self.nextPage2)
@@ -1775,6 +1782,8 @@ class topicLesson2(QMainWindow):
         self.parabolaEx2PlotButton.clicked.connect(self.parabolaGraph2)
         self.ellipseEx1PlotButton.clicked.connect(self.ellipseGraph1)
         self.ellipseEx2PlotButton.clicked.connect(self.ellipseGraph2)
+        self.hyperbolaEx1aPlotButton.clicked.connect(self.hyperbolaGraph1)
+        self.hyperbolaEx1bPlotButton.clicked.connect(self.hyperbolaGraph2)
 
         self.nextPage1Button.clicked.connect(self.nextPage0)
         self.nextPage2Button.clicked.connect(self.nextPage1)
@@ -1892,6 +1901,8 @@ class topicLesson3(QMainWindow):
         self.parabolaEx2PlotButton.clicked.connect(self.parabolaGraph2)
         self.ellipseEx1PlotButton.clicked.connect(self.ellipseGraph1)
         self.ellipseEx2PlotButton.clicked.connect(self.ellipseGraph2)
+        self.hyperbolaEx1aPlotButton.clicked.connect(self.hyperbolaGraph1)
+        self.hyperbolaEx1bPlotButton.clicked.connect(self.hyperbolaGraph2)
 
         self.nextPage1Button.clicked.connect(self.nextPage0)
         self.nextPage2Button.clicked.connect(self.nextPage1)
