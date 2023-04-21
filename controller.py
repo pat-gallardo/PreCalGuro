@@ -1678,6 +1678,7 @@ class topicLesson1(QMainWindow):
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(0)
+
         self.parabolaEx1PlotButton.clicked.connect(self.parabolaGraph1)
         self.parabolaEx2PlotButton.clicked.connect(self.parabolaGraph2)
         self.ellipseEx1PlotButton.clicked.connect(self.ellipseGraph1)
@@ -1712,6 +1713,25 @@ class topicLesson1(QMainWindow):
             self.showNormal()  
             self.maxWindow = False
             self.restoreWindow = 0
+            
+    def parabolaGraph1(self):
+        self.parab = parabolaGraph1Window()
+        self.parab.show()
+    def parabolaGraph2(self):
+        self.parab = parabolaGraph2Window()
+        self.parab.show()
+    def ellipseGraph1(self):
+        self.ellipse = ellipseGraph1Window()
+        self.ellipse.show()
+    def ellipseGraph2(self):
+        self.ellipse = ellipseGraph2Window()
+        self.ellipse.show()
+    def hyperbolaGraph1(self):
+        self.hyper = hyperbolaGraph1Window()
+        self.hyper.show()
+    def hyperbolaGraph2(self):
+        self.hyper = hyperbolaGraph2Window()
+        self.hyper.show()
 
     def nextPage0(self):
         self.topicPages.setCurrentIndex(1)
