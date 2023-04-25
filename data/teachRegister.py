@@ -554,4 +554,5 @@ class Ui_teachRegisterWindow(object):
         self.backButton.setText(_translate("teachRegisterWindow", "Back"))
         self.toLoginTeachButton.setText(_translate("teachRegisterWindow", "Already have an Account? Log In Here"))
 import sys
-from data import res
+sys.path.append("assets")
+import res

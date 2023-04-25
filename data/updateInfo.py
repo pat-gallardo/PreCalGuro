@@ -937,7 +937,8 @@ class Ui_updateInfoDialog(object):
         self.updateTeachPassButton.setText(_translate("updateInfoDialog", "Update"))
         self.backButton_4.setText(_translate("updateInfoDialog", "Back"))
 import sys
-from data import res
+sys.path.append("assets")
+import res
 
 if __name__ == "__main__":
     import sys

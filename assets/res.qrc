@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>load1.png</file>
     <file>icons8-formula-fx-100.png</file>
     <file>Dilag.jpg</file>
     <file>Gallardo.jpg</file>

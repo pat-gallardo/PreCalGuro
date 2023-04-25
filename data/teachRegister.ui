@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>390</width>
-    <height>684</height>
+    <width>368</width>
+    <height>789</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -220,7 +220,7 @@ padding-bottom:7px
                     </font>
                    </property>
                    <property name="text">
-                    <string>Mathguro</string>
+                    <string>Pre-Calguro</string>
                    </property>
                   </widget>
                  </item>
@@ -576,27 +576,12 @@ padding-left: 3px;</string>
                          </property>
                          <item>
                           <property name="text">
-                           <string>Course</string>
+                           <string>Strand</string>
                           </property>
                          </item>
                          <item>
                           <property name="text">
                            <string>STEM</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>ABM</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>HUMSS</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>GAS</string>
                           </property>
                          </item>
                         </widget>
@@ -1079,6 +1064,7 @@ padding-left: 3px;</string>
                      <widget class="QPushButton" name="registerTeachButton">
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
@@ -1146,6 +1132,7 @@ padding-left: 3px;</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>

@@ -607,7 +607,8 @@ class Ui_studRegisterWindow(object):
         self.backButton.setText(_translate("studRegisterWindow", "Back"))
         self.toLoginStudButton.setText(_translate("studRegisterWindow", "Already have an Account? Log In Here"))
 import sys
-from data import res
+sys.path.append("assets")
+import res
 
 if __name__ == "__main__":
     import sys

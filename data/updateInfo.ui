@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>340</width>
-    <height>493</height>
+    <height>484</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,7 +61,7 @@ QPushButton#updateStudButton:pressed,#backButton:pressed,#updateTeachButton:pres
      <x>10</x>
      <y>20</y>
      <width>313</width>
-     <height>394</height>
+     <height>421</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -161,7 +161,7 @@ QPushButton#updateStudButton:pressed,#backButton:pressed,#updateTeachButton:pres
                     </font>
                    </property>
                    <property name="text">
-                    <string>Mathguro</string>
+                    <string>Pre-Calguro</string>
                    </property>
                   </widget>
                  </item>
@@ -633,6 +633,7 @@ margin-right:30px;</string>
                      <widget class="QPushButton" name="updateStudButton">
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
@@ -652,6 +653,7 @@ margin-right:30px;</string>
                      <widget class="QPushButton" name="backButton">
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
@@ -751,7 +753,7 @@ margin-right:30px;</string>
                     </font>
                    </property>
                    <property name="text">
-                    <string>Mathguro</string>
+                    <string>Pre-Calguro</string>
                    </property>
                   </widget>
                  </item>
@@ -1223,6 +1225,7 @@ margin-right:30px;</string>
                      <widget class="QPushButton" name="updateTeachButton">
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
@@ -1242,6 +1245,7 @@ margin-right:30px;</string>
                      <widget class="QPushButton" name="backButton_5">
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>

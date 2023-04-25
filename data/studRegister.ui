@@ -66,8 +66,19 @@ padding-bottom:7px
       <x>50</x>
       <y>10</y>
       <width>295</width>
-      <height>451</height>
+      <height>460</height>
      </rect>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Sans Serif</family>
+     </font>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -220,7 +231,7 @@ padding-bottom:7px
                     </font>
                    </property>
                    <property name="text">
-                    <string>Mathguro</string>
+                    <string>Pre-Calguro</string>
                    </property>
                   </widget>
                  </item>
@@ -582,27 +593,12 @@ padding-left: 3px;</string>
                          </property>
                          <item>
                           <property name="text">
-                           <string>Course</string>
+                           <string>Strand</string>
                           </property>
                          </item>
                          <item>
                           <property name="text">
                            <string>STEM</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>ABM</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>HUMSS</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>GAS</string>
                           </property>
                          </item>
                         </widget>
@@ -626,11 +622,6 @@ padding-left: 3px;</string>
                          <item>
                           <property name="text">
                            <string>11</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>12</string>
                           </property>
                          </item>
                         </widget>
@@ -740,7 +731,7 @@ padding-left: 3px;</string>
                           <string/>
                          </property>
                          <property name="placeholderText">
-                          <string>Student School ID.</string>
+                          <string>LRN:</string>
                          </property>
                         </widget>
                        </item>
@@ -780,7 +771,7 @@ padding-left: 3px;</string>
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your Student ID.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your LRN.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -1207,6 +1198,7 @@ padding-left: 3px;</string>
                      <widget class="QPushButton" name="registerStudButton">
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
@@ -1274,6 +1266,7 @@ padding-left: 3px;</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
