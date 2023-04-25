@@ -10,7 +10,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
-from data import res
+sys.path.append("assets")
+import res
 
 class Ui_studTeachWindow(object):
     def setupUi(self, studTeachWindow):

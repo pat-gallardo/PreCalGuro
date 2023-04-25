@@ -156,7 +156,7 @@ QPushButton#closeButton:pressed, #toStudButton:pressed, #toTeachButton:pressed{
               </font>
              </property>
              <property name="text">
-              <string>Mathguro</string>
+              <string>Pre-Calguro</string>
              </property>
             </widget>
            </item>
@@ -254,6 +254,7 @@ QPushButton#closeButton:pressed, #toStudButton:pressed, #toTeachButton:pressed{
                 </property>
                 <property name="font">
                  <font>
+                  <family>MS Sans Serif</family>
                   <pointsize>12</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
@@ -333,6 +334,7 @@ QPushButton#closeButton:pressed, #toStudButton:pressed, #toTeachButton:pressed{
                <widget class="QPushButton" name="toTeachButton">
                 <property name="font">
                  <font>
+                  <family>MS Sans Serif</family>
                   <pointsize>12</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>

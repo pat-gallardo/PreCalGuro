@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>378</width>
-    <height>520</height>
+    <height>533</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -194,7 +194,7 @@ padding-bottom:7px
                  </font>
                 </property>
                 <property name="text">
-                 <string>Mathguro</string>
+                 <string>Pre-Calguro</string>
                 </property>
                </widget>
               </item>
@@ -246,7 +246,7 @@ padding-bottom:7px
                  <string/>
                 </property>
                 <property name="placeholderText">
-                 <string>Student ID.:</string>
+                 <string>LRN:</string>
                 </property>
                </widget>
               </item>
@@ -433,6 +433,7 @@ padding-bottom:7px
                   <widget class="QPushButton" name="loginStudButton">
                    <property name="font">
                     <font>
+                     <family>MS Sans Serif</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -500,6 +501,7 @@ padding-bottom:7px
                    </property>
                    <property name="font">
                     <font>
+                     <family>MS Sans Serif</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>

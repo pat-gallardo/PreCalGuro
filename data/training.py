@@ -1,5 +1,3 @@
-import sys
-import os
 import random
 import json
 import numpy as np
@@ -12,17 +10,7 @@ nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
-def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS2
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
-
-with open(resource_path("data\\intents.json")) as file:
+with open("data/intents.json") as file:
     data = json.load(file)
 # print(data["intents"])
 
@@ -88,10 +76,10 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net)
 
 try:
-    model.load(resource_path("data\\model.tflearn"))
+    model.load("data/model.tflearn")
 except:
     model.fit(training, output, n_epoch = 1000, batch_size = 8, show_metric=True)
-    model.save(resource_path("data\\model.tflearn"))
+    model.save("data/model.tflearn")
 # End of AI part
 
 def bag_of_words(s,words):
@@ -123,10 +111,10 @@ def chat(question, answer):
                 print(random.choice(responses))
                 return("correct")
             else: 
-                print("incorrect")
+                print("incorrect answer")
                 return("incorrect")
         else: 
-            print("incorrect")
+            print("incorrect question")
             return("incorrect")
 
         

@@ -283,7 +283,8 @@ class Ui_studLoginWindow(object):
         self.toForgotPassStudButton.setText(_translate("studLoginWindow", "Forgot your Email or Password ?"))
         self.toRegisterStudButton.setText(_translate("studLoginWindow", "Don\'t have and Account? Register Here"))
 import sys
-from data import res
+sys.path.append("assets")
+import res
 
 if __name__ == "__main__":
     import sys

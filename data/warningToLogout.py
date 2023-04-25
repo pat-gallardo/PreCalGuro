@@ -227,7 +227,8 @@ class Ui_logoutDialog(object):
         self.yes_pushButton_2.setText(_translate("logoutDialog", "Yes"))
         self.no_pushButton_2.setText(_translate("logoutDialog", "No"))
 import sys
-from data import res
+sys.path.append("assets")
+import res
 
 if __name__ == "__main__":
     import sys

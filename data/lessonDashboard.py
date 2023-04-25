@@ -5396,7 +5396,8 @@ class Ui_topicLessonMainWindow(object):
         self.ans21_label_5.setText(_translate("topicLessonMainWindow", "Answer:"))
         self.assessTest_Button.setText(_translate("topicLessonMainWindow", "Submit"))
 import sys
-from data import res
+sys.path.append("assets")
+import res
 
 if __name__ == "__main__":
     import sys

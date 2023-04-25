@@ -577,13 +577,14 @@ QPushButton#help_pushButton:pressed{
               <widget class="QLabel" name="label_75">
                <property name="font">
                 <font>
+                 <family>MS Sans Serif</family>
                  <pointsize>12</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
                <property name="text">
-                <string>Mathguro (Teacher)</string>
+                <string>Pre-CalGuro (Teacher)</string>
                </property>
               </widget>
              </item>
@@ -1238,7 +1239,7 @@ border-radius:10px;</string>
                                       <property name="geometry">
                                        <rect>
                                         <x>0</x>
-                                        <y>0</y>
+                                        <y>-661</y>
                                         <width>145</width>
                                         <height>1111</height>
                                        </rect>
@@ -1295,7 +1296,7 @@ border-radius:10px;</string>
                                        <item>
                                         <widget class="QLabel" name="label_42">
                                          <property name="text">
-                                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;Mathguro is an AI Math &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Tutor that can help &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Senior Highschool Students &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;in learning Pre-calculus&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;Pre-Calguro is an AI Math &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Tutor that can help &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Senior Highschool Students &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;in learning Pre-calculus&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                          </property>
                                          <property name="textFormat">
                                           <enum>Qt::RichText</enum>
@@ -1312,7 +1313,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Developed &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;and Designed by&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Mathguro Team:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Pre-Calguro Team:&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                          </property>
                                          <property name="textFormat">
@@ -1537,6 +1538,11 @@ margin-right: 25px;</string>
                 <layout class="QVBoxLayout" name="verticalLayout_17">
                  <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                   <widget class="QFrame" name="frame_12">
+                   <property name="font">
+                    <font>
+                     <family>MS Sans Serif</family>
+                    </font>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
@@ -1564,7 +1570,7 @@ margin-right: 25px;</string>
                        </font>
                       </property>
                       <property name="text">
-                       <string>Hello Welcome to Mathguro</string>
+                       <string>Hello Welcome to Pre-Calguro</string>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
@@ -2930,7 +2936,7 @@ gridline-color: rgb(255, 255, 255);
                 <item>
                  <widget class="QStackedWidget" name="rightMenuPages">
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page_4">
                    <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -3631,7 +3637,7 @@ p, li { white-space: pre-wrap; }
                              </font>
                             </property>
                             <property name="text">
-                             <string>Math Chatbot</string>
+                             <string>PreCal Chatbot</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -4690,7 +4696,7 @@ border-radius: 5px;
                                 <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
                                </property>
                                <property name="placeholderText">
-                                <string>Ask Math Chat Bot About Pre-Calculus Questions</string>
+                                <string>Ask Pre-Cal Chat Bot About Pre-Calculus Questions</string>
                                </property>
                               </widget>
                              </item>
@@ -4847,7 +4853,7 @@ border-radius: 5px;
              <item>
               <widget class="QLabel" name="label_18">
                <property name="text">
-                <string>Copyright Mathguro</string>
+                <string>Copyright Pre-CalGuro</string>
                </property>
               </widget>
              </item>

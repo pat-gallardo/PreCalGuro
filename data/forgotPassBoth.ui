@@ -144,7 +144,7 @@ QPushButton#studCheckEmail_Button:pressed,#backButton:pressed,#teachCheckEmail_B
                   </font>
                  </property>
                  <property name="text">
-                  <string>Mathguro</string>
+                  <string>Pre-Calguro</string>
                  </property>
                 </widget>
                </item>
@@ -376,6 +376,7 @@ margin-right:30px;</string>
                    <widget class="QPushButton" name="studCheckEmail_Button">
                     <property name="font">
                      <font>
+                      <family>MS Sans Serif</family>
                       <pointsize>12</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
@@ -397,6 +398,7 @@ margin-right:30px;</string>
                    <widget class="QPushButton" name="backButton">
                     <property name="font">
                      <font>
+                      <family>MS Sans Serif</family>
                       <pointsize>12</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
@@ -473,7 +475,7 @@ margin-right:30px;</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Mathguro</string>
+                  <string>Pre-Calguro</string>
                  </property>
                 </widget>
                </item>
@@ -705,6 +707,7 @@ margin-right:30px;</string>
                    <widget class="QPushButton" name="teachCheckEmail_Button">
                     <property name="font">
                      <font>
+                      <family>MS Sans Serif</family>
                       <pointsize>12</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
@@ -728,6 +731,7 @@ margin-right:30px;</string>
                    <widget class="QPushButton" name="backButton_2">
                     <property name="font">
                      <font>
+                      <family>MS Sans Serif</family>
                       <pointsize>12</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
@@ -1138,7 +1142,7 @@ margin-right:30px;</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Mathguro</string>
+                  <string>Pre-Calguro</string>
                  </property>
                 </widget>
                </item>
@@ -1373,6 +1377,7 @@ margin-right:30px;</string>
                    <widget class="QPushButton" name="teachChangePass_Button">
                     <property name="font">
                      <font>
+                      <family>MS Sans Serif</family>
                       <pointsize>12</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
@@ -1396,6 +1401,7 @@ margin-right:30px;</string>
                    <widget class="QPushButton" name="backButton_5">
                     <property name="font">
                      <font>
+                      <family>MS Sans Serif</family>
                       <pointsize>12</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
