@@ -584,7 +584,7 @@ QPushButton#help_pushButton:pressed{
                 </font>
                </property>
                <property name="text">
-                <string>Pre-CalGuro (Student)</string>
+                <string>PreCalGuro (Student)</string>
                </property>
               </widget>
              </item>
@@ -912,7 +912,7 @@ QPushButton#help_pushButton:pressed{
                 <item>
                  <widget class="QStackedWidget" name="centerMenuPages">
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>1</number>
                   </property>
                   <widget class="QWidget" name="page">
                    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1331,7 +1331,7 @@ border-radius:10px;</string>
                                        <item>
                                         <widget class="QLabel" name="label_42">
                                          <property name="text">
-                                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;Pre-Calguro is an AI Math &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Tutor that can help &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Senior Highschool Students &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;in learning Pre-calculus&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;PreCalGuro is an AI Math &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Tutor that can help &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Senior Highschool Students &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;in learning Pre-Calculus&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                          </property>
                                          <property name="textFormat">
                                           <enum>Qt::RichText</enum>
@@ -1348,7 +1348,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Developed &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;and Designed by&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Pre-Cal&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;guro Team:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;PreCalGuro Team:&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                          </property>
                                          <property name="textFormat">
@@ -1600,7 +1600,7 @@ margin-right: 25px;</string>
                        </font>
                       </property>
                       <property name="text">
-                       <string>Hello Welcome to Pre-Calguro</string>
+                       <string>Hello Welcome to PreCalGuro</string>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
@@ -5767,7 +5767,7 @@ background-color: rgb(12, 127, 119);
                              </font>
                             </property>
                             <property name="text">
-                             <string>Pre-Cal Chatbot</string>
+                             <string>PreCal Chatbot</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -6976,7 +6976,7 @@ p, li { white-space: pre-wrap; }
              <item>
               <widget class="QLabel" name="label_18">
                <property name="text">
-                <string>Copyright Pre-CalGuro</string>
+                <string>Copyright PreCalGuro</string>
                </property>
               </widget>
              </item>

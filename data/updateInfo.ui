@@ -86,7 +86,7 @@ QPushButton#updateStudButton:pressed,#backButton:pressed,#updateTeachButton:pres
        <item>
         <widget class="QStackedWidget" name="updateInfoPages">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -161,7 +161,7 @@ QPushButton#updateStudButton:pressed,#backButton:pressed,#updateTeachButton:pres
                     </font>
                    </property>
                    <property name="text">
-                    <string>Pre-Calguro</string>
+                    <string>PreCalGuro</string>
                    </property>
                   </widget>
                  </item>
@@ -753,7 +753,7 @@ margin-right:30px;</string>
                     </font>
                    </property>
                    <property name="text">
-                    <string>Pre-Calguro</string>
+                    <string>PreCalGuro</string>
                    </property>
                   </widget>
                  </item>

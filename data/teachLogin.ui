@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>373</width>
+    <width>342</width>
     <height>513</height>
    </rect>
   </property>
@@ -195,7 +195,7 @@ padding-bottom:7px
                  </font>
                 </property>
                 <property name="text">
-                 <string>Mathguro</string>
+                 <string>PreCalGuro</string>
                 </property>
                </widget>
               </item>
@@ -300,7 +300,7 @@ padding-bottom:7px
                   <number>0</number>
                  </property>
                  <property name="topMargin">
-                  <number>6</number>
+                  <number>0</number>
                  </property>
                  <property name="rightMargin">
                   <number>0</number>
@@ -315,6 +315,21 @@ padding-bottom:7px
                    </property>
                    <widget class="QWidget" name="page">
                     <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
                      <item>
                       <widget class="QLabel" name="label_5">
                        <property name="font">
@@ -324,7 +339,7 @@ padding-bottom:7px
                         </font>
                        </property>
                        <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt;Wrong ID, Email or Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt;Incorrect ID, Email&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt; or Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                        <property name="textFormat">
                         <enum>Qt::RichText</enum>
@@ -434,6 +449,7 @@ padding-bottom:7px
                   <widget class="QPushButton" name="loginTeachButton">
                    <property name="font">
                     <font>
+                     <family>MS Sans Serif</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -501,6 +517,7 @@ padding-bottom:7px
                    </property>
                    <property name="font">
                     <font>
+                     <family>MS Sans Serif</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>

@@ -93,7 +93,7 @@ QPushButton#studCheckEmail_Button:pressed,#backButton:pressed,#teachCheckEmail_B
         <item>
          <widget class="QStackedWidget" name="forgotPassPages">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page">
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -144,7 +144,7 @@ QPushButton#studCheckEmail_Button:pressed,#backButton:pressed,#teachCheckEmail_B
                   </font>
                  </property>
                  <property name="text">
-                  <string>Pre-Calguro</string>
+                  <string>PreCalGuro</string>
                  </property>
                 </widget>
                </item>
@@ -475,7 +475,7 @@ margin-right:30px;</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Pre-Calguro</string>
+                  <string>PreCalGuro</string>
                  </property>
                 </widget>
                </item>
