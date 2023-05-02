@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'warningToLogOut.ui'
+# Form implementation generated from reading ui file 'data/warningToLogOut.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -10,10 +10,12 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_logoutDialog(object):
     def setupUi(self, logoutDialog):
         logoutDialog.setObjectName("logoutDialog")
-        logoutDialog.resize(498, 181)
+        logoutDialog.setWindowModality(QtCore.Qt.ApplicationModal)
+        logoutDialog.resize(498, 214)
         logoutDialog.setStyleSheet("*{\n"
 "border: none;\n"
 "background-color: transparent;\n"
@@ -27,6 +29,7 @@ class Ui_logoutDialog(object):
 "    border-radius: 5px;\n"
 "}\n"
 "")
+        logoutDialog.setModal(True)
         self.verticalLayout = QtWidgets.QVBoxLayout(logoutDialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.widget = QtWidgets.QWidget(logoutDialog)
@@ -39,8 +42,8 @@ class Ui_logoutDialog(object):
         self.widget_2.setObjectName("widget_2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.widget_2)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.stackedWidget = QtWidgets.QStackedWidget(self.widget_2)
-        self.stackedWidget.setObjectName("stackedWidget")
+        self.logoutUpdatePages = QtWidgets.QStackedWidget(self.widget_2)
+        self.logoutUpdatePages.setObjectName("logoutUpdatePages")
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.page)
@@ -119,7 +122,7 @@ class Ui_logoutDialog(object):
         self.verticalLayout_6.addWidget(self.widget_6)
         self.verticalLayout_4.addWidget(self.widget_4)
         self.verticalLayout_5.addWidget(self.widget_3)
-        self.stackedWidget.addWidget(self.page)
+        self.logoutUpdatePages.addWidget(self.page)
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
         self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.page_2)
@@ -198,13 +201,845 @@ class Ui_logoutDialog(object):
         self.verticalLayout_10.addWidget(self.widget_10)
         self.verticalLayout_8.addWidget(self.widget_9)
         self.verticalLayout_11.addWidget(self.widget_7)
-        self.stackedWidget.addWidget(self.page_2)
-        self.verticalLayout_3.addWidget(self.stackedWidget)
+        self.logoutUpdatePages.addWidget(self.page_2)
+        self.update_unitTest1 = QtWidgets.QWidget()
+        self.update_unitTest1.setObjectName("update_unitTest1")
+        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.update_unitTest1)
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName("verticalLayout_15")
+        self.widget_11 = QtWidgets.QWidget(self.update_unitTest1)
+        self.widget_11.setObjectName("widget_11")
+        self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.widget_11)
+        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_14.setSpacing(0)
+        self.verticalLayout_14.setObjectName("verticalLayout_14")
+        self.widget_12 = QtWidgets.QWidget(self.widget_11)
+        self.widget_12.setStyleSheet("background-color: rgb(12, 127, 119);\n"
+"border-radius: 5px;\n"
+"padding-top: 5px;\n"
+"padding-bottom: 5px;")
+        self.widget_12.setObjectName("widget_12")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.widget_12)
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.label = QtWidgets.QLabel(self.widget_12)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.verticalLayout_12.addWidget(self.label)
+        self.verticalLayout_14.addWidget(self.widget_12)
+        self.widget_15 = QtWidgets.QWidget(self.widget_11)
+        self.widget_15.setStyleSheet("background-color: rgb(42, 55, 72);")
+        self.widget_15.setObjectName("widget_15")
+        self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.widget_15)
+        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_16.setSpacing(0)
+        self.verticalLayout_16.setObjectName("verticalLayout_16")
+        self.unitTest1_textEdit = QtWidgets.QTextEdit(self.widget_15)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.unitTest1_textEdit.setFont(font)
+        self.unitTest1_textEdit.setObjectName("unitTest1_textEdit")
+        self.verticalLayout_16.addWidget(self.unitTest1_textEdit)
+        self.verticalLayout_14.addWidget(self.widget_15)
+        self.unitTest1_error_widget = QtWidgets.QWidget(self.widget_11)
+        self.unitTest1_error_widget.setObjectName("unitTest1_error_widget")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.unitTest1_error_widget)
+        self.horizontalLayout_7.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_7.setSpacing(0)
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.label_5 = QtWidgets.QLabel(self.unitTest1_error_widget)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.label_5.setFont(font)
+        self.label_5.setTextFormat(QtCore.Qt.RichText)
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.horizontalLayout_7.addWidget(self.label_5)
+        self.verticalLayout_14.addWidget(self.unitTest1_error_widget)
+        self.widget_13 = QtWidgets.QWidget(self.widget_11)
+        self.widget_13.setObjectName("widget_13")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.widget_13)
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_13.setSpacing(0)
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.stackedWidget_2 = QtWidgets.QStackedWidget(self.widget_13)
+        self.stackedWidget_2.setObjectName("stackedWidget_2")
+        self.page_7 = QtWidgets.QWidget()
+        self.page_7.setObjectName("page_7")
+        self.horizontalLayout_11 = QtWidgets.QHBoxLayout(self.page_7)
+        self.horizontalLayout_11.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_11.setSpacing(0)
+        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
+        self.widget_16 = QtWidgets.QWidget(self.page_7)
+        self.widget_16.setObjectName("widget_16")
+        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.widget_16)
+        self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_17.setSpacing(0)
+        self.verticalLayout_17.setObjectName("verticalLayout_17")
+        self.unitTest1_check_pushButton = QtWidgets.QPushButton(self.widget_16)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.unitTest1_check_pushButton.setFont(font)
+        self.unitTest1_check_pushButton.setStyleSheet("QPushButton#unitTest1_check_pushButton{\n"
+"    background-color: rgb(63, 162, 40);\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#unitTest1_check_pushButton:hover{\n"
+"    background-color: rgb(64, 204, 68);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#unitTest1_check_pushButton:pressed{\n"
+"    background-color: rgb(46, 97, 37);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.unitTest1_check_pushButton.setObjectName("unitTest1_check_pushButton")
+        self.verticalLayout_17.addWidget(self.unitTest1_check_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_11.addWidget(self.widget_16)
+        self.widget_17 = QtWidgets.QWidget(self.page_7)
+        self.widget_17.setObjectName("widget_17")
+        self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.widget_17)
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName("verticalLayout_18")
+        self.unitTest1_cancel_pushButton = QtWidgets.QPushButton(self.widget_17)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.unitTest1_cancel_pushButton.setFont(font)
+        self.unitTest1_cancel_pushButton.setStyleSheet("QPushButton#unitTest1_cancel_pushButton{\n"
+"    background-color: rgb(195, 195, 195);\n"
+"    padding:5px 30px 5px 30px ;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#unitTest1_cancel_pushButton:hover{\n"
+"    background-color: rgb(161, 161, 161);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#unitTest1_cancel_pushButton:pressed{\n"
+"    background-color: rgb(108, 108, 108);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.unitTest1_cancel_pushButton.setObjectName("unitTest1_cancel_pushButton")
+        self.verticalLayout_18.addWidget(self.unitTest1_cancel_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_11.addWidget(self.widget_17)
+        self.stackedWidget_2.addWidget(self.page_7)
+        self.page_8 = QtWidgets.QWidget()
+        self.page_8.setObjectName("page_8")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.page_8)
+        self.horizontalLayout_3.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.widget_39 = QtWidgets.QWidget(self.page_8)
+        self.widget_39.setObjectName("widget_39")
+        self.verticalLayout_40 = QtWidgets.QVBoxLayout(self.widget_39)
+        self.verticalLayout_40.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_40.setSpacing(0)
+        self.verticalLayout_40.setObjectName("verticalLayout_40")
+        self.unitTest1_delete_pushButton = QtWidgets.QPushButton(self.widget_39)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.unitTest1_delete_pushButton.setFont(font)
+        self.unitTest1_delete_pushButton.setStyleSheet("QPushButton#unitTest1_delete_pushButton{\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#unitTest1_delete_pushButton:hover{\n"
+"    background-color: rgb(199, 79, 79);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#unitTest1_delete_pushButton:pressed{\n"
+"    background-color: rgba(170, 0, 0,150);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.unitTest1_delete_pushButton.setObjectName("unitTest1_delete_pushButton")
+        self.verticalLayout_40.addWidget(self.unitTest1_delete_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_3.addWidget(self.widget_39)
+        self.widget_40 = QtWidgets.QWidget(self.page_8)
+        self.widget_40.setObjectName("widget_40")
+        self.verticalLayout_41 = QtWidgets.QVBoxLayout(self.widget_40)
+        self.verticalLayout_41.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_41.setSpacing(0)
+        self.verticalLayout_41.setObjectName("verticalLayout_41")
+        self.unitTest1_cancel1_pushButton = QtWidgets.QPushButton(self.widget_40)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.unitTest1_cancel1_pushButton.setFont(font)
+        self.unitTest1_cancel1_pushButton.setStyleSheet("QPushButton#unitTest1_cancel1_pushButton{\n"
+"    background-color: rgb(195, 195, 195);\n"
+"    padding:5px 30px 5px 30px ;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#unitTest1_cancel1_pushButton:hover{\n"
+"    background-color: rgb(161, 161, 161);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#unitTest1_cancel1_pushButton:pressed{\n"
+"    background-color: rgb(108, 108, 108);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.unitTest1_cancel1_pushButton.setObjectName("unitTest1_cancel1_pushButton")
+        self.verticalLayout_41.addWidget(self.unitTest1_cancel1_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_3.addWidget(self.widget_40)
+        self.stackedWidget_2.addWidget(self.page_8)
+        self.verticalLayout_13.addWidget(self.stackedWidget_2)
+        self.verticalLayout_14.addWidget(self.widget_13)
+        self.verticalLayout_15.addWidget(self.widget_11)
+        self.logoutUpdatePages.addWidget(self.update_unitTest1)
+        self.update_unitTest2 = QtWidgets.QWidget()
+        self.update_unitTest2.setObjectName("update_unitTest2")
+        self.verticalLayout_24 = QtWidgets.QVBoxLayout(self.update_unitTest2)
+        self.verticalLayout_24.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_24.setSpacing(0)
+        self.verticalLayout_24.setObjectName("verticalLayout_24")
+        self.widget_18 = QtWidgets.QWidget(self.update_unitTest2)
+        self.widget_18.setObjectName("widget_18")
+        self.verticalLayout_37 = QtWidgets.QVBoxLayout(self.widget_18)
+        self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_37.setSpacing(0)
+        self.verticalLayout_37.setObjectName("verticalLayout_37")
+        self.widget_14 = QtWidgets.QWidget(self.widget_18)
+        self.widget_14.setStyleSheet("background-color: rgb(12, 127, 119);\n"
+"border-radius: 5px;\n"
+"padding-top: 5px;\n"
+"padding-bottom: 5px;")
+        self.widget_14.setObjectName("widget_14")
+        self.verticalLayout_20 = QtWidgets.QVBoxLayout(self.widget_14)
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_20.setSpacing(0)
+        self.verticalLayout_20.setObjectName("verticalLayout_20")
+        self.label_2 = QtWidgets.QLabel(self.widget_14)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_2.setFont(font)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout_20.addWidget(self.label_2)
+        self.verticalLayout_37.addWidget(self.widget_14)
+        self.widget_19 = QtWidgets.QWidget(self.widget_18)
+        self.widget_19.setStyleSheet("background-color: rgb(42, 55, 72);")
+        self.widget_19.setObjectName("widget_19")
+        self.verticalLayout_19 = QtWidgets.QVBoxLayout(self.widget_19)
+        self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_19.setSpacing(0)
+        self.verticalLayout_19.setObjectName("verticalLayout_19")
+        self.unitTest2_textEdit = QtWidgets.QTextEdit(self.widget_19)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.unitTest2_textEdit.setFont(font)
+        self.unitTest2_textEdit.setObjectName("unitTest2_textEdit")
+        self.verticalLayout_19.addWidget(self.unitTest2_textEdit)
+        self.verticalLayout_37.addWidget(self.widget_19)
+        self.unitTest2_error_widget = QtWidgets.QWidget(self.widget_18)
+        self.unitTest2_error_widget.setObjectName("unitTest2_error_widget")
+        self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.unitTest2_error_widget)
+        self.horizontalLayout_8.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_8.setSpacing(0)
+        self.horizontalLayout_8.setObjectName("horizontalLayout_8")
+        self.label_6 = QtWidgets.QLabel(self.unitTest2_error_widget)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.label_6.setFont(font)
+        self.label_6.setTextFormat(QtCore.Qt.RichText)
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setObjectName("label_6")
+        self.horizontalLayout_8.addWidget(self.label_6)
+        self.verticalLayout_37.addWidget(self.unitTest2_error_widget)
+        self.widget_20 = QtWidgets.QWidget(self.widget_18)
+        self.widget_20.setObjectName("widget_20")
+        self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.widget_20)
+        self.verticalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_21.setSpacing(0)
+        self.verticalLayout_21.setObjectName("verticalLayout_21")
+        self.stackedWidget_3 = QtWidgets.QStackedWidget(self.widget_20)
+        self.stackedWidget_3.setObjectName("stackedWidget_3")
+        self.page_9 = QtWidgets.QWidget()
+        self.page_9.setObjectName("page_9")
+        self.horizontalLayout_12 = QtWidgets.QHBoxLayout(self.page_9)
+        self.horizontalLayout_12.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_12.setSpacing(0)
+        self.horizontalLayout_12.setObjectName("horizontalLayout_12")
+        self.widget_21 = QtWidgets.QWidget(self.page_9)
+        self.widget_21.setObjectName("widget_21")
+        self.verticalLayout_22 = QtWidgets.QVBoxLayout(self.widget_21)
+        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_22.setSpacing(0)
+        self.verticalLayout_22.setObjectName("verticalLayout_22")
+        self.unitTest2_check_pushButton = QtWidgets.QPushButton(self.widget_21)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.unitTest2_check_pushButton.setFont(font)
+        self.unitTest2_check_pushButton.setStyleSheet("QPushButton#unitTest2_check_pushButton{\n"
+"    background-color: rgb(63, 162, 40);\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#unitTest2_check_pushButton:hover{\n"
+"    background-color: rgb(64, 204, 68);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#unitTest2_check_pushButton:pressed{\n"
+"    background-color: rgb(46, 97, 37);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.unitTest2_check_pushButton.setObjectName("unitTest2_check_pushButton")
+        self.verticalLayout_22.addWidget(self.unitTest2_check_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_12.addWidget(self.widget_21)
+        self.widget_22 = QtWidgets.QWidget(self.page_9)
+        self.widget_22.setObjectName("widget_22")
+        self.verticalLayout_23 = QtWidgets.QVBoxLayout(self.widget_22)
+        self.verticalLayout_23.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_23.setSpacing(0)
+        self.verticalLayout_23.setObjectName("verticalLayout_23")
+        self.unitTest2_cancel_pushButton = QtWidgets.QPushButton(self.widget_22)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.unitTest2_cancel_pushButton.setFont(font)
+        self.unitTest2_cancel_pushButton.setStyleSheet("QPushButton#unitTest2_cancel_pushButton{\n"
+"    background-color: rgb(195, 195, 195);\n"
+"    padding:5px 30px 5px 30px ;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#unitTest2_cancel_pushButton:hover{\n"
+"    background-color: rgb(161, 161, 161);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#unitTest2_cancel_pushButton:pressed{\n"
+"    background-color: rgb(108, 108, 108);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.unitTest2_cancel_pushButton.setObjectName("unitTest2_cancel_pushButton")
+        self.verticalLayout_23.addWidget(self.unitTest2_cancel_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_12.addWidget(self.widget_22)
+        self.stackedWidget_3.addWidget(self.page_9)
+        self.page_10 = QtWidgets.QWidget()
+        self.page_10.setObjectName("page_10")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.page_10)
+        self.horizontalLayout_4.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.widget_41 = QtWidgets.QWidget(self.page_10)
+        self.widget_41.setObjectName("widget_41")
+        self.verticalLayout_42 = QtWidgets.QVBoxLayout(self.widget_41)
+        self.verticalLayout_42.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_42.setSpacing(0)
+        self.verticalLayout_42.setObjectName("verticalLayout_42")
+        self.unitTest2_delete_pushButton = QtWidgets.QPushButton(self.widget_41)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.unitTest2_delete_pushButton.setFont(font)
+        self.unitTest2_delete_pushButton.setStyleSheet("QPushButton#unitTest2_delete_pushButton{\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#unitTest2_delete_pushButton:hover{\n"
+"    background-color: rgb(199, 79, 79);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#unitTest2_delete_pushButton:pressed{\n"
+"    background-color: rgba(170, 0, 0,150);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.unitTest2_delete_pushButton.setObjectName("unitTest2_delete_pushButton")
+        self.verticalLayout_42.addWidget(self.unitTest2_delete_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_4.addWidget(self.widget_41)
+        self.widget_42 = QtWidgets.QWidget(self.page_10)
+        self.widget_42.setObjectName("widget_42")
+        self.verticalLayout_43 = QtWidgets.QVBoxLayout(self.widget_42)
+        self.verticalLayout_43.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_43.setSpacing(0)
+        self.verticalLayout_43.setObjectName("verticalLayout_43")
+        self.unitTest2_cancel1_pushButton = QtWidgets.QPushButton(self.widget_42)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.unitTest2_cancel1_pushButton.setFont(font)
+        self.unitTest2_cancel1_pushButton.setStyleSheet("QPushButton#unitTest2_cancel1_pushButton{\n"
+"    background-color: rgb(195, 195, 195);\n"
+"    padding:5px 30px 5px 30px ;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#unitTest2_cancel1_pushButton:hover{\n"
+"    background-color: rgb(161, 161, 161);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#unitTest2_cancel1_pushButton:pressed{\n"
+"    background-color: rgb(108, 108, 108);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.unitTest2_cancel1_pushButton.setObjectName("unitTest2_cancel1_pushButton")
+        self.verticalLayout_43.addWidget(self.unitTest2_cancel1_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_4.addWidget(self.widget_42)
+        self.stackedWidget_3.addWidget(self.page_10)
+        self.verticalLayout_21.addWidget(self.stackedWidget_3)
+        self.verticalLayout_37.addWidget(self.widget_20)
+        self.verticalLayout_24.addWidget(self.widget_18)
+        self.logoutUpdatePages.addWidget(self.update_unitTest2)
+        self.pre_assess = QtWidgets.QWidget()
+        self.pre_assess.setObjectName("pre_assess")
+        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.pre_assess)
+        self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_30.setSpacing(0)
+        self.verticalLayout_30.setObjectName("verticalLayout_30")
+        self.widget_24 = QtWidgets.QWidget(self.pre_assess)
+        self.widget_24.setObjectName("widget_24")
+        self.verticalLayout_39 = QtWidgets.QVBoxLayout(self.widget_24)
+        self.verticalLayout_39.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_39.setSpacing(0)
+        self.verticalLayout_39.setObjectName("verticalLayout_39")
+        self.widget_25 = QtWidgets.QWidget(self.widget_24)
+        self.widget_25.setStyleSheet("background-color: rgb(12, 127, 119);\n"
+"border-radius: 5px;\n"
+"padding-top: 5px;\n"
+"padding-bottom: 5px;")
+        self.widget_25.setObjectName("widget_25")
+        self.verticalLayout_26 = QtWidgets.QVBoxLayout(self.widget_25)
+        self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_26.setSpacing(0)
+        self.verticalLayout_26.setObjectName("verticalLayout_26")
+        self.label_3 = QtWidgets.QLabel(self.widget_25)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_3.setFont(font)
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+        self.verticalLayout_26.addWidget(self.label_3)
+        self.verticalLayout_39.addWidget(self.widget_25)
+        self.widget_23 = QtWidgets.QWidget(self.widget_24)
+        self.widget_23.setStyleSheet("background-color: rgb(42, 55, 72);")
+        self.widget_23.setObjectName("widget_23")
+        self.verticalLayout_25 = QtWidgets.QVBoxLayout(self.widget_23)
+        self.verticalLayout_25.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_25.setSpacing(0)
+        self.verticalLayout_25.setObjectName("verticalLayout_25")
+        self.preAssess_textEdit = QtWidgets.QTextEdit(self.widget_23)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.preAssess_textEdit.setFont(font)
+        self.preAssess_textEdit.setObjectName("preAssess_textEdit")
+        self.verticalLayout_25.addWidget(self.preAssess_textEdit)
+        self.verticalLayout_39.addWidget(self.widget_23)
+        self.preAssess_error_widget = QtWidgets.QWidget(self.widget_24)
+        self.preAssess_error_widget.setObjectName("preAssess_error_widget")
+        self.horizontalLayout_10 = QtWidgets.QHBoxLayout(self.preAssess_error_widget)
+        self.horizontalLayout_10.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_10.setSpacing(0)
+        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
+        self.label_8 = QtWidgets.QLabel(self.preAssess_error_widget)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.label_8.setFont(font)
+        self.label_8.setTextFormat(QtCore.Qt.RichText)
+        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_8.setObjectName("label_8")
+        self.horizontalLayout_10.addWidget(self.label_8)
+        self.verticalLayout_39.addWidget(self.preAssess_error_widget)
+        self.widget_26 = QtWidgets.QWidget(self.widget_24)
+        self.widget_26.setObjectName("widget_26")
+        self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.widget_26)
+        self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_27.setSpacing(0)
+        self.verticalLayout_27.setObjectName("verticalLayout_27")
+        self.stackedWidget_4 = QtWidgets.QStackedWidget(self.widget_26)
+        self.stackedWidget_4.setObjectName("stackedWidget_4")
+        self.page_11 = QtWidgets.QWidget()
+        self.page_11.setObjectName("page_11")
+        self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.page_11)
+        self.horizontalLayout_13.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_13.setSpacing(0)
+        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
+        self.widget_27 = QtWidgets.QWidget(self.page_11)
+        self.widget_27.setObjectName("widget_27")
+        self.verticalLayout_28 = QtWidgets.QVBoxLayout(self.widget_27)
+        self.verticalLayout_28.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_28.setSpacing(0)
+        self.verticalLayout_28.setObjectName("verticalLayout_28")
+        self.preAssess_check_pushButton = QtWidgets.QPushButton(self.widget_27)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.preAssess_check_pushButton.setFont(font)
+        self.preAssess_check_pushButton.setStyleSheet("QPushButton#preAssess_check_pushButton{\n"
+"    background-color: rgb(63, 162, 40);\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#preAssess_check_pushButton:hover{\n"
+"    background-color: rgb(64, 204, 68);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#preAssess_check_pushButton:pressed{\n"
+"    background-color: rgb(46, 97, 37);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.preAssess_check_pushButton.setObjectName("preAssess_check_pushButton")
+        self.verticalLayout_28.addWidget(self.preAssess_check_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_13.addWidget(self.widget_27)
+        self.widget_28 = QtWidgets.QWidget(self.page_11)
+        self.widget_28.setObjectName("widget_28")
+        self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.widget_28)
+        self.verticalLayout_29.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_29.setSpacing(0)
+        self.verticalLayout_29.setObjectName("verticalLayout_29")
+        self.preAssess_cancel_pushButton = QtWidgets.QPushButton(self.widget_28)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.preAssess_cancel_pushButton.setFont(font)
+        self.preAssess_cancel_pushButton.setStyleSheet("QPushButton#preAssess_cancel_pushButton{\n"
+"    background-color: rgb(195, 195, 195);\n"
+"    padding:5px 30px 5px 30px ;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#preAssess_cancel_pushButton:hover{\n"
+"    background-color: rgb(161, 161, 161);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#preAssess_cancel_pushButton:pressed{\n"
+"    background-color: rgb(108, 108, 108);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.preAssess_cancel_pushButton.setObjectName("preAssess_cancel_pushButton")
+        self.verticalLayout_29.addWidget(self.preAssess_cancel_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_13.addWidget(self.widget_28)
+        self.stackedWidget_4.addWidget(self.page_11)
+        self.page_12 = QtWidgets.QWidget()
+        self.page_12.setObjectName("page_12")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.page_12)
+        self.horizontalLayout_5.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_5.setSpacing(0)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.widget_43 = QtWidgets.QWidget(self.page_12)
+        self.widget_43.setObjectName("widget_43")
+        self.verticalLayout_44 = QtWidgets.QVBoxLayout(self.widget_43)
+        self.verticalLayout_44.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_44.setSpacing(0)
+        self.verticalLayout_44.setObjectName("verticalLayout_44")
+        self.preAssess_delete_pushButton = QtWidgets.QPushButton(self.widget_43)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.preAssess_delete_pushButton.setFont(font)
+        self.preAssess_delete_pushButton.setStyleSheet("QPushButton#preAssess_delete_pushButton{\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#preAssess_delete_pushButton:hover{\n"
+"    background-color: rgb(199, 79, 79);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#preAssess_delete_pushButton:pressed{\n"
+"    background-color: rgba(170, 0, 0,150);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.preAssess_delete_pushButton.setObjectName("preAssess_delete_pushButton")
+        self.verticalLayout_44.addWidget(self.preAssess_delete_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_5.addWidget(self.widget_43)
+        self.widget_44 = QtWidgets.QWidget(self.page_12)
+        self.widget_44.setObjectName("widget_44")
+        self.verticalLayout_45 = QtWidgets.QVBoxLayout(self.widget_44)
+        self.verticalLayout_45.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_45.setSpacing(0)
+        self.verticalLayout_45.setObjectName("verticalLayout_45")
+        self.preAssess_cancel1_pushButton = QtWidgets.QPushButton(self.widget_44)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.preAssess_cancel1_pushButton.setFont(font)
+        self.preAssess_cancel1_pushButton.setStyleSheet("QPushButton#preAssess_cancel1_pushButton{\n"
+"    background-color: rgb(195, 195, 195);\n"
+"    padding:5px 30px 5px 30px ;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#preAssess_cancel1_pushButton:hover{\n"
+"    background-color: rgb(161, 161, 161);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#preAssess_cancel1_pushButton:pressed{\n"
+"    background-color: rgb(108, 108, 108);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.preAssess_cancel1_pushButton.setObjectName("preAssess_cancel1_pushButton")
+        self.verticalLayout_45.addWidget(self.preAssess_cancel1_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_5.addWidget(self.widget_44)
+        self.stackedWidget_4.addWidget(self.page_12)
+        self.verticalLayout_27.addWidget(self.stackedWidget_4)
+        self.verticalLayout_39.addWidget(self.widget_26)
+        self.verticalLayout_30.addWidget(self.widget_24)
+        self.logoutUpdatePages.addWidget(self.pre_assess)
+        self.post_assess = QtWidgets.QWidget()
+        self.post_assess.setObjectName("post_assess")
+        self.verticalLayout_36 = QtWidgets.QVBoxLayout(self.post_assess)
+        self.verticalLayout_36.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_36.setSpacing(0)
+        self.verticalLayout_36.setObjectName("verticalLayout_36")
+        self.widget_30 = QtWidgets.QWidget(self.post_assess)
+        self.widget_30.setObjectName("widget_30")
+        self.verticalLayout_38 = QtWidgets.QVBoxLayout(self.widget_30)
+        self.verticalLayout_38.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_38.setSpacing(0)
+        self.verticalLayout_38.setObjectName("verticalLayout_38")
+        self.widget_31 = QtWidgets.QWidget(self.widget_30)
+        self.widget_31.setStyleSheet("background-color: rgb(12, 127, 119);\n"
+"border-radius: 5px;\n"
+"padding-top: 5px;\n"
+"padding-bottom: 5px;")
+        self.widget_31.setObjectName("widget_31")
+        self.verticalLayout_32 = QtWidgets.QVBoxLayout(self.widget_31)
+        self.verticalLayout_32.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_32.setSpacing(0)
+        self.verticalLayout_32.setObjectName("verticalLayout_32")
+        self.label_4 = QtWidgets.QLabel(self.widget_31)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_4.setFont(font)
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_32.addWidget(self.label_4)
+        self.verticalLayout_38.addWidget(self.widget_31)
+        self.widget_29 = QtWidgets.QWidget(self.widget_30)
+        self.widget_29.setStyleSheet("background-color: rgb(42, 55, 72);")
+        self.widget_29.setObjectName("widget_29")
+        self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.widget_29)
+        self.verticalLayout_31.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_31.setSpacing(0)
+        self.verticalLayout_31.setObjectName("verticalLayout_31")
+        self.postAssess_textEdit = QtWidgets.QTextEdit(self.widget_29)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.postAssess_textEdit.setFont(font)
+        self.postAssess_textEdit.setObjectName("postAssess_textEdit")
+        self.verticalLayout_31.addWidget(self.postAssess_textEdit)
+        self.verticalLayout_38.addWidget(self.widget_29)
+        self.postAssess_error_widget = QtWidgets.QWidget(self.widget_30)
+        self.postAssess_error_widget.setObjectName("postAssess_error_widget")
+        self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.postAssess_error_widget)
+        self.horizontalLayout_9.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_9.setSpacing(0)
+        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
+        self.label_7 = QtWidgets.QLabel(self.postAssess_error_widget)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.label_7.setFont(font)
+        self.label_7.setTextFormat(QtCore.Qt.RichText)
+        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_7.setObjectName("label_7")
+        self.horizontalLayout_9.addWidget(self.label_7)
+        self.verticalLayout_38.addWidget(self.postAssess_error_widget)
+        self.widget_32 = QtWidgets.QWidget(self.widget_30)
+        self.widget_32.setObjectName("widget_32")
+        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.widget_32)
+        self.verticalLayout_33.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_33.setSpacing(0)
+        self.verticalLayout_33.setObjectName("verticalLayout_33")
+        self.stackedWidget_5 = QtWidgets.QStackedWidget(self.widget_32)
+        self.stackedWidget_5.setObjectName("stackedWidget_5")
+        self.page_13 = QtWidgets.QWidget()
+        self.page_13.setObjectName("page_13")
+        self.horizontalLayout_14 = QtWidgets.QHBoxLayout(self.page_13)
+        self.horizontalLayout_14.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_14.setSpacing(0)
+        self.horizontalLayout_14.setObjectName("horizontalLayout_14")
+        self.widget_33 = QtWidgets.QWidget(self.page_13)
+        self.widget_33.setObjectName("widget_33")
+        self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.widget_33)
+        self.verticalLayout_34.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_34.setSpacing(0)
+        self.verticalLayout_34.setObjectName("verticalLayout_34")
+        self.postAssess_check_pushButton = QtWidgets.QPushButton(self.widget_33)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.postAssess_check_pushButton.setFont(font)
+        self.postAssess_check_pushButton.setStyleSheet("QPushButton#postAssess_check_pushButton{\n"
+"    background-color: rgb(63, 162, 40);\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#postAssess_check_pushButton:hover{\n"
+"    background-color: rgb(64, 204, 68);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#postAssess_check_pushButton:pressed{\n"
+"    background-color: rgb(46, 97, 37);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.postAssess_check_pushButton.setObjectName("postAssess_check_pushButton")
+        self.verticalLayout_34.addWidget(self.postAssess_check_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_14.addWidget(self.widget_33)
+        self.widget_34 = QtWidgets.QWidget(self.page_13)
+        self.widget_34.setObjectName("widget_34")
+        self.verticalLayout_35 = QtWidgets.QVBoxLayout(self.widget_34)
+        self.verticalLayout_35.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_35.setSpacing(0)
+        self.verticalLayout_35.setObjectName("verticalLayout_35")
+        self.postAssess_cancel_pushButton = QtWidgets.QPushButton(self.widget_34)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.postAssess_cancel_pushButton.setFont(font)
+        self.postAssess_cancel_pushButton.setStyleSheet("QPushButton#postAssess_cancel_pushButton{\n"
+"    background-color: rgb(195, 195, 195);\n"
+"    padding:5px 30px 5px 30px ;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#postAssess_cancel_pushButton:hover{\n"
+"    background-color: rgb(161, 161, 161);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#postAssess_cancel_pushButton:pressed{\n"
+"    background-color: rgb(108, 108, 108);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.postAssess_cancel_pushButton.setObjectName("postAssess_cancel_pushButton")
+        self.verticalLayout_35.addWidget(self.postAssess_cancel_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_14.addWidget(self.widget_34)
+        self.stackedWidget_5.addWidget(self.page_13)
+        self.page_14 = QtWidgets.QWidget()
+        self.page_14.setObjectName("page_14")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.page_14)
+        self.horizontalLayout_6.setContentsMargins(0, 5, 0, 5)
+        self.horizontalLayout_6.setSpacing(0)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.widget_45 = QtWidgets.QWidget(self.page_14)
+        self.widget_45.setObjectName("widget_45")
+        self.verticalLayout_46 = QtWidgets.QVBoxLayout(self.widget_45)
+        self.verticalLayout_46.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_46.setSpacing(0)
+        self.verticalLayout_46.setObjectName("verticalLayout_46")
+        self.postAssess_delete_pushButton = QtWidgets.QPushButton(self.widget_45)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.postAssess_delete_pushButton.setFont(font)
+        self.postAssess_delete_pushButton.setStyleSheet("QPushButton#postAssess_delete_pushButton{\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#postAssess_delete_pushButton:hover{\n"
+"    background-color: rgb(199, 79, 79);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#postAssess_delete_pushButton:pressed{\n"
+"    background-color: rgba(170, 0, 0,150);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.postAssess_delete_pushButton.setObjectName("postAssess_delete_pushButton")
+        self.verticalLayout_46.addWidget(self.postAssess_delete_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_6.addWidget(self.widget_45)
+        self.widget_46 = QtWidgets.QWidget(self.page_14)
+        self.widget_46.setObjectName("widget_46")
+        self.verticalLayout_47 = QtWidgets.QVBoxLayout(self.widget_46)
+        self.verticalLayout_47.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_47.setSpacing(0)
+        self.verticalLayout_47.setObjectName("verticalLayout_47")
+        self.postAssess_cancel1_pushButton = QtWidgets.QPushButton(self.widget_46)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.postAssess_cancel1_pushButton.setFont(font)
+        self.postAssess_cancel1_pushButton.setStyleSheet("QPushButton#postAssess_cancel1_pushButton{\n"
+"    background-color: rgb(195, 195, 195);\n"
+"    padding:5px 30px 5px 30px ;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
+"    padding-top:5px;\n"
+"    padding-bottom:5px;\n"
+"    border-radius: 5px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton#postAssess_cancel1_pushButton:hover{\n"
+"    background-color: rgb(161, 161, 161);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QPushButton#postAssess_cancel1_pushButton:pressed{\n"
+"    background-color: rgb(108, 108, 108);\n"
+"    border-radius: 5px;\n"
+"}")
+        self.postAssess_cancel1_pushButton.setObjectName("postAssess_cancel1_pushButton")
+        self.verticalLayout_47.addWidget(self.postAssess_cancel1_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_6.addWidget(self.widget_46)
+        self.stackedWidget_5.addWidget(self.page_14)
+        self.verticalLayout_33.addWidget(self.stackedWidget_5)
+        self.verticalLayout_38.addWidget(self.widget_32)
+        self.verticalLayout_36.addWidget(self.widget_30)
+        self.logoutUpdatePages.addWidget(self.post_assess)
+        self.verticalLayout_3.addWidget(self.logoutUpdatePages)
         self.verticalLayout_2.addWidget(self.widget_2)
         self.verticalLayout.addWidget(self.widget)
 
         self.retranslateUi(logoutDialog)
-        self.stackedWidget.setCurrentIndex(0)
+        self.logoutUpdatePages.setCurrentIndex(0)
+        self.stackedWidget_2.setCurrentIndex(0)
+        self.stackedWidget_3.setCurrentIndex(0)
+        self.stackedWidget_4.setCurrentIndex(0)
+        self.stackedWidget_5.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(logoutDialog)
 
     def retranslateUi(self, logoutDialog):
@@ -215,6 +1050,7 @@ class Ui_logoutDialog(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Are you sure you want to Log out?</span></p></body></html>"))
         self.yes_pushButton.setText(_translate("logoutDialog", "Yes"))
         self.no_pushButton.setText(_translate("logoutDialog", "No"))
@@ -223,9 +1059,54 @@ class Ui_logoutDialog(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Are you sure you want to Log out?</span></p></body></html>"))
         self.yes_pushButton_2.setText(_translate("logoutDialog", "Yes"))
         self.no_pushButton_2.setText(_translate("logoutDialog", "No"))
+        self.label.setText(_translate("logoutDialog", "Enter the QuestionId"))
+        self.unitTest1_textEdit.setHtml(_translate("logoutDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.label_5.setText(_translate("logoutDialog", "<html><head/><body><p><span style=\" color:#ff6767;\">Id doesn\'t exists</span></p></body></html>"))
+        self.unitTest1_check_pushButton.setText(_translate("logoutDialog", "Check"))
+        self.unitTest1_cancel_pushButton.setText(_translate("logoutDialog", "Cancel"))
+        self.unitTest1_delete_pushButton.setText(_translate("logoutDialog", "Delete"))
+        self.unitTest1_cancel1_pushButton.setText(_translate("logoutDialog", "Cancel"))
+        self.label_2.setText(_translate("logoutDialog", "Enter the QuestionId"))
+        self.unitTest2_textEdit.setHtml(_translate("logoutDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.label_6.setText(_translate("logoutDialog", "<html><head/><body><p><span style=\" color:#ff6767;\">Id doesn\'t exists</span></p></body></html>"))
+        self.unitTest2_check_pushButton.setText(_translate("logoutDialog", "Check"))
+        self.unitTest2_cancel_pushButton.setText(_translate("logoutDialog", "Cancel"))
+        self.unitTest2_delete_pushButton.setText(_translate("logoutDialog", "Delete"))
+        self.unitTest2_cancel1_pushButton.setText(_translate("logoutDialog", "Cancel"))
+        self.label_3.setText(_translate("logoutDialog", "Enter the QuestionId"))
+        self.preAssess_textEdit.setHtml(_translate("logoutDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.label_8.setText(_translate("logoutDialog", "<html><head/><body><p><span style=\" color:#ff6767;\">Id doesn\'t exists</span></p></body></html>"))
+        self.preAssess_check_pushButton.setText(_translate("logoutDialog", "Check"))
+        self.preAssess_cancel_pushButton.setText(_translate("logoutDialog", "Cancel"))
+        self.preAssess_delete_pushButton.setText(_translate("logoutDialog", "Delete"))
+        self.preAssess_cancel1_pushButton.setText(_translate("logoutDialog", "Cancel"))
+        self.label_4.setText(_translate("logoutDialog", "Enter the QuestionId"))
+        self.postAssess_textEdit.setHtml(_translate("logoutDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.label_7.setText(_translate("logoutDialog", "<html><head/><body><p><span style=\" color:#ff6767;\">Id doesn\'t exists</span></p></body></html>"))
+        self.postAssess_check_pushButton.setText(_translate("logoutDialog", "Check"))
+        self.postAssess_cancel_pushButton.setText(_translate("logoutDialog", "Cancel"))
+        self.postAssess_delete_pushButton.setText(_translate("logoutDialog", "Delete"))
+        self.postAssess_cancel1_pushButton.setText(_translate("logoutDialog", "Cancel"))
 import sys
 sys.path.append("assets")
 import res

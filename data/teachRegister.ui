@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>368</width>
-    <height>789</height>
+    <width>402</width>
+    <height>744</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -66,7 +66,7 @@ padding-bottom:7px
       <x>50</x>
       <y>30</y>
       <width>295</width>
-      <height>451</height>
+      <height>460</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -220,7 +220,7 @@ padding-bottom:7px
                     </font>
                    </property>
                    <property name="text">
-                    <string>Pre-Calguro</string>
+                    <string>PreCalGuro</string>
                    </property>
                   </widget>
                  </item>
@@ -814,6 +814,43 @@ padding-left: 3px;</string>
                          </property>
                          <property name="text">
                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your Valid Email&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         </property>
+                         <property name="textFormat">
+                          <enum>Qt::RichText</enum>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QWidget" name="warningEmailInUsed" native="true">
+                      <layout class="QVBoxLayout" name="verticalLayout_25">
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="label_20">
+                         <property name="font">
+                          <font>
+                           <family>MS Shell Dlg 2</family>
+                           <pointsize>10</pointsize>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Email already in used&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>

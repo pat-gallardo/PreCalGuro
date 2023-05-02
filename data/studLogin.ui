@@ -194,7 +194,7 @@ padding-bottom:7px
                  </font>
                 </property>
                 <property name="text">
-                 <string>Pre-Calguro</string>
+                 <string>PreCalGuro</string>
                 </property>
                </widget>
               </item>
@@ -291,6 +291,9 @@ padding-bottom:7px
               </item>
               <item alignment="Qt::AlignTop">
                <widget class="QWidget" name="warning_Widget" native="true">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <property name="spacing">
                   <number>0</number>
@@ -299,7 +302,7 @@ padding-bottom:7px
                   <number>0</number>
                  </property>
                  <property name="topMargin">
-                  <number>6</number>
+                  <number>0</number>
                  </property>
                  <property name="rightMargin">
                   <number>0</number>
@@ -314,16 +317,34 @@ padding-bottom:7px
                    </property>
                    <widget class="QWidget" name="page">
                     <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
                      <item>
                       <widget class="QLabel" name="label_5">
                        <property name="font">
                         <font>
                          <family>MS Shell Dlg 2</family>
-                         <pointsize>8</pointsize>
+                         <pointsize>15</pointsize>
                         </font>
                        </property>
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
                        <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt;Wrong ID, Email or Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt;Incorrect LRN, &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ff9393;&quot;&gt;Email or Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                        <property name="textFormat">
                         <enum>Qt::RichText</enum>

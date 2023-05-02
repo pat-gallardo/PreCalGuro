@@ -156,7 +156,7 @@ QPushButton#closeButton:pressed, #toStudButton:pressed, #toTeachButton:pressed{
               </font>
              </property>
              <property name="text">
-              <string>Pre-Calguro</string>
+              <string>PreCalGuro</string>
              </property>
             </widget>
            </item>
