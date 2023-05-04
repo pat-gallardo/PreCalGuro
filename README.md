@@ -1,6 +1,6 @@
-# Mathguro 
+# PreCalGuro 
 
-The mathguro repository is a math tutor that helps senior highschool students in solving Pre-Calculus lessons, such as Conic Sections and Non-Linear Equations 
+The PreCalGuro  repository is a math tutor that helps senior highschool students in solving Pre-Calculus lessons, such as Conic Sections and Non-Linear Equations 
 
 ## Getting Started
 
