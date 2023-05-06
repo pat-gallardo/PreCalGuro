@@ -31,16 +31,6 @@ import time
 import pyrebase
 import openai
 
-# account to be used for STUDENT
-# stud87313
-# dummyemail@gmail.com
-# thisispass
-
-# account to be used for TEACHER
-# 560498750
-# dummybot@gmail.com
-# passisthis
-
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
@@ -52,10 +42,6 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-# openai.api_key = "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"
-
-# idKey = "stud87313"
-# idKey = "560498750"
 idKey = ""
 submit_unit1 = False
 submit_unit2 = False
@@ -63,7 +49,10 @@ pre_assess_total_items = 0
 post_assess_total_items = 0
 unitTest1_total_items = 0
 unitTest2_total_items = 0
-
+fromLesson1 = 0
+fromLesson2 = 0
+fromPost = 0
+fromQuestion = 0
 new_unitTest1 = True
 new_unitTest2 = True
 new_preAssess = True
@@ -87,7 +76,6 @@ firebase=pyrebase.initialize_app(firebaseConfig)
 auth=firebase.auth()
 db=firebase.database()
 
-# uid = userInput
 #auth.delete_user(uid) // DELETE A USER IN AUTHENTICATION
 
 if getattr(sys, 'frozen', False):
@@ -198,18 +186,10 @@ class toStudLogin(QMainWindow):
             teachKey = db.child("student").get()
             for keyAccess in teachKey.each():
                 if keyAccess.val()["studentSchoolID"] == studSchoolID:
-                    print("Correct ID")
-
                     login= auth.sign_in_with_email_and_password(email,password)
                     login = auth.refresh(login['refreshToken'])
                     # now we have a fresh token
-                    login['idToken']
-                    print("Login Successfully")
-                    print(auth.get_account_info(login['idToken']))
-
-                    print(email)
-                    print(password)
-                    
+                    login['idToken']                    
                     self.hide()
                     self.toLogin = splashScreen()
                     self.toLogin.show()
@@ -218,12 +198,9 @@ class toStudLogin(QMainWindow):
                 else:
                     self.warning_Widget.setVisible(True)
                     self.warningPages.setCurrentIndex(0)
-                    print("Invalid email or password.")
-
         except:
                 self.warning_Widget.setVisible(True)
                 self.warningPages.setCurrentIndex(0)
-                print("Invalid email or password.")
 
     def toRegister(self):
         self.toRegis = toStudRegister()
@@ -282,7 +259,6 @@ class toStudForgotPass(QMainWindow):
             all_student = db.child("student").get()
             for student in all_student.each():
                 if student.val()["email"] == emailCheck:
-                    print("correct email")
                     # TO SEND EMAIL TO RESET PASSWORD
                     auth.send_password_reset_email(emailCheck)
                     self.studWarnContainer.setVisible(True)  
@@ -371,8 +347,6 @@ class toStudRegister(QMainWindow):
         for student in all_students.each():
             if student.val()["email"] == email:
                 self.emailCheck_ifPair = 1
-                
-
 # REGISTER CHECKING
         if fname == "":
             self.fnameError = 1
@@ -431,18 +405,6 @@ class toStudRegister(QMainWindow):
             self.studSchoolID_lineEdit.clear()
             self.studEmail_lineEdit.clear()
             self.studPass_lineEdit.clear()
-            print(fname)
-            print(mname)
-            print(lname)
-            print(course)
-            print(year)
-            print(section)
-            print(studentSchoolID)
-            print(isActive)
-            print(school)
-            print(email)
-            print(password)
-
             reigster= auth.create_user_with_email_and_password(email, password)
             
             data ={"fname":fname,"mname":mname,"lname":lname, "course":course
@@ -515,27 +477,18 @@ class toTeachLogin(QMainWindow):
             teachKey = db.child("teacher").get()
             for keyAccess in teachKey.each():
                 if keyAccess.val()["teachSchoolID"] == teachSchoolID:
-                    print("yes")
-
                     login= auth.sign_in_with_email_and_password(email,password)
                     login = auth.refresh(login['refreshToken'])
                     # now we have a fresh token
                     login['idToken']
-                    print("Login Successfully")
-                    print(auth.get_account_info(login['idToken']))
-
-                    print(email)
-                    print(password)
                     self.hide()
                     self.toLogin = toSplashScreen()
                     self.toLogin.show()
                     self.toLogin.progress()
                 else:
                     self.warning_Widget.setVisible(True)
-                    print("Invalid email or password.")
         except:
             self.warning_Widget.setVisible(True)
-            print("Invalid email or password.")
 
     def toRegister(self):
         self.toRegis = toTeachRegister()
@@ -594,7 +547,6 @@ class toTeachForgotPass(QMainWindow):
             all_teacher = db.child("teacher").get()
             for teacher in all_teacher.each():
                 if teacher.val()["email"] == emailCheck:
-                    print("correct email")
                     # TO SEND EMAIL TO RESET PASSWORD
                     auth.send_password_reset_email(emailCheck)
                     self.teachWarnContainer.setVisible(True)  
@@ -680,7 +632,6 @@ class toTeachRegister(QMainWindow):
         for teacher in all_teacher.each():
             if teacher.val()["email"] == email:
                 self.emailCheck_ifPair = 1
-
 # REGISTER CHECKING
         if fname == "":
             self.fnameError = 1
@@ -735,16 +686,6 @@ class toTeachRegister(QMainWindow):
             self.teachSchoolID_lineEdit.clear()
             self.teachEmail_lineEdit.clear()
             self.teachPass_lineEdit.clear()
-            print(fname)
-            print(mname)
-            print(lname)
-            print(course)
-            print(teachSchoolID)
-            print(isActive)
-            print(school)
-            print(email)
-            print(password)
-
             reigster= auth.create_user_with_email_and_password(email, password)
 
             data ={"fname":fname,"mname":mname,"lname":lname, "course":course
@@ -828,11 +769,6 @@ class toStudUpdateProfile(QDialog):
             self.updStudLast_lineEdit.clear()
             self.updStudSchool_lineEdit.clear()
 
-            print(fname)
-            print(mname)
-            print(lname)
-            print(school)
-
             studKey = db.child("student").get()
             for keyAccess in studKey.each():
                 if keyAccess.val()["studentSchoolID"] == idKey:
@@ -881,7 +817,7 @@ class toDashboard(QMainWindow):
         title = "Mathguro Student"
         self.setWindowTitle(title)
 
-        global new_unitTest1, new_unitTest2, new_preAssess, new_postAssess
+        global new_unitTest1, new_unitTest2, new_preAssess, new_postAssess, fromLesson1, fromLesson2, fromPost
         new_unitTest1 = True
         new_unitTest2 = True
         new_preAssess = True
@@ -908,9 +844,6 @@ class toDashboard(QMainWindow):
                 studKey = (student.val())
                 post_count = (student.val()["post_assessment_count"])
                 pre_count = (student.val()["assessment_count"])
-
-
-        # print(studID)
         self.profNameLineEdit.insertPlainText(studLname.upper())
         self.profNameLineEdit.insertPlainText(", ")
         self.profNameLineEdit.insertPlainText(studFname.upper())
@@ -1025,8 +958,6 @@ class toDashboard(QMainWindow):
                 self.animaRightContainer2.start() 
             else:
                 pass
-
-        # self.rightMenuContainer.setVisible(False)
         self.lessonsContainer.setVisible(False)
         self.lesson1_1Container.setVisible(False)
         self.lesson2_1Container.setVisible(False)
@@ -1118,6 +1049,19 @@ class toDashboard(QMainWindow):
         # UNIT TESTS
         self.proceedLesson1_1Test_pushButton.clicked.connect(self.unitTest1)
         self.proceedLesson1_2Test_pushButton.clicked.connect(self.unitTest2)
+
+        if fromLesson1 == 1:
+            self.showModule1()
+            self.menuPages.setCurrentIndex(1)
+            fromLesson1 = 0
+        if fromLesson2 == 1:
+            self.showModule2()
+            self.menuPages.setCurrentIndex(1)
+            fromLesson2 = 0
+        if fromPost == 1:
+            self.menuPages.setCurrentIndex(1)
+            fromPost = 0
+
         QSizeGrip(self.sizeGrip)
 
     def assessmentWindow(self):
@@ -1402,14 +1346,6 @@ class toDashboard(QMainWindow):
 
     def checkEquat(self):
         def tex2svg(formula, fontsize=40, dpi=300):
-        # """Render TeX formula to SVG.
-        # Args:
-        #     formula (str): TeX formula.
-        #     fontsize (int, optional): Font size.
-        #     dpi (int, optional): DPI.
-        # Returns:
-        #     str: SVG render.
-        # """
             fig = plt.figure(figsize=(0.01, 0.01))
             fig.text(50, 0, (r"$%s$" %formula), fontsize=fontsize)
 
@@ -1423,14 +1359,6 @@ class toDashboard(QMainWindow):
             return output.read()
         
         def errorFunc(formula, fontsize=20, dpi=300):
-        # """Render TeX formula to SVG.
-        # Args:
-        #     formula (str): TeX formula.
-        #     fontsize (int, optional): Font size.
-        #     dpi (int, optional): DPI.
-        # Returns:
-        #     str: SVG render.
-        # """
             fig = plt.figure(figsize=(0.01, 0.01))
             fig.text(50, 0, "There is an error\nin your input.\nEither a\n-Double backslash \neg.(\\\\right),\n-Incomplete figures in parameters \neg.(\left( , {\circ  )\n-Blank Input\neg.( )", fontsize=fontsize)
 
@@ -1442,12 +1370,8 @@ class toDashboard(QMainWindow):
 
             output.seek(0)
             return output.read()
-        
-        # matplotlib: force computer modern font set
-        
         plt.rc("'mathtext', fontset='cm'")
         word = self.chatSends_TextEdit.toPlainText()
-        # print(word)
         FORMULA = (word)
         self.svg = QSvgWidget()
 
@@ -1536,7 +1460,6 @@ class toDashboard(QMainWindow):
                 temperature=0.7
                 )
                 chatbot_response = completions.choices[0].text
-                print(chatbot_response)
                 self.textEdit_2.insertPlainText(chatbot_response)
             else:
                 chatbot_denied="Sorry, I can only help with precalculus-related questions."
@@ -1729,7 +1652,6 @@ class toDashboard(QMainWindow):
                 self.leftMenuNum = 0
         else:
             pass
-        # pass
 
     def hideCenterMenu(self):
         if willLogout == 0:
@@ -1816,7 +1738,6 @@ class toStudLogout(QDialog):
         self.no_pushButton.clicked.connect(self.noFunction)
 
     def yesFunction(self):
-        print("YES PRESSED")
         self.hide()
         self.parent().hide()
         self.toGoBack = toStudTeach()
@@ -1826,7 +1747,6 @@ class toStudLogout(QDialog):
         self.hide()
         global willLogout 
         willLogout = 0
-        print("NO PRESSED")
         
 class splashScreen(QMainWindow):
     def __init__(self):
@@ -1941,6 +1861,8 @@ class topicLesson1(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson1
+        fromLesson1 = 1
         self.back = toDashboard()
         self.back.show()
     
@@ -2060,6 +1982,8 @@ class topicLesson2(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson1
+        fromLesson1 = 1
         self.back = toDashboard()
         self.back.show()
     
@@ -2179,6 +2103,8 @@ class topicLesson3(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson1
+        fromLesson1 = 1
         self.back = toDashboard()
         self.back.show()
     
@@ -2298,6 +2224,8 @@ class topicLesson4(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson2
+        fromLesson2 = 1
         self.back = toDashboard()
         self.back.show()
     
@@ -2384,6 +2312,8 @@ class topicLesson5(QMainWindow):
     
     def toDashboardPage(self):
         self.hide()
+        global fromLesson2
+        fromLesson2 = 1
         self.back = toDashboard()
         self.back.show()
     
@@ -2470,6 +2400,8 @@ class topicLesson6(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson2
+        fromLesson2 = 1
         self.back = toDashboard()
         self.back.show()
     
@@ -2556,6 +2488,8 @@ class topicLesson7(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson2
+        fromLesson2 = 1
         self.back = toDashboard()
         self.back.show()
     
@@ -3010,11 +2944,6 @@ class unitTest_1(QMainWindow):
                 self.ans2Center_label.setStyleSheet("background-color: red")
             else:
                 self.ans2Center_label.setStyleSheet("background-color: green")
-            # self.unitTestQ2Radius_textEdit.setReadOnly(True)
-            # if data.scores.check_unit1_q2_radius_ans == "incorrect":
-            #     self.ans2Radius_label.setStyleSheet("background-color: red")
-            # else:
-            #     self.ans2Radius_label.setStyleSheet("background-color: green")
 # question 3
             self.unitTestQ3Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q3_sol == "incorrect":
@@ -3026,11 +2955,6 @@ class unitTest_1(QMainWindow):
                 self.ans3Vertex_label.setStyleSheet("background-color: red")
             else:
                 self.ans3Vertex_label.setStyleSheet("background-color: green")
-            # self.unitTestQ3Focus_textEdit.setReadOnly(True)
-            # if data.scores.check_unit1_q3_focus_ans == "incorrect":
-            #     self.ans3Focus_label.setStyleSheet("background-color: red")
-            # else:
-            #     self.ans3Focus_label.setStyleSheet("background-color: green")
 # question 4            
             self.unitTestQ4Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q4_sol == "incorrect":
@@ -3042,11 +2966,6 @@ class unitTest_1(QMainWindow):
                 self.ans4Vertex_label.setStyleSheet("background-color: red")
             else:
                 self.ans4Vertex_label.setStyleSheet("background-color: green")
-            # self.unitTestQ4Focus_textEdit.setReadOnly(True)
-            # if data.scores.check_unit1_q4_focus_ans == "incorrect":
-            #     self.ans4Focus_label.setStyleSheet("background-color: red")
-            # else:
-            #     self.ans4Focus_label.setStyleSheet("background-color: green")
 # question 5
             self.unitTestQ5Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q5_sol == "incorrect":
@@ -3069,11 +2988,6 @@ class unitTest_1(QMainWindow):
                 self.ans6Foci1_label.setStyleSheet("background-color: red")
             else:
                 self.ans6Foci1_label.setStyleSheet("background-color: green")
-            # self.unitTestQ6Foci2_textEdit.setReadOnly(True)
-            # if data.scores.check_unit1_q6_foci2_ans == "incorrect":
-            #     self.ans6Foci2_label.setStyleSheet("background-color: red")
-            # else:
-            #     self.ans6Foci2_label.setStyleSheet("background-color: green")
 # question 7
             self.unitTestQ7Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q7_sol == "incorrect":
@@ -3085,11 +2999,6 @@ class unitTest_1(QMainWindow):
                 self.ans7Vertex1_label.setStyleSheet("background-color: red")
             else:
                 self.ans7Vertex1_label.setStyleSheet("background-color: green")
-            # self.unitTestQ7Vertex2_textEdit.setReadOnly(True)
-            # if data.scores.check_unit1_q7_vertex2_ans== "incorrect":
-            #     self.ans7Vertex2_label.setStyleSheet("background-color: red")
-            # else:
-            #     self.ans7Vertex2_label.setStyleSheet("background-color: green")
 # question 8
             self.unitTestQ8Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q8_sol == "incorrect":
@@ -3136,6 +3045,8 @@ class unitTest_1(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson1
+        fromLesson1 = 1
         self.back = toDashboard()
         self.back.show()
 
@@ -3150,19 +3061,16 @@ class unitTest_1(QMainWindow):
         answer1_Unit1_Q2 = self.unitTestQ2Center_textEdit.text()
         data.scores.unit_test1_saved_solution2 = solution_Unit1_Q2
         data.scores.unit_test1_saved_answer2 = answer1_Unit1_Q2
-        # answer2_Unit1_Q2 = self.unitTestQ2Radius_textEdit.text()
         # Question 3 , answer and solution
         solution_Unit1_Q3 = self.unitTestQ3Sol_textEdit.toPlainText()
         answer1_Unit1_Q3 = self.unitTestQ3Vertex_textEdit.text()
         data.scores.unit_test1_saved_solution3 = solution_Unit1_Q3
         data.scores.unit_test1_saved_answer3 = answer1_Unit1_Q3
-        # answer2_Unit1_Q3 = self.unitTestQ3Focus_textEdit.text()
         # Question 4 , answer and solution
         solution_Unit1_Q4 = self.unitTestQ4Sol_textEdit.toPlainText()
         answer1_Unit1_Q4 = self.unitTestQ4Vertex_textEdit.text()
         data.scores.unit_test1_saved_solution4 = solution_Unit1_Q4
         data.scores.unit_test1_saved_answer4 = answer1_Unit1_Q4
-        # answer2_Unit1_Q4 = self.unitTestQ4Focus_textEdit.text()
         # Question 5 , answer and solution
         solution_Unit1_Q5 = self.unitTestQ5Sol_textEdit.toPlainText()
         answer1_Unit1_Q5 = self.unitTestQ5Center_textEdit.text()
@@ -3173,13 +3081,11 @@ class unitTest_1(QMainWindow):
         answer1_Unit1_Q6 = self.unitTestQ6Foci1_textEdit.text()
         data.scores.unit_test1_saved_solution6 = solution_Unit1_Q6
         data.scores.unit_test1_saved_answer6 = answer1_Unit1_Q6
-        # answer2_Unit1_Q6 = self.unitTestQ6Foci2_textEdit.text()
         # Question 7 , answer and solution
         solution_Unit1_Q7 = self.unitTestQ7Sol_textEdit.toPlainText()
         answer1_Unit1_Q7 = self.unitTestQ7Vertex1_textEdit.text()
         data.scores.unit_test1_saved_solution7 = solution_Unit1_Q7
         data.scores.unit_test1_saved_answer7 = answer1_Unit1_Q7
-        # answer2_Unit1_Q7 = self.unitTestQ7Vertex2_textEdit.text()
         # Question 8 , answer and solution
         solution_Unit1_Q8 = self.unitTestQ8Sol_textEdit.toPlainText()
         answer1_Unit1_Q8 = self.unitTestQ8Center_textEdit.text()
@@ -3226,9 +3132,6 @@ class unitTest_1(QMainWindow):
         question = "question_2_Center_Answer"
         check_unit1_q2_center_ans = chat(question, answer1_Unit1_Q2)
         data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
-        # question = "question_2_Radius_Answer"
-        # check_unit1_q2_radius_ans = chat(question, answer2_Unit1_Q2)
-        # data.scores.check_unit1_q2_radius_ans = check_unit1_q2_radius_ans
 
         if check_unit1_q2_sol == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 4
@@ -3236,9 +3139,6 @@ class unitTest_1(QMainWindow):
         if check_unit1_q2_center_ans == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 1
             data.scores.circ_score = data.scores.circ_score + 1
-        # if check_unit1_q2_radius_ans == "correct":
-        #     data.scores.unit1_score = data.scores.unit1_score + 1  
-        #     data.scores.circ_score = data.scores.circ_score + 1
 
         # Question 3, solution and answer
         question = "question_3_Solution"
@@ -3247,19 +3147,13 @@ class unitTest_1(QMainWindow):
         question = "question_3_Vertex"
         check_unit1_q3_vertex_ans = chat(question, answer1_Unit1_Q3)
         data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
-        # question = "question_3_Focus"
-        # check_unit1_q3_focus_ans = chat(question, answer2_Unit1_Q3)
-        # data.scores.check_unit1_q3_focus_ans = check_unit1_q3_focus_ans
 
         if check_unit1_q3_sol == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 4
             data.scores.parab_score = data.scores.parab_score + 4
         if check_unit1_q3_vertex_ans == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.parab_score = data.scores.parab_score + 1
-        # if check_unit1_q3_focus_ans == "correct":
-        #     data.scores.unit1_score = data.scores.unit1_score + 1
-        #     data.scores.parab_score = data.scores.parab_score + 1    
+            data.scores.parab_score = data.scores.parab_score + 1  
 
         # Question 4, solution and answer
         question = "question_4_Solution"
@@ -3268,9 +3162,6 @@ class unitTest_1(QMainWindow):
         question = "question_4_Vertex"
         check_unit1_q4_vertex_ans = chat(question, answer1_Unit1_Q4)
         data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
-        # question = "question_4_Focus"
-        # check_unit1_q4_focus_ans = chat(question, answer2_Unit1_Q4)
-        # data.scores.check_unit1_q4_focus_ans = check_unit1_q4_focus_ans
 
         if check_unit1_q4_sol == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 4
@@ -3278,9 +3169,6 @@ class unitTest_1(QMainWindow):
         if check_unit1_q4_vertex_ans == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 1
             data.scores.parab_score = data.scores.parab_score + 1
-        # if check_unit1_q4_focus_ans == "correct":
-        #     data.scores.unit1_score = data.scores.unit1_score + 1
-        #     data.scores.parab_score = data.scores.parab_score + 1
 
         # Question 5, solution and answer
         question = "question_5_Solution"
@@ -3304,9 +3192,6 @@ class unitTest_1(QMainWindow):
         question = "question_6_Foci1"
         check_unit1_q6_foci1_ans = chat(question, answer1_Unit1_Q6)
         data.scores.check_unit1_q6_foci1_ans = check_unit1_q6_foci1_ans
-        # question = "question_6_Foci2"
-        # check_unit1_q6_foci2_ans = chat(question, answer2_Unit1_Q6)
-        # data.scores.check_unit1_q6_foci2_ans = check_unit1_q6_foci2_ans
 
         if check_unit1_q6_sol == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 4
@@ -3314,9 +3199,6 @@ class unitTest_1(QMainWindow):
         if check_unit1_q6_foci1_ans == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 1
             data.scores.ellip_score = data.scores.ellip_score + 1
-        # if check_unit1_q6_foci2_ans == "correct":
-        #     data.scores.unit1_score = data.scores.unit1_score + 1  
-        #     data.scores.ellip_score = data.scores.ellip_score + 1
 
         # Question 7, solution and answer
         question = "question_7_Solution"
@@ -3325,19 +3207,13 @@ class unitTest_1(QMainWindow):
         question = "question_7_Vertex1"
         check_unit1_q7_vertex1_ans = chat(question, answer1_Unit1_Q7)
         data.scores.check_unit1_q7_vertex1_ans = check_unit1_q7_vertex1_ans
-        # question = "question_7_Vertex2"
-        # check_unit1_q7_vertex2_ans = chat(question, answer2_Unit1_Q7)
-        # data.scores.check_unit1_q7_vertex2_ans = check_unit1_q7_vertex2_ans
 
         if check_unit1_q7_sol == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 4
             data.scores.hyperb_score = data.scores.hyperb_score + 4
         if check_unit1_q7_vertex1_ans == "correct":
             data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.hyperb_score = data.scores.hyperb_score + 1
-        # if check_unit1_q7_vertex2_ans == "correct":
-        #     data.scores.unit1_score = data.scores.unit1_score + 1    
-        #     data.scores.hyperb_score = data.scores.hyperb_score + 1    
+            data.scores.hyperb_score = data.scores.hyperb_score + 1   
 
         # Question 8, solution and answer
         question = "question_8_Solution"
@@ -3547,11 +3423,8 @@ class unitTest_2(QMainWindow):
 
         if submit_unit2 == True:
             self.showScore2_widget.setVisible(True)
-            # self.showlessonScore2_widget.setVisible(True)
             self.unitTest2Submit_container.setCurrentIndex(1)
             self.show_scoreUnit2_label.setText(str(data.scores.unit2_score))
-            # self.show_score1_label_2.setText(str(data.scores.substi_score))
-            # self.show_score2_label_2.setText(str(data.scores.elimin_score))
 
             self.unitTest2Q1Sol_textEdit.setText(data.scores.unit_test2_saved_solution1)
             self.unitTest2Q1_textEdit.setText(data.scores.unit_test2_saved_answer1)
@@ -3696,6 +3569,8 @@ class unitTest_2(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson2
+        fromLesson2 = 1
         self.back = toDashboard()
         self.back.show()
 
@@ -4059,6 +3934,8 @@ class postAssessmentWindow_accept(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson2
+        fromLesson2 = 1
         self.back = toDashboard()
         self.back.show()
         
@@ -4222,6 +4099,8 @@ class postAssessmentWindow_failed(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromLesson2
+        fromLesson2 = 1
         self.back = toDashboard()
         self.back.show()
 
@@ -4373,15 +4252,11 @@ class toDashboardTeach(QMainWindow):
         all_teacher = db.child("teacher").get()
         for teacher in all_teacher.each():
             if teacher.val()["teachSchoolID"] == idKey:
-                # print(student.key())
-                # print(student.val())
                 teachFname = (teacher.val()["fname"])
                 teachMname = (teacher.val()["mname"])
                 teachLname = (teacher.val()["lname"])
                 teachCourse = (teacher.val()["course"])
                 teachSchool = (teacher.val()["school"])
-
-        # print(studID)
         self.profNameLineEdit.insertPlainText(teachLname.upper())
         self.profNameLineEdit.insertPlainText(", ")
         self.profNameLineEdit.insertPlainText(teachFname.upper())
@@ -4390,7 +4265,6 @@ class toDashboardTeach(QMainWindow):
         self.profCourseLineEdit.insertPlainText(teachCourse.upper())
         self.profSchoolLineEdit.insertPlainText(teachSchool.upper())
         
-        # self.tableWidget.horizontalHeader().setSectionResizeMode(0, QtWidgets.QHeaderView.Str)
         self.tableWidget.setColumnWidth(0,200)
         self.tableWidget.setColumnWidth(1,200)
         self.tableWidget.setColumnWidth(2,200)
@@ -4407,6 +4281,11 @@ class toDashboardTeach(QMainWindow):
         self.tableWidget_2.setColumnWidth(5,200)
         self.tableWidget_2.setColumnWidth(6,200)
         self.tableWidget_2.setColumnWidth(7,200)
+
+        global fromQuestion
+        if fromQuestion == 1:
+            self.showProgress()
+            fromQuestion = 0
 
         self.leftMenuNum = 0
         self.centerMenuNum = 0
@@ -4445,10 +4324,6 @@ class toDashboardTeach(QMainWindow):
             self.animaRightContainer2.setEndValue(0)
             self.animaRightContainer2.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animaRightContainer2.start() 
-
-
-        # self.rightMenuContainer.setVisible(False)
-        # self.lessonsContainer.setVisible(False)
 
         self.closeBtn.clicked.connect(self.showMinimized)
         self.restoreBtn.clicked.connect(self.bigWindow)
@@ -4819,7 +4694,6 @@ class toDashboardTeach(QMainWindow):
     def showHome(self):
         if willLogout == 0:
             self.menuPages.setCurrentIndex(0)
-            # self.lessonsContainer.setVisible(False)
         else:
             pass
     def showModules(self):
@@ -5058,10 +4932,6 @@ class create_unit1Question(QMainWindow):
         super().mouseReleaseEvent(event)
     
     def questionCircle(self):
-        # .setText
-        # self.unitTest2Q1Sol_textEdit.toPlainText() QTEXTEDIT malaki
-        # self.unitTest2Q9_textEdit.text() QLINEEDIT maliit
-
         self.questionId_error = 0
         self.question_error = 0
         self.solutionId_error = 0
@@ -5129,9 +4999,6 @@ class create_unit1Question(QMainWindow):
             self.unitTest1_questionId_textEdit.clear() 
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
-
-            print(circle_1_question)
-            print(circle_1_answer1)
 
             data ={"questionId":questionId,"circle_1_question":circle_1_question,
         "circle_1_solution1": circle_1_solution1,"circle_1_solution2": circle_1_solution2,
@@ -5209,8 +5076,6 @@ class create_unit1Question(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            print(parabola_question)
-            print(parabola_answer1)
             data ={"questionId":questionId,"parabola_question":parabola_question,
            "parabola_solution1": parabola_solution1,"parabola_solution2": parabola_solution2,"parabola_answer1":parabola_answer1,
            "parabola_answer2":parabola_answer2, "isActive":checkId, "answerId":answerId,
@@ -5361,9 +5226,6 @@ class create_unit1Question(QMainWindow):
                 self.unitTest1_answerId_textEdit.clear()
                 self.unitTest1_solutionId_textEdit.clear()
 
-                print(hyperbola_question)
-                print(hyperbola_answer1)
-
                 data ={"questionId":questionId,"hyperbola_question":hyperbola_question,
         "hyperbola_solution1": hyperbola_solution1,"hyperbola_solution2": hyperbola_solution2,
         "hyperbola_answer1":hyperbola_answer1, "hyperbola_answer2":hyperbola_answer2,
@@ -5425,6 +5287,8 @@ class create_unit2Question(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -5445,10 +5309,6 @@ class create_unit2Question(QMainWindow):
         super().mouseReleaseEvent(event)
     
     def questionSubstitution(self):
-        # .setText
-        # self.unitTest2Q1Sol_textEdit.toPlainText() QTEXTEDIT malaki
-        # self.unitTest2Q9_textEdit.text() QLINEEDIT maliit
-
         self.questionId_error = 0
         self.question_error = 0
         self.solutionId_error = 0
@@ -5516,9 +5376,6 @@ class create_unit2Question(QMainWindow):
             self.unitTest2_questionId_textEdit.clear() 
             self.unitTest2_answerId_textEdit.clear()
             self.unitTest2_solutionId_textEdit.clear()
-
-            print(substitution_question)
-            print(substitution_answer1)
 
             data ={"questionId":questionId,"substitution_question":substitution_question,
         "substitution_solution1": substitution_solution1,"substitution_solution2": substitution_solution2,
@@ -5595,8 +5452,6 @@ class create_unit2Question(QMainWindow):
             self.unitTest2_answerId_textEdit.clear()
             self.unitTest2_solutionId_textEdit.clear()
 
-            print(elimination_question)
-            print(elimination_answer1)
             data ={"questionId":questionId,"elimination_question":elimination_question,
            "elimination_solution1": elimination_solution1,"elimination_solution2": elimination_solution2,"elimination_answer1":elimination_answer1,
            "elimination_answer2":elimination_answer2, "isActive":checkId, "answerId":answerId,
@@ -5658,6 +5513,8 @@ class create_unit1Question(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -5678,10 +5535,6 @@ class create_unit1Question(QMainWindow):
         super().mouseReleaseEvent(event)
     
     def questionCircle(self):
-        # .setText
-        # self.unitTest2Q1Sol_textEdit.toPlainText() QTEXTEDIT malaki
-        # self.unitTest2Q9_textEdit.text() QLINEEDIT maliit
-
         self.questionId_error = 0
         self.question_error = 0
         self.solutionId_error = 0
@@ -5749,9 +5602,6 @@ class create_unit1Question(QMainWindow):
             self.unitTest1_questionId_textEdit.clear() 
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
-
-            print(circle_1_question)
-            print(circle_1_answer1)
 
             data ={"questionId":questionId,"circle_1_question":circle_1_question,
         "circle_1_solution1": circle_1_solution1,"circle_1_solution2": circle_1_solution2,
@@ -5829,8 +5679,6 @@ class create_unit1Question(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            print(parabola_question)
-            print(parabola_answer1)
             data ={"questionId":questionId,"parabola_question":parabola_question,
            "parabola_solution1": parabola_solution1,"parabola_solution2": parabola_solution2,"parabola_answer1":parabola_answer1,
            "parabola_answer2":parabola_answer2, "isActive":checkId, "answerId":answerId,
@@ -5980,10 +5828,7 @@ class create_unit1Question(QMainWindow):
                 self.unitTest1_questionId_textEdit.clear() 
                 self.unitTest1_answerId_textEdit.clear()
                 self.unitTest1_solutionId_textEdit.clear()
-
-                print(hyperbola_question)
-                print(hyperbola_answer1)
-
+                
                 data ={"questionId":questionId,"hyperbola_question":hyperbola_question,
         "hyperbola_solution1": hyperbola_solution1,"hyperbola_solution2": hyperbola_solution2,
         "hyperbola_answer1":hyperbola_answer1, "hyperbola_answer2":hyperbola_answer2,
@@ -6049,6 +5894,8 @@ class create_preQuestion(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -6069,10 +5916,6 @@ class create_preQuestion(QMainWindow):
         super().mouseReleaseEvent(event)
         
     def questionCircle(self):
-        # .setText
-        # self.unitTest2Q1Sol_textEdit.toPlainText() QTEXTEDIT malaki
-        # self.unitTest2Q9_textEdit.text() QLINEEDIT maliit
-
         self.questionId_error = 0
         self.question_error = 0
         self.solutionId_error = 0
@@ -6140,9 +5983,6 @@ class create_preQuestion(QMainWindow):
             self.preAssess_questionId_textEdit.clear() 
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
-
-            print(circle_1_question)
-            print(circle_1_answer1)
 
             data ={"questionId":questionId,"circle_1_question":circle_1_question,
         "circle_1_solution1": circle_1_solution1,"circle_1_solution2": circle_1_solution2,
@@ -6220,8 +6060,6 @@ class create_preQuestion(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(parabola_question)
-            print(parabola_answer1)
             data ={"questionId":questionId,"parabola_question":parabola_question,
            "parabola_solution1": parabola_solution1,"parabola_solution2": parabola_solution2,"parabola_answer1":parabola_answer1,
            "parabola_answer2":parabola_answer2, "isActive":checkId, "answerId":answerId,
@@ -6372,9 +6210,6 @@ class create_preQuestion(QMainWindow):
                 self.preAssess_answerId_textEdit.clear()
                 self.preAssess_solutionId_textEdit.clear()
 
-                print(hyperbola_question)
-                print(hyperbola_answer1)
-
                 data ={"questionId":questionId,"hyperbola_question":hyperbola_question,
         "hyperbola_solution1": hyperbola_solution1,"hyperbola_solution2": hyperbola_solution2,
         "hyperbola_answer1":hyperbola_answer1, "hyperbola_answer2":hyperbola_answer2,
@@ -6456,9 +6291,6 @@ class create_preQuestion(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(substitution_question)
-            print(substitution_answer1)
-
             data ={"questionId":questionId,"substitution_question":substitution_question,
         "substitution_solution1": substitution_solution1,"substitution_solution2": substitution_solution2,
         "substitution_answer1":substitution_answer1, "substitution_answer2":substitution_answer2, 
@@ -6534,8 +6366,6 @@ class create_preQuestion(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(elimination_question)
-            print(elimination_answer1)
             data ={"questionId":questionId,"elimination_question":elimination_question,
            "elimination_solution1": elimination_solution1,"elimination_solution2": elimination_solution2,"elimination_answer1":elimination_answer1,
            "elimination_answer2":elimination_answer2, "isActive":checkId, "answerId":answerId,
@@ -6599,6 +6429,8 @@ class create_postQuestion(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -6691,9 +6523,6 @@ class create_postQuestion(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(circle_1_question)
-            print(circle_1_answer1)
-
             data ={"questionId":questionId,"circle_1_question":circle_1_question,
         "circle_1_solution1": circle_1_solution1,"circle_1_solution2": circle_1_solution2,
         "circle_1_answer1":circle_1_answer1, "circle_1_answer2":circle_1_answer2, 
@@ -6770,8 +6599,6 @@ class create_postQuestion(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(parabola_question)
-            print(parabola_answer1)
             data ={"questionId":questionId,"parabola_question":parabola_question,
            "parabola_solution1": parabola_solution1,"parabola_solution2": parabola_solution2,"parabola_answer1":parabola_answer1,
            "parabola_answer2":parabola_answer2, "isActive":checkId, "answerId":answerId,
@@ -6922,9 +6749,6 @@ class create_postQuestion(QMainWindow):
                 self.postAssess_answerId_textEdit.clear()
                 self.postAssess_solutionId_textEdit.clear()
 
-                print(hyperbola_question)
-                print(hyperbola_answer1)
-
                 data ={"questionId":questionId,"hyperbola_question":hyperbola_question,
         "hyperbola_solution1": hyperbola_solution1,"hyperbola_solution2": hyperbola_solution2,
         "hyperbola_answer1":hyperbola_answer1, "hyperbola_answer2":hyperbola_answer2,
@@ -7006,9 +6830,6 @@ class create_postQuestion(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(substitution_question)
-            print(substitution_answer1)
-
             data ={"questionId":questionId,"substitution_question":substitution_question,
         "substitution_solution1": substitution_solution1,"substitution_solution2": substitution_solution2,
         "substitution_answer1":substitution_answer1, "substitution_answer2":substitution_answer2, 
@@ -7084,8 +6905,6 @@ class create_postQuestion(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(elimination_question)
-            print(elimination_answer1)
             data ={"questionId":questionId,"elimination_question":elimination_question,
            "elimination_solution1": elimination_solution1,"elimination_solution2": elimination_solution2,"elimination_answer1":elimination_answer1,
            "elimination_answer2":elimination_answer2, "isActive":checkId, "answerId":answerId,
@@ -7167,6 +6986,8 @@ class update_unit1Circle(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -7255,9 +7076,6 @@ class update_unit1Circle(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            print(circle_1_question)
-            print(circle_1_answer1)
-
             all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
@@ -7342,6 +7160,8 @@ class update_unit1Parabola(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -7430,9 +7250,6 @@ class update_unit1Parabola(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            print(parabola_question)
-            print(parabola_answer1)
-
             all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
@@ -7518,6 +7335,8 @@ class update_unit1Ellipse(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -7606,9 +7425,6 @@ class update_unit1Ellipse(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            print(ellipse_question)
-            print(ellipse_answer1)
-
             all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
@@ -7693,6 +7509,8 @@ class update_unit1Hyperbola(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -7781,9 +7599,6 @@ class update_unit1Hyperbola(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            print(hyperbola_question)
-            print(hyperbola_answer1)
-
             all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
@@ -7869,6 +7684,8 @@ class update_unit2Substitution(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -7957,9 +7774,6 @@ class update_unit2Substitution(QMainWindow):
             self.unitTest2_answerId_textEdit.clear()
             self.unitTest2_solutionId_textEdit.clear()
 
-            print(substitution_question)
-            print(substitution_answer1)
-
             all_unitTest2_substitute = db.child("precal_questions").child("lesson2").child("substitutionQuestion").get()
             for update_subs in all_unitTest2_substitute.each():
                 if update_subs.val()["questionId"] == questionId_save:
@@ -8045,6 +7859,8 @@ class update_unit2Elimination(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -8133,9 +7949,6 @@ class update_unit2Elimination(QMainWindow):
             self.unitTest2_answerId_textEdit.clear()
             self.unitTest2_solutionId_textEdit.clear()
 
-            print(elimination_question)
-            print(elimination_answer1)
-
             all_unitTest2_substitute = db.child("precal_questions").child("lesson2").child("eliminationQuestion").get()
             for update_subs in all_unitTest2_substitute.each():
                 if update_subs.val()["questionId"] == questionId_save:
@@ -8221,6 +8034,8 @@ class update_preCircle(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -8309,9 +8124,6 @@ class update_preCircle(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(circle_1_question)
-            print(circle_1_answer1)
-
             all_unitTest1_circle = db.child("precal_questions").child("pre-assess").child("circleQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
@@ -8396,6 +8208,8 @@ class update_preParabola(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -8484,9 +8298,6 @@ class update_preParabola(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(parabola_question)
-            print(parabola_answer1)
-
             all_unitTest1_parabola = db.child("precal_questions").child("pre-assess").child("parabolaQuestion").get()
             for update_parabola in all_unitTest1_parabola.each():
                 if update_parabola.val()["questionId"] == questionId_save:
@@ -8571,6 +8382,8 @@ class update_preEllipse(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -8659,9 +8472,6 @@ class update_preEllipse(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(ellipse_question)
-            print(ellipse_answer1)
-
             all_unitTest1_ellipse = db.child("precal_questions").child("pre-assess").child("ellipseQuestion").get()
             for update_ellipse in all_unitTest1_ellipse.each():
                 if update_ellipse.val()["questionId"] == questionId_save:
@@ -8745,6 +8555,8 @@ class update_preHyperbola(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -8833,9 +8645,6 @@ class update_preHyperbola(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(hyperbola_question)
-            print(hyperbola_answer1)
-
             all_unitTest1_hyperbola = db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").get()
             for update_hyperbola in all_unitTest1_hyperbola.each():
                 if update_hyperbola.val()["questionId"] == questionId_save:
@@ -8919,6 +8728,8 @@ class update_preSubstitution(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -9007,9 +8818,6 @@ class update_preSubstitution(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(substitution_question)
-            print(substitution_answer1)
-
             all_unitTest1_substitution = db.child("precal_questions").child("pre-assess").child("substitutionQuestion").get()
             for update_substitution in all_unitTest1_substitution.each():
                 if update_substitution.val()["questionId"] == questionId_save:
@@ -9093,6 +8901,8 @@ class update_preElimination(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -9181,9 +8991,6 @@ class update_preElimination(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
-            print(elimination_question)
-            print(elimination_answer1)
-
             all_unitTest1_elimination = db.child("precal_questions").child("pre-assess").child("eliminationQuestion").get()
             for update_elimination in all_unitTest1_elimination.each():
                 if update_elimination.val()["questionId"] == questionId_save:
@@ -9267,6 +9074,8 @@ class update_postCircle(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -9355,9 +9164,6 @@ class update_postCircle(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(circle_1_question)
-            print(circle_1_answer1)
-
             all_unitTest1_circle = db.child("precal_questions").child("post-assess").child("circleQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
@@ -9441,6 +9247,8 @@ class update_postParabola(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -9529,9 +9337,6 @@ class update_postParabola(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(parabola_question)
-            print(parabola_answer1)
-
             all_unitTest1_parabola = db.child("precal_questions").child("post-assess").child("parabolaQuestion").get()
             for update_parabola in all_unitTest1_parabola.each():
                 if update_parabola.val()["questionId"] == questionId_save:
@@ -9615,6 +9420,8 @@ class update_postEllipse(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -9703,9 +9510,6 @@ class update_postEllipse(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(ellipse_question)
-            print(ellipse_answer1)
-
             all_unitTest1_ellipse = db.child("precal_questions").child("post-assess").child("ellipseQuestion").get()
             for update_ellipse in all_unitTest1_ellipse.each():
                 if update_ellipse.val()["questionId"] == questionId_save:
@@ -9789,6 +9593,8 @@ class update_postHyperbola(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -9877,9 +9683,6 @@ class update_postHyperbola(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(hyperbola_question)
-            print(hyperbola_answer1)
-
             all_unitTest1_hyperbola = db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").get()
             for update_hyperbola in all_unitTest1_hyperbola.each():
                 if update_hyperbola.val()["questionId"] == questionId_save:
@@ -9963,6 +9766,8 @@ class update_postSubstitution(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -10051,9 +9856,6 @@ class update_postSubstitution(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(substitution_question)
-            print(substitution_answer1)
-
             all_unitTest1_substitution = db.child("precal_questions").child("post-assess").child("substitutionQuestion").get()
             for update_substitution in all_unitTest1_substitution.each():
                 if update_substitution.val()["questionId"] == questionId_save:
@@ -10137,6 +9939,8 @@ class update_postElimination(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
+        global fromQuestion
+        fromQuestion = 1
         self.back = toDashboardTeach()
         self.back.show()
 
@@ -10225,9 +10029,6 @@ class update_postElimination(QMainWindow):
             self.postAssess_answerId_textEdit.clear()
             self.postAssess_solutionId_textEdit.clear()
 
-            print(elimination_question)
-            print(elimination_answer1)
-
             all_unitTest1_elimination = db.child("precal_questions").child("post-assess").child("eliminationQuestion").get()
             for update_elimination in all_unitTest1_elimination.each():
                 if update_elimination.val()["questionId"] == questionId_save:
@@ -10264,7 +10065,6 @@ class update_unit1Question(QDialog):
         checking = self.unitTest1_textEdit.toPlainText()
         global questionId_save
         questionId_save = checking
-        print(questionId_save)
         circle_questions = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
         parabola_questions = db.child("precal_questions").child("lesson1").child("parabolaQuestion").get()
         ellipse_questions = db.child("precal_questions").child("lesson1").child("ellipseQuestion").get()
@@ -10339,7 +10139,6 @@ class update_unit2Question(QDialog):
         checking = self.unitTest1_textEdit.toPlainText()
         global questionId_save
         questionId_save = checking
-        print(questionId_save)
         substitution_questions = db.child("precal_questions").child("lesson2").child("substitutionQuestion").get()
         elimination_questions = db.child("precal_questions").child("lesson2").child("eliminationQuestion").get()
 
@@ -10396,8 +10195,6 @@ class update_preQuestion(QDialog):
         checking = self.unitTest1_textEdit.toPlainText()
         global questionId_save
         questionId_save = checking
-        print(questionId_save)
-
         circle_questions = db.child("precal_questions").child("pre-assess").child("circleQuestion").get()
         parabola_questions = db.child("precal_questions").child("pre-assess").child("parabolaQuestion").get()
         ellipse_questions = db.child("precal_questions").child("pre-assess").child("ellipseQuestion").get()
@@ -10490,8 +10287,6 @@ class update_postQuestion(QDialog):
         checking = self.unitTest1_textEdit.toPlainText()
         global questionId_save
         questionId_save = checking
-        print(questionId_save)
-
         circle_questions = db.child("precal_questions").child("post-assess").child("circleQuestion").get()
         parabola_questions = db.child("precal_questions").child("post-assess").child("parabolaQuestion").get()
         ellipse_questions = db.child("precal_questions").child("post-assess").child("ellipseQuestion").get()
@@ -10601,7 +10396,7 @@ class delete_unit1Question(QDialog):
                 for delete_circle in circle_questions.each():
                     if delete_circle.val()["questionId"] == questionId_save:
                         keyId = delete_circle.key()
-                        print(keyId +"is removed")
+
                         db.child("precal_questions").child("lesson1").child("circleQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10613,7 +10408,6 @@ class delete_unit1Question(QDialog):
                 for delete_parabola in parabola_questions.each():
                     if delete_parabola.val()["questionId"] == questionId_save:
                         keyId = delete_parabola.key()
-                        print(keyId +"is removed")
                         db.child("precal_questions").child("lesson1").child("parabolaQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10625,7 +10419,7 @@ class delete_unit1Question(QDialog):
                 for delete_ellipse in ellipse_questions.each():
                     if delete_ellipse.val()["questionId"] == questionId_save:
                         keyId = delete_ellipse.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("lesson1").child("ellipseQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10637,7 +10431,7 @@ class delete_unit1Question(QDialog):
                 for delete_hyperbola in hyperbola_questions.each():
                     if delete_hyperbola.val()["questionId"] == questionId_save:
                         keyId = delete_hyperbola.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10697,7 +10491,7 @@ class delete_unit2Question(QDialog):
                 for delete_substitution in substitution_questions.each():
                     if delete_substitution.val()["questionId"] == questionId_save:
                         keyId = delete_substitution.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("lesson2").child("substitutionQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10709,7 +10503,7 @@ class delete_unit2Question(QDialog):
                 for delete_elimination in elimination_questions.each():
                     if delete_elimination.val()["questionId"] == questionId_save:
                         keyId = delete_elimination.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("lesson2").child("eliminationQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10774,7 +10568,7 @@ class delete_preQuestion(QDialog):
                 for delete_circle in circle_questions.each():
                     if delete_circle.val()["questionId"] == questionId_save:
                         keyId = delete_circle.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("pre-assess").child("circleQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10786,7 +10580,7 @@ class delete_preQuestion(QDialog):
                 for delete_parabola in parabola_questions.each():
                     if delete_parabola.val()["questionId"] == questionId_save:
                         keyId = delete_parabola.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("pre-assess").child("parabolaQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10798,7 +10592,7 @@ class delete_preQuestion(QDialog):
                 for delete_ellipse in ellipse_questions.each():
                     if delete_ellipse.val()["questionId"] == questionId_save:
                         keyId = delete_ellipse.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("pre-assess").child("ellipseQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10810,7 +10604,7 @@ class delete_preQuestion(QDialog):
                 for delete_hyperbola in hyperbola_questions.each():
                     if delete_hyperbola.val()["questionId"] == questionId_save:
                         keyId = delete_hyperbola.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10822,7 +10616,7 @@ class delete_preQuestion(QDialog):
                 for delete_substitution in substitution_questions.each():
                     if delete_substitution.val()["questionId"] == questionId_save:
                         keyId = delete_substitution.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("pre-assess").child("substitutionQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10834,7 +10628,7 @@ class delete_preQuestion(QDialog):
                 for delete_elimination in elimination_questions.each():
                     if delete_elimination.val()["questionId"] == questionId_save:
                         keyId = delete_elimination.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("pre-assess").child("eliminationQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10898,7 +10692,7 @@ class delete_postQuestion(QDialog):
                 for delete_circle in circle_questions.each():
                     if delete_circle.val()["questionId"] == questionId_save:
                         keyId = delete_circle.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("post-assess").child("circleQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10910,7 +10704,7 @@ class delete_postQuestion(QDialog):
                 for delete_parabola in parabola_questions.each():
                     if delete_parabola.val()["questionId"] == questionId_save:
                         keyId = delete_parabola.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("post-assess").child("parabolaQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10922,7 +10716,7 @@ class delete_postQuestion(QDialog):
                 for delete_ellipse in ellipse_questions.each():
                     if delete_ellipse.val()["questionId"] == questionId_save:
                         keyId = delete_ellipse.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("post-assess").child("ellipseQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10934,7 +10728,7 @@ class delete_postQuestion(QDialog):
                 for delete_hyperbola in hyperbola_questions.each():
                     if delete_hyperbola.val()["questionId"] == questionId_save:
                         keyId = delete_hyperbola.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10946,7 +10740,7 @@ class delete_postQuestion(QDialog):
                 for delete_substitution in substitution_questions.each():
                     if delete_substitution.val()["questionId"] == questionId_save:
                         keyId = delete_substitution.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("post-assess").child("substitutionQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10958,7 +10752,7 @@ class delete_postQuestion(QDialog):
                 for delete_elimination in elimination_questions.each():
                     if delete_elimination.val()["questionId"] == questionId_save:
                         keyId = delete_elimination.key()
-                        print(keyId +"is removed")
+                        
                         db.child("precal_questions").child("post-assess").child("eliminationQuestion").remove(keyId)
             else:
                 self.isCheck=1
@@ -10998,7 +10792,7 @@ class toTeachLogout(QDialog):
         self.no_pushButton_2.clicked.connect(self.noFunction)
 
     def yesFunction(self):
-        print("YES PRESSED")
+        
         self.hide()
         self.parent().hide()
         self.toGoBack = toStudTeach()
@@ -11008,7 +10802,7 @@ class toTeachLogout(QDialog):
         global willLogout 
         willLogout =0
         self.hide()
-        print("NO PRESSED")
+        
                
 class toSplashScreen(QMainWindow):
     def __init__(self):
@@ -11029,7 +10823,7 @@ class toSplashScreen(QMainWindow):
             QApplication.processEvents()
             time.sleep(0.1)
         self.close()
-        print("yes")
+        
         self.next = toDashboardTeach()
         self.next.show()
 ##################################################################################
