@@ -64,7 +64,7 @@ studKey = ""
 willLogout = 0
 
 firebaseConfig = { "apiKey": "AIzaSyDyihbb440Vb2o0CIMINI_UfQLRln0uvXs",
-  "authDomain": "mathguro-46712.firebaseapp.com",
+  "authDomain": "PreCalGuro-46712.firebaseapp.com",
   "databaseURL": "https://mathguro-46712-default-rtdb.asia-southeast1.firebasedatabase.app",
   "projectId": "mathguro-46712",
   "storageBucket": "mathguro-46712.appspot.com",
@@ -93,7 +93,7 @@ class toStudTeach(QMainWindow):
         loadUi("data/studTeach.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.toStudButton.clicked.connect(self.toStud)
@@ -141,7 +141,7 @@ class toStudLogin(QMainWindow):
         loadUi("data/studLogin.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
         global willLogout
         willLogout = 0
@@ -227,7 +227,7 @@ class toStudForgotPass(QMainWindow):
         loadUi("data/forgotPassBoth.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.forgotPassPages.setCurrentIndex(0)
@@ -287,7 +287,7 @@ class toStudRegister(QMainWindow):
         loadUi("data/studRegister.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.warningFname.setVisible(False)
@@ -432,7 +432,7 @@ class toTeachLogin(QMainWindow):
 
         loadUi("data/teachLogin.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.warning_Widget.setVisible(False)
@@ -515,7 +515,7 @@ class toTeachForgotPass(QMainWindow):
         loadUi("data/forgotPassBoth.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.forgotPassPages.setCurrentIndex(1)
@@ -575,7 +575,7 @@ class toTeachRegister(QMainWindow):
         loadUi("data/teachRegister.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.warningFname.setVisible(False)
@@ -712,7 +712,7 @@ class toStudUpdateProfile(QDialog):
 
         loadUi("data/updateInfo.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
 
         self.setWindowTitle(title)
         self.updateInfoPages.setCurrentIndex(0)
@@ -800,6 +800,72 @@ class toStudUpdateProfile(QDialog):
         self.offset = None
         super().mouseReleaseEvent(event)
 
+def load_ai():
+    list_of_sol = []
+    circle_ans, circle_solu,  returned_circle = display_random_question.pre_assess_circle()
+    parabola_ans, parabola_solu, returned_parabola = display_random_question.pre_assess_parabola()
+    ellipse_ans, ellipse_solu, returned_ellipse = display_random_question.pre_assess_ellipse()
+    hyperbola_ans, hyperbola_solu, returned_hyperbola = display_random_question.pre_assess_hyper()
+    substitution_ans, substitution_solu, returned_substitution = display_random_question.pre_assess_subs()
+    elimination_ans, elimination_solu, returned_elimination = display_random_question.pre_assess_elim()
+
+    circle_ans1, circle_solu1,  returned_circle1 = display_random_question.post_assess_circle()
+    parabola_ans1, parabola_solu1, returned_parabola1 = display_random_question.post_assess_parabola()
+    ellipse_ans1, ellipse_solu1, returned_ellipse1 = display_random_question.post_assess_ellipse()
+    hyperbola_ans1, hyperbola_solu1, returned_hyperbola1 = display_random_question.post_assess_hyper()
+    substitution_ans1, substitution_solu1, returned_substitution1 = display_random_question.post_assess_subs()
+    elimination_ans1, elimination_solu1, returned_elimination1 = display_random_question.post_assess_elim()
+
+    circle_ans2, circle_solu2,  returned_circle2 = display_random_question.unit_test_circle()
+    parabola_ans2, parabola_solu2, returned_parabola2 = display_random_question.unit_test_parabola()
+    ellipse_ans2, ellipse_solu2, returned_ellipse2= display_random_question.unit_test_ellipse()
+    hyperbola_ans2, hyperbola_solu2, returned_hyperbola2= display_random_question.unit_test_hyper()
+
+    substitution_ans2, substitution_solu2, returned_substitution2 = display_random_question.unit_test_subs()
+    elimination_ans2, elimination_solu2, returned_elimination2 = display_random_question.unit_test_elim()
+    
+    list_of_sol.append(circle_ans)
+    list_of_sol.append(circle_solu)
+    list_of_sol.append(parabola_ans)
+    list_of_sol.append(parabola_solu)
+    list_of_sol.append(ellipse_ans)
+    list_of_sol.append(ellipse_solu)
+    list_of_sol.append(hyperbola_ans)
+    list_of_sol.append(hyperbola_solu)
+    list_of_sol.append(substitution_ans)
+    list_of_sol.append(substitution_solu)
+    list_of_sol.append(elimination_ans)
+    list_of_sol.append(elimination_solu)
+
+    list_of_sol.append(circle_ans1)
+    list_of_sol.append(circle_solu1)
+    list_of_sol.append(parabola_ans1)
+    list_of_sol.append(parabola_solu1)
+    list_of_sol.append(ellipse_ans1)
+    list_of_sol.append(ellipse_solu1)
+    list_of_sol.append(hyperbola_ans1)
+    list_of_sol.append(hyperbola_solu1)
+    list_of_sol.append(substitution_ans1)
+    list_of_sol.append(substitution_solu1)
+    list_of_sol.append(elimination_ans1)
+    list_of_sol.append(elimination_solu1)
+
+    list_of_sol.append(circle_ans2)
+    list_of_sol.append(circle_solu2)
+    list_of_sol.append(parabola_ans2)
+    list_of_sol.append(parabola_solu2)
+    list_of_sol.append(ellipse_ans2)
+    list_of_sol.append(ellipse_solu2)
+    list_of_sol.append(hyperbola_ans2)
+    list_of_sol.append(hyperbola_solu2)
+
+    list_of_sol.append(substitution_ans2)
+    list_of_sol.append(substitution_solu2)
+    list_of_sol.append(elimination_ans2)
+    list_of_sol.append(elimination_solu2)
+
+    display_random_question.to_json(list_of_sol)
+
 #############################################################################################
 class toDashboard(QMainWindow):
     def __init__(self):
@@ -814,7 +880,7 @@ class toDashboard(QMainWindow):
         loadUi("data/dashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         global new_unitTest1, new_unitTest2, new_preAssess, new_postAssess, fromLesson1, fromLesson2, fromPost
@@ -1728,7 +1794,7 @@ class toStudLogout(QDialog):
 
         loadUi("data/warningToLogout.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.logoutUpdatePages.setCurrentIndex(0)
@@ -1754,7 +1820,7 @@ class splashScreen(QMainWindow):
         loadUi("data/loadingScreen1.ui", self)
 
         self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.setWindowFlag(Qt.FramelessWindowHint)
@@ -1783,7 +1849,7 @@ class topicLesson1(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(0)
@@ -1903,7 +1969,7 @@ class topicLesson2(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(2)
@@ -2024,7 +2090,7 @@ class topicLesson3(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(3)
@@ -2145,7 +2211,7 @@ class topicLesson4(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(4)
@@ -2266,7 +2332,7 @@ class topicLesson5(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(6)
@@ -2354,7 +2420,7 @@ class topicLesson6(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(8)
@@ -2442,7 +2508,7 @@ class topicLesson7(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(9)
@@ -2530,7 +2596,7 @@ class assessmentWindow(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(11)
@@ -2581,27 +2647,8 @@ class assessmentWindow(QMainWindow):
             pre_assess_all.append(pre_assess_each_quest4)
             pre_assess_all.append(pre_assess_each_quest5)
             pre_assess_all.append(pre_assess_each_quest6)
-
-            # list_of_sol.append(circle_ans)
-            # list_of_sol.append(circle_solu)
-            # list_of_sol.append(parabola_ans)
-            # list_of_sol.append(parabola_solu)
-            # list_of_sol.append(ellipse_ans)
-            # list_of_sol.append(ellipse_solu)
-            # list_of_sol.append(hyperbola_ans)
-            # list_of_sol.append(hyperbola_solu)
-            # list_of_sol.append(substitution_ans)
-            # list_of_sol.append(substitution_solu)
-            # list_of_sol.append(elimination_ans)
-            # list_of_sol.append(elimination_solu)
-
+            
             pre_question1, pre_question2, pre_question3, pre_question4, pre_question5 = display_random_question.random_questions(pre_assess_all)
-
-            # pre_answerScore1, pre_answerId1, pre_solutionScore1, pre_solutionId1 = display_random_question.get_scores_for_pre(pre_question1)
-            # pre_answerScore2, pre_answerId2, pre_solutionScore2, pre_solutionId2 = display_random_question.get_scores_for_pre(pre_question2)
-            # pre_answerScore3, pre_answerId3, pre_solutionScore3, pre_solutionId3 = display_random_question.get_scores_for_pre(pre_question3)
-            # pre_answerScore4, pre_answerId4, pre_solutionScore4, pre_solutionId4 = display_random_question.get_scores_for_pre(pre_question4)
-            # pre_answerScore5, pre_answerId5, pre_solutionScore5, pre_solutionId5 = display_random_question.get_scores_for_pre(pre_question5)
 
             data.scores.pre_question1 = pre_question1[0]
             data.scores.pre_question2 = pre_question2[0]
@@ -2774,7 +2821,7 @@ class unitTest_1(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
         
         self.topicPages.setCurrentIndex(5)
@@ -3312,7 +3359,7 @@ class unitTest_2(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(10)
@@ -3378,11 +3425,6 @@ class unitTest_2(QMainWindow):
             unit_test2_all.append(unit_test2_each_quest8)
             unit_test2_all.append(unit_test2_each_quest9)
             unit_test2_all.append(unit_test2_each_quest10)
-
-            # list_of_sol.append(substitution_ans2)
-            # list_of_sol.append(substitution_solu2)
-            # list_of_sol.append(elimination_ans2)
-            # list_of_sol.append(elimination_solu2)
 
             unit_test2_question1, unit_test2_question2, unit_test2_question3, unit_test2_question4, unit_test2_question5, unit_test2_question6, unit_test2_question7, unit_test2_question8 ,unit_test2_question9 ,unit_test2_question10= display_random_question.random_questions_2(unit_test2_all)
             
@@ -3833,7 +3875,7 @@ class postAssessmentWindow_accept(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(13)
@@ -3884,19 +3926,6 @@ class postAssessmentWindow_accept(QMainWindow):
             post_assess_all.append(post_assess_each_quest4)
             post_assess_all.append(post_assess_each_quest5)
             post_assess_all.append(post_assess_each_quest6)
-
-            # list_of_sol.append(circle_ans1)
-            # list_of_sol.append(circle_solu1)
-            # list_of_sol.append(parabola_ans1)
-            # list_of_sol.append(parabola_solu1)
-            # list_of_sol.append(ellipse_ans1)
-            # list_of_sol.append(ellipse_solu1)
-            # list_of_sol.append(hyperbola_ans1)
-            # list_of_sol.append(hyperbola_solu1)
-            # list_of_sol.append(substitution_ans1)
-            # list_of_sol.append(substitution_solu1)
-            # list_of_sol.append(elimination_ans1)
-            # list_of_sol.append(elimination_solu1)
 
             post_question1, post_question2, post_question3, post_question4, post_question5= display_random_question.random_questions(post_assess_all)
 
@@ -4074,7 +4103,7 @@ class postAssessmentWindow_failed(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
         
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(12)
@@ -4143,7 +4172,7 @@ class toTeachUpdateProfile(QDialog):
         loadUi("data/updateInfo.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
 
         self.updateInfoPages.setCurrentIndex(1)
@@ -4246,7 +4275,7 @@ class toDashboardTeach(QMainWindow):
         loadUi("data/dashboardTeach.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
 
         all_teacher = db.child("teacher").get()
@@ -4867,7 +4896,7 @@ class create_unit1Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(16)
@@ -5244,7 +5273,7 @@ class create_unit2Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(17)
@@ -5468,7 +5497,7 @@ class create_unit1Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(16)
@@ -5847,7 +5876,7 @@ class create_preQuestion(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(14)
@@ -6382,7 +6411,7 @@ class create_postQuestion(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(15)
@@ -6922,7 +6951,7 @@ class update_unit1Circle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
@@ -7096,7 +7125,7 @@ class update_unit1Parabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("lesson1").child("parabolaQuestion").get()
@@ -7271,7 +7300,7 @@ class update_unit1Ellipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("lesson1").child("ellipseQuestion").get()
@@ -7445,7 +7474,7 @@ class update_unit1Hyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").get()
@@ -7620,7 +7649,7 @@ class update_unit2Substitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest2_substitution = db.child("precal_questions").child("lesson2").child("substitutionQuestion").get()
@@ -7795,7 +7824,7 @@ class update_unit2Elimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest2_elimination = db.child("precal_questions").child("lesson2").child("eliminationQuestion").get()
@@ -7970,7 +7999,7 @@ class update_preCircle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("pre-assess").child("circleQuestion").get()
@@ -8144,7 +8173,7 @@ class update_preParabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("pre-assess").child("parabolaQuestion").get()
@@ -8318,7 +8347,7 @@ class update_preEllipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("pre-assess").child("ellipseQuestion").get()
@@ -8491,7 +8520,7 @@ class update_preHyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").get()
@@ -8664,7 +8693,7 @@ class update_preSubstitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_substitution = db.child("precal_questions").child("pre-assess").child("substitutionQuestion").get()
@@ -8837,7 +8866,7 @@ class update_preElimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_elimination = db.child("precal_questions").child("pre-assess").child("eliminationQuestion").get()
@@ -9010,7 +9039,7 @@ class update_postCircle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("post-assess").child("circleQuestion").get()
@@ -9183,7 +9212,7 @@ class update_postParabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("post-assess").child("parabolaQuestion").get()
@@ -9356,7 +9385,7 @@ class update_postEllipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("post-assess").child("ellipseQuestion").get()
@@ -9529,7 +9558,7 @@ class update_postHyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").get()
@@ -9702,7 +9731,7 @@ class update_postSubstitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_substitution = db.child("precal_questions").child("post-assess").child("substitutionQuestion").get()
@@ -9875,7 +9904,7 @@ class update_postElimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_elimination = db.child("precal_questions").child("post-assess").child("eliminationQuestion").get()
@@ -10049,7 +10078,7 @@ class update_unit1Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10123,7 +10152,7 @@ class update_unit2Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10179,7 +10208,7 @@ class update_preQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10271,7 +10300,7 @@ class update_postQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10363,7 +10392,7 @@ class delete_unit1Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10460,7 +10489,7 @@ class delete_unit2Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10533,7 +10562,7 @@ class delete_preQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10657,7 +10686,7 @@ class delete_postQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10782,7 +10811,7 @@ class toTeachLogout(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         
         self.logoutUpdatePages.setCurrentIndex(1)
@@ -10810,7 +10839,7 @@ class toSplashScreen(QMainWindow):
 
         loadUi("data/loadingScreen1.ui", self)
         self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
 
         self.setWindowFlag(Qt.FramelessWindowHint)
@@ -10830,9 +10859,7 @@ class toSplashScreen(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-
     w = toStudTeach()
-    # w = toDashboard()
-    # w = toDashboardTeach()
     w.show()
+    load_ai()
     sys.exit(app.exec_())
