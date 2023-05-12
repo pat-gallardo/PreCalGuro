@@ -1,3 +1,6 @@
+precalculus
+algebra
+trigonometry
 absolute maximum
 absolute minimum
 absolute value of a complex number
@@ -8,23 +11,20 @@ adjugate
 affine transformation
 algebra
 algorithm
-amplitude
 analytic geometry
 analytic methods
 angle of inclination of a line
 antipodal points
 arc
 area of a convex polygon
-area of a parabolic segment
 area of an ellipse
+area of a parabolic segment
 argand plane
-argument
 argument of a complex number
 argument of a vector
 augmented matrix
 average rate of change
 axis of rotation
-axis of symmetry
 back substitution
 binomial coefficients
 binomial coefficients in pascal's triangle
@@ -37,38 +37,28 @@ cartesian form
 catenary
 cavalieri’s principle
 ceiling function
-center (of a circle)
-center (of a hyperbola)
-center (of an ellipse)
 center of rotation
 centroid
 centroid formula
-circle
 cis
 classical adjoint
 closed interval
 coefficient matrix
 cofactor
 cofactor matrix
-cofunctions
 column of a matrix
-common logarithm
 compatible matrices
 complex conjugate
 complex number formulas
 complex numbers
 complex plane
-component form
 composite
-composition of functions
 compression
 compression of a graph
 concave
 concave down
 concave up
-conjugate axis
 conjugate pair theorem
-constraints
 continued sum
 continuous function
 contrapositive
@@ -76,10 +66,7 @@ converge
 convergent sequence
 convergent series
 coordinate geometry
-coterminal angles
-counting numbers
-cramer's rule
-critical number
+cramer’s rule
 cross product
 curve
 cusp
@@ -88,15 +75,9 @@ de moivre’s theorem
 decreasing function
 degenerate
 degenerate conic sections
-degree (angle measurement)
-degree (of a polynomial)
 deleted neighborhood
 delta (δ δ)
-demoivre's theorem
-dependent
-descartes' rule of signs
 determinant
-diagonal
 diagonal matrix
 difference quotient
 dihedral angle
@@ -104,9 +85,8 @@ dilation
 dilation of a graph
 dimensions
 dimensions of a matrix
-directrices of a hyperbola
 directrices of an ellipse
-directrix
+directrices of a hyperbola
 directrix of a parabola
 discontinuity
 discontinuous function
@@ -118,38 +98,33 @@ divergent sequence
 divergent series
 dot product
 double cone
+e
 eccentricity
 echelon form of a matrix
 element of a matrix
-ellipse
 ellipsoid
 end behavior
 euler's formula
-euler's number
-even functions
+even function
 expansion by cofactors
 explicit formula of a sequence
 explicit function
-exponential function
-exponentiating
 extremum
 factorial
 falling bodies
-feasible solutions
 fibonacci sequence
 fixed
 floor function
 focal radius
-foci of a hyperbola
 foci of an ellipse
+foci of a hyperbola
 focus of a parabola
 frequency of a periodic function
 frequency of periodic motion
-function
 function operations
 gauss-jordan elimination
 gaussian elimination
-gaussian elimination
+global maximum
 global minimum
 graphic methods
 greatest integer function
@@ -161,7 +136,7 @@ harmonic progression
 harmonic sequence
 harmonic series
 helix
-heron's area formula
+hero’s formula
 heron’s formula
 hole
 homogeneous system of equations
@@ -173,18 +148,14 @@ horizontal shift
 horizontal shrink
 horizontal stretch
 horizontal translation
-hyperbola
 hyperbolic trig
 hyperbolic trigonometry
-identity elements
 identity function
 identity matrix
 identity of an operation
 implicit function or relation
-inconsistent
 increasing function
 indeterminate expression
-index
 infinite geometric series
 inflection point
 inner product
@@ -192,15 +163,12 @@ interval
 interval notation
 invariant
 inverse function
-inverse matrix
+inverse of a matrix
 invertible matrix
-irrational numbers
 isometry
 iterative process
 jump discontinuity
 latus rectum
-leading coefficient
-leading coefficient test
 least integer function
 lemniscate
 limaçon
@@ -213,14 +181,13 @@ linear programming
 linear regression
 linear system of equations
 local behavior
+local maximum
 local minimum
 locus
-logarithmic function
 logistic growth
 magnitude
 magnitude of a vector
 main diagonal of a matrix
-major axis
 mathematical model
 matrix
 matrix addition
@@ -233,21 +200,14 @@ maximize
 maximum of a function
 minimize
 minimum of a function
-minor
-minor axis
 mode
 model
-modulus
 modulus of a complex number
 multiplicative inverse of a matrix
 multivariable
 multivariate
-n dimensions
 n-dimensional
-n-tuple
-natural exponential function
-natural logarithm
-natural numbers
+n dimensions
 neighborhood
 noninvertible matrix
 nonsingular matrix
@@ -256,37 +216,28 @@ norm of a vector
 normal
 normalizing a vector
 nth partial sum
+n-tuple
 oblate spheroid
 oblique
 oblique asymptote
-oblique triangles
 octants
 odd function
-odd functions
 omega (ω ω)
 one dimension
-one-to-one
 one-to-one function
 open interval
 operations on functions
-optimal
-order
 ordered triple
 orthogonal
-parabola
 parameter (algebra)
-parametric equations
 parametric equations
 parametrize
 parent functions
 partial fractions
-partial sum
 partial sum of a series
 pascal's triangle
-period
 period of a periodic function
 period of periodic motion
-periodic
 periodic function
 periodic motion
 phi (φ φ)
@@ -302,25 +253,12 @@ polar curves
 polar equation
 polar form of a complex number
 polar-rectangular conversion formulas
-pole
-precalculus
-principal
 projectile motion
 prolate spheroid
-quadrantal
-radian
-radius
-rational numbers
-rational root test
-real numbers
 real part
-rectangular coordinates
 rectangular form
 recursive formula of a sequence
-recursive sequence
-reduced row-echelon form
 reduced row-echelon form of a matrix
-reference angle
 regression line
 relation
 relative maximum
@@ -333,10 +271,9 @@ rms
 root mean square
 rose curve
 rotation
+row-echelon form of a matrix
 row operations
 row reduction
-row-echelon form
-row-echelon form of a matrix
 rpm
 scalar
 scalar product
@@ -351,10 +288,8 @@ sigma (σ σ)
 sigma notation
 simple closed curve
 simple harmonic motion (shm)
-singular
 singular matrix
 skew lines
-slant asymptote
 solid
 solve analytically
 solve graphically
@@ -365,19 +300,14 @@ spheroid
 spiral
 square matrix
 square system of equations
-standard form (of a vector)
-standard position
 step discontinuity
 step function
 stretch
 surface
-synthetic division
-system of equations
 system of linear equations
 tangent line
 tau (τ τ)
 tautochrone
-test points
 theorem of pappus
 three dimensional coordinates
 three dimensions
@@ -385,19 +315,13 @@ tilted asymptote
 toolkit functions
 transformations
 transpose of a matrix
-transverse axis
 triangle inequality with absolute value
-trigonometry
 triple (scalar) product
 two dimensions
 uniform
-unit circle
 unit vector
 vector
 velocity
-vertex (of a parabola)
-vertex (of an angle)
-vertex (of linear programming)
 vertical compression
 vertical dilation
 vertical line test
@@ -406,8 +330,6 @@ vertical shift
 vertical shrink
 vertical stretch
 vertical translation
-vertices (of a hyperbola)
-vertices (of an ellipse)
 volume
 x-y plane
 x-z plane
@@ -415,3 +337,312 @@ y-z plane
 z-intercept
 zero matrix
 zero vector
+
+
+conic sections
+
+acute angle
+angle bisector
+apothem
+area
+asymptote
+axis of symmetry
+cartesian coordinates
+center
+central angle
+chord
+circle
+circumference
+coefficient
+collinear
+complex number
+concentric circles
+conic section
+conjugate axis
+constant
+coordinate plane
+cube
+cylinder
+degree
+denominator
+descartes
+diagonal
+diameter
+directrix
+discriminant
+eccentricity
+ellipse
+equation
+equidistant
+exponent
+exterior angle
+foci
+focus
+formula
+fraction
+function
+geometric mean
+geometric sequence
+golden ratio
+graph
+hemisphere
+hexagon
+hyperbola
+hypotenuse
+imaginary number
+incenter
+inequality
+infinity
+inscribed
+interior angle
+intersect
+interval
+inverse
+irrational number
+isosceles triangle
+lateral area
+leg
+line
+linear equation
+logarithm
+major axis
+matrix
+mean
+median
+midpoint
+minor axis
+multiple
+negative
+net
+nonlinear equation
+obtuse angle
+octagon
+origin
+parabola
+parallel
+pentagon
+perimeter
+perpendicular
+pi
+plane
+point
+polynomial
+pythagorean theorem
+quadratic equation
+radius
+range
+ratio
+rectangle
+reflection
+regression
+rhombus
+right angle
+rotation
+scale factor
+segment
+similar
+you sent
+here is a list of 100 terminologies used in precalculus when discussing system of non-linear equations:
+
+bivariate
+boundary
+cramer's rule
+consistent
+curve
+degree
+determinant
+direct variation
+discontinuity
+domain
+elimination method
+equilibrium point
+exponential growth
+exponential decay
+extraneous solution
+factor theorem
+function
+gaussian elimination
+geometric progression
+graph
+inconsistent
+intersection
+isolate
+iteration
+linear combination
+linear system
+logarithm
+matrix
+monomial
+nonlinear system
+nontrivial solution
+null set
+one-to-one function
+parabola
+partial fractions
+partial solution
+perfect square trinomial
+polynomial
+power series
+quadratic equation
+quadratic formula
+quadratic inequality
+quadratic system
+range
+rational expression
+rational number
+rational root theorem
+recursive formula
+rotation
+series
+solution
+substitution method
+summation notation
+system of equations
+tangent line
+term
+trigonometric functions
+two-by-two system
+unique solution
+unit circle
+vertex
+vertical asymptote
+zero
+analytic solution
+asymptotic behavior
+axis
+complex number
+conjugate
+degree of a polynomial
+dependent variables
+determinant method
+elimination
+exponential function
+extrapolation
+factor
+factorization
+geometric mean
+gradient
+homogeneous system
+identity
+imaginary unit
+inconsistent system
+infinite solution
+intersection point
+inverse function
+lagrange multipliers
+leading coefficient
+limit
+linear equation
+logarithmic function
+maxima and minima
+multiplicity
+nonlinear equation
+nonlinear system of equations
+one solution
+order of a polynomial
+parameter
+polynomial division
+power rule
+quadratic term
+
+system of non-linear equations
+bivariate
+boundary
+cramer's rule
+consistent
+curve
+degree
+determinant
+direct variation
+discontinuity
+domain
+elimination method
+equilibrium point
+exponential growth
+exponential decay
+extraneous solution
+factor theorem
+function
+gaussian elimination
+geometric progression
+graph
+inconsistent
+intersection
+isolate
+iteration
+linear combination
+linear system
+logarithm
+matrix
+monomial
+nonlinear system
+nontrivial solution
+null set
+one-to-one function
+parabola
+partial fractions
+partial solution
+perfect square trinomial
+polynomial
+power series
+quadratic equation
+quadratic formula
+quadratic inequality
+quadratic system
+range
+rational expression
+rational number
+rational root theorem
+recursive formula
+rotation
+series
+solution
+substitution method
+summation notation
+system of equations
+tangent line
+term
+trigonometric functions
+two-by-two system
+unique solution
+unit circle
+vertex
+vertical asymptote
+zero
+analytic solution
+asymptotic behavior
+axis
+complex number
+conjugate
+degree of a polynomial
+dependent variables
+determinant method
+elimination
+exponential function
+extrapolation
+factor
+factorization
+geometric mean
+gradient
+homogeneous system
+identity
+imaginary unit
+inconsistent system
+infinite solution
+intersection point
+inverse function
+lagrange multipliers
+leading coefficient
+limit
+linear equation
+logarithmic function
+maxima and minima
+multiplicity
+nonlinear equation
+nonlinear system of equations
+one solution
+order of a polynomial
+parameter
+polynomial division
+power rule
+quadratic term

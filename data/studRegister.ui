@@ -627,24 +627,46 @@ padding-left: 3px;</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLineEdit" name="studSec_lineEdit">
+                        <widget class="QComboBox" name="studSec_comboBox">
                          <property name="font">
                           <font>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
-                         <property name="toolTip">
-                          <string>Required*</string>
-                         </property>
                          <property name="styleSheet">
-                          <string notr="true"/>
+                          <string notr="true">background-color: rgb(29, 89, 98);
+padding-left: 3px;</string>
                          </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="placeholderText">
-                          <string>Section</string>
-                         </property>
+                         <item>
+                          <property name="text">
+                           <string>Section</string>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>A</string>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>B</string>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>C</string>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>D</string>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>E</string>
+                          </property>
+                         </item>
                         </widget>
                        </item>
                       </layout>
@@ -677,7 +699,7 @@ padding-left: 3px;</string>
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your Year &amp;amp; Section&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter Strand, Yr. &amp;amp; Sec.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
