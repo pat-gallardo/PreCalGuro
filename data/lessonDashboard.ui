@@ -351,7 +351,7 @@ border-radius: 5px;</string>
                    <item>
                     <widget class="QStackedWidget" name="topicPages">
                      <property name="currentIndex">
-                      <number>17</number>
+                      <number>9</number>
                      </property>
                      <widget class="QWidget" name="circlePage_1">
                       <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -407,7 +407,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1166</width>
+                               <width>1146</width>
                                <height>700</height>
                               </rect>
                              </property>
@@ -5647,7 +5647,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1024</width>
+                               <width>1166</width>
                                <height>3143</height>
                               </rect>
                              </property>
@@ -5999,8 +5999,8 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1132</width>
-                               <height>9358</height>
+                               <width>1166</width>
+                               <height>9300</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -6146,41 +6146,6 @@ border-radius: 5px;</string>
                                    </property>
                                    <property name="textFormat">
                                     <enum>Qt::RichText</enum>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item alignment="Qt::AlignHCenter">
-                               <widget class="QWidget" name="widget_153" native="true">
-                                <layout class="QVBoxLayout" name="verticalLayout_148">
-                                 <item>
-                                  <widget class="QPushButton" name="graphAppEx2PlotButton">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>15</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">#graphAppEx2PlotButton{
-	color: rgb(0, 0, 0);
-	border-radius: 8px;
-	background-color: rgb(0, 218, 0);
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-right: 5px;
-	padding-left: 5px;	
-}
-#graphAppEx2PlotButton:hover{
-	background-color: rgb(107, 255, 97);
-}
-#graphAppEx2PlotButton:pressed{
-	background-color: rgb(0, 154, 0);
-}</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>Show the Graph</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -6394,7 +6359,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>780</width>
+                               <width>1166</width>
                                <height>5208</height>
                               </rect>
                              </property>
@@ -8087,7 +8052,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>772</width>
+                               <width>1166</width>
                                <height>2562</height>
                               </rect>
                              </property>
@@ -8932,8 +8897,8 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1082</width>
-                               <height>98</height>
+                               <width>1183</width>
+                               <height>603</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -9119,7 +9084,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>772</width>
+                               <width>1166</width>
                                <height>2517</height>
                               </rect>
                              </property>
@@ -9963,7 +9928,7 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-1013</y>
+                               <y>0</y>
                                <width>1166</width>
                                <height>1664</height>
                               </rect>
@@ -10023,7 +9988,7 @@ border-radius: 5px;</string>
                                        <item>
                                         <widget class="QStackedWidget" name="stackedWidget_11">
                                          <property name="currentIndex">
-                                          <number>1</number>
+                                          <number>0</number>
                                          </property>
                                          <widget class="QWidget" name="page_44">
                                           <layout class="QVBoxLayout" name="verticalLayout_438">
@@ -10762,7 +10727,7 @@ border: 1px solid rgb(0, 0, 0);</string>
                                  <item alignment="Qt::AlignHCenter">
                                   <widget class="QStackedWidget" name="stackedWidget_12">
                                    <property name="currentIndex">
-                                    <number>6</number>
+                                    <number>1</number>
                                    </property>
                                    <widget class="QWidget" name="page_46">
                                     <layout class="QHBoxLayout" name="horizontalLayout_102">
@@ -11362,8 +11327,8 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-1029</y>
-                               <width>1166</width>
+                               <y>0</y>
+                               <width>1154</width>
                                <height>1664</height>
                               </rect>
                              </property>
@@ -12761,8 +12726,8 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-1072</y>
-                               <width>1166</width>
+                               <y>0</y>
+                               <width>772</width>
                                <height>1675</height>
                               </rect>
                              </property>
@@ -12821,7 +12786,7 @@ border-radius: 5px;</string>
                                        <item>
                                         <widget class="QStackedWidget" name="stackedWidget_5">
                                          <property name="currentIndex">
-                                          <number>0</number>
+                                          <number>1</number>
                                          </property>
                                          <widget class="QWidget" name="page_23">
                                           <layout class="QVBoxLayout" name="verticalLayout_346">
@@ -13560,7 +13525,7 @@ border: 1px solid rgb(0, 0, 0);</string>
                                  <item alignment="Qt::AlignHCenter">
                                   <widget class="QStackedWidget" name="stackedWidget_6">
                                    <property name="currentIndex">
-                                    <number>0</number>
+                                    <number>2</number>
                                    </property>
                                    <widget class="QWidget" name="page_25">
                                     <layout class="QHBoxLayout" name="horizontalLayout_86">
@@ -14008,8 +13973,8 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-1024</y>
-                               <width>1166</width>
+                               <y>0</y>
+                               <width>772</width>
                                <height>1675</height>
                               </rect>
                              </property>
