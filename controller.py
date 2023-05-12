@@ -1,6 +1,7 @@
 import os
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets, QtChart
+from PyQt5.QtChart import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui     import *
 from PyQt5.QtCore    import *
@@ -63,8 +64,9 @@ post_count = ""
 studKey = ""
 willLogout = 0
 
+
 firebaseConfig = { "apiKey": "AIzaSyDyihbb440Vb2o0CIMINI_UfQLRln0uvXs",
-  "authDomain": "PreCalGuro-46712.firebaseapp.com",
+  "authDomain": "mathguro-46712.firebaseapp.com",
   "databaseURL": "https://mathguro-46712-default-rtdb.asia-southeast1.firebasedatabase.app",
   "projectId": "mathguro-46712",
   "storageBucket": "mathguro-46712.appspot.com",
@@ -93,12 +95,13 @@ class toStudTeach(QMainWindow):
         loadUi("data/studTeach.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.toStudButton.clicked.connect(self.toStud)
         self.closeButton.clicked.connect(self.toExitProg)
         self.toTeachButton.clicked.connect(self.toTeach)
+        load_ai()
 
     def mousePressEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
@@ -141,7 +144,7 @@ class toStudLogin(QMainWindow):
         loadUi("data/studLogin.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
         global willLogout
         willLogout = 0
@@ -227,7 +230,7 @@ class toStudForgotPass(QMainWindow):
         loadUi("data/forgotPassBoth.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.forgotPassPages.setCurrentIndex(0)
@@ -287,7 +290,7 @@ class toStudRegister(QMainWindow):
         loadUi("data/studRegister.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.warningFname.setVisible(False)
@@ -335,7 +338,7 @@ class toStudRegister(QMainWindow):
         mname = self.studMiddle_lineEdit.text()
         lname = self.studLast_lineEdit.text()
         school = self.studSchool_lineEdit.text()
-        section = self.studSec_lineEdit.text()
+        section = self.studSec_comboBox.currentText()
         course = self.studGrd_comboBox.currentText()
         year = self.studYr_comboBox.currentText()
         studentSchoolID = self.studSchoolID_lineEdit.text()
@@ -354,7 +357,7 @@ class toStudRegister(QMainWindow):
             mname = ""
         if lname == "":
             self.lnameError = 1
-        if section == "" or year == "Year" or course == "Course":
+        if section == "Section" or year == "Year" or course == "Strand":
             self.yrSecError = 1
         if school == "":
             self.schoolError = 1
@@ -401,7 +404,6 @@ class toStudRegister(QMainWindow):
             self.studMiddle_lineEdit.clear()
             self.studLast_lineEdit.clear()
             self.studSchool_lineEdit.clear()
-            self.studSec_lineEdit.clear()
             self.studSchoolID_lineEdit.clear()
             self.studEmail_lineEdit.clear()
             self.studPass_lineEdit.clear()
@@ -432,7 +434,7 @@ class toTeachLogin(QMainWindow):
 
         loadUi("data/teachLogin.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.warning_Widget.setVisible(False)
@@ -515,7 +517,7 @@ class toTeachForgotPass(QMainWindow):
         loadUi("data/forgotPassBoth.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.forgotPassPages.setCurrentIndex(1)
@@ -575,7 +577,7 @@ class toTeachRegister(QMainWindow):
         loadUi("data/teachRegister.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.warningFname.setVisible(False)
@@ -712,7 +714,7 @@ class toStudUpdateProfile(QDialog):
 
         loadUi("data/updateInfo.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
 
         self.setWindowTitle(title)
         self.updateInfoPages.setCurrentIndex(0)
@@ -880,7 +882,7 @@ class toDashboard(QMainWindow):
         loadUi("data/dashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         global new_unitTest1, new_unitTest2, new_preAssess, new_postAssess, fromLesson1, fromLesson2, fromPost
@@ -922,7 +924,7 @@ class toDashboard(QMainWindow):
         self.profCourseLineEdit.insertPlainText(studSection.upper())
         self.profSchoolLineEdit.insertPlainText(studSchool.upper())
 
-        ave_assess = (int(studAssessment_score) / 15) * 100    
+        ave_assess = (int(studAssessment_score) / 30) * 100    
         if ave_assess > 80:
             assess_result=("Outstanding")
         elif ave_assess > 60:
@@ -932,7 +934,7 @@ class toDashboard(QMainWindow):
         else:
             assess_result=("Needs Improvement")
 
-        ave_assess = (int(studPostAssessment_score) / 15) * 100    
+        ave_assess = (int(studPostAssessment_score) / 30) * 100    
         if ave_assess > 80:
             postassess_result=("Outstanding")
         elif ave_assess > 60:
@@ -945,29 +947,29 @@ class toDashboard(QMainWindow):
         self.show_scorePreAssessMsg_label.setText(assess_result)
         self.show_scorePostAssessMsg_label.setText(postassess_result)
 
-        self.preAssess1_label.setText(str(studAssessment_score)+"/25")
+        self.preAssess1_label.setText(str(studAssessment_score)+"/30")
         self.preAssess1_progressBar.setValue(int(studAssessment_score))
-        self.preAssess1_progressBar.setMaximum(25)
+        self.preAssess1_progressBar.setMaximum(30)
             
-        self.preAssess2_label.setText(str(studAssessment_score1)+"/25")
-        self.preAssess2_progressBar.setValue(int(studAssessment_score))
-        self.preAssess2_progressBar.setMaximum(25)
+        self.preAssess2_label.setText(str(studAssessment_score1)+"/30")
+        self.preAssess2_progressBar.setValue(int(studAssessment_score1))
+        self.preAssess2_progressBar.setMaximum(30)
 
-        self.postAssess1_label.setText(str(studPostAssessment_score)+"/25")
-        self.postAssess1_progressBar.setValue(int(studAssessment_score))
-        self.postAssess1_progressBar.setMaximum(25)
+        self.postAssess1_label.setText(str(studPostAssessment_score)+"/30")
+        self.postAssess1_progressBar.setValue(int(studPostAssessment_score))
+        self.postAssess1_progressBar.setMaximum(30)
 
-        self.postAssess2_label.setText(str(studPostAssessment_score1)+"/25")
-        self.postAssess2_progressBar.setValue(int(studAssessment_score))
-        self.postAssess2_progressBar.setMaximum(25)
+        self.postAssess2_label.setText(str(studPostAssessment_score1)+"/30")
+        self.postAssess2_progressBar.setValue(int(studPostAssessment_score1))
+        self.postAssess2_progressBar.setMaximum(30)
 
-        self.show_scoreUnit1_label.setText(str(studUnitTest1_score)+"/50")
+        self.show_scoreUnit1_label.setText(str(studUnitTest1_score)+"/60")
         self.unitTest1_progressBar.setValue(int(studUnitTest1_score))
-        self.unitTest1_progressBar.setMaximum(50)
+        self.unitTest1_progressBar.setMaximum(60)
 
-        self.show_scoreUnit2_label.setText(str(studUnitTest2_score)+"/50")
+        self.show_scoreUnit2_label.setText(str(studUnitTest2_score)+"/60")
         self.unitTest2_progressBar.setValue(int(studUnitTest2_score))
-        self.unitTest2_progressBar.setMaximum(50)
+        self.unitTest2_progressBar.setMaximum(60)
         
         self.leftMenuNum = 0
         self.centerMenuNum = 0
@@ -1794,7 +1796,7 @@ class toStudLogout(QDialog):
 
         loadUi("data/warningToLogout.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.logoutUpdatePages.setCurrentIndex(0)
@@ -1820,7 +1822,7 @@ class splashScreen(QMainWindow):
         loadUi("data/loadingScreen1.ui", self)
 
         self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.setWindowFlag(Qt.FramelessWindowHint)
@@ -1849,7 +1851,7 @@ class topicLesson1(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(0)
@@ -1969,7 +1971,7 @@ class topicLesson2(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(2)
@@ -2090,7 +2092,7 @@ class topicLesson3(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(3)
@@ -2211,7 +2213,7 @@ class topicLesson4(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(4)
@@ -2290,8 +2292,8 @@ class topicLesson4(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
-        global fromLesson2
-        fromLesson2 = 1
+        global fromLesson1
+        fromLesson1 = 1
         self.back = toDashboard()
         self.back.show()
     
@@ -2332,7 +2334,7 @@ class topicLesson5(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(6)
@@ -2420,7 +2422,7 @@ class topicLesson6(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(8)
@@ -2508,7 +2510,7 @@ class topicLesson7(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(9)
@@ -2596,7 +2598,7 @@ class assessmentWindow(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(11)
@@ -2656,6 +2658,17 @@ class assessmentWindow(QMainWindow):
             data.scores.pre_question4 = pre_question4[0]
             data.scores.pre_question5 = pre_question5[0]
 
+            data.scores.pre1_solutionId = pre_question1[1]
+            data.scores.pre1_answerId = pre_question1[2]
+            data.scores.pre2_solutionId = pre_question2[1]
+            data.scores.pre2_answerId = pre_question2[2]
+            data.scores.pre3_solutionId = pre_question3[1]
+            data.scores.pre3_answerId = pre_question3[2]
+            data.scores.pre4_solutionId = pre_question4[1]
+            data.scores.pre4_answerId = pre_question4[2]
+            data.scores.pre5_solutionId = pre_question5[1]
+            data.scores.pre5_answerId = pre_question5[2]
+
         self.pre_Q1_label.setText("1."+ data.scores.pre_question1)
         self.pre_Q2_label.setText("2."+ data.scores.pre_question2)
         self.pre_Q3_label.setText("3."+ data.scores.pre_question3)
@@ -2683,6 +2696,8 @@ class assessmentWindow(QMainWindow):
             self.restoreWindow = 0
 
     def toDashboardPage(self):
+        global new_preAssess
+        new_preAssess = True
         self.hide()
         self.back = toDashboard()
         self.back.show()
@@ -2707,9 +2722,9 @@ class assessmentWindow(QMainWindow):
         # Checking of answer and calculating of score
         data.scores.assess_score = 0
         # Question 1, solution and answer
-        question = "question_21_Solution"
+        question = data.scores.pre1_solutionId
         check_assess_q1_sol = chat(question, assess_sol_Q1)
-        question = "question_21_Answer"
+        question = data.scores.pre1_answerId
         check_assess_q1_ans = chat(question, assess_ans_Q1)
                 
         if check_assess_q1_sol == "correct":
@@ -2718,9 +2733,9 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 1
 
         # Question 2, solution and answer
-        question = "question_22_Solution"
+        question = data.scores.pre2_solutionId
         check_assess_q2_sol = chat(question, assess_sol_Q2)
-        question = "question_22_Answer"
+        question = data.scores.pre2_answerId
         check_assess_q2_ans = chat(question, assess_ans_Q2)
 
         if check_assess_q2_sol == "correct":
@@ -2729,9 +2744,9 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 1
 
         # Question 3, solution and answer
-        question = "question_23_Solution"
+        question = data.scores.pre3_solutionId
         check_assess_q3_sol = chat(question, assess_sol_Q3)
-        question = "question_23_Answer"
+        question = data.scores.pre3_answerId
         check_assess_q3_ans = chat(question, assess_ans_Q3)
 
         if check_assess_q3_sol == "correct":
@@ -2740,9 +2755,9 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 1
 
         # Question 4, solution and answer
-        question = "question_24_Solution"
+        question = data.scores.pre4_solutionId
         check_assess_q4_sol = chat(question, assess_sol_Q4)
-        question = "question_24_Answer"
+        question = data.scores.pre4_answerId
         check_assess_q4_ans = chat(question, assess_ans_Q4)
 
         if check_assess_q4_sol == "correct":
@@ -2751,9 +2766,9 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 1
 
         # Question 5, solution and answer
-        question = "question_25_Solution"
+        question = data.scores.pre5_solutionId
         check_assess_q5_sol = chat(question, assess_sol_Q5)
-        question = "question_25_Answer"
+        question = data.scores.pre5_answerId
         check_assess_q5_ans = chat(question, assess_ans_Q5)
 
         if check_assess_q5_sol == "correct":
@@ -2762,21 +2777,18 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 1
         
         print(data.scores.assess_score)
-        global pre_count
         if pre_count == "0":
-            pre_count = "1"
             studKey = db.child("student").get()
             for keyAccess in studKey.each():
                 if keyAccess.val()["studentSchoolID"] == idKey:
                     keyID = keyAccess.key()
             db.child("student").child(keyID).update({"assessment_score":str(data.scores.assess_score),"assessment_count":"1"})
         if pre_count == "1":
-            pre_count = "0"
             studKey = db.child("student").get()
             for keyAccess in studKey.each():
                 if keyAccess.val()["studentSchoolID"] == idKey:
                     keyID = keyAccess.key()
-            db.child("student").child(keyID).update({"assessment_score":str(data.scores.assess_score),"assessment_count":"1"})
+            db.child("student").child(keyID).update({"assessment_score1":str(data.scores.assess_score),"assessment_count":"0"})
         global new_preAssess
         new_preAssess = False
 
@@ -2821,7 +2833,7 @@ class unitTest_1(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
         
         self.topicPages.setCurrentIndex(5)
@@ -2927,6 +2939,27 @@ class unitTest_1(QMainWindow):
             data.scores.unit_test1_question8 = unit_test1_question8[0]
             data.scores.unit_test1_question9 = unit_test1_question9[0]
             data.scores.unit_test1_question10 = unit_test1_question10[0]
+
+            data.scores.unit1_1_solutionId = unit_test1_question1[1]
+            data.scores.unit1_1_answerId =unit_test1_question1[2]
+            data.scores.unit1_2_solutionId = unit_test1_question2[1]
+            data.scores.unit1_2_answerId =unit_test1_question2[2]
+            data.scores.unit1_3_solutionId = unit_test1_question3[1]
+            data.scores.unit1_3_answerId =unit_test1_question3[2]
+            data.scores.unit1_4_solutionId = unit_test1_question4[1]
+            data.scores.unit1_4_answerId =unit_test1_question4[2]
+            data.scores.unit1_5_solutionId = unit_test1_question5[1]
+            data.scores.unit1_5_answerId =unit_test1_question5[2]
+            data.scores.unit1_6_solutionId = unit_test1_question6[1]
+            data.scores.unit1_6_answerId =unit_test1_question6[2]
+            data.scores.unit1_7_solutionId = unit_test1_question7[1]
+            data.scores.unit1_7_answerId =unit_test1_question7[2]
+            data.scores.unit1_8_solutionId = unit_test1_question8[1]
+            data.scores.unit1_8_answerId =unit_test1_question8[2]
+            data.scores.unit1_9_solutionId = unit_test1_question9[1]
+            data.scores.unit1_9_answerId =unit_test1_question9[2]
+            data.scores.unit1_10_solutionId = unit_test1_question10[1]
+            data.scores.unit1_10_answerId =unit_test1_question10[2]
 
         self.unitTest1_Q1_label.setText("1."+ data.scores.unit_test1_question1)
         self.unitTest1_Q2_label.setText("2."+ data.scores.unit_test1_question2)
@@ -3092,8 +3125,9 @@ class unitTest_1(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
-        global fromLesson1
+        global fromLesson1, new_unitTest1
         fromLesson1 = 1
+        new_unitTest1 = True
         self.back = toDashboard()
         self.back.show()
 
@@ -3157,11 +3191,11 @@ class unitTest_1(QMainWindow):
         data.scores.hyperb_score = 0
 
         # Question 1, solution and answer
-        question = "question_1_Solution"
+        question = data.scores.unit1_1_solutionId
         check_unit1_q1_sol = chat(question, solution_Unit1_Q1)
         data.scores.check_unit1_q1_sol= check_unit1_q1_sol
          
-        question = "question_1_Answer"
+        question = data.scores.unit1_1_answerId
         check_unit1_q1_ans = chat(question, answer1_Unit1_Q1)
         data.scores.check_unit1_q1_ans = check_unit1_q1_ans
 
@@ -3173,10 +3207,10 @@ class unitTest_1(QMainWindow):
             data.scores.circ_score = data.scores.circ_score + 1
 
         # Question 2, solution and answer
-        question = "question_2_Solution"
+        question = data.scores.unit1_2_solutionId
         check_unit1_q2_sol = chat(question, solution_Unit1_Q2)
         data.scores.check_unit1_q2_sol = check_unit1_q2_sol
-        question = "question_2_Center_Answer"
+        question = data.scores.unit1_2_answerId
         check_unit1_q2_center_ans = chat(question, answer1_Unit1_Q2)
         data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
 
@@ -3188,10 +3222,10 @@ class unitTest_1(QMainWindow):
             data.scores.circ_score = data.scores.circ_score + 1
 
         # Question 3, solution and answer
-        question = "question_3_Solution"
+        question = data.scores.unit1_3_solutionId
         check_unit1_q3_sol = chat(question, solution_Unit1_Q3)
         data.scores.check_unit1_q3_sol = check_unit1_q3_sol
-        question = "question_3_Vertex"
+        question = data.scores.unit1_3_answerId
         check_unit1_q3_vertex_ans = chat(question, answer1_Unit1_Q3)
         data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
 
@@ -3203,10 +3237,10 @@ class unitTest_1(QMainWindow):
             data.scores.parab_score = data.scores.parab_score + 1  
 
         # Question 4, solution and answer
-        question = "question_4_Solution"
+        question = data.scores.unit1_4_solutionId
         check_unit1_q4_sol = chat(question, solution_Unit1_Q4)
         data.scores.check_unit1_q4_sol = check_unit1_q4_sol
-        question = "question_4_Vertex"
+        question = data.scores.unit1_4_answerId
         check_unit1_q4_vertex_ans = chat(question, answer1_Unit1_Q4)
         data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
 
@@ -3218,10 +3252,10 @@ class unitTest_1(QMainWindow):
             data.scores.parab_score = data.scores.parab_score + 1
 
         # Question 5, solution and answer
-        question = "question_5_Solution"
+        question = data.scores.unit1_5_solutionId
         check_unit1_q5_sol = chat(question, solution_Unit1_Q5)
         data.scores.check_unit1_q5_sol = check_unit1_q5_sol
-        question = "question_5_Center"
+        question = data.scores.unit1_5_answerId
         check_unit1_q5_center_ans = chat(question, answer1_Unit1_Q5)
         data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
 
@@ -3233,10 +3267,10 @@ class unitTest_1(QMainWindow):
             data.scores.ellip_score = data.scores.ellip_score + 1
 
         # Question 6, solution and answer
-        question = "question_6_Solution"
+        question = data.scores.unit1_6_solutionId
         check_unit1_q6_sol = chat(question, solution_Unit1_Q6)
         data.scores.check_unit1_q6_sol = check_unit1_q6_sol
-        question = "question_6_Foci1"
+        question = data.scores.unit1_6_answerId
         check_unit1_q6_foci1_ans = chat(question, answer1_Unit1_Q6)
         data.scores.check_unit1_q6_foci1_ans = check_unit1_q6_foci1_ans
 
@@ -3248,10 +3282,10 @@ class unitTest_1(QMainWindow):
             data.scores.ellip_score = data.scores.ellip_score + 1
 
         # Question 7, solution and answer
-        question = "question_7_Solution"
+        question = data.scores.unit1_7_solutionId
         check_unit1_q7_sol = chat(question, solution_Unit1_Q7)
         data.scores.check_unit1_q7_sol = check_unit1_q7_sol
-        question = "question_7_Vertex1"
+        question = data.scores.unit1_7_answerId
         check_unit1_q7_vertex1_ans = chat(question, answer1_Unit1_Q7)
         data.scores.check_unit1_q7_vertex1_ans = check_unit1_q7_vertex1_ans
 
@@ -3263,10 +3297,10 @@ class unitTest_1(QMainWindow):
             data.scores.hyperb_score = data.scores.hyperb_score + 1   
 
         # Question 8, solution and answer
-        question = "question_8_Solution"
+        question = data.scores.unit1_8_solutionId
         check_unit1_q8_sol = chat(question, solution_Unit1_Q8)
         data.scores.check_unit1_q8_sol = check_unit1_q8_sol
-        question = "question_8_Center"
+        question = data.scores.unit1_8_answerId
         check_unit1_q8_center_ans = chat(question, answer1_Unit1_Q8)
         data.scores.check_unit1_q8_center_ans = check_unit1_q8_center_ans
 
@@ -3278,10 +3312,10 @@ class unitTest_1(QMainWindow):
             data.scores.hyperb_score = data.scores.hyperb_score + 1
 
         # Question 9, solution and answer
-        question = "question_9_Solution"
+        question = data.scores.unit1_9_solutionId
         check_unit1_q9_sol = chat(question, solution_Unit1_Q9)
         data.scores.check_unit1_q9_sol = check_unit1_q9_sol 
-        question = "question_9_MinorAxis"
+        question =data.scores.unit1_9_answerId
         check_unit1_q9_minorAxis_ans = chat(question, answer1_Unit1_Q9)
         data.scores.check_unit1_q9_minorAxis_ans = check_unit1_q9_minorAxis_ans
 
@@ -3293,10 +3327,10 @@ class unitTest_1(QMainWindow):
             data.scores.hyperb_score = data.scores.hyperb_score + 1
 
         # Question 10, solution and answer
-        question = "question_10_Solution"
+        question = data.scores.unit1_10_solutionId
         check_unit1_q10_sol = chat(question, solution_Unit1_Q10)
         data.scores.check_unit1_q10_sol = check_unit1_q10_sol
-        question = "question_10_Foci1"
+        question = data.scores.unit1_10_answerId
         check_unit1_q10_standEquat_ans = chat(question, answer1_Unit1_Q10)
         data.scores.check_unit1_q10_standEquat_ans = check_unit1_q10_standEquat_ans
 
@@ -3359,7 +3393,7 @@ class unitTest_2(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(10)
@@ -3438,6 +3472,27 @@ class unitTest_2(QMainWindow):
             data.scores.unit_test2_question8 = unit_test2_question8[0]
             data.scores.unit_test2_question9 = unit_test2_question9[0]
             data.scores.unit_test2_question10 = unit_test2_question10[0]
+
+            data.scores.unit2_1_solutionId = unit_test2_question1[1]
+            data.scores.unit2_1_answerId =unit_test2_question1[2]
+            data.scores.unit2_2_solutionId = unit_test2_question2[1]
+            data.scores.unit2_2_answerId =unit_test2_question2[2]
+            data.scores.unit2_3_solutionId = unit_test2_question3[1]
+            data.scores.unit2_3_answerId =unit_test2_question3[2]
+            data.scores.unit2_4_solutionId = unit_test2_question4[1]
+            data.scores.unit2_4_answerId =unit_test2_question4[2]
+            data.scores.unit2_5_solutionId = unit_test2_question5[1]
+            data.scores.unit2_5_answerId =unit_test2_question5[2]
+            data.scores.unit2_6_solutionId = unit_test2_question6[1]
+            data.scores.unit2_6_answerId =unit_test2_question6[2]
+            data.scores.unit2_7_solutionId = unit_test2_question7[1]
+            data.scores.unit2_7_answerId =unit_test2_question7[2]
+            data.scores.unit2_8_solutionId = unit_test2_question8[1]
+            data.scores.unit2_8_answerId =unit_test2_question8[2]
+            data.scores.unit2_9_solutionId = unit_test2_question9[1]
+            data.scores.unit2_9_answerId =unit_test2_question9[2]
+            data.scores.unit2_10_solutionId = unit_test2_question10[1]
+            data.scores.unit2_10_answerId =unit_test2_question10[2]
 
         self.unitTest2_Q1_label.setText("1."+ data.scores.unit_test2_question1)
         self.unitTest2_Q2_label.setText("2."+ data.scores.unit_test2_question2)
@@ -3611,8 +3666,9 @@ class unitTest_2(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
-        global fromLesson2
+        global fromLesson2, new_unitTest2
         fromLesson2 = 1
+        new_unitTest2 = True
         self.back = toDashboard()
         self.back.show()
 
@@ -3674,10 +3730,10 @@ class unitTest_2(QMainWindow):
         data.scores.elimin_score = 0
 
         # Question 1, solution and answer
-        question = "question_11_Solution"
+        question = data.scores.unit2_1_solutionId
         check_unit2_q1_sol = chat(question, solution_Unit2_Q1)
         data.scores.check_unit2_q1_sol = check_unit2_q1_sol
-        question = "question_11_Answer"
+        question = data.scores.unit2_1_answerId
         check_unit2_q1_ans = chat(question, answer1_Unit2_Q1)
         data.scores.check_unit2_q1_ans = check_unit2_q1_ans
 
@@ -3689,10 +3745,10 @@ class unitTest_2(QMainWindow):
             data.scores.substi_score = data.scores.substi_score + 1
 
         # Question 2, solution and answer
-        question = "question_12_Solution"
+        question = data.scores.unit2_2_solutionId
         check_unit2_q2_sol = chat(question, solution_Unit2_Q2)
         data.scores.check_unit2_q2_sol = check_unit2_q2_sol
-        question = "question_12_Answer"
+        question = data.scores.unit2_2_answerId
         check_unit2_q2_ans = chat(question, answer1_Unit2_Q2)
         data.scores.check_unit2_q2_ans = check_unit2_q2_ans
 
@@ -3704,10 +3760,10 @@ class unitTest_2(QMainWindow):
             data.scores.substi_score = data.scores.substi_score + 1  
 
         # Question 3, solution and answer
-        question = "question_13_Solution"
+        question = data.scores.unit2_3_solutionId
         check_unit2_q3_sol = chat(question, solution_Unit2_Q3)
         data.scores.check_unit2_q3_sol = check_unit2_q3_sol
-        question = "question_13_Answer"
+        question = data.scores.unit2_3_answerId
         check_unit2_q3_ans = chat(question, answer1_Unit2_Q3)
         data.scores.check_unit2_q3_ans = check_unit2_q3_ans
 
@@ -3719,10 +3775,10 @@ class unitTest_2(QMainWindow):
             data.scores.substi_score = data.scores.substi_score + 1  
 
         # Question 4, solution and answer
-        question = "question_14_Solution"
+        question = data.scores.unit2_4_solutionId
         check_unit2_q4_sol = chat(question, solution_Unit2_Q4)
         data.scores.check_unit2_q4_sol = check_unit2_q4_sol
-        question = "question_14_Answer"
+        question = data.scores.unit2_4_answerId
         check_unit2_q4_ans = chat(question, answer1_Unit2_Q4)
         data.scores.check_unit2_q4_ans = check_unit2_q4_ans
 
@@ -3734,10 +3790,10 @@ class unitTest_2(QMainWindow):
             data.scores.substi_score = data.scores.substi_score + 1  
 
         # Question 5, solution and answer
-        question = "question_15_Solution"
+        question = data.scores.unit2_5_solutionId
         check_unit2_q5_sol = chat(question, solution_Unit2_Q5)
         data.scores.check_unit2_q5_sol = check_unit2_q5_sol
-        question = "question_15_Answer"
+        question = data.scores.unit2_5_answerId
         check_unit2_q5_ans = chat(question, answer1_Unit2_Q5)
         data.scores.check_unit2_q5_ans = check_unit2_q5_ans
 
@@ -3749,10 +3805,10 @@ class unitTest_2(QMainWindow):
             data.scores.substi_score = data.scores.substi_score + 1 
 
         # Question 6, solution and answer
-        question = "question_16_Solution"
+        question = data.scores.unit2_6_solutionId
         check_unit2_q6_sol = chat(question, solution_Unit2_Q6)
         data.scores.check_unit2_q6_sol = check_unit2_q6_sol
-        question = "question_16_Answer"
+        question = data.scores.unit2_6_answerId
         check_unit2_q6_ans = chat(question, answer1_Unit2_Q6)
         data.scores.check_unit2_q6_ans = check_unit2_q6_ans
 
@@ -3764,10 +3820,10 @@ class unitTest_2(QMainWindow):
             data.scores.elimin_score = data.scores.elimin_score + 1  
 
         # Question 7, solution and answer
-        question = "question_17_Solution"
+        question = data.scores.unit2_7_solutionId
         check_unit2_q7_sol = chat(question, solution_Unit2_Q7)
         data.scores.check_unit2_q7_sol = check_unit2_q7_sol
-        question = "question_17_Answer"
+        question = data.scores.unit2_7_answerId
         check_unit2_q7_ans = chat(question, answer1_Unit2_Q7)
         data.scores.check_unit2_q7_ans = check_unit2_q7_ans
 
@@ -3779,10 +3835,10 @@ class unitTest_2(QMainWindow):
             data.scores.elimin_score = data.scores.elimin_score + 1  
 
         # Question 8, solution and answer
-        question = "question_18_Solution"
+        question = data.scores.unit2_8_solutionId
         check_unit2_q8_sol = chat(question, solution_Unit2_Q8)
         data.scores.check_unit2_q8_sol = check_unit2_q8_sol
-        question = "question_18_Answer"
+        question = data.scores.unit2_8_answerId
         check_unit2_q8_ans = chat(question, answer1_Unit2_Q8)
         data.scores.check_unit2_q8_ans = check_unit2_q8_ans
 
@@ -3794,10 +3850,10 @@ class unitTest_2(QMainWindow):
             data.scores.elimin_score = data.scores.elimin_score + 1  
 
         # Question 9, solution and answer
-        question = "question_19_Solution"
+        question = data.scores.unit2_9_solutionId
         check_unit2_q9_sol = chat(question, solution_Unit2_Q9)
         data.scores.check_unit2_q9_sol = check_unit2_q9_sol
-        question = "question_19_Answer"
+        question = data.scores.unit2_9_answerId
         check_unit2_q9_ans = chat(question, answer1_Unit2_Q9)
         data.scores.check_unit2_q9_ans = check_unit2_q9_ans
 
@@ -3809,10 +3865,10 @@ class unitTest_2(QMainWindow):
             data.scores.elimin_score = data.scores.elimin_score + 1  
 
         # Question 10, solution and answer
-        question = "question_20_Solution"
+        question = data.scores.unit2_10_solutionId
         check_unit2_q10_sol = chat(question, solution_Unit2_Q10)
         data.scores.check_unit2_q10_sol = check_unit2_q10_sol
-        question = "question_20_Answer"
+        question = data.scores.unit2_10_answerId
         check_unit2_q10_ans = chat(question, answer1_Unit2_Q10)
         data.scores.check_unit2_q10_ans = check_unit2_q10_ans
 
@@ -3875,7 +3931,7 @@ class postAssessmentWindow_accept(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(13)
@@ -3935,6 +3991,17 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.post_question4 = post_question4[0]
             data.scores.post_question5 = post_question5[0]
 
+            data.scores.post1_solutionId = post_question1[1]
+            data.scores.post1_answerId = post_question1[2]
+            data.scores.post2_solutionId = post_question2[1]
+            data.scores.post2_answerId = post_question2[2]
+            data.scores.post3_solutionId = post_question3[1]
+            data.scores.post3_answerId = post_question3[2]
+            data.scores.post4_solutionId = post_question4[1]
+            data.scores.post4_answerId = post_question4[2]
+            data.scores.post5_solutionId = post_question5[1]
+            data.scores.post5_answerId = post_question5[2]
+
         self.post_Q1_label.setText("1."+ data.scores.post_question1)
         self.post_Q2_label.setText("2."+ data.scores.post_question2)
         self.post_Q3_label.setText("3."+ data.scores.post_question3)
@@ -3963,8 +4030,9 @@ class postAssessmentWindow_accept(QMainWindow):
 
     def toDashboardPage(self):
         self.hide()
-        global fromLesson2
+        global fromLesson2, new_postAssess
         fromLesson2 = 1
+        new_postAssess = True
         self.back = toDashboard()
         self.back.show()
         
@@ -3988,9 +4056,9 @@ class postAssessmentWindow_accept(QMainWindow):
         # Checking of answer and calculating of score
         data.scores.postassess_score = 0
         # Question 1, solution and answer
-        question = "question_26_Solution"
+        question = data.scores.post1_solutionId
         check_assess_q1_sol = chat(question, postassess_sol_Q1)
-        question = "question_26_Answer"
+        question = data.scores.post1_answerId
         check_assess_q1_ans = chat(question, postassess_ans_Q1)
                 
         if check_assess_q1_sol == "correct":
@@ -3999,9 +4067,9 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 1
 
         # Question 2, solution and answer
-        question = "question_27_Solution"
+        question = data.scores.post2_solutionId
         check_assess_q2_sol = chat(question, postassess_sol_Q2)
-        question = "question_27_Answer"
+        question = data.scores.post2_answerId
         check_assess_q2_ans = chat(question, postassess_ans_Q2)
 
         if check_assess_q2_sol == "correct":
@@ -4010,9 +4078,9 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 1
 
         # Question 3, solution and answer
-        question = "question_28_Solution"
+        question = data.scores.post3_solutionId
         check_assess_q3_sol = chat(question, postassess_sol_Q3)
-        question = "question_28_Answer"
+        question = data.scores.post3_answerId
         check_assess_q3_ans = chat(question, postassess_ans_Q3)
 
         if check_assess_q3_sol == "correct":
@@ -4021,9 +4089,9 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 1
 
         # Question 4, solution and answer
-        question = "question_29_Solution"
+        question = data.scores.post4_solutionId
         check_assess_q4_sol = chat(question, postassess_sol_Q4)
-        question = "question_29_Answer"
+        question = data.scores.post4_answerId
         check_assess_q4_ans = chat(question, postassess_ans_Q4)
 
         if check_assess_q4_sol == "correct":
@@ -4032,9 +4100,9 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 1
 
         # Question 5, solution and answer
-        question = "question_30_Solution"
+        question = data.scores.post5_solutionId
         check_assess_q5_sol = chat(question, postassess_sol_Q5)
-        question = "question_30_Answer"
+        question = data.scores.post5_answerId
         check_assess_q5_ans = chat(question, postassess_ans_Q5)
 
         if check_assess_q5_sol == "correct":
@@ -4043,21 +4111,18 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 1
         
         print(data.scores.postassess_score)
-        global post_count
         if post_count == "0":
-            post_count = "1"
             studKey = db.child("student").get()
             for keyAccess in studKey.each():
                 if keyAccess.val()["studentSchoolID"] == idKey:
                     keyID = keyAccess.key()
             db.child("student").child(keyID).update({"post_assessment_score":str(data.scores.postassess_score),"post_assessment_count":"1"})
         if post_count == "1":
-            post_count = "0"
             studKey = db.child("student").get()
             for keyAccess in studKey.each():
                 if keyAccess.val()["studentSchoolID"] == idKey:
                     keyID = keyAccess.key()
-            db.child("student").child(keyID).update({"post_assessment_score":str(data.scores.postassess_score),"post_assessment_count":"1"})
+            db.child("student").child(keyID).update({"post_assessment_score1":str(data.scores.postassess_score),"post_assessment_count":"0"})
 
         global new_postAssess
         new_postAssess = False
@@ -4103,7 +4168,7 @@ class postAssessmentWindow_failed(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
         
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
+        title = "Mathguro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(12)
@@ -4172,7 +4237,7 @@ class toTeachUpdateProfile(QDialog):
         loadUi("data/updateInfo.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
 
         self.updateInfoPages.setCurrentIndex(1)
@@ -4275,7 +4340,7 @@ class toDashboardTeach(QMainWindow):
         loadUi("data/dashboardTeach.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
 
         all_teacher = db.child("teacher").get()
@@ -4390,7 +4455,8 @@ class toDashboardTeach(QMainWindow):
         self.pre_delete_pushButton.clicked.connect(self.delete_pre)
         self.post_delete_pushButton.clicked.connect(self.delete_post)
 
-        QSizeGrip(self.sizeGrip)
+        QSizeGrip(self.sizeGrip)        
+
     def create_unit1(self):
         if willLogout == 0:
             self.hide()
@@ -4466,6 +4532,34 @@ class toDashboardTeach(QMainWindow):
     def loadData(self):
         row = 0
         rowCount = 0
+        student_A = 0
+        student_B = 0
+        student_C = 0
+        student_D = 0
+        student_E = 0
+        student_total = 0
+        preAssess_less10 = 0
+        preAssess_less20 = 0
+        preAssess_less30 = 0
+        preAssess_total = 0
+        postAssess_less10 = 0
+        postAssess_less20 = 0
+        postAssess_less30 = 0
+        postAssess_total = 0
+        unit1_less10 = 0
+        unit1_less20 = 0
+        unit1_less30 = 0
+        unit1_less40 = 0
+        unit1_less50 = 0
+        unit1_less60 = 0
+        unit1_total = 0
+        unit2_less10 = 0
+        unit2_less20 = 0
+        unit2_less30 = 0
+        unit2_less40 = 0
+        unit2_less50 = 0
+        unit2_less60 = 0
+        unit2_total = 0
         all_students = db.child("student").get()
         for student in all_students.each():
             rowCount = rowCount + 1
@@ -4482,8 +4576,243 @@ class toDashboardTeach(QMainWindow):
                 self.tableWidget.setItem(row, 7, QtWidgets.QTableWidgetItem(str(student.val()["unitTest1_score"]).upper()))
                 self.tableWidget.setItem(row, 8, QtWidgets.QTableWidgetItem(str(student.val()["unitTest2_score"]).upper()))
                 self.tableWidget.setItem(row, 9, QtWidgets.QTableWidgetItem(str(student.val()["assessment_score"]).upper()))
-                self.tableWidget.setItem(row, 10, QtWidgets.QTableWidgetItem(str(student.val()["post_assessment_score"]).upper()))
+                self.tableWidget.setItem(row, 10, QtWidgets.QTableWidgetItem(str(student.val()["post_assessment_score"]).upper()))    
                 row = row + 1 
+                if student.val()["section"] == "A":
+                    student_A = student_A + 1
+                    student_total = student_total + 1
+                if student.val()["section"] == "B":
+                    student_B = student_B + 1
+                    student_total = student_total + 1
+                if student.val()["section"] == "C":
+                    student_C = student_C + 1
+                    student_total = student_total + 1
+                if student.val()["section"] == "D":
+                    student_D = student_D + 1
+                    student_total = student_total + 1
+                if student.val()["section"] == "E":
+                    student_E = student_E + 1  
+                    student_total = student_total + 1
+
+                if int(student.val()["unitTest1_score"]) <= 10:
+                    unit1_less10 = unit1_less10 + 1
+                elif int(student.val()["unitTest1_score"]) <= 20:
+                    unit1_less20 = unit1_less20 + 1
+                elif int(student.val()["unitTest1_score"]) <= 30:
+                    unit1_less30 = unit1_less30 + 1
+                elif int(student.val()["unitTest1_score"]) <= 40:
+                    unit1_less40 = unit1_less40 + 1
+                elif int(student.val()["unitTest1_score"]) <= 50:
+                    unit1_less50 = unit1_less50 + 1
+                elif int(student.val()["unitTest1_score"]) <= 60:
+                    unit1_less60 = unit1_less60 + 1
+                
+                if int(student.val()["unitTest2_score"]) <= 10:
+                    unit2_less10 = unit2_less10 + 1
+                elif int(student.val()["unitTest2_score"]) <= 20:
+                    unit2_less20 = unit2_less20 + 1
+                elif int(student.val()["unitTest2_score"]) <= 30:
+                    unit2_less30 = unit2_less30 + 1
+                elif int(student.val()["unitTest2_score"]) <= 40:
+                    unit2_less40 = unit2_less40 + 1
+                elif int(student.val()["unitTest2_score"]) <= 50:
+                    unit2_less50 = unit2_less50 + 1
+                elif int(student.val()["unitTest2_score"]) <= 60:
+                    unit2_less60 = unit2_less60 + 1
+                
+                if int(student.val()["assessment_score"]) <= 10:
+                    preAssess_less10 = preAssess_less10 + 1
+                elif int(student.val()["assessment_score"]) <= 20:
+                    preAssess_less20 = preAssess_less20 + 1
+                elif int(student.val()["assessment_score"]) <= 30:
+                    preAssess_less30 = preAssess_less30 + 1
+                
+                if int(student.val()["post_assessment_score"]) <= 10:
+                    postAssess_less10 = postAssess_less10 + 1
+                elif int(student.val()["post_assessment_score"]) <= 20:
+                    postAssess_less20 = postAssess_less20 + 1
+                elif int(student.val()["post_assessment_score"]) <= 30:
+                    postAssess_less30 = postAssess_less30 + 1
+
+        self.label_45.setText(str(student_A))
+        self.label_46.setText(str(student_B))
+        self.label_47.setText(str(student_C))
+        self.label_48.setText(str(student_D))
+        self.label_49.setText(str(student_E))
+        self.label_50.setText(str(student_total))
+
+        self.label_56.setText(str(preAssess_less10))
+        self.label_55.setText(str(preAssess_less20))
+        self.label_54.setText(str(preAssess_less30))
+        self.label_72.setText(str(preAssess_total))
+
+        self.label_64.setText(str(unit1_less10))
+        self.label_65.setText(str(unit1_less20))
+        self.label_66.setText(str(unit1_less30))
+        self.label_67.setText(str(unit1_less40))
+        self.label_68.setText(str(unit1_less50))
+        self.label_69.setText(str(unit1_less60))
+        self.label_76.setText(str(unit1_total))
+
+        self.label_85.setText(str(unit2_less10))
+        self.label_86.setText(str(unit2_less20))
+        self.label_87.setText(str(unit2_less30))
+        self.label_88.setText(str(unit2_less40))
+        self.label_89.setText(str(unit2_less50))
+        self.label_90.setText(str(unit2_less60))
+        self.label_91.setText(str(unit2_total))
+
+        self.label_96.setText(str(postAssess_less10))
+        self.label_97.setText(str(postAssess_less20))
+        self.label_98.setText(str(postAssess_less30))
+        self.label_100.setText(str(postAssess_total))
+
+        series = QtChart.QPieSeries()
+        series.append('A', student_A)
+        series.append('B', student_B)
+        series.append('C', student_C)
+        series.append('D', student_D)
+        series.append('E', student_E)
+
+        sliceA = series.slices()[0]
+        sliceA.setBrush(QtGui.QColor("#ff0000"))
+        sliceB = series.slices()[1]
+        sliceB.setBrush(QtGui.QColor("#0000ff"))
+        sliceC = series.slices()[2]
+        sliceC.setBrush(QtGui.QColor("#b6b600"))
+        sliceD = series.slices()[3]
+        sliceD.setBrush(QtGui.QColor("#00aa00"))
+        sliceE = series.slices()[4]
+        sliceE.setBrush(QtGui.QColor("#f44d00"))
+
+        chart = QtChart.QChart()
+        chart.addSeries(series)
+        chart.setAnimationOptions(QChart.SeriesAnimations)
+        chart.legend().hide()
+
+        chartview = QtChart.QChartView(chart)
+        chartview.setRenderHint(QPainter.Antialiasing)
+
+        self.charts_widget.setContentsMargins(0, 0, 0, 0)
+        lay = QtWidgets.QHBoxLayout(self.charts_widget)
+        lay.setContentsMargins(0, 0, 0, 0)
+        lay.addWidget(chartview)
+
+        series1 = QtChart.QPieSeries()
+        series1.append('< 10', unit1_less10)
+        series1.append('< 20', unit1_less20)
+        series1.append('< 30', unit1_less30)
+        series1.append('< 40', unit1_less40)
+        series1.append('< 50', unit1_less50)
+        series1.append('< 60', unit1_less60)
+
+        sliceUnit1_1 = series1.slices()[0]
+        sliceUnit1_1.setBrush(QtGui.QColor("#ff0000"))
+        sliceUnit1_2 = series1.slices()[1]
+        sliceUnit1_2.setBrush(QtGui.QColor("#0000ff"))
+        sliceUnit1_3 = series1.slices()[2]
+        sliceUnit1_3.setBrush(QtGui.QColor("#b6b600"))
+        sliceUnit1_4 = series1.slices()[3]
+        sliceUnit1_4.setBrush(QtGui.QColor("#00aa00"))
+        sliceUnit1_5 = series1.slices()[4]
+        sliceUnit1_5.setBrush(QtGui.QColor("#f44d00"))
+        sliceUnit1_6 = series1.slices()[5]
+        sliceUnit1_6.setBrush(QtGui.QColor("#aa00ff"))
+
+        chart1 = QtChart.QChart()
+        chart1.addSeries(series1)
+        chart1.setAnimationOptions(QChart.SeriesAnimations)
+        chart1.legend().hide()
+
+        chartview1 = QtChart.QChartView(chart1)
+        chartview1.setRenderHint(QPainter.Antialiasing)
+
+        self.unit_test1_widget.setContentsMargins(0, 0, 0, 0)
+        lay1 = QtWidgets.QHBoxLayout(self.unit_test1_widget)
+        lay1.setContentsMargins(0, 0, 0, 0)
+        lay1.addWidget(chartview1)
+
+        series2 = QtChart.QPieSeries()
+        series2.append('< 10', unit2_less10)
+        series2.append('< 20', unit2_less20)
+        series2.append('< 30', unit2_less30)
+        series2.append('< 40', unit2_less40)
+        series2.append('< 50', unit2_less50)
+        series2.append('< 60', unit2_less60)
+
+        sliceUnit2_1 = series2.slices()[0]
+        sliceUnit2_1.setBrush(QtGui.QColor("#ff0000"))
+        sliceUnit2_2 = series2.slices()[1]
+        sliceUnit2_2.setBrush(QtGui.QColor("#0000ff"))
+        sliceUnit2_3 = series2.slices()[2]
+        sliceUnit2_3.setBrush(QtGui.QColor("#b6b600"))
+        sliceUnit2_4 = series2.slices()[3]
+        sliceUnit2_4.setBrush(QtGui.QColor("#00aa00"))
+        sliceUnit2_5 = series2.slices()[4]
+        sliceUnit2_5.setBrush(QtGui.QColor("#f44d00"))
+
+        chart2 = QtChart.QChart()
+        chart2.addSeries(series2)
+        chart2.setAnimationOptions(QChart.SeriesAnimations)
+        chart2.legend().hide()
+
+        chartview2 = QtChart.QChartView(chart2)
+        chartview2.setRenderHint(QPainter.Antialiasing)
+
+        self.unit_test2_widget.setContentsMargins(0, 0, 0, 0)
+        lay2 = QtWidgets.QHBoxLayout(self.unit_test2_widget)
+        lay2.setContentsMargins(0, 0, 0, 0)
+        lay2.addWidget(chartview2)
+
+        series3 = QtChart.QPieSeries()
+        series3.append('< 10', preAssess_less10)
+        series3.append('< 20', preAssess_less20)
+        series3.append('< 30', preAssess_less30)
+
+        slicePreAssess_1 = series3.slices()[0]
+        slicePreAssess_1.setBrush(QtGui.QColor("#ff0000"))
+        slicePreAssess_2 = series3.slices()[1]
+        slicePreAssess_2.setBrush(QtGui.QColor("#0000ff"))
+        slicePreAssess_3 = series3.slices()[2]
+        slicePreAssess_3.setBrush(QtGui.QColor("#b6b600"))
+
+        chart3 = QtChart.QChart()
+        chart3.addSeries(series3)
+        chart3.setAnimationOptions(QChart.SeriesAnimations)
+        chart3.legend().hide()
+
+        chartview3 = QtChart.QChartView(chart3)
+        chartview3.setRenderHint(QPainter.Antialiasing)
+
+        self.pre_assess_widget.setContentsMargins(0, 0, 0, 0)
+        lay3 = QtWidgets.QHBoxLayout(self.pre_assess_widget)
+        lay3.setContentsMargins(0, 0, 0, 0)
+        lay3.addWidget(chartview3)
+
+        series4 = QtChart.QPieSeries()
+        series4.append('< 10', postAssess_less10)
+        series4.append('< 20', postAssess_less20)
+        series4.append('< 30', postAssess_less30)
+
+        slicePostAssess_1 = series4.slices()[0]
+        slicePostAssess_1.setBrush(QtGui.QColor("#ff0000"))
+        slicePostAssess_2 = series4.slices()[1]
+        slicePostAssess_2.setBrush(QtGui.QColor("#0000ff"))
+        slicePostAssess_3 = series4.slices()[2]
+        slicePostAssess_3.setBrush(QtGui.QColor("#b6b600"))
+
+        chart4 = QtChart.QChart()
+        chart4.addSeries(series4)
+        chart4.setAnimationOptions(QChart.SeriesAnimations)
+        chart4.legend().hide()
+
+        chartview4 = QtChart.QChartView(chart4)
+        chartview4.setRenderHint(QPainter.Antialiasing)
+
+        self.post_assess_widget.setContentsMargins(0, 0, 0, 0)
+        lay4 = QtWidgets.QHBoxLayout(self.post_assess_widget)
+        lay4.setContentsMargins(0, 0, 0, 0)
+        lay4.addWidget(chartview4)
 
     def loadUnitTest1(self):
         row = 0
@@ -4896,7 +5225,7 @@ class create_unit1Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(16)
@@ -5273,7 +5602,7 @@ class create_unit2Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(17)
@@ -5497,7 +5826,7 @@ class create_unit1Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(16)
@@ -5876,7 +6205,7 @@ class create_preQuestion(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(14)
@@ -6411,7 +6740,7 @@ class create_postQuestion(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(15)
@@ -6951,7 +7280,7 @@ class update_unit1Circle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
@@ -7125,7 +7454,7 @@ class update_unit1Parabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("lesson1").child("parabolaQuestion").get()
@@ -7300,7 +7629,7 @@ class update_unit1Ellipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("lesson1").child("ellipseQuestion").get()
@@ -7474,7 +7803,7 @@ class update_unit1Hyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").get()
@@ -7649,7 +7978,7 @@ class update_unit2Substitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest2_substitution = db.child("precal_questions").child("lesson2").child("substitutionQuestion").get()
@@ -7824,7 +8153,7 @@ class update_unit2Elimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest2_elimination = db.child("precal_questions").child("lesson2").child("eliminationQuestion").get()
@@ -7999,7 +8328,7 @@ class update_preCircle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("pre-assess").child("circleQuestion").get()
@@ -8153,6 +8482,15 @@ class update_preCircle(QMainWindow):
             self.preAssess_answerId_textEdit.clear()
             self.preAssess_solutionId_textEdit.clear()
 
+            self.preAssess_question_textEdit.setReadOnly(True)
+            self.preAssess_answer1_textEdit.setReadOnly(True)
+            self.preAssess_answer2_textEdit.setReadOnly(True)
+            self.preAssess_solution1_textEdit.setReadOnly(True)
+            self.preAssess_solution2_textEdit.setReadOnly(True)
+            self.preAssess_questionId_textEdit.setReadOnly(True)
+            self.preAssess_answerId_textEdit.setReadOnly(True)
+            self.preAssess_solutionId_textEdit.setReadOnly(True)
+
             all_unitTest1_circle = db.child("precal_questions").child("pre-assess").child("circleQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
@@ -8173,7 +8511,7 @@ class update_preParabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("pre-assess").child("parabolaQuestion").get()
@@ -8347,7 +8685,7 @@ class update_preEllipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("pre-assess").child("ellipseQuestion").get()
@@ -8520,7 +8858,7 @@ class update_preHyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").get()
@@ -8693,7 +9031,7 @@ class update_preSubstitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_substitution = db.child("precal_questions").child("pre-assess").child("substitutionQuestion").get()
@@ -8866,7 +9204,7 @@ class update_preElimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_elimination = db.child("precal_questions").child("pre-assess").child("eliminationQuestion").get()
@@ -9039,7 +9377,7 @@ class update_postCircle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("post-assess").child("circleQuestion").get()
@@ -9212,7 +9550,7 @@ class update_postParabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("post-assess").child("parabolaQuestion").get()
@@ -9385,7 +9723,7 @@ class update_postEllipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("post-assess").child("ellipseQuestion").get()
@@ -9558,7 +9896,7 @@ class update_postHyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").get()
@@ -9731,7 +10069,7 @@ class update_postSubstitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_substitution = db.child("precal_questions").child("post-assess").child("substitutionQuestion").get()
@@ -9904,7 +10242,7 @@ class update_postElimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro"
+        title = "Mathguro"
         self.setWindowTitle(title)
 
         all_unitTest1_elimination = db.child("precal_questions").child("post-assess").child("eliminationQuestion").get()
@@ -10078,7 +10416,7 @@ class update_unit1Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10152,7 +10490,7 @@ class update_unit2Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10208,7 +10546,7 @@ class update_preQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10300,7 +10638,7 @@ class update_postQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10392,7 +10730,7 @@ class delete_unit1Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10425,8 +10763,17 @@ class delete_unit1Question(QDialog):
                 for delete_circle in circle_questions.each():
                     if delete_circle.val()["questionId"] == questionId_save:
                         keyId = delete_circle.key()
-
-                        db.child("precal_questions").child("lesson1").child("circleQuestion").remove(keyId)
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("circle_1_question").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("circle_1_solution1").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("circle_1_solution2").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("circle_1_answer1").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("circle_1_answer2").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for parabola in parabola_questions.each():
@@ -10437,7 +10784,17 @@ class delete_unit1Question(QDialog):
                 for delete_parabola in parabola_questions.each():
                     if delete_parabola.val()["questionId"] == questionId_save:
                         keyId = delete_parabola.key()
-                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").remove(keyId)
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("parabola_question").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("parabola_solution1").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("parabola_solution2").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("parabola_answer1").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("parabola_answer2").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for ellipse in ellipse_questions.each():
@@ -10448,8 +10805,17 @@ class delete_unit1Question(QDialog):
                 for delete_ellipse in ellipse_questions.each():
                     if delete_ellipse.val()["questionId"] == questionId_save:
                         keyId = delete_ellipse.key()
-                        
-                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").remove(keyId)
+                        db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("ellipse_question").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("ellipse_solution1").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("ellipse_solution2").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("ellipse_answer1").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("ellipse_answer2").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for hyperbola in hyperbola_questions.each():
@@ -10460,8 +10826,17 @@ class delete_unit1Question(QDialog):
                 for delete_hyperbola in hyperbola_questions.each():
                     if delete_hyperbola.val()["questionId"] == questionId_save:
                         keyId = delete_hyperbola.key()
-                        
-                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").remove(keyId)
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("hyperbola_question").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("hyperbola_solution1").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("hyperbola_solution2").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("hyperbola_answer1").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("hyperbola_answer2").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         if self.isCheck == 0:
@@ -10489,7 +10864,7 @@ class delete_unit2Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10520,8 +10895,17 @@ class delete_unit2Question(QDialog):
                 for delete_substitution in substitution_questions.each():
                     if delete_substitution.val()["questionId"] == questionId_save:
                         keyId = delete_substitution.key()
-                        
-                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").remove(keyId)
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("substitution_question").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("substitution_solution1").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("substitution_solution2").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("substitution_answer1").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("substitution_answer2").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("lesson2").child("substitutionQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for parabola in elimination_questions.each():
@@ -10532,8 +10916,17 @@ class delete_unit2Question(QDialog):
                 for delete_elimination in elimination_questions.each():
                     if delete_elimination.val()["questionId"] == questionId_save:
                         keyId = delete_elimination.key()
-                        
-                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").remove(keyId)
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("elimination_question").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("elimination_solution1").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("elimination_solution2").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("elimination_answer1").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("elimination_answer2").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("lesson2").child("eliminationQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
 
@@ -10562,7 +10955,7 @@ class delete_preQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10597,8 +10990,17 @@ class delete_preQuestion(QDialog):
                 for delete_circle in circle_questions.each():
                     if delete_circle.val()["questionId"] == questionId_save:
                         keyId = delete_circle.key()
-                        
-                        db.child("precal_questions").child("pre-assess").child("circleQuestion").remove(keyId)
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("circle_1_question").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("circle_1_solution1").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("circle_1_solution2").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("circle_1_answer1").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("circle_1_answer2").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for parabola in parabola_questions.each():
@@ -10609,8 +11011,17 @@ class delete_preQuestion(QDialog):
                 for delete_parabola in parabola_questions.each():
                     if delete_parabola.val()["questionId"] == questionId_save:
                         keyId = delete_parabola.key()
-                        
-                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").remove(keyId)
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("parabola_question").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("parabola_solution1").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("parabola_solution2").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("parabola_answer1").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("parabola_answer2").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for ellipse in ellipse_questions.each():
@@ -10621,8 +11032,17 @@ class delete_preQuestion(QDialog):
                 for delete_ellipse in ellipse_questions.each():
                     if delete_ellipse.val()["questionId"] == questionId_save:
                         keyId = delete_ellipse.key()
-                        
-                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").remove(keyId)
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("ellipse_question").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("ellipse_solution1").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("ellipse_solution2").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("ellipse_answer1").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("ellipse_answer2").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).child("sol_num").remove()  
             else:
                 self.isCheck=1
         for hyperbola in hyperbola_questions.each():
@@ -10633,8 +11053,17 @@ class delete_preQuestion(QDialog):
                 for delete_hyperbola in hyperbola_questions.each():
                     if delete_hyperbola.val()["questionId"] == questionId_save:
                         keyId = delete_hyperbola.key()
-                        
-                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").remove(keyId)
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_question").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_solution1").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_solution2").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_answer1").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_answer2").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for substitution in substitution_questions.each():
@@ -10645,8 +11074,17 @@ class delete_preQuestion(QDialog):
                 for delete_substitution in substitution_questions.each():
                     if delete_substitution.val()["questionId"] == questionId_save:
                         keyId = delete_substitution.key()
-                        
-                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").remove(keyId)
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("substitution_question").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("substitution_solution1").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("substitution_solution2").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("substitution_answer1").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("substitution_answer2").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for elimination in elimination_questions.each():
@@ -10657,8 +11095,17 @@ class delete_preQuestion(QDialog):
                 for delete_elimination in elimination_questions.each():
                     if delete_elimination.val()["questionId"] == questionId_save:
                         keyId = delete_elimination.key()
-                        
-                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").remove(keyId)
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("elimination_question").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("elimination_solution1").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("elimination_solution2").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("elimination_answer1").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("elimination_answer2").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
 
@@ -10686,7 +11133,7 @@ class delete_postQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10721,8 +11168,17 @@ class delete_postQuestion(QDialog):
                 for delete_circle in circle_questions.each():
                     if delete_circle.val()["questionId"] == questionId_save:
                         keyId = delete_circle.key()
-                        
-                        db.child("precal_questions").child("post-assess").child("circleQuestion").remove(keyId)
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("circle_1_question").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("circle_1_solution1").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("circle_1_solution2").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("circle_1_answer1").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("circle_1_answer2").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for parabola in parabola_questions.each():
@@ -10733,8 +11189,17 @@ class delete_postQuestion(QDialog):
                 for delete_parabola in parabola_questions.each():
                     if delete_parabola.val()["questionId"] == questionId_save:
                         keyId = delete_parabola.key()
-                        
-                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").remove(keyId)
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("parabola_question").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("parabola_solution1").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("parabola_solution2").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("parabola_answer1").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("parabola_answer2").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for ellipse in ellipse_questions.each():
@@ -10745,8 +11210,17 @@ class delete_postQuestion(QDialog):
                 for delete_ellipse in ellipse_questions.each():
                     if delete_ellipse.val()["questionId"] == questionId_save:
                         keyId = delete_ellipse.key()
-                        
-                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").remove(keyId)
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("ellipse_question").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("ellipse_solution1").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("ellipse_solution2").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("ellipse_answer1").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("ellipse_answer2").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for hyperbola in hyperbola_questions.each():
@@ -10757,8 +11231,17 @@ class delete_postQuestion(QDialog):
                 for delete_hyperbola in hyperbola_questions.each():
                     if delete_hyperbola.val()["questionId"] == questionId_save:
                         keyId = delete_hyperbola.key()
-                        
-                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").remove(keyId)
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_question").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_solution1").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_solution2").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_answer1").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("hyperbola_answer2").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for substitution in substitution_questions.each():
@@ -10769,8 +11252,17 @@ class delete_postQuestion(QDialog):
                 for delete_substitution in substitution_questions.each():
                     if delete_substitution.val()["questionId"] == questionId_save:
                         keyId = delete_substitution.key()
-                        
-                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").remove(keyId)
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("substitution_question").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("substitution_solution1").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("substitution_solution2").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("substitution_answer1").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("substitution_answer2").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
         for elimination in elimination_questions.each():
@@ -10781,8 +11273,17 @@ class delete_postQuestion(QDialog):
                 for delete_elimination in elimination_questions.each():
                     if delete_elimination.val()["questionId"] == questionId_save:
                         keyId = delete_elimination.key()
-                        
-                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").remove(keyId)
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("questionId").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("elimination_question").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("elimination_solution1").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("elimination_solution2").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("elimination_answer1").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("elimination_answer2").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("answerId").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("solutionId").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("isActive").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("answer_num").remove()
+                        db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).child("sol_num").remove()
             else:
                 self.isCheck=1
 
@@ -10811,7 +11312,7 @@ class toTeachLogout(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
         
         self.logoutUpdatePages.setCurrentIndex(1)
@@ -10839,7 +11340,7 @@ class toSplashScreen(QMainWindow):
 
         loadUi("data/loadingScreen1.ui", self)
         self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
-        title = "PreCalGuro Teacher"
+        title = "Mathguro Teacher"
         self.setWindowTitle(title)
 
         self.setWindowFlag(Qt.FramelessWindowHint)
@@ -10858,8 +11359,7 @@ class toSplashScreen(QMainWindow):
 ##################################################################################
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
+    app = QApplication(sys.argv)   
     w = toStudTeach()
     w.show()
-    load_ai()
     sys.exit(app.exec_())

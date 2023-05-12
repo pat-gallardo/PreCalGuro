@@ -290,6 +290,7 @@ class Ui_dashboardTeachWindow(object):
         self.horizontalLayout_17.addWidget(self.label_74)
         self.label_75 = QtWidgets.QLabel(self.frame_159)
         font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
@@ -697,6 +698,9 @@ class Ui_dashboardTeachWindow(object):
         self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.page_6)
         self.verticalLayout_17.setObjectName("verticalLayout_17")
         self.frame_12 = QtWidgets.QFrame(self.page_6)
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        self.frame_12.setFont(font)
         self.frame_12.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_12.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_12.setObjectName("frame_12")
@@ -827,37 +831,81 @@ class Ui_dashboardTeachWindow(object):
         self.verticalLayout_35.addWidget(self.widget_3)
         self.verticalLayout_25.addWidget(self.lessonTitleContainer)
         self.widget_11 = QtWidgets.QWidget(self.lessonsContainer)
+        self.widget_11.setStyleSheet("color: rgb(0, 52, 77);\n"
+"")
         self.widget_11.setObjectName("widget_11")
-        self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.widget_11)
-        self.verticalLayout_29.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_29.setSpacing(0)
-        self.verticalLayout_29.setObjectName("verticalLayout_29")
-        self.studentListMenuPages = QtWidgets.QStackedWidget(self.widget_11)
+        self.verticalLayout_26 = QtWidgets.QVBoxLayout(self.widget_11)
+        self.verticalLayout_26.setObjectName("verticalLayout_26")
+        self.widget_419 = QtWidgets.QWidget(self.widget_11)
+        self.widget_419.setStyleSheet("border-radius: 20px;")
+        self.widget_419.setObjectName("widget_419")
+        self.verticalLayout_385 = QtWidgets.QVBoxLayout(self.widget_419)
+        self.verticalLayout_385.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_385.setSpacing(0)
+        self.verticalLayout_385.setObjectName("verticalLayout_385")
+        self.scrollArea_20 = QtWidgets.QScrollArea(self.widget_419)
+        self.scrollArea_20.setStyleSheet("")
+        self.scrollArea_20.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.scrollArea_20.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.scrollArea_20.setWidgetResizable(True)
+        self.scrollArea_20.setObjectName("scrollArea_20")
+        self.scrollAreaWidgetContents_20 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_20.setGeometry(QtCore.QRect(0, -366, 642, 840))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents_20.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents_20.setSizePolicy(sizePolicy)
+        self.scrollAreaWidgetContents_20.setStyleSheet("background-color: rgb(197, 197, 197);\n"
+"border-radius: 5px")
+        self.scrollAreaWidgetContents_20.setObjectName("scrollAreaWidgetContents_20")
+        self.verticalLayout_395 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_20)
+        self.verticalLayout_395.setContentsMargins(-1, -1, -1, 9)
+        self.verticalLayout_395.setObjectName("verticalLayout_395")
+        self.widget_436 = QtWidgets.QWidget(self.scrollAreaWidgetContents_20)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_436.sizePolicy().hasHeightForWidth())
+        self.widget_436.setSizePolicy(sizePolicy)
+        self.widget_436.setMinimumSize(QtCore.QSize(0, 500))
+        self.widget_436.setStyleSheet("background-color: rgb(6, 38, 56);")
+        self.widget_436.setObjectName("widget_436")
+        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.widget_436)
+        self.verticalLayout_30.setObjectName("verticalLayout_30")
+        self.studentListMenuPages = QtWidgets.QStackedWidget(self.widget_436)
         self.studentListMenuPages.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.studentListMenuPages.setObjectName("studentListMenuPages")
         self.page_9 = QtWidgets.QWidget()
+        self.page_9.setStyleSheet("")
         self.page_9.setObjectName("page_9")
-        self.verticalLayout_26 = QtWidgets.QVBoxLayout(self.page_9)
-        self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_26.setSpacing(0)
-        self.verticalLayout_26.setObjectName("verticalLayout_26")
-        self.frame_5 = QtWidgets.QFrame(self.page_9)
-        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_5.setObjectName("frame_5")
-        self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.frame_5)
+        self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.page_9)
         self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_27.setSpacing(0)
         self.verticalLayout_27.setObjectName("verticalLayout_27")
+        self.frame_5 = QtWidgets.QFrame(self.page_9)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
+        self.frame_5.setSizePolicy(sizePolicy)
+        self.frame_5.setStyleSheet("")
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.verticalLayout_28 = QtWidgets.QVBoxLayout(self.frame_5)
+        self.verticalLayout_28.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_28.setSpacing(0)
+        self.verticalLayout_28.setObjectName("verticalLayout_28")
         self.frame_6 = QtWidgets.QFrame(self.frame_5)
         self.frame_6.setStyleSheet("")
         self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_6.setObjectName("frame_6")
-        self.verticalLayout_28 = QtWidgets.QVBoxLayout(self.frame_6)
-        self.verticalLayout_28.setContentsMargins(10, 0, 10, 0)
-        self.verticalLayout_28.setSpacing(0)
-        self.verticalLayout_28.setObjectName("verticalLayout_28")
+        self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.frame_6)
+        self.verticalLayout_29.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_29.setSpacing(0)
+        self.verticalLayout_29.setObjectName("verticalLayout_29")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_6)
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -868,10 +916,9 @@ class Ui_dashboardTeachWindow(object):
         self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setRowCount(0)
-        self.tableWidget.setColumnCount(7)
+        self.tableWidget.setColumnCount(11)
         self.tableWidget.setObjectName("tableWidget")
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -881,7 +928,6 @@ class Ui_dashboardTeachWindow(object):
         item.setForeground(brush)
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -890,7 +936,6 @@ class Ui_dashboardTeachWindow(object):
         item.setForeground(brush)
         self.tableWidget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -899,7 +944,6 @@ class Ui_dashboardTeachWindow(object):
         item.setForeground(brush)
         self.tableWidget.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -908,7 +952,6 @@ class Ui_dashboardTeachWindow(object):
         item.setForeground(brush)
         self.tableWidget.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -917,7 +960,6 @@ class Ui_dashboardTeachWindow(object):
         item.setForeground(brush)
         self.tableWidget.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -926,7 +968,6 @@ class Ui_dashboardTeachWindow(object):
         item.setForeground(brush)
         self.tableWidget.setHorizontalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -934,28 +975,82 @@ class Ui_dashboardTeachWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         item.setForeground(brush)
         self.tableWidget.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget.setHorizontalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget.setHorizontalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget.setHorizontalHeaderItem(9, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget.setHorizontalHeaderItem(10, item)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(200)
         self.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.tableWidget.verticalHeader().setVisible(False)
-        self.verticalLayout_28.addWidget(self.tableWidget)
-        self.verticalLayout_27.addWidget(self.frame_6)
-        self.frame_7 = QtWidgets.QFrame(self.frame_5)
-        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_7.setObjectName("frame_7")
-        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.frame_7)
-        self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_30.setSpacing(0)
-        self.verticalLayout_30.setObjectName("verticalLayout_30")
-        self.frame_14 = QtWidgets.QFrame(self.frame_7)
-        self.frame_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_14.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_14.setObjectName("frame_14")
-        self.verticalLayout_30.addWidget(self.frame_14)
-        self.verticalLayout_27.addWidget(self.frame_7)
-        self.verticalLayout_26.addWidget(self.frame_5)
+        self.verticalLayout_29.addWidget(self.tableWidget)
+        self.verticalLayout_28.addWidget(self.frame_6)
+        self.verticalLayout_27.addWidget(self.frame_5)
         self.studentListMenuPages.addWidget(self.page_9)
-        self.verticalLayout_29.addWidget(self.studentListMenuPages)
+        self.verticalLayout_30.addWidget(self.studentListMenuPages)
+        self.verticalLayout_395.addWidget(self.widget_436)
+        self.widget_15 = QtWidgets.QWidget(self.scrollAreaWidgetContents_20)
+        self.widget_15.setStyleSheet("background-color: rgb(6, 38, 56);\n"
+"color: rgb(255, 255, 255);")
+        self.widget_15.setObjectName("widget_15")
+        self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.widget_15)
+        self.verticalLayout_34.setObjectName("verticalLayout_34")
+        self.widget_17 = QtWidgets.QWidget(self.widget_15)
+        self.widget_17.setObjectName("widget_17")
+        self.verticalLayout_79 = QtWidgets.QVBoxLayout(self.widget_17)
+        self.verticalLayout_79.setContentsMargins(9, 9, 9, 9)
+        self.verticalLayout_79.setSpacing(9)
+        self.verticalLayout_79.setObjectName("verticalLayout_79")
+        self.label_20 = QtWidgets.QLabel(self.widget_17)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_20.setFont(font)
+        self.label_20.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_20.setObjectName("label_20")
+        self.verticalLayout_79.addWidget(self.label_20)
+        self.verticalLayout_34.addWidget(self.widget_17)
+        self.widget_18 = QtWidgets.QWidget(self.widget_15)
+        self.widget_18.setMinimumSize(QtCore.QSize(0, 250))
+        self.widget_18.setObjectName("widget_18")
+        self.verticalLayout_78 = QtWidgets.QVBoxLayout(self.widget_18)
+        self.verticalLayout_78.setObjectName("verticalLayout_78")
+        self.charts_widget = QtWidgets.QWidget(self.widget_18)
+        self.charts_widget.setObjectName("charts_widget")
+        self.verticalLayout_102 = QtWidgets.QVBoxLayout(self.charts_widget)
+        self.verticalLayout_102.setObjectName("verticalLayout_102")
+        self.verticalLayout_78.addWidget(self.charts_widget)
+        self.verticalLayout_34.addWidget(self.widget_18)
+        self.verticalLayout_395.addWidget(self.widget_15)
+        self.scrollArea_20.setWidget(self.scrollAreaWidgetContents_20)
+        self.verticalLayout_385.addWidget(self.scrollArea_20)
+        self.verticalLayout_26.addWidget(self.widget_419)
         self.verticalLayout_25.addWidget(self.widget_11)
         self.verticalLayout_39.addWidget(self.lessonsContainer)
         self.verticalLayout_40.addWidget(self.frame_30)
@@ -967,49 +1062,34 @@ class Ui_dashboardTeachWindow(object):
         self.verticalLayout_19.setObjectName("verticalLayout_19")
         self.widget_2 = QtWidgets.QWidget(self.page_8)
         self.widget_2.setObjectName("widget_2")
-        self.verticalLayout_77 = QtWidgets.QVBoxLayout(self.widget_2)
-        self.verticalLayout_77.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_77.setSpacing(0)
-        self.verticalLayout_77.setObjectName("verticalLayout_77")
+        self.verticalLayout_76 = QtWidgets.QVBoxLayout(self.widget_2)
+        self.verticalLayout_76.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_76.setSpacing(0)
+        self.verticalLayout_76.setObjectName("verticalLayout_76")
         self.frame_19 = QtWidgets.QFrame(self.widget_2)
         self.frame_19.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_19.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_19.setObjectName("frame_19")
-        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.frame_19)
-        self.verticalLayout_33.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_33.setSpacing(0)
-        self.verticalLayout_33.setObjectName("verticalLayout_33")
-        self.verticalLayout_77.addWidget(self.frame_19)
-        self.widget_12 = QtWidgets.QWidget(self.widget_2)
-        self.widget_12.setObjectName("widget_12")
-        self.verticalLayout_62 = QtWidgets.QVBoxLayout(self.widget_12)
-        self.verticalLayout_62.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_62.setSpacing(0)
-        self.verticalLayout_62.setObjectName("verticalLayout_62")
-        self.frame_27 = QtWidgets.QFrame(self.widget_12)
-        self.frame_27.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_27.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_27.setObjectName("frame_27")
-        self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.frame_27)
-        self.verticalLayout_31.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_31.setSpacing(0)
-        self.verticalLayout_31.setObjectName("verticalLayout_31")
-        self.frame_28 = QtWidgets.QFrame(self.frame_27)
-        self.frame_28.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_28.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_28.setObjectName("frame_28")
-        self.verticalLayout_32 = QtWidgets.QVBoxLayout(self.frame_28)
-        self.verticalLayout_32.setObjectName("verticalLayout_32")
-        self.label_16 = QtWidgets.QLabel(self.frame_28)
+        self.verticalLayout_74 = QtWidgets.QVBoxLayout(self.frame_19)
+        self.verticalLayout_74.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_74.setSpacing(0)
+        self.verticalLayout_74.setObjectName("verticalLayout_74")
+        self.frame_20 = QtWidgets.QFrame(self.frame_19)
+        self.frame_20.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_20.setObjectName("frame_20")
+        self.verticalLayout_75 = QtWidgets.QVBoxLayout(self.frame_20)
+        self.verticalLayout_75.setObjectName("verticalLayout_75")
+        self.label_15 = QtWidgets.QLabel(self.frame_20)
         font = QtGui.QFont()
         font.setPointSize(13)
-        self.label_16.setFont(font)
-        self.label_16.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_16.setObjectName("label_16")
-        self.verticalLayout_32.addWidget(self.label_16)
-        self.verticalLayout_31.addWidget(self.frame_28)
-        self.verticalLayout_62.addWidget(self.frame_27, 0, QtCore.Qt.AlignTop)
-        self.frame_34 = QtWidgets.QFrame(self.widget_12)
+        self.label_15.setFont(font)
+        self.label_15.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_15.setObjectName("label_15")
+        self.verticalLayout_75.addWidget(self.label_15)
+        self.verticalLayout_74.addWidget(self.frame_20)
+        self.verticalLayout_76.addWidget(self.frame_19)
+        self.frame_34 = QtWidgets.QFrame(self.widget_2)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1020,10 +1100,10 @@ class Ui_dashboardTeachWindow(object):
         self.frame_34.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_34.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_34.setObjectName("frame_34")
-        self.verticalLayout_63 = QtWidgets.QVBoxLayout(self.frame_34)
-        self.verticalLayout_63.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_63.setSpacing(0)
-        self.verticalLayout_63.setObjectName("verticalLayout_63")
+        self.verticalLayout_62 = QtWidgets.QVBoxLayout(self.frame_34)
+        self.verticalLayout_62.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_62.setSpacing(0)
+        self.verticalLayout_62.setObjectName("verticalLayout_62")
         self.lessonsContainer_2 = QtWidgets.QWidget(self.frame_34)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -1033,23 +1113,23 @@ class Ui_dashboardTeachWindow(object):
         self.lessonsContainer_2.setStyleSheet("    background-color: rgb(0, 52, 76);\n"
 "    border-radius: 10px;")
         self.lessonsContainer_2.setObjectName("lessonsContainer_2")
-        self.verticalLayout_64 = QtWidgets.QVBoxLayout(self.lessonsContainer_2)
-        self.verticalLayout_64.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_64.setSpacing(0)
-        self.verticalLayout_64.setObjectName("verticalLayout_64")
+        self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.lessonsContainer_2)
+        self.verticalLayout_31.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_31.setSpacing(0)
+        self.verticalLayout_31.setObjectName("verticalLayout_31")
         self.lessonTitleContainer_2 = QtWidgets.QWidget(self.lessonsContainer_2)
         self.lessonTitleContainer_2.setObjectName("lessonTitleContainer_2")
-        self.verticalLayout_65 = QtWidgets.QVBoxLayout(self.lessonTitleContainer_2)
-        self.verticalLayout_65.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_65.setSpacing(0)
-        self.verticalLayout_65.setObjectName("verticalLayout_65")
-        self.widget_13 = QtWidgets.QWidget(self.lessonTitleContainer_2)
-        self.widget_13.setObjectName("widget_13")
-        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.widget_13)
+        self.verticalLayout_63 = QtWidgets.QVBoxLayout(self.lessonTitleContainer_2)
+        self.verticalLayout_63.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_63.setSpacing(0)
+        self.verticalLayout_63.setObjectName("verticalLayout_63")
+        self.widget_12 = QtWidgets.QWidget(self.lessonTitleContainer_2)
+        self.widget_12.setObjectName("widget_12")
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.widget_12)
         self.horizontalLayout_23.setContentsMargins(5, 2, 5, 2)
         self.horizontalLayout_23.setSpacing(0)
         self.horizontalLayout_23.setObjectName("horizontalLayout_23")
-        self.label_28 = QtWidgets.QLabel(self.widget_13)
+        self.label_28 = QtWidgets.QLabel(self.widget_12)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1059,44 +1139,96 @@ class Ui_dashboardTeachWindow(object):
         font = QtGui.QFont()
         font.setPointSize(13)
         self.label_28.setFont(font)
+        self.label_28.setText("")
         self.label_28.setAlignment(QtCore.Qt.AlignCenter)
         self.label_28.setObjectName("label_28")
         self.horizontalLayout_23.addWidget(self.label_28)
-        self.verticalLayout_65.addWidget(self.widget_13)
-        self.verticalLayout_64.addWidget(self.lessonTitleContainer_2)
-        self.widget_14 = QtWidgets.QWidget(self.lessonsContainer_2)
-        self.widget_14.setObjectName("widget_14")
-        self.verticalLayout_72 = QtWidgets.QVBoxLayout(self.widget_14)
+        self.verticalLayout_63.addWidget(self.widget_12)
+        self.verticalLayout_31.addWidget(self.lessonTitleContainer_2)
+        self.widget_13 = QtWidgets.QWidget(self.lessonsContainer_2)
+        self.widget_13.setStyleSheet("color: rgb(0, 52, 77);\n"
+"")
+        self.widget_13.setObjectName("widget_13")
+        self.verticalLayout_32 = QtWidgets.QVBoxLayout(self.widget_13)
+        self.verticalLayout_32.setObjectName("verticalLayout_32")
+        self.widget_420 = QtWidgets.QWidget(self.widget_13)
+        self.widget_420.setStyleSheet("border-radius: 20px;")
+        self.widget_420.setObjectName("widget_420")
+        self.verticalLayout_386 = QtWidgets.QVBoxLayout(self.widget_420)
+        self.verticalLayout_386.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_386.setSpacing(0)
+        self.verticalLayout_386.setObjectName("verticalLayout_386")
+        self.scrollArea_21 = QtWidgets.QScrollArea(self.widget_420)
+        self.scrollArea_21.setStyleSheet("")
+        self.scrollArea_21.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.scrollArea_21.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.scrollArea_21.setWidgetResizable(True)
+        self.scrollArea_21.setObjectName("scrollArea_21")
+        self.scrollAreaWidgetContents_21 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_21.setGeometry(QtCore.QRect(0, 0, 361, 2036))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents_21.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents_21.setSizePolicy(sizePolicy)
+        self.scrollAreaWidgetContents_21.setStyleSheet("background-color: rgb(197, 197, 197);\n"
+"border-radius: 5px")
+        self.scrollAreaWidgetContents_21.setObjectName("scrollAreaWidgetContents_21")
+        self.verticalLayout_396 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_21)
+        self.verticalLayout_396.setContentsMargins(-1, -1, -1, 9)
+        self.verticalLayout_396.setObjectName("verticalLayout_396")
+        self.widget_437 = QtWidgets.QWidget(self.scrollAreaWidgetContents_21)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_437.sizePolicy().hasHeightForWidth())
+        self.widget_437.setSizePolicy(sizePolicy)
+        self.widget_437.setMinimumSize(QtCore.QSize(0, 500))
+        self.widget_437.setStyleSheet("background-color: rgb(6, 38, 56);")
+        self.widget_437.setObjectName("widget_437")
+        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.widget_437)
+        self.verticalLayout_33.setObjectName("verticalLayout_33")
+        self.label_4 = QtWidgets.QLabel(self.widget_437)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_33.addWidget(self.label_4)
+        self.studentListMenuPages_2 = QtWidgets.QStackedWidget(self.widget_437)
+        self.studentListMenuPages_2.setObjectName("studentListMenuPages_2")
+        self.page_10 = QtWidgets.QWidget()
+        self.page_10.setStyleSheet("")
+        self.page_10.setObjectName("page_10")
+        self.verticalLayout_64 = QtWidgets.QVBoxLayout(self.page_10)
+        self.verticalLayout_64.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_64.setSpacing(0)
+        self.verticalLayout_64.setObjectName("verticalLayout_64")
+        self.frame_7 = QtWidgets.QFrame(self.page_10)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
+        self.frame_7.setSizePolicy(sizePolicy)
+        self.frame_7.setStyleSheet("")
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.verticalLayout_65 = QtWidgets.QVBoxLayout(self.frame_7)
+        self.verticalLayout_65.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_65.setSpacing(0)
+        self.verticalLayout_65.setObjectName("verticalLayout_65")
+        self.frame_14 = QtWidgets.QFrame(self.frame_7)
+        self.frame_14.setStyleSheet("")
+        self.frame_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_14.setObjectName("frame_14")
+        self.verticalLayout_72 = QtWidgets.QVBoxLayout(self.frame_14)
         self.verticalLayout_72.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_72.setSpacing(0)
         self.verticalLayout_72.setObjectName("verticalLayout_72")
-        self.studentListMenuPages_2 = QtWidgets.QStackedWidget(self.widget_14)
-        self.studentListMenuPages_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.studentListMenuPages_2.setObjectName("studentListMenuPages_2")
-        self.page_10 = QtWidgets.QWidget()
-        self.page_10.setObjectName("page_10")
-        self.verticalLayout_73 = QtWidgets.QVBoxLayout(self.page_10)
-        self.verticalLayout_73.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_73.setSpacing(0)
-        self.verticalLayout_73.setObjectName("verticalLayout_73")
-        self.frame_29 = QtWidgets.QFrame(self.page_10)
-        self.frame_29.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_29.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_29.setObjectName("frame_29")
-        self.verticalLayout_74 = QtWidgets.QVBoxLayout(self.frame_29)
-        self.verticalLayout_74.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_74.setSpacing(0)
-        self.verticalLayout_74.setObjectName("verticalLayout_74")
-        self.frame_44 = QtWidgets.QFrame(self.frame_29)
-        self.frame_44.setStyleSheet("")
-        self.frame_44.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_44.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_44.setObjectName("frame_44")
-        self.verticalLayout_75 = QtWidgets.QVBoxLayout(self.frame_44)
-        self.verticalLayout_75.setContentsMargins(10, 0, 10, 0)
-        self.verticalLayout_75.setSpacing(0)
-        self.verticalLayout_75.setObjectName("verticalLayout_75")
-        self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_44)
+        self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_14)
         font = QtGui.QFont()
         font.setPointSize(15)
         self.tableWidget_2.setFont(font)
@@ -1106,10 +1238,9 @@ class Ui_dashboardTeachWindow(object):
         self.tableWidget_2.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
         self.tableWidget_2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget_2.setRowCount(0)
-        self.tableWidget_2.setColumnCount(7)
+        self.tableWidget_2.setColumnCount(2)
         self.tableWidget_2.setObjectName("tableWidget_2")
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -1119,7 +1250,6 @@ class Ui_dashboardTeachWindow(object):
         item.setForeground(brush)
         self.tableWidget_2.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         font = QtGui.QFont()
         font.setPointSize(15)
         item.setFont(font)
@@ -1127,77 +1257,710 @@ class Ui_dashboardTeachWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         item.setForeground(brush)
         self.tableWidget_2.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        item.setFont(font)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        item.setForeground(brush)
-        self.tableWidget_2.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        item.setFont(font)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        item.setForeground(brush)
-        self.tableWidget_2.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        item.setFont(font)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        item.setForeground(brush)
-        self.tableWidget_2.setHorizontalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        item.setFont(font)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        item.setForeground(brush)
-        self.tableWidget_2.setHorizontalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        item.setFont(font)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        item.setForeground(brush)
-        self.tableWidget_2.setHorizontalHeaderItem(6, item)
         self.tableWidget_2.horizontalHeader().setDefaultSectionSize(200)
         self.tableWidget_2.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_2.verticalHeader().setVisible(False)
-        self.verticalLayout_75.addWidget(self.tableWidget_2)
-        self.verticalLayout_74.addWidget(self.frame_44)
-        self.frame_46 = QtWidgets.QFrame(self.frame_29)
+        self.verticalLayout_72.addWidget(self.tableWidget_2)
+        self.widget_23 = QtWidgets.QWidget(self.frame_14)
+        self.widget_23.setObjectName("widget_23")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.widget_23)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.widget_24 = QtWidgets.QWidget(self.widget_23)
+        self.widget_24.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_24.setObjectName("widget_24")
+        self.verticalLayout_90 = QtWidgets.QVBoxLayout(self.widget_24)
+        self.verticalLayout_90.setObjectName("verticalLayout_90")
+        self.unit1_create_pushButton = QtWidgets.QPushButton(self.widget_24)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.unit1_create_pushButton.setFont(font)
+        self.unit1_create_pushButton.setStyleSheet("#unit1_create_pushButton{\n"
+"    background-color: rgb(0, 189, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit1_create_pushButton:hover{\n"
+"    background-color: rgb(110, 197, 115);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit1_create_pushButton:pressed{\n"
+"    background-color: rgba(0, 189, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap(":/icons/icons/plus-square.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.unit1_create_pushButton.setIcon(icon11)
+        self.unit1_create_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.unit1_create_pushButton.setObjectName("unit1_create_pushButton")
+        self.verticalLayout_90.addWidget(self.unit1_create_pushButton)
+        self.horizontalLayout_5.addWidget(self.widget_24, 0, QtCore.Qt.AlignHCenter)
+        self.widget_25 = QtWidgets.QWidget(self.widget_23)
+        self.widget_25.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_25.setObjectName("widget_25")
+        self.verticalLayout_91 = QtWidgets.QVBoxLayout(self.widget_25)
+        self.verticalLayout_91.setObjectName("verticalLayout_91")
+        self.unit1_update_pushButton = QtWidgets.QPushButton(self.widget_25)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.unit1_update_pushButton.setFont(font)
+        self.unit1_update_pushButton.setStyleSheet("#unit1_update_pushButton{\n"
+"    background-color: rgb(199, 133, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit1_update_pushButton:hover{\n"
+"    background-color: rgb(213, 181, 53);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit1_update_pushButton:pressed{\n"
+"    background-color: rgba(199, 133, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap(":/icons/icons/rotate-ccw.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.unit1_update_pushButton.setIcon(icon12)
+        self.unit1_update_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.unit1_update_pushButton.setObjectName("unit1_update_pushButton")
+        self.verticalLayout_91.addWidget(self.unit1_update_pushButton)
+        self.horizontalLayout_5.addWidget(self.widget_25, 0, QtCore.Qt.AlignHCenter)
+        self.widget_26 = QtWidgets.QWidget(self.widget_23)
+        self.widget_26.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_26.setObjectName("widget_26")
+        self.verticalLayout_92 = QtWidgets.QVBoxLayout(self.widget_26)
+        self.verticalLayout_92.setObjectName("verticalLayout_92")
+        self.unit1_delete_pushButton = QtWidgets.QPushButton(self.widget_26)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.unit1_delete_pushButton.setFont(font)
+        self.unit1_delete_pushButton.setStyleSheet("#unit1_delete_pushButton{\n"
+"    background-color: rgb(195, 0, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit1_delete_pushButton:hover{\n"
+"    background-color: rgb(212, 80, 80);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit1_delete_pushButton:pressed{\n"
+"    background-color: rgba(195, 0, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap(":/icons/icons/trash-2.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.unit1_delete_pushButton.setIcon(icon13)
+        self.unit1_delete_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.unit1_delete_pushButton.setObjectName("unit1_delete_pushButton")
+        self.verticalLayout_92.addWidget(self.unit1_delete_pushButton)
+        self.horizontalLayout_5.addWidget(self.widget_26, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_72.addWidget(self.widget_23)
+        self.verticalLayout_65.addWidget(self.frame_14)
+        self.verticalLayout_64.addWidget(self.frame_7)
+        self.studentListMenuPages_2.addWidget(self.page_10)
+        self.verticalLayout_33.addWidget(self.studentListMenuPages_2)
+        self.verticalLayout_396.addWidget(self.widget_437)
+        self.widget_16 = QtWidgets.QWidget(self.scrollAreaWidgetContents_21)
+        self.widget_16.setMinimumSize(QtCore.QSize(0, 500))
+        self.widget_16.setStyleSheet("background-color: rgb(6, 38, 56);\n"
+"color: rgb(255, 255, 255);")
+        self.widget_16.setObjectName("widget_16")
+        self.verticalLayout_73 = QtWidgets.QVBoxLayout(self.widget_16)
+        self.verticalLayout_73.setContentsMargins(9, -1, -1, -1)
+        self.verticalLayout_73.setObjectName("verticalLayout_73")
+        self.label_9 = QtWidgets.QLabel(self.widget_16)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.label_9.setFont(font)
+        self.label_9.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_9.setObjectName("label_9")
+        self.verticalLayout_73.addWidget(self.label_9)
+        self.widget_19 = QtWidgets.QWidget(self.widget_16)
+        self.widget_19.setObjectName("widget_19")
+        self.verticalLayout_81 = QtWidgets.QVBoxLayout(self.widget_19)
+        self.verticalLayout_81.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_81.setSpacing(0)
+        self.verticalLayout_81.setObjectName("verticalLayout_81")
+        self.frame_27 = QtWidgets.QFrame(self.widget_19)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_27.sizePolicy().hasHeightForWidth())
+        self.frame_27.setSizePolicy(sizePolicy)
+        self.frame_27.setStyleSheet("")
+        self.frame_27.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_27.setObjectName("frame_27")
+        self.verticalLayout_77 = QtWidgets.QVBoxLayout(self.frame_27)
+        self.verticalLayout_77.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_77.setSpacing(0)
+        self.verticalLayout_77.setObjectName("verticalLayout_77")
+        self.frame_28 = QtWidgets.QFrame(self.frame_27)
+        self.frame_28.setStyleSheet("")
+        self.frame_28.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_28.setObjectName("frame_28")
+        self.verticalLayout_80 = QtWidgets.QVBoxLayout(self.frame_28)
+        self.verticalLayout_80.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_80.setSpacing(0)
+        self.verticalLayout_80.setObjectName("verticalLayout_80")
+        self.tableWidget_3 = QtWidgets.QTableWidget(self.frame_28)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.tableWidget_3.setFont(font)
+        self.tableWidget_3.setStyleSheet("color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"")
+        self.tableWidget_3.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.tableWidget_3.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_3.setRowCount(0)
+        self.tableWidget_3.setColumnCount(2)
+        self.tableWidget_3.setObjectName("tableWidget_3")
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        item.setBackground(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_3.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_3.setHorizontalHeaderItem(1, item)
+        self.tableWidget_3.horizontalHeader().setDefaultSectionSize(200)
+        self.tableWidget_3.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_3.verticalHeader().setVisible(False)
+        self.verticalLayout_80.addWidget(self.tableWidget_3)
+        self.verticalLayout_77.addWidget(self.frame_28)
+        self.verticalLayout_81.addWidget(self.frame_27)
+        self.verticalLayout_73.addWidget(self.widget_19)
+        self.widget_27 = QtWidgets.QWidget(self.widget_16)
+        self.widget_27.setObjectName("widget_27")
+        self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.widget_27)
+        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
+        self.widget_29 = QtWidgets.QWidget(self.widget_27)
+        self.widget_29.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_29.setObjectName("widget_29")
+        self.verticalLayout_94 = QtWidgets.QVBoxLayout(self.widget_29)
+        self.verticalLayout_94.setObjectName("verticalLayout_94")
+        self.unit2_create_pushButton = QtWidgets.QPushButton(self.widget_29)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.unit2_create_pushButton.setFont(font)
+        self.unit2_create_pushButton.setStyleSheet("#unit2_create_pushButton{\n"
+"    background-color: rgb(0, 189, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit2_create_pushButton:hover{\n"
+"    background-color: rgb(110, 197, 115);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit2_create_pushButton:pressed{\n"
+"    background-color: rgba(0, 189, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.unit2_create_pushButton.setIcon(icon11)
+        self.unit2_create_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.unit2_create_pushButton.setObjectName("unit2_create_pushButton")
+        self.verticalLayout_94.addWidget(self.unit2_create_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_13.addWidget(self.widget_29)
+        self.widget_30 = QtWidgets.QWidget(self.widget_27)
+        self.widget_30.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_30.setObjectName("widget_30")
+        self.verticalLayout_95 = QtWidgets.QVBoxLayout(self.widget_30)
+        self.verticalLayout_95.setObjectName("verticalLayout_95")
+        self.unit2_update_pushButton = QtWidgets.QPushButton(self.widget_30)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.unit2_update_pushButton.setFont(font)
+        self.unit2_update_pushButton.setStyleSheet("#unit2_update_pushButton{\n"
+"    background-color: rgb(199, 133, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit2_update_pushButton:hover{\n"
+"    background-color: rgb(213, 181, 53);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit2_update_pushButton:pressed{\n"
+"    background-color: rgba(199, 133, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.unit2_update_pushButton.setIcon(icon12)
+        self.unit2_update_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.unit2_update_pushButton.setObjectName("unit2_update_pushButton")
+        self.verticalLayout_95.addWidget(self.unit2_update_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_13.addWidget(self.widget_30)
+        self.widget_28 = QtWidgets.QWidget(self.widget_27)
+        self.widget_28.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_28.setObjectName("widget_28")
+        self.verticalLayout_93 = QtWidgets.QVBoxLayout(self.widget_28)
+        self.verticalLayout_93.setObjectName("verticalLayout_93")
+        self.unit2_delete_pushButton = QtWidgets.QPushButton(self.widget_28)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.unit2_delete_pushButton.setFont(font)
+        self.unit2_delete_pushButton.setStyleSheet("#unit2_delete_pushButton{\n"
+"    background-color: rgb(195, 0, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit2_delete_pushButton:hover{\n"
+"    background-color: rgb(212, 80, 80);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#unit2_delete_pushButton:pressed{\n"
+"    background-color: rgba(195, 0, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.unit2_delete_pushButton.setIcon(icon13)
+        self.unit2_delete_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.unit2_delete_pushButton.setObjectName("unit2_delete_pushButton")
+        self.verticalLayout_93.addWidget(self.unit2_delete_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_13.addWidget(self.widget_28)
+        self.verticalLayout_73.addWidget(self.widget_27)
+        self.verticalLayout_396.addWidget(self.widget_16)
+        self.widget_14 = QtWidgets.QWidget(self.scrollAreaWidgetContents_21)
+        self.widget_14.setMinimumSize(QtCore.QSize(0, 500))
+        self.widget_14.setStyleSheet("background-color: rgb(6, 38, 56);\n"
+"color: rgb(255, 255, 255);")
+        self.widget_14.setObjectName("widget_14")
+        self.verticalLayout_85 = QtWidgets.QVBoxLayout(self.widget_14)
+        self.verticalLayout_85.setObjectName("verticalLayout_85")
+        self.label_16 = QtWidgets.QLabel(self.widget_14)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.label_16.setFont(font)
+        self.label_16.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_16.setObjectName("label_16")
+        self.verticalLayout_85.addWidget(self.label_16)
+        self.widget_20 = QtWidgets.QWidget(self.widget_14)
+        self.widget_20.setObjectName("widget_20")
+        self.verticalLayout_82 = QtWidgets.QVBoxLayout(self.widget_20)
+        self.verticalLayout_82.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_82.setSpacing(0)
+        self.verticalLayout_82.setObjectName("verticalLayout_82")
+        self.frame_29 = QtWidgets.QFrame(self.widget_20)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_29.sizePolicy().hasHeightForWidth())
+        self.frame_29.setSizePolicy(sizePolicy)
+        self.frame_29.setStyleSheet("")
+        self.frame_29.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_29.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_29.setObjectName("frame_29")
+        self.verticalLayout_83 = QtWidgets.QVBoxLayout(self.frame_29)
+        self.verticalLayout_83.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_83.setSpacing(0)
+        self.verticalLayout_83.setObjectName("verticalLayout_83")
+        self.frame_44 = QtWidgets.QFrame(self.frame_29)
+        self.frame_44.setStyleSheet("")
+        self.frame_44.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_44.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_44.setObjectName("frame_44")
+        self.verticalLayout_84 = QtWidgets.QVBoxLayout(self.frame_44)
+        self.verticalLayout_84.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_84.setSpacing(0)
+        self.verticalLayout_84.setObjectName("verticalLayout_84")
+        self.tableWidget_4 = QtWidgets.QTableWidget(self.frame_44)
+        self.tableWidget_4.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.tableWidget_4.setFont(font)
+        self.tableWidget_4.setStyleSheet("color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"")
+        self.tableWidget_4.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.tableWidget_4.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_4.setRowCount(0)
+        self.tableWidget_4.setColumnCount(2)
+        self.tableWidget_4.setObjectName("tableWidget_4")
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        item.setBackground(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_4.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_4.setHorizontalHeaderItem(1, item)
+        self.tableWidget_4.horizontalHeader().setDefaultSectionSize(200)
+        self.tableWidget_4.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_4.verticalHeader().setVisible(False)
+        self.verticalLayout_84.addWidget(self.tableWidget_4)
+        self.widget_31 = QtWidgets.QWidget(self.frame_44)
+        self.widget_31.setObjectName("widget_31")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout(self.widget_31)
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.widget_33 = QtWidgets.QWidget(self.widget_31)
+        self.widget_33.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_33.setObjectName("widget_33")
+        self.verticalLayout_97 = QtWidgets.QVBoxLayout(self.widget_33)
+        self.verticalLayout_97.setObjectName("verticalLayout_97")
+        self.pre_create_pushButton = QtWidgets.QPushButton(self.widget_33)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pre_create_pushButton.setFont(font)
+        self.pre_create_pushButton.setStyleSheet("#pre_create_pushButton{\n"
+"    background-color: rgb(0, 189, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#pre_create_pushButton:hover{\n"
+"    background-color: rgb(110, 197, 115);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#pre_create_pushButton:pressed{\n"
+"    background-color: rgba(0, 189, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.pre_create_pushButton.setIcon(icon11)
+        self.pre_create_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.pre_create_pushButton.setObjectName("pre_create_pushButton")
+        self.verticalLayout_97.addWidget(self.pre_create_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_24.addWidget(self.widget_33)
+        self.widget_34 = QtWidgets.QWidget(self.widget_31)
+        self.widget_34.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_34.setObjectName("widget_34")
+        self.verticalLayout_98 = QtWidgets.QVBoxLayout(self.widget_34)
+        self.verticalLayout_98.setObjectName("verticalLayout_98")
+        self.pre_update_pushButton = QtWidgets.QPushButton(self.widget_34)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pre_update_pushButton.setFont(font)
+        self.pre_update_pushButton.setStyleSheet("#pre_update_pushButton{\n"
+"    background-color: rgb(199, 133, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#pre_update_pushButton:hover{\n"
+"    background-color: rgb(213, 181, 53);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#pre_update_pushButton:pressed{\n"
+"    background-color: rgba(199, 133, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.pre_update_pushButton.setIcon(icon12)
+        self.pre_update_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.pre_update_pushButton.setObjectName("pre_update_pushButton")
+        self.verticalLayout_98.addWidget(self.pre_update_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_24.addWidget(self.widget_34)
+        self.widget_32 = QtWidgets.QWidget(self.widget_31)
+        self.widget_32.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_32.setObjectName("widget_32")
+        self.verticalLayout_96 = QtWidgets.QVBoxLayout(self.widget_32)
+        self.verticalLayout_96.setObjectName("verticalLayout_96")
+        self.pre_delete_pushButton = QtWidgets.QPushButton(self.widget_32)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pre_delete_pushButton.setFont(font)
+        self.pre_delete_pushButton.setStyleSheet("#pre_delete_pushButton{\n"
+"    background-color: rgb(195, 0, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#pre_delete_pushButton:hover{\n"
+"    background-color: rgb(212, 80, 80);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#pre_delete_pushButton:pressed{\n"
+"    background-color: rgba(195, 0, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.pre_delete_pushButton.setIcon(icon13)
+        self.pre_delete_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.pre_delete_pushButton.setObjectName("pre_delete_pushButton")
+        self.verticalLayout_96.addWidget(self.pre_delete_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_24.addWidget(self.widget_32)
+        self.verticalLayout_84.addWidget(self.widget_31)
+        self.verticalLayout_83.addWidget(self.frame_44)
+        self.verticalLayout_82.addWidget(self.frame_29)
+        self.verticalLayout_85.addWidget(self.widget_20)
+        self.verticalLayout_396.addWidget(self.widget_14)
+        self.widget_21 = QtWidgets.QWidget(self.scrollAreaWidgetContents_21)
+        self.widget_21.setMinimumSize(QtCore.QSize(0, 500))
+        self.widget_21.setStyleSheet("background-color: rgb(6, 38, 56);\n"
+"color: rgb(255, 255, 255);")
+        self.widget_21.setObjectName("widget_21")
+        self.verticalLayout_89 = QtWidgets.QVBoxLayout(self.widget_21)
+        self.verticalLayout_89.setObjectName("verticalLayout_89")
+        self.label_17 = QtWidgets.QLabel(self.widget_21)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.label_17.setFont(font)
+        self.label_17.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_17.setObjectName("label_17")
+        self.verticalLayout_89.addWidget(self.label_17)
+        self.widget_22 = QtWidgets.QWidget(self.widget_21)
+        self.widget_22.setObjectName("widget_22")
+        self.verticalLayout_86 = QtWidgets.QVBoxLayout(self.widget_22)
+        self.verticalLayout_86.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_86.setSpacing(0)
+        self.verticalLayout_86.setObjectName("verticalLayout_86")
+        self.frame_46 = QtWidgets.QFrame(self.widget_22)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_46.sizePolicy().hasHeightForWidth())
+        self.frame_46.setSizePolicy(sizePolicy)
+        self.frame_46.setStyleSheet("")
         self.frame_46.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_46.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_46.setObjectName("frame_46")
-        self.verticalLayout_76 = QtWidgets.QVBoxLayout(self.frame_46)
-        self.verticalLayout_76.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_76.setSpacing(0)
-        self.verticalLayout_76.setObjectName("verticalLayout_76")
+        self.verticalLayout_87 = QtWidgets.QVBoxLayout(self.frame_46)
+        self.verticalLayout_87.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_87.setSpacing(0)
+        self.verticalLayout_87.setObjectName("verticalLayout_87")
         self.frame_47 = QtWidgets.QFrame(self.frame_46)
+        self.frame_47.setStyleSheet("")
         self.frame_47.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_47.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_47.setObjectName("frame_47")
-        self.verticalLayout_76.addWidget(self.frame_47)
-        self.verticalLayout_74.addWidget(self.frame_46)
-        self.verticalLayout_73.addWidget(self.frame_29)
-        self.studentListMenuPages_2.addWidget(self.page_10)
-        self.verticalLayout_72.addWidget(self.studentListMenuPages_2)
-        self.verticalLayout_64.addWidget(self.widget_14)
-        self.verticalLayout_63.addWidget(self.lessonsContainer_2)
-        self.verticalLayout_62.addWidget(self.frame_34)
-        self.verticalLayout_77.addWidget(self.widget_12)
+        self.verticalLayout_88 = QtWidgets.QVBoxLayout(self.frame_47)
+        self.verticalLayout_88.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_88.setSpacing(0)
+        self.verticalLayout_88.setObjectName("verticalLayout_88")
+        self.tableWidget_5 = QtWidgets.QTableWidget(self.frame_47)
+        self.tableWidget_5.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.tableWidget_5.setFont(font)
+        self.tableWidget_5.setStyleSheet("color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"")
+        self.tableWidget_5.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.tableWidget_5.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_5.setRowCount(0)
+        self.tableWidget_5.setColumnCount(2)
+        self.tableWidget_5.setObjectName("tableWidget_5")
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        item.setBackground(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_5.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        item.setFont(font)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_5.setHorizontalHeaderItem(1, item)
+        self.tableWidget_5.horizontalHeader().setDefaultSectionSize(200)
+        self.tableWidget_5.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_5.verticalHeader().setVisible(False)
+        self.verticalLayout_88.addWidget(self.tableWidget_5)
+        self.verticalLayout_87.addWidget(self.frame_47)
+        self.verticalLayout_86.addWidget(self.frame_46)
+        self.verticalLayout_89.addWidget(self.widget_22)
+        self.widget_35 = QtWidgets.QWidget(self.widget_21)
+        self.widget_35.setObjectName("widget_35")
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout(self.widget_35)
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.widget_37 = QtWidgets.QWidget(self.widget_35)
+        self.widget_37.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_37.setObjectName("widget_37")
+        self.verticalLayout_100 = QtWidgets.QVBoxLayout(self.widget_37)
+        self.verticalLayout_100.setObjectName("verticalLayout_100")
+        self.post_create_pushButton = QtWidgets.QPushButton(self.widget_37)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.post_create_pushButton.setFont(font)
+        self.post_create_pushButton.setStyleSheet("#post_create_pushButton{\n"
+"    background-color: rgb(0, 189, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#post_create_pushButton:hover{\n"
+"    background-color: rgb(110, 197, 115);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#postt_create_pushButton:pressed{\n"
+"    background-color: rgba(0, 189, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.post_create_pushButton.setIcon(icon11)
+        self.post_create_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.post_create_pushButton.setObjectName("post_create_pushButton")
+        self.verticalLayout_100.addWidget(self.post_create_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_25.addWidget(self.widget_37)
+        self.widget_38 = QtWidgets.QWidget(self.widget_35)
+        self.widget_38.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_38.setObjectName("widget_38")
+        self.verticalLayout_101 = QtWidgets.QVBoxLayout(self.widget_38)
+        self.verticalLayout_101.setObjectName("verticalLayout_101")
+        self.post_update_pushButton = QtWidgets.QPushButton(self.widget_38)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.post_update_pushButton.setFont(font)
+        self.post_update_pushButton.setStyleSheet("#post_update_pushButton{\n"
+"    background-color: rgb(199, 133, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#post_update_pushButton:hover{\n"
+"    background-color: rgb(213, 181, 53);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#post_update_pushButton:pressed{\n"
+"    background-color: rgba(199, 133, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.post_update_pushButton.setIcon(icon12)
+        self.post_update_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.post_update_pushButton.setObjectName("post_update_pushButton")
+        self.verticalLayout_101.addWidget(self.post_update_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_25.addWidget(self.widget_38)
+        self.widget_36 = QtWidgets.QWidget(self.widget_35)
+        self.widget_36.setStyleSheet("color: rgb(255, 255, 255);")
+        self.widget_36.setObjectName("widget_36")
+        self.verticalLayout_99 = QtWidgets.QVBoxLayout(self.widget_36)
+        self.verticalLayout_99.setObjectName("verticalLayout_99")
+        self.post_delete_pushButton = QtWidgets.QPushButton(self.widget_36)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.post_delete_pushButton.setFont(font)
+        self.post_delete_pushButton.setStyleSheet("#post_delete_pushButton{\n"
+"    background-color: rgb(195, 0, 0);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#post_delete_pushButton:hover{\n"
+"    background-color: rgb(212, 80, 80);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}\n"
+"#post_delete_pushButton:pressed{\n"
+"    background-color: rgba(195, 0, 0,150);\n"
+"    padding-left: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-top: 10px;\n"
+"    padding-right: 10px;\n"
+"}")
+        self.post_delete_pushButton.setIcon(icon13)
+        self.post_delete_pushButton.setIconSize(QtCore.QSize(25, 25))
+        self.post_delete_pushButton.setObjectName("post_delete_pushButton")
+        self.verticalLayout_99.addWidget(self.post_delete_pushButton, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_25.addWidget(self.widget_36)
+        self.verticalLayout_89.addWidget(self.widget_35)
+        self.verticalLayout_396.addWidget(self.widget_21)
+        self.scrollArea_21.setWidget(self.scrollAreaWidgetContents_21)
+        self.verticalLayout_386.addWidget(self.scrollArea_21)
+        self.verticalLayout_32.addWidget(self.widget_420)
+        self.verticalLayout_31.addWidget(self.widget_13)
+        self.verticalLayout_62.addWidget(self.lessonsContainer_2)
+        self.verticalLayout_76.addWidget(self.frame_34)
         self.verticalLayout_19.addWidget(self.widget_2)
         self.menuPages.addWidget(self.page_8)
         self.verticalLayout_16.addWidget(self.menuPages)
@@ -1475,9 +2238,7 @@ class Ui_dashboardTeachWindow(object):
 "    background-color: rgb(78, 93, 100);\n"
 "}\n"
 "")
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap(":/icons/icons/rotate-ccw.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.updateAcc_pushButton.setIcon(icon11)
+        self.updateAcc_pushButton.setIcon(icon12)
         self.updateAcc_pushButton.setIconSize(QtCore.QSize(25, 25))
         self.updateAcc_pushButton.setObjectName("updateAcc_pushButton")
         self.horizontalLayout_22.addWidget(self.updateAcc_pushButton)
@@ -1499,9 +2260,9 @@ class Ui_dashboardTeachWindow(object):
 "    background-color: rgb(78, 93, 100);\n"
 "}\n"
 "")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(":/icons/icons/log-out.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.logoutAcc_pushButton.setIcon(icon12)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap(":/icons/icons/log-out.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.logoutAcc_pushButton.setIcon(icon14)
         self.logoutAcc_pushButton.setIconSize(QtCore.QSize(25, 25))
         self.logoutAcc_pushButton.setObjectName("logoutAcc_pushButton")
         self.horizontalLayout_22.addWidget(self.logoutAcc_pushButton)
@@ -2146,9 +2907,9 @@ class Ui_dashboardTeachWindow(object):
 "\n"
 "")
         self.checkEquation_Button.setText("")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap(":/icons/icons/check-square.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.checkEquation_Button.setIcon(icon13)
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap(":/icons/icons/check-square.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.checkEquation_Button.setIcon(icon15)
         self.checkEquation_Button.setIconSize(QtCore.QSize(20, 20))
         self.checkEquation_Button.setObjectName("checkEquation_Button")
         self.verticalLayout_42.addWidget(self.checkEquation_Button)
@@ -2169,9 +2930,9 @@ class Ui_dashboardTeachWindow(object):
 "\n"
 "")
         self.sendChat_Button.setText("")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(":/icons/icons/send.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.sendChat_Button.setIcon(icon14)
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap(":/icons/icons/send.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.sendChat_Button.setIcon(icon16)
         self.sendChat_Button.setIconSize(QtCore.QSize(20, 20))
         self.sendChat_Button.setObjectName("sendChat_Button")
         self.verticalLayout_42.addWidget(self.sendChat_Button)
@@ -2217,7 +2978,7 @@ class Ui_dashboardTeachWindow(object):
         self.menuPages.setCurrentIndex(0)
         self.studentListMenuPages.setCurrentIndex(0)
         self.studentListMenuPages_2.setCurrentIndex(0)
-        self.rightMenuPages.setCurrentIndex(2)
+        self.rightMenuPages.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(dashboardTeachWindow)
 
     def retranslateUi(self, dashboardTeachWindow):
@@ -2228,13 +2989,13 @@ class Ui_dashboardTeachWindow(object):
         self.home_pushButton.setText(_translate("dashboardTeachWindow", "Home"))
         self.dataAnalysis_pushButton.setToolTip(_translate("dashboardTeachWindow", "Student Profile"))
         self.dataAnalysis_pushButton.setText(_translate("dashboardTeachWindow", "Student Profile"))
-        self.reports_pushButton.setToolTip(_translate("dashboardTeachWindow", "Progress Results"))
-        self.reports_pushButton.setText(_translate("dashboardTeachWindow", "Progress Results"))
+        self.reports_pushButton.setToolTip(_translate("dashboardTeachWindow", "Questions List"))
+        self.reports_pushButton.setText(_translate("dashboardTeachWindow", "Questions List"))
         self.information_pushButton.setToolTip(_translate("dashboardTeachWindow", "Information about the app"))
         self.information_pushButton.setText(_translate("dashboardTeachWindow", "Information"))
         self.help_pushButton.setToolTip(_translate("dashboardTeachWindow", "Get more help"))
         self.help_pushButton.setText(_translate("dashboardTeachWindow", "Help"))
-        self.label_75.setText(_translate("dashboardTeachWindow", "Mathguro (Teacher)"))
+        self.label_75.setText(_translate("dashboardTeachWindow", "PreCalGuro (Teacher)"))
         self.profileMenu_pushButton.setToolTip(_translate("dashboardTeachWindow", "Profile"))
         self.minimizeBtn.setToolTip(_translate("dashboardTeachWindow", "Restore Window"))
         self.closeBtn.setToolTip(_translate("dashboardTeachWindow", "Close Window"))
@@ -2244,7 +3005,7 @@ class Ui_dashboardTeachWindow(object):
         self.label_8.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Help</span></p></body></html>"))
         self.label_43.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><br/>For further inquiries</p><p align=\"center\">please email us at:</p><p align=\"center\"><br/><span style=\" font-size:10pt; font-weight:600;\">Gmail:</span></p><p align=\"center\"><span style=\" font-weight:600;\">jinnalano.dilag</span></p><p align=\"center\"><span style=\" font-weight:600;\">@tup.edu.ph</span></p><p align=\"center\"><br/><span style=\" font-weight:600;\">juanpatrick.gallardo</span></p><p align=\"center\"><span style=\" font-weight:600;\">@tup.edu.ph</span></p><p align=\"center\"><br/><span style=\" font-weight:600;\">jairusivan.iscala</span></p><p align=\"center\"><span style=\" font-weight:600;\">@tup.edu.ph</span></p><p align=\"center\"><br/><span style=\" font-weight:600;\">johnrupert.pamintuan</span></p><p align=\"center\"><span style=\" font-weight:600;\">@tup.edu.ph</span></p><p align=\"center\"><br/><span style=\" font-weight:600;\">seancarlo.quiñones</span></p><p align=\"center\"><span style=\" font-weight:600;\">@tup.edu.ph</span></p></body></html>"))
         self.label_7.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><br/><span style=\" font-size:14pt;\">Information</span><br/></p></body></html>"))
-        self.label_42.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><br/>Mathguro is an AI Math </p><p align=\"center\">Tutor that can help </p><p align=\"center\">Senior Highschool Students </p><p align=\"center\">in learning Pre-calculus<br/></p></body></html>"))
+        self.label_42.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><br/>PreCalGuro is an AI Math </p><p align=\"center\">Tutor that can help </p><p align=\"center\">Senior Highschool Students </p><p align=\"center\">in learning Pre-Calculus<br/></p></body></html>"))
         self.label_31.setText(_translate("dashboardTeachWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -2252,7 +3013,7 @@ class Ui_dashboardTeachWindow(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">Developed </span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">and Designed by</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">Mathguro Team:</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">PreCalGuro Team:</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;\"><br /></p></body></html>"))
         self.label_32.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Project Team Leader:</span></p><p align=\"center\"><span style=\" font-size:10pt;\">Jinn Alano Dilag<br/></span></p></body></html>"))
         self.label_33.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><br/><span style=\" font-size:11pt;\">Developers and </span></p><p align=\"center\"><span style=\" font-size:11pt;\">Designers:</span><br/></p></body></html>"))
@@ -2260,11 +3021,11 @@ class Ui_dashboardTeachWindow(object):
         self.label_37.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">John Rupert Pamintuan<br/></span></p></body></html>"))
         self.label_39.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Jairus Ivan Iscala<br/></span></p></body></html>"))
         self.label_41.setText(_translate("dashboardTeachWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Juan Patrick Gallardo</span></p></body></html>"))
-        self.label_13.setText(_translate("dashboardTeachWindow", "Hello Welcome to Mathguro"))
+        self.label_13.setText(_translate("dashboardTeachWindow", "Hello Welcome to PreCalGuro"))
         self.label_19.setText(_translate("dashboardTeachWindow", "Here you can browse the Student List"))
         self.label_44.setText(_translate("dashboardTeachWindow", "And details about them"))
         self.label_14.setText(_translate("dashboardTeachWindow", "Student Profile"))
-        self.label_26.setText(_translate("dashboardTeachWindow", "List of Students"))
+        self.label_26.setText(_translate("dashboardTeachWindow", "List of Students and Progress"))
         self.tableWidget.setSortingEnabled(True)
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("dashboardTeachWindow", "Last Name"))
@@ -2280,23 +3041,52 @@ class Ui_dashboardTeachWindow(object):
         item.setText(_translate("dashboardTeachWindow", "Section"))
         item = self.tableWidget.horizontalHeaderItem(6)
         item.setText(_translate("dashboardTeachWindow", "School"))
-        self.label_16.setText(_translate("dashboardTeachWindow", "Progress Results"))
-        self.label_28.setText(_translate("dashboardTeachWindow", "List of Students"))
+        item = self.tableWidget.horizontalHeaderItem(7)
+        item.setText(_translate("dashboardTeachWindow", "Unit Test 1"))
+        item = self.tableWidget.horizontalHeaderItem(8)
+        item.setText(_translate("dashboardTeachWindow", "Unit Test 2"))
+        item = self.tableWidget.horizontalHeaderItem(9)
+        item.setText(_translate("dashboardTeachWindow", "Pre-Assessment"))
+        item = self.tableWidget.horizontalHeaderItem(10)
+        item.setText(_translate("dashboardTeachWindow", "Post Assessment"))
+        self.label_20.setText(_translate("dashboardTeachWindow", "Number of Students "))
+        self.label_15.setText(_translate("dashboardTeachWindow", "Questions List"))
+        self.label_4.setText(_translate("dashboardTeachWindow", "Unit Test 1 Questions"))
         self.tableWidget_2.setSortingEnabled(True)
         item = self.tableWidget_2.horizontalHeaderItem(0)
-        item.setText(_translate("dashboardTeachWindow", "Last Name"))
+        item.setText(_translate("dashboardTeachWindow", "Question ID"))
         item = self.tableWidget_2.horizontalHeaderItem(1)
-        item.setText(_translate("dashboardTeachWindow", "First Name"))
-        item = self.tableWidget_2.horizontalHeaderItem(2)
-        item.setText(_translate("dashboardTeachWindow", "M.I."))
-        item = self.tableWidget_2.horizontalHeaderItem(3)
-        item.setText(_translate("dashboardTeachWindow", "Unit Test 1 Score"))
-        item = self.tableWidget_2.horizontalHeaderItem(4)
-        item.setText(_translate("dashboardTeachWindow", "Unit Test 2 Score"))
-        item = self.tableWidget_2.horizontalHeaderItem(5)
-        item.setText(_translate("dashboardTeachWindow", "Pre-Assessment Result"))
-        item = self.tableWidget_2.horizontalHeaderItem(6)
-        item.setText(_translate("dashboardTeachWindow", "Post Assessment Result"))
+        item.setText(_translate("dashboardTeachWindow", "Question Content"))
+        self.unit1_create_pushButton.setText(_translate("dashboardTeachWindow", "Add"))
+        self.unit1_update_pushButton.setText(_translate("dashboardTeachWindow", "Update"))
+        self.unit1_delete_pushButton.setText(_translate("dashboardTeachWindow", "Delete"))
+        self.label_9.setText(_translate("dashboardTeachWindow", "Unit Test 2 Questions"))
+        self.tableWidget_3.setSortingEnabled(True)
+        item = self.tableWidget_3.horizontalHeaderItem(0)
+        item.setText(_translate("dashboardTeachWindow", "Question ID"))
+        item = self.tableWidget_3.horizontalHeaderItem(1)
+        item.setText(_translate("dashboardTeachWindow", "Question Content"))
+        self.unit2_create_pushButton.setText(_translate("dashboardTeachWindow", "Add"))
+        self.unit2_update_pushButton.setText(_translate("dashboardTeachWindow", "Update"))
+        self.unit2_delete_pushButton.setText(_translate("dashboardTeachWindow", "Delete"))
+        self.label_16.setText(_translate("dashboardTeachWindow", "Pre-Assessment Questions"))
+        self.tableWidget_4.setSortingEnabled(True)
+        item = self.tableWidget_4.horizontalHeaderItem(0)
+        item.setText(_translate("dashboardTeachWindow", "Question ID"))
+        item = self.tableWidget_4.horizontalHeaderItem(1)
+        item.setText(_translate("dashboardTeachWindow", "Question Content"))
+        self.pre_create_pushButton.setText(_translate("dashboardTeachWindow", "Add"))
+        self.pre_update_pushButton.setText(_translate("dashboardTeachWindow", "Update"))
+        self.pre_delete_pushButton.setText(_translate("dashboardTeachWindow", "Delete"))
+        self.label_17.setText(_translate("dashboardTeachWindow", "Post Assessment Questions"))
+        self.tableWidget_5.setSortingEnabled(True)
+        item = self.tableWidget_5.horizontalHeaderItem(0)
+        item.setText(_translate("dashboardTeachWindow", "Question ID"))
+        item = self.tableWidget_5.horizontalHeaderItem(1)
+        item.setText(_translate("dashboardTeachWindow", "Question Content"))
+        self.post_create_pushButton.setText(_translate("dashboardTeachWindow", "Add"))
+        self.post_update_pushButton.setText(_translate("dashboardTeachWindow", "Update"))
+        self.post_delete_pushButton.setText(_translate("dashboardTeachWindow", "Delete"))
         self.label_10.setText(_translate("dashboardTeachWindow", "Right Menu"))
         self.closeRightMenu_pushButton.setToolTip(_translate("dashboardTeachWindow", "Close Menu"))
         self.label_11.setText(_translate("dashboardTeachWindow", "Profile"))
@@ -2321,7 +3111,7 @@ class Ui_dashboardTeachWindow(object):
         self.updateAcc_pushButton.setText(_translate("dashboardTeachWindow", "Update"))
         self.logoutAcc_pushButton.setText(_translate("dashboardTeachWindow", "Logout"))
         self.label_12.setText(_translate("dashboardTeachWindow", "More..."))
-        self.label_27.setText(_translate("dashboardTeachWindow", "Math Chatbot"))
+        self.label_27.setText(_translate("dashboardTeachWindow", "PreCal Chatbot"))
         self.chatReplies_TextEdit.setPlaceholderText(_translate("dashboardTeachWindow", "No Messages"))
         self.func1_pushButton.setToolTip(_translate("dashboardTeachWindow", "power of 2"))
         self.func1_pushButton.setText(_translate("dashboardTeachWindow", "x^2"))
@@ -2371,14 +3161,13 @@ class Ui_dashboardTeachWindow(object):
         self.func23_pushButton.setText(_translate("dashboardTeachWindow", "·"))
         self.func24_pushButton.setToolTip(_translate("dashboardTeachWindow", "inverse"))
         self.func24_pushButton.setText(_translate("dashboardTeachWindow", "invrs"))
-        self.chatSends_TextEdit.setPlaceholderText(_translate("dashboardTeachWindow", "Ask Math Chat Bot About Pre-Calculus Questions"))
+        self.chatSends_TextEdit.setPlaceholderText(_translate("dashboardTeachWindow", "Ask Pre-Cal Chat Bot About Pre-Calculus Questions"))
         self.checkEquation_Button.setToolTip(_translate("dashboardTeachWindow", "Display Equation"))
         self.sendChat_Button.setToolTip(_translate("dashboardTeachWindow", "Send "))
-        self.label_18.setText(_translate("dashboardTeachWindow", "Copyright Mathguro"))
+        self.label_18.setText(_translate("dashboardTeachWindow", "Copyright PreCalGuro"))
 import sys
 sys.path.append("assets")
 import res
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
