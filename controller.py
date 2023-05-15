@@ -21,6 +21,7 @@ from data.dashboardTeach import Ui_dashboardTeachWindow
 from data.forgotPassBoth import Ui_forgotPassBothWindow
 from data.updateInfo import Ui_updateInfoDialog
 from data.lessonDashboard import Ui_topicLessonMainWindow
+from data.processScreen import Ui_processWindow
 from data.warningToLogout import Ui_logoutDialog
 
 from data.graph import * 
@@ -95,7 +96,7 @@ class toStudTeach(QMainWindow):
         loadUi("data/studTeach.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.toStudButton.clicked.connect(self.toStud)
@@ -144,7 +145,7 @@ class toStudLogin(QMainWindow):
         loadUi("data/studLogin.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
         global willLogout
         willLogout = 0
@@ -184,8 +185,8 @@ class toStudLogin(QMainWindow):
         global idKey
         idKey = studSchoolID
 
-        try:
-                # DITO CHECK STUD ID
+        try: 
+            # DITO CHECK STUD ID
             teachKey = db.child("student").get()
             for keyAccess in teachKey.each():
                 if keyAccess.val()["studentSchoolID"] == studSchoolID:
@@ -230,7 +231,7 @@ class toStudForgotPass(QMainWindow):
         loadUi("data/forgotPassBoth.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.forgotPassPages.setCurrentIndex(0)
@@ -290,7 +291,7 @@ class toStudRegister(QMainWindow):
         loadUi("data/studRegister.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.warningFname.setVisible(False)
@@ -434,7 +435,7 @@ class toTeachLogin(QMainWindow):
 
         loadUi("data/teachLogin.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.warning_Widget.setVisible(False)
@@ -517,7 +518,7 @@ class toTeachForgotPass(QMainWindow):
         loadUi("data/forgotPassBoth.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.forgotPassPages.setCurrentIndex(1)
@@ -577,7 +578,7 @@ class toTeachRegister(QMainWindow):
         loadUi("data/teachRegister.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.warningFname.setVisible(False)
@@ -714,7 +715,7 @@ class toStudUpdateProfile(QDialog):
 
         loadUi("data/updateInfo.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
 
         self.setWindowTitle(title)
         self.updateInfoPages.setCurrentIndex(0)
@@ -882,7 +883,7 @@ class toDashboard(QMainWindow):
         loadUi("data/dashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         global new_unitTest1, new_unitTest2, new_preAssess, new_postAssess, fromLesson1, fromLesson2, fromPost
@@ -1034,6 +1035,7 @@ class toDashboard(QMainWindow):
         self.lessonInfo2Container.setVisible(False)
 
         self.assessment_pushButton.clicked.connect(self.assessmentWindow)
+        self.playground_pushButton.clicked.connect(self.playgroundWindow)
 
         self.closeBtn.clicked.connect(self.showMinimized)
         self.restoreBtn.clicked.connect(self.bigWindow)
@@ -1132,6 +1134,15 @@ class toDashboard(QMainWindow):
 
         QSizeGrip(self.sizeGrip)
 
+    def playgroundWindow(self):
+        if willLogout == 0:
+            global submit_unit1
+            submit_unit1 = False
+            self.hide()
+            self.playground = playgroundTest()
+            self.playground.show()
+        else:
+            pass
     def assessmentWindow(self):
         if willLogout == 0:
             self.hide()
@@ -1518,14 +1529,14 @@ class toDashboard(QMainWindow):
                 precalc_keywords = [line.strip() for line in f]
 
             if any(keyword in user_message.lower() for keyword in precalc_keywords):
-
+                #send
                 completions = openai.Completion.create(
-                engine="text-davinci-002",
+                engine="text-davinci-003",
                 prompt=user_message,
-                max_tokens=100,
+                max_tokens=2048,
                 n=1,
                 stop=None,
-                temperature=0.7
+                temperature=0.5
                 )
                 chatbot_response = completions.choices[0].text
                 self.textEdit_2.insertPlainText(chatbot_response)
@@ -1796,7 +1807,7 @@ class toStudLogout(QDialog):
 
         loadUi("data/warningToLogout.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.logoutUpdatePages.setCurrentIndex(0)
@@ -1822,7 +1833,7 @@ class splashScreen(QMainWindow):
         loadUi("data/loadingScreen1.ui", self)
 
         self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.setWindowFlag(Qt.FramelessWindowHint)
@@ -1851,7 +1862,7 @@ class topicLesson1(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(0)
@@ -1971,7 +1982,7 @@ class topicLesson2(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(2)
@@ -2092,7 +2103,7 @@ class topicLesson3(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(3)
@@ -2213,7 +2224,7 @@ class topicLesson4(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(4)
@@ -2334,7 +2345,7 @@ class topicLesson5(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(6)
@@ -2422,7 +2433,7 @@ class topicLesson6(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(8)
@@ -2510,7 +2521,7 @@ class topicLesson7(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(9)
@@ -2586,6 +2597,1100 @@ class topicLesson7(QMainWindow):
             self.offset = None
             super().mouseReleaseEvent(event)
 
+class toProcessTest1(QMainWindow):
+    def __init__(self):
+        super(toProcessTest1, self).__init__()
+        loadUi("data/processScreen.ui", self)
+
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
+        title = "PreCalGuro Student"
+        self.setWindowTitle(title)
+
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+    def mousePressEvent(self, event):
+        pass
+
+    def progress(self):
+        for i in range(100):
+            self.progressBar.setValue(i)
+            QApplication.processEvents()
+            time.sleep(0.1)
+        self.close()
+        self.next = unitTest_1()
+        self.next.show()
+
+class toProcessTest2(QMainWindow):
+    def __init__(self):
+        super(toProcessTest2, self).__init__()
+        loadUi("data/processScreen.ui", self)
+
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
+        title = "PreCalGuro Student"
+        self.setWindowTitle(title)
+
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+    def mousePressEvent(self, event):
+        pass
+
+    def progress(self):
+        for i in range(100):
+            self.progressBar.setValue(i)
+            QApplication.processEvents()
+            time.sleep(0.1)
+        self.close()
+        self.next = unitTest_2()
+        self.next.show()
+
+class toPlaygroundTest(QMainWindow):
+    def __init__(self):
+        super(toPlaygroundTest, self).__init__()
+        loadUi("data/processScreen.ui", self)
+
+        self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
+        title = "PreCalGuro Student"
+        self.setWindowTitle(title)
+
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+    def mousePressEvent(self, event):
+        pass
+
+    def progress(self):
+        for i in range(100):
+            self.progressBar.setValue(i)
+            QApplication.processEvents()
+            time.sleep(0.1)
+        self.close()
+        self.next = playgroundTest()
+        self.next.show()
+
+class playgroundTest(QMainWindow):
+    def __init__(self):
+        super(playgroundTest, self).__init__()
+        self.ui = Ui_topicLessonMainWindow()
+        self.ui.setupUi(self)
+
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.offset = None
+
+        loadUi("data/lessonDashboard.ui",self)
+
+        self.setWindowIcon(QIcon(":/images/logo.png"))
+        title = "PreCalGuro Student"
+        self.setWindowTitle(title)
+        
+        self.topicPages.setCurrentIndex(18)
+        self.submitPlayground_Button.clicked.connect(self.submitTest)
+        self.playgroundBack_Button.clicked.connect(self.toDashboardPage)
+
+        self.backButton.clicked.connect(self.toDashboardPage)
+        self.closeButton.clicked.connect(self.showMinimized)
+        self.maximizeButton.clicked.connect(self.bigWindow)
+        self.minimizeButton.clicked.connect(self.showMinimized)
+        
+        self.showScore2_widget_2.setVisible(False)
+        self.playgroundSubmit_container.setCurrentIndex(0)
+
+        self.restoreWindow = 0
+        self.maxWindow = False
+
+        self.playgroundQ1_ans_widget.setVisible(False)
+        self.playgroundQ2_ans_widget.setVisible(False)
+        self.playgroundQ3_ans_widget.setVisible(False)
+        self.playgroundQ4_ans_widget.setVisible(False)
+        self.playgroundQ5_ans_widget.setVisible(False)
+
+        if new_unitTest1 == True:
+            # # RNGED UNIT TEST 1 QUESTIONS
+            unit_test1_all = []
+            unit_test1_each_quest1 = []
+            unit_test1_each_quest2 = []
+            unit_test1_each_quest3 = []
+            unit_test1_each_quest4 = []
+            unit_test1_each_quest5 = []
+            unit_test1_each_quest6 = []
+            unit_test1_each_quest7 = []
+            unit_test1_each_quest8 = []
+            unit_test1_each_quest9 = []
+            unit_test1_each_quest10 = []
+            unit_test1_each_quest11 = []
+            unit_test1_each_quest12 = []
+            unit_test1_each_quest13 = []
+            unit_test1_each_quest14 = []
+            unit_test1_each_quest15 = []
+            unit_test1_each_quest16 = []
+            unit_test1_each_quest17 = []
+            unit_test1_each_quest18 = []
+
+            circle_ans2, circle_solu2,  returned_circle2 = display_random_question.unit_test_circle()
+            parabola_ans2, parabola_solu2, returned_parabola2 = display_random_question.unit_test_parabola()
+            ellipse_ans2, ellipse_solu2, returned_ellipse2= display_random_question.unit_test_ellipse()
+            hyperbola_ans2, hyperbola_solu2, returned_hyperbola2= display_random_question.unit_test_hyper()
+            substitution_ans2, substitution_solu2, returned_substitution2 = display_random_question.unit_test_subs()
+            elimination_ans2, elimination_solu2, returned_elimination2 = display_random_question.unit_test_elim()
+
+            unit_test1_each_quest1.append(returned_circle2[0])
+            unit_test1_each_quest1.append(returned_circle2[1])
+            unit_test1_each_quest1.append(returned_circle2[2])
+            unit_test1_each_quest2.append(returned_circle2[3])
+            unit_test1_each_quest2.append(returned_circle2[4])
+            unit_test1_each_quest2.append(returned_circle2[5])
+            unit_test1_each_quest3.append(returned_circle2[6])
+            unit_test1_each_quest3.append(returned_circle2[7])
+            unit_test1_each_quest3.append(returned_circle2[8])
+
+            unit_test1_each_quest4.append(returned_parabola2[0])
+            unit_test1_each_quest4.append(returned_parabola2[1])
+            unit_test1_each_quest4.append(returned_parabola2[2])
+            unit_test1_each_quest5.append(returned_parabola2[3])
+            unit_test1_each_quest5.append(returned_parabola2[4])
+            unit_test1_each_quest5.append(returned_parabola2[5])
+            unit_test1_each_quest6.append(returned_parabola2[6])
+            unit_test1_each_quest6.append(returned_parabola2[7])
+            unit_test1_each_quest6.append(returned_parabola2[8])
+
+            unit_test1_each_quest7.append(returned_ellipse2[0])
+            unit_test1_each_quest7.append(returned_ellipse2[1])
+            unit_test1_each_quest7.append(returned_ellipse2[2])
+            unit_test1_each_quest8.append(returned_ellipse2[3])
+            unit_test1_each_quest8.append(returned_ellipse2[4])
+            unit_test1_each_quest8.append(returned_ellipse2[5])
+            unit_test1_each_quest9.append(returned_ellipse2[6])
+            unit_test1_each_quest9.append(returned_ellipse2[7])
+            unit_test1_each_quest9.append(returned_ellipse2[8])
+
+            unit_test1_each_quest10.append(returned_hyperbola2[0])
+            unit_test1_each_quest10.append(returned_hyperbola2[1])
+            unit_test1_each_quest10.append(returned_hyperbola2[2])
+            unit_test1_each_quest11.append(returned_hyperbola2[3])
+            unit_test1_each_quest11.append(returned_hyperbola2[4])
+            unit_test1_each_quest11.append(returned_hyperbola2[5])
+            unit_test1_each_quest12.append(returned_hyperbola2[6])
+            unit_test1_each_quest12.append(returned_hyperbola2[7])
+            unit_test1_each_quest12.append(returned_hyperbola2[8])
+
+            unit_test1_each_quest13.append(returned_substitution2[0])
+            unit_test1_each_quest13.append(returned_substitution2[1])
+            unit_test1_each_quest13.append(returned_substitution2[2])
+            unit_test1_each_quest14.append(returned_substitution2[3])
+            unit_test1_each_quest14.append(returned_substitution2[4])
+            unit_test1_each_quest14.append(returned_substitution2[5])
+            unit_test1_each_quest15.append(returned_substitution2[6])
+            unit_test1_each_quest15.append(returned_substitution2[7])
+            unit_test1_each_quest15.append(returned_substitution2[8])
+
+            unit_test1_each_quest16.append(returned_elimination2[0])
+            unit_test1_each_quest16.append(returned_elimination2[1])
+            unit_test1_each_quest16.append(returned_elimination2[2])
+            unit_test1_each_quest17.append(returned_elimination2[3])
+            unit_test1_each_quest17.append(returned_elimination2[4])
+            unit_test1_each_quest17.append(returned_elimination2[5])
+            unit_test1_each_quest18.append(returned_elimination2[6])
+            unit_test1_each_quest18.append(returned_elimination2[7])
+            unit_test1_each_quest18.append(returned_elimination2[8])
+
+            unit_test1_all.append(unit_test1_each_quest1)
+            unit_test1_all.append(unit_test1_each_quest2)
+            unit_test1_all.append(unit_test1_each_quest3)
+            unit_test1_all.append(unit_test1_each_quest4)
+            unit_test1_all.append(unit_test1_each_quest5)
+            unit_test1_all.append(unit_test1_each_quest6)
+            unit_test1_all.append(unit_test1_each_quest7)
+            unit_test1_all.append(unit_test1_each_quest8)
+            unit_test1_all.append(unit_test1_each_quest9)
+            unit_test1_all.append(unit_test1_each_quest10)
+            unit_test1_all.append(unit_test1_each_quest11)
+            unit_test1_all.append(unit_test1_each_quest12)
+            unit_test1_all.append(unit_test1_each_quest13)
+            unit_test1_all.append(unit_test1_each_quest14)
+            unit_test1_all.append(unit_test1_each_quest15)
+            unit_test1_all.append(unit_test1_each_quest16)
+            unit_test1_all.append(unit_test1_each_quest17)
+            unit_test1_all.append(unit_test1_each_quest18)
+
+            playground_question1, playground_question2, playground_question3, playground_question4, playground_question5 = display_random_question.random_questions(unit_test1_all)
+
+            data.scores.playground_question1 = playground_question1[0]
+            data.scores.playground_question2 = playground_question2[0]
+            data.scores.playground_question3 = playground_question3[0]
+            data.scores.playground_question4 = playground_question4[0]
+            data.scores.playground_question5 = playground_question5[0]
+
+            data.scores.playground_solId1 = playground_question1[1]
+            data.scores.playground_ansId1 =playground_question1[2]
+            data.scores.playground_solId2= playground_question2[1]
+            data.scores.playground_ansId2 = playground_question2[2]
+            data.scores.playground_solId3 = playground_question3[1]
+            data.scores.playground_ansId3 =playground_question3[2]
+            data.scores.playground_solId4 = playground_question4[1]
+            data.scores.playground_ansId4 =playground_question4[2]
+            data.scores.playground_solId5 = playground_question5[1]
+            data.scores.playground_ansId5 =playground_question5[2]
+
+        self.playgroundQ1_label.setText("1."+ data.scores.playground_question1)
+        self.playgroundQ2_label.setText("2."+ data.scores.playground_question2)
+        self.playgroundQ3_label.setText("3."+ data.scores.playground_question3)
+        self.playgroundQ4_label.setText("4."+ data.scores.playground_question4)
+        self.playgroundQ5_label.setText("5."+ data.scores.playground_question5)
+        
+        if submit_unit1 == True:
+            data.scores.playground_1_advice = playgroundTest.checked_ai(data.scores.playground_question1, data.scores.unit_test1_saved_solution1)
+            data.scores.playground_2_advice = playgroundTest.checked_ai(data.scores.playground_question2, data.scores.unit_test1_saved_solution2)
+            data.scores.playground_3_advice = playgroundTest.checked_ai(data.scores.playground_question3, data.scores.unit_test1_saved_solution3)
+            data.scores.playground_4_advice = playgroundTest.checked_ai(data.scores.playground_question4, data.scores.unit_test1_saved_solution4)
+            data.scores.playground_5_advice = playgroundTest.checked_ai(data.scores.playground_question5, data.scores.unit_test1_saved_solution5)
+
+            self.showScore2_widget_2.setVisible(True)
+            # self.showlessonScore_widget.setVisible(True)
+            self.playgroundSubmit_container.setCurrentIndex(1)
+            self.playground_label.setText(str(data.scores.unit1_score))
+            self.show_score1_label.setText(str(data.scores.circ_score))
+            self.show_score2_label.setText(str(data.scores.parab_score))
+            self.show_score3_label.setText(str(data.scores.ellip_score))
+            self.show_score4_label.setText(str(data.scores.hyperb_score))
+
+            self.unitTestQ1Sol_textEdit.setText(data.scores.unit_test1_saved_solution1)
+            self.unitTestQ1Center_textEdit.setText(data.scores.unit_test1_saved_answer1)
+            self.unitTestQ2Sol_textEdit.setText(data.scores.unit_test1_saved_solution2)
+            self.unitTestQ2Center_textEdit.setText(data.scores.unit_test1_saved_answer2)
+            self.unitTestQ3Sol_textEdit.setText(data.scores.unit_test1_saved_solution3)
+            self.unitTestQ3Vertex_textEdit.setText(data.scores.unit_test1_saved_answer3)
+            self.unitTestQ4Sol_textEdit.setText(data.scores.unit_test1_saved_solution4)
+            self.unitTestQ4Vertex_textEdit.setText(data.scores.unit_test1_saved_answer4)
+            self.unitTestQ5Sol_textEdit.setText(data.scores.unit_test1_saved_solution5)
+            self.unitTestQ5Center_textEdit.setText(data.scores.unit_test1_saved_answer5)
+
+            self.playgroundQ1_ans_widget.setVisible(True)
+            self.playgroundQ2_ans_widget.setVisible(True)
+            self.playgroundQ3_ans_widget.setVisible(True)
+            self.playgroundQ4_ans_widget.setVisible(True)
+            self.playgroundQ5_ans_widget.setVisible(True)
+
+            self.playgroundQ1Ai_textEdit.setPlainText(data.scores.playground_1_advice)
+            self.playgroundQ2Ai_textEdit.setPlainText(data.scores.playground_2_advice)
+            self.playgroundQ3Ai_textEdit.setPlainText(data.scores.playground_3_advice)
+            self.playgroundQ4Ai_textEdit.setPlainText(data.scores.playground_4_advice)
+            self.playgroundQ5Ai_textEdit.setPlainText(data.scores.playground_5_advice)
+
+# # question 1
+            self.playgroundQ1Sol_textEdit.setReadOnly(True) 
+            if data.scores.check_unit1_q1_sol == "incorrect":
+                self.sol11_label_2.setStyleSheet("background-color: red")
+            else:
+                self.sol11_label_2.setStyleSheet("background-color: green")
+            self.playgroundQ1Ans_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q1_ans == "incorrect":
+                self.ans11_label_2.setStyleSheet("background-color: red")
+            else:
+                self.ans11_label_2.setStyleSheet("background-color: green")
+# question 2
+            self.playgroundQ2Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q2_sol == "incorrect":
+                self.sol12_label_2.setStyleSheet("background-color: red")
+            else:
+                self.sol12_label_2.setStyleSheet("background-color: green")
+            self.playgroundQ2Ans_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q2_center_ans == "incorrect":
+                self.ans12_label_2.setStyleSheet("background-color: red")
+            else:
+                self.ans12_label_2.setStyleSheet("background-color: green")
+# question 3
+            self.playgroundQ3Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q3_sol == "incorrect":
+                self.sol13_label_2.setStyleSheet("background-color: red")
+            else:
+                self.sol13_label_2.setStyleSheet("background-color: green")
+            self.playgroundQ3Ans_textEdit.setReadOnly(True) 
+            if data.scores.check_unit1_q3_vertex_ans == "incorrect":
+                self.ans13_label_2.setStyleSheet("background-color: red")
+            else:
+                self.ans13_label_2.setStyleSheet("background-color: green")
+# question 4            
+            self.playgroundQ4Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q4_sol == "incorrect":
+                self.sol14_label_2.setStyleSheet("background-color: red")
+            else:
+                self.sol14_label_2.setStyleSheet("background-color: green")
+            self.playgroundQ4Ans_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q4_vertex_ans == "incorrect":
+                self.ans14_label_2.setStyleSheet("background-color: red")
+            else:
+                self.ans14_label_2.setStyleSheet("background-color: green")
+# question 5
+            self.playgroundQ5Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q5_sol == "incorrect":
+                self.sol15_label_2.setStyleSheet("background-color: red")
+            else:
+                self.sol15_label_2.setStyleSheet("background-color: green")
+            self.playgroundQ5Ans_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q5_center_ans == "incorrect":
+                self.ans15_label_2.setStyleSheet("background-color: red")
+            else:
+                self.ans15_label_2.setStyleSheet("background-color: green")
+
+    def bigWindow(self):
+        if self.restoreWindow == 0:
+            self.showMaximized()
+            self.maxWindow = True
+            self.restoreWindow = 1
+        else:           
+            self.showNormal()  
+            self.maxWindow = False
+            self.restoreWindow = 0
+
+    def toDashboardPage(self):
+        self.hide()
+        global new_unitTest1
+        new_unitTest1 = True
+        self.back = toDashboard()
+        self.back.show()
+    
+    def checked_ai(question, solution):
+        prompt = f"Analyze the user's solution to the question:{question} User's solution is:{solution} Be a precalculus professor and tell whether the user's solution is correct or incorrect. If the user's solution is correct, explain the solution. If the user's solution is incorrect, give feedback on how to correctly answer the question, if the user's solution is blank it is incorrect, explain in 1 sentence."
+        # Set the model and parameters for the API request
+        model_engine = "text-davinci-003"
+        temperature=0.5
+        max_tokens=2048
+        
+        # Send the prompt to the API and get the response
+        response = openai.Completion.create(
+            engine=model_engine,
+            prompt=prompt,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0
+        )
+        # Extract the analysis from the API response
+        analysis = response.choices[0].text
+        return analysis
+
+    def submitTest(self):
+        # Question 1 , answer and solution
+        solution_Unit1_Q1 = self.playgroundQ1Sol_textEdit.toPlainText()
+        answer1_Unit1_Q1 = self.playgroundQ1Ans_textEdit.text()
+        data.scores.playground_saved_solution1 = solution_Unit1_Q1
+        data.scores.unit_test1_saved_answer1 = answer1_Unit1_Q1
+        
+        # Question 2 , answer and solution
+        solution_Unit1_Q2 = self.playgroundQ2Sol_textEdit.toPlainText()
+        answer1_Unit1_Q2 = self.playgroundQ2Ans_textEdit.text()
+        data.scores.playground_saved_solution2 = solution_Unit1_Q2
+        data.scores.unit_test1_saved_answer2 = answer1_Unit1_Q2
+
+        # Question 3 , answer and solution
+        solution_Unit1_Q3 = self.playgroundQ3Sol_textEdit.toPlainText()
+        answer1_Unit1_Q3 = self.playgroundQ3Ans_textEdit.text()
+        data.scores.playground_saved_solution3 = solution_Unit1_Q3
+        data.scores.unit_test1_saved_answer3 = answer1_Unit1_Q3
+
+        # Question 4 , answer and solution
+        solution_Unit1_Q4 = self.unitTestQ4Sol_textEdit.toPlainText()
+        answer1_Unit1_Q4 = self.unitTestQ4Vertex_textEdit.text()
+        data.scores.playground_saved_solution4 = solution_Unit1_Q4
+        data.scores.unit_test1_saved_answer4 = answer1_Unit1_Q4
+
+        # Question 5 , answer and solution
+        solution_Unit1_Q5 = self.playgroundQ5Sol_textEdit.toPlainText()
+        answer1_Unit1_Q5 = self.playgroundQ5Ans_textEdit.text()
+        data.scores.playground_saved_solution5 = solution_Unit1_Q5
+        data.scores.unit_test1_saved_answer5 = answer1_Unit1_Q5
+
+        # Checking of answer and calculating of score
+        data.scores.unit1_score = 0
+
+        # Question 1, solution and answer
+        question = data.scores.playground_solId1
+        check_unit1_q1_sol = chat(question, solution_Unit1_Q1)
+        data.scores.check_unit1_q1_sol= check_unit1_q1_sol
+         
+        question = data.scores.playground_ansId1
+        check_unit1_q1_ans = chat(question, answer1_Unit1_Q1)
+        data.scores.check_unit1_q1_ans = check_unit1_q1_ans
+
+        if check_unit1_q1_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+        if check_unit1_q1_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1  
+
+        # Question 2, solution and answer
+        question = data.scores.playground_solId2
+        check_unit1_q2_sol = chat(question, solution_Unit1_Q2)
+        data.scores.check_unit1_q2_sol = check_unit1_q2_sol
+
+        question =data.scores.playground_ansId2
+        check_unit1_q2_center_ans = chat(question, answer1_Unit1_Q2)
+        data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
+
+        if check_unit1_q2_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+    
+        if check_unit1_q2_center_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+    
+        # Question 3, solution and answer
+        question = data.scores.playground_solId3
+        check_unit1_q3_sol = chat(question, solution_Unit1_Q3)
+        data.scores.check_unit1_q3_sol = check_unit1_q3_sol
+        question =data.scores.playground_ansId3
+        check_unit1_q3_vertex_ans = chat(question, answer1_Unit1_Q3)
+        data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
+
+        if check_unit1_q3_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            
+        if check_unit1_q3_vertex_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+              
+        # Question 4, solution and answer
+        question = data.scores.playground_solId4
+        check_unit1_q4_sol = chat(question, solution_Unit1_Q4)
+        data.scores.check_unit1_q4_sol = check_unit1_q4_sol
+        question =data.scores.playground_ansId4
+        check_unit1_q4_vertex_ans = chat(question, answer1_Unit1_Q4)
+        data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
+
+        if check_unit1_q4_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            
+        if check_unit1_q4_vertex_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            
+        # Question 5, solution and answer
+        question = data.scores.playground_solId5
+        check_unit1_q5_sol = chat(question, solution_Unit1_Q5)
+        data.scores.check_unit1_q5_sol = check_unit1_q5_sol
+        question =data.scores.playground_ansId5
+        check_unit1_q5_center_ans = chat(question, answer1_Unit1_Q5)
+        data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
+
+        if check_unit1_q5_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score+ 4
+            
+        if check_unit1_q5_center_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            
+        global submit_unit1, new_unitTest1
+        submit_unit1 = True
+        new_unitTest1 = False
+ 
+        self.hide()
+        self.reload = toPlaygroundTest()
+        self.reload.show()
+        self.reload.progress()
+
+    def mousePressEvent(self, event):
+        if self.maxWindow == True:
+            pass
+        else:
+            if event.button() == QtCore.Qt.LeftButton:
+                self.offset = event.pos()
+            else:
+                super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):
+        if self.maxWindow == True:
+            pass
+        else:   
+            if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
+                self.move(self.pos() + event.pos() - self.offset)
+            else:
+                super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event):
+        if self.maxWindow == True:
+            pass
+        else:
+            self.offset = None
+            super().mouseReleaseEvent(event)
+
+
+class unitTest_1(QMainWindow):
+    def __init__(self):
+        super(unitTest_1, self).__init__()
+        self.ui = Ui_topicLessonMainWindow()
+        self.ui.setupUi(self)
+
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.offset = None
+
+        loadUi("data/lessonDashboard.ui",self)
+
+        self.setWindowIcon(QIcon(":/images/logo.png"))
+        title = "PreCalGuro Student"
+        self.setWindowTitle(title)
+        
+        self.topicPages.setCurrentIndex(5)
+
+        self.submitTest_Button.clicked.connect(self.submitTest)
+        self.back_Button.clicked.connect(self.toDashboardPage)
+
+        self.backButton.clicked.connect(self.toDashboardPage)
+        self.closeButton.clicked.connect(self.showMinimized)
+        self.maximizeButton.clicked.connect(self.bigWindow)
+        self.minimizeButton.clicked.connect(self.showMinimized)
+        
+        self.showScore_widget.setVisible(False)
+        self.showlessonScore_widget.setVisible(False)
+        self.unitTest1Submit_container.setCurrentIndex(0)
+
+        self.restoreWindow = 0
+        self.maxWindow = False
+
+        self.unitTest1Q1_ans_widget.setVisible(False)
+        self.unitTest1Q2_ans_widget.setVisible(False)
+        self.unitTest1Q3_ans_widget.setVisible(False)
+        self.unitTest1Q4_ans_widget.setVisible(False)
+        self.unitTest1Q5_ans_widget.setVisible(False)
+        self.unitTest1Q6_ans_widget.setVisible(False)
+        self.unitTest1Q7_ans_widget.setVisible(False)
+        self.unitTest1Q8_ans_widget.setVisible(False)
+        self.unitTest1Q9_ans_widget.setVisible(False)
+        self.unitTest1Q10_ans_widget.setVisible(False)
+
+        if new_unitTest1 == True:
+            # # RNGED UNIT TEST 1 QUESTIONS
+            unit_test1_all = []
+            unit_test1_each_quest1 = []
+            unit_test1_each_quest2 = []
+            unit_test1_each_quest3 = []
+            unit_test1_each_quest4 = []
+            unit_test1_each_quest5 = []
+            unit_test1_each_quest6 = []
+            unit_test1_each_quest7 = []
+            unit_test1_each_quest8 = []
+            unit_test1_each_quest9 = []
+            unit_test1_each_quest10 = []
+            unit_test1_each_quest11 = []
+            unit_test1_each_quest12 = []
+
+            circle_ans2, circle_solu2,  returned_circle2 = display_random_question.unit_test_circle()
+            parabola_ans2, parabola_solu2, returned_parabola2 = display_random_question.unit_test_parabola()
+            ellipse_ans2, ellipse_solu2, returned_ellipse2= display_random_question.unit_test_ellipse()
+            hyperbola_ans2, hyperbola_solu2, returned_hyperbola2= display_random_question.unit_test_hyper()
+
+            unit_test1_each_quest1.append(returned_circle2[0])
+            unit_test1_each_quest1.append(returned_circle2[1])
+            unit_test1_each_quest1.append(returned_circle2[2])
+            unit_test1_each_quest2.append(returned_circle2[3])
+            unit_test1_each_quest2.append(returned_circle2[4])
+            unit_test1_each_quest2.append(returned_circle2[5])
+            unit_test1_each_quest3.append(returned_circle2[6])
+            unit_test1_each_quest3.append(returned_circle2[7])
+            unit_test1_each_quest3.append(returned_circle2[8])
+
+            unit_test1_each_quest4.append(returned_parabola2[0])
+            unit_test1_each_quest4.append(returned_parabola2[1])
+            unit_test1_each_quest4.append(returned_parabola2[2])
+            unit_test1_each_quest5.append(returned_parabola2[3])
+            unit_test1_each_quest5.append(returned_parabola2[4])
+            unit_test1_each_quest5.append(returned_parabola2[5])
+            unit_test1_each_quest6.append(returned_parabola2[6])
+            unit_test1_each_quest6.append(returned_parabola2[7])
+            unit_test1_each_quest6.append(returned_parabola2[8])
+
+            unit_test1_each_quest7.append(returned_ellipse2[0])
+            unit_test1_each_quest7.append(returned_ellipse2[1])
+            unit_test1_each_quest7.append(returned_ellipse2[2])
+            unit_test1_each_quest8.append(returned_ellipse2[3])
+            unit_test1_each_quest8.append(returned_ellipse2[4])
+            unit_test1_each_quest8.append(returned_ellipse2[5])
+            unit_test1_each_quest9.append(returned_ellipse2[6])
+            unit_test1_each_quest9.append(returned_ellipse2[7])
+            unit_test1_each_quest9.append(returned_ellipse2[8])
+
+            unit_test1_each_quest10.append(returned_hyperbola2[0])
+            unit_test1_each_quest10.append(returned_hyperbola2[1])
+            unit_test1_each_quest10.append(returned_hyperbola2[2])
+            unit_test1_each_quest11.append(returned_hyperbola2[3])
+            unit_test1_each_quest11.append(returned_hyperbola2[4])
+            unit_test1_each_quest11.append(returned_hyperbola2[5])
+            unit_test1_each_quest12.append(returned_hyperbola2[6])
+            unit_test1_each_quest12.append(returned_hyperbola2[7])
+            unit_test1_each_quest12.append(returned_hyperbola2[8])
+
+            unit_test1_all.append(unit_test1_each_quest1)
+            unit_test1_all.append(unit_test1_each_quest2)
+            unit_test1_all.append(unit_test1_each_quest3)
+            unit_test1_all.append(unit_test1_each_quest4)
+            unit_test1_all.append(unit_test1_each_quest5)
+            unit_test1_all.append(unit_test1_each_quest6)
+            unit_test1_all.append(unit_test1_each_quest7)
+            unit_test1_all.append(unit_test1_each_quest8)
+            unit_test1_all.append(unit_test1_each_quest9)
+            unit_test1_all.append(unit_test1_each_quest10)
+            unit_test1_all.append(unit_test1_each_quest11)
+            unit_test1_all.append(unit_test1_each_quest12)
+
+            unit_test1_question1, unit_test1_question2, unit_test1_question3, unit_test1_question4, unit_test1_question5, unit_test1_question6, unit_test1_question7, unit_test1_question8 ,unit_test1_question9 ,unit_test1_question10= display_random_question.random_questions_2(unit_test1_all)
+
+            data.scores.unit_test1_question1 = unit_test1_question1[0]
+            data.scores.unit_test1_question2 = unit_test1_question2[0]
+            data.scores.unit_test1_question3 = unit_test1_question3[0]
+            data.scores.unit_test1_question4 = unit_test1_question4[0]
+            data.scores.unit_test1_question5 = unit_test1_question5[0]
+            data.scores.unit_test1_question6 = unit_test1_question6[0]
+            data.scores.unit_test1_question7 = unit_test1_question7[0]
+            data.scores.unit_test1_question8 = unit_test1_question8[0]
+            data.scores.unit_test1_question9 = unit_test1_question9[0]
+            data.scores.unit_test1_question10 = unit_test1_question10[0]
+
+            data.scores.unit1_1_solutionId = unit_test1_question1[1]
+            data.scores.unit1_1_answerId =unit_test1_question1[2]
+            data.scores.unit1_2_solutionId = unit_test1_question2[1]
+            data.scores.unit1_2_answerId =unit_test1_question2[2]
+            data.scores.unit1_3_solutionId = unit_test1_question3[1]
+            data.scores.unit1_3_answerId =unit_test1_question3[2]
+            data.scores.unit1_4_solutionId = unit_test1_question4[1]
+            data.scores.unit1_4_answerId =unit_test1_question4[2]
+            data.scores.unit1_5_solutionId = unit_test1_question5[1]
+            data.scores.unit1_5_answerId =unit_test1_question5[2]
+            data.scores.unit1_6_solutionId = unit_test1_question6[1]
+            data.scores.unit1_6_answerId =unit_test1_question6[2]
+            data.scores.unit1_7_solutionId = unit_test1_question7[1]
+            data.scores.unit1_7_answerId =unit_test1_question7[2]
+            data.scores.unit1_8_solutionId = unit_test1_question8[1]
+            data.scores.unit1_8_answerId =unit_test1_question8[2]
+            data.scores.unit1_9_solutionId = unit_test1_question9[1]
+            data.scores.unit1_9_answerId =unit_test1_question9[2]
+            data.scores.unit1_10_solutionId = unit_test1_question10[1]
+            data.scores.unit1_10_answerId =unit_test1_question10[2]
+
+        self.unitTest1_Q1_label.setText("1."+ data.scores.unit_test1_question1)
+        self.unitTest1_Q2_label.setText("2."+ data.scores.unit_test1_question2)
+        self.unitTest1_Q3_label.setText("3."+ data.scores.unit_test1_question3)
+        self.unitTest1_Q4_label.setText("4."+ data.scores.unit_test1_question4)
+        self.unitTest1_Q5_label.setText("5."+ data.scores.unit_test1_question5)
+        self.unitTest1_Q6_label.setText("6."+ data.scores.unit_test1_question6)
+        self.unitTest1_Q7_label.setText("7."+ data.scores.unit_test1_question7)
+        self.unitTest1_Q8_label.setText("8."+ data.scores.unit_test1_question8)
+        self.unitTest1_Q9_label.setText("9."+ data.scores.unit_test1_question9)
+        self.unitTest1_Q10_label.setText("10."+ data.scores.unit_test1_question10)
+        
+        if submit_unit1 == True:
+            self.showScore_widget.setVisible(True)
+            # self.showlessonScore_widget.setVisible(True)
+            self.unitTest1Submit_container.setCurrentIndex(1)
+            self.show_scoreUnit1_label.setText(str(data.scores.unit1_score))
+            self.show_score1_label.setText(str(data.scores.circ_score))
+            self.show_score2_label.setText(str(data.scores.parab_score))
+            self.show_score3_label.setText(str(data.scores.ellip_score))
+            self.show_score4_label.setText(str(data.scores.hyperb_score))
+
+            self.unitTestQ1Sol_textEdit.setText(data.scores.unit_test1_saved_solution1)
+            self.unitTestQ1Center_textEdit.setText(data.scores.unit_test1_saved_answer1)
+            self.unitTestQ2Sol_textEdit.setText(data.scores.unit_test1_saved_solution2)
+            self.unitTestQ2Center_textEdit.setText(data.scores.unit_test1_saved_answer2)
+            self.unitTestQ3Sol_textEdit.setText(data.scores.unit_test1_saved_solution3)
+            self.unitTestQ3Vertex_textEdit.setText(data.scores.unit_test1_saved_answer3)
+            self.unitTestQ4Sol_textEdit.setText(data.scores.unit_test1_saved_solution4)
+            self.unitTestQ4Vertex_textEdit.setText(data.scores.unit_test1_saved_answer4)
+            self.unitTestQ5Sol_textEdit.setText(data.scores.unit_test1_saved_solution5)
+            self.unitTestQ5Center_textEdit.setText(data.scores.unit_test1_saved_answer5)
+            self.unitTestQ6Sol_textEdit.setText(data.scores.unit_test1_saved_solution6)
+            self.unitTestQ6Foci1_textEdit.setText(data.scores.unit_test1_saved_answer6)
+            self.unitTestQ7Sol_textEdit.setText(data.scores.unit_test1_saved_solution7)
+            self.unitTestQ7Vertex1_textEdit.setText(data.scores.unit_test1_saved_answer7)
+            self.unitTestQ8Sol_textEdit.setText(data.scores.unit_test1_saved_solution8)
+            self.unitTestQ8Center_textEdit.setText(data.scores.unit_test1_saved_answer8)
+            self.unitTestQ9Sol_textEdit.setText(data.scores.unit_test1_saved_solution9)
+            self.unitTestQ9MinAxis_textEdit.setText(data.scores.unit_test1_saved_answer9)
+            self.unitTestQ10Sol_textEdit.setText(data.scores.unit_test1_saved_solution10)
+            self.unitTestQ10StandEquat_textEdit.setText(data.scores.unit_test1_saved_answer10)
+
+# # question 1
+            self.unitTestQ1Sol_textEdit.setReadOnly(True) 
+            if data.scores.check_unit1_q1_sol == "incorrect":
+                self.sol1_label.setStyleSheet("background-color: red")
+            else:
+                self.sol1_label.setStyleSheet("background-color: green")
+            self.unitTestQ1Center_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q1_ans == "incorrect":
+                self.ans1_label.setStyleSheet("background-color: red")
+            else:
+                self.ans1_label.setStyleSheet("background-color: green")
+# question 2
+            self.unitTestQ2Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q2_sol == "incorrect":
+                self.sol2_label.setStyleSheet("background-color: red")
+            else:
+                self.sol2_label.setStyleSheet("background-color: green")
+            self.unitTestQ2Center_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q2_center_ans == "incorrect":
+                self.ans2Center_label.setStyleSheet("background-color: red")
+            else:
+                self.ans2Center_label.setStyleSheet("background-color: green")
+# question 3
+            self.unitTestQ3Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q3_sol == "incorrect":
+                self.sol3_label.setStyleSheet("background-color: red")
+            else:
+                self.sol3_label.setStyleSheet("background-color: green")
+            self.unitTestQ3Vertex_textEdit.setReadOnly(True) 
+            if data.scores.check_unit1_q3_vertex_ans == "incorrect":
+                self.ans3Vertex_label.setStyleSheet("background-color: red")
+            else:
+                self.ans3Vertex_label.setStyleSheet("background-color: green")
+# question 4            
+            self.unitTestQ4Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q4_sol == "incorrect":
+                self.sol4_label.setStyleSheet("background-color: red")
+            else:
+                self.sol4_label.setStyleSheet("background-color: green")
+            self.unitTestQ4Vertex_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q4_vertex_ans == "incorrect":
+                self.ans4Vertex_label.setStyleSheet("background-color: red")
+            else:
+                self.ans4Vertex_label.setStyleSheet("background-color: green")
+# question 5
+            self.unitTestQ5Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q5_sol == "incorrect":
+                self.sol5_label.setStyleSheet("background-color: red")
+            else:
+                self.sol5_label.setStyleSheet("background-color: green")
+            self.unitTestQ5Center_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q5_center_ans == "incorrect":
+                self.ans5_label.setStyleSheet("background-color: red")
+            else:
+                self.ans5_label.setStyleSheet("background-color: green")
+# question 6
+            self.unitTestQ6Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q6_sol == "incorrect":
+                self.sol6_label.setStyleSheet("background-color: red")
+            else:
+                self.sol6_label.setStyleSheet("background-color: green")
+            self.unitTestQ6Foci1_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q6_foci1_ans == "incorrect":
+                self.ans6Foci1_label.setStyleSheet("background-color: red")
+            else:
+                self.ans6Foci1_label.setStyleSheet("background-color: green")
+# question 7
+            self.unitTestQ7Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q7_sol == "incorrect":
+                self.sol7_label.setStyleSheet("background-color: red")
+            else:
+                self.sol7_label.setStyleSheet("background-color: green")
+            self.unitTestQ7Vertex1_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q7_vertex1_ans== "incorrect":
+                self.ans7Vertex1_label.setStyleSheet("background-color: red")
+            else:
+                self.ans7Vertex1_label.setStyleSheet("background-color: green")
+# question 8
+            self.unitTestQ8Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q8_sol == "incorrect":
+                self.sol8_label.setStyleSheet("background-color: red")
+            else:
+                self.sol8_label.setStyleSheet("background-color: green")
+            self.unitTestQ8Center_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q8_center_ans == "incorrect":
+                self.ans8_label.setStyleSheet("background-color: red")
+            else:
+                self.ans8_label.setStyleSheet("background-color: green")
+# question 9
+            self.unitTestQ9Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q9_sol == "incorrect":
+                self.sol9_label.setStyleSheet("background-color: red")
+            else:
+                self.sol9_label.setStyleSheet("background-color: green")
+            self.unitTestQ9MinAxis_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q9_minorAxis_ans == "incorrect":
+                self.ans9_label.setStyleSheet("background-color: red")
+            else:
+                self.ans9_label.setStyleSheet("background-color: green")
+# question 10
+            self.unitTestQ10Sol_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q10_sol == "incorrect":
+                self.sol10_label.setStyleSheet("background-color: red")
+            else:
+                self.sol10_label.setStyleSheet("background-color: green")
+            self.unitTestQ10StandEquat_textEdit.setReadOnly(True)
+            if data.scores.check_unit1_q10_standEquat_ans == "incorrect":
+                self.ans10_label.setStyleSheet("background-color: red")
+            else:
+                self.ans10_label.setStyleSheet("background-color: green")
+
+    def bigWindow(self):
+        if self.restoreWindow == 0:
+            self.showMaximized()
+            self.maxWindow = True
+            self.restoreWindow = 1
+        else:           
+            self.showNormal()  
+            self.maxWindow = False
+            self.restoreWindow = 0
+
+    def toDashboardPage(self):
+        self.hide()
+        global fromLesson1, new_unitTest1
+        fromLesson1 = 1
+        new_unitTest1 = True
+        self.back = toDashboard()
+        self.back.show()
+
+    def submitTest(self):
+        # Question 1 , answer and solution
+        solution_Unit1_Q1 = self.unitTestQ1Sol_textEdit.toPlainText()
+        answer1_Unit1_Q1 = self.unitTestQ1Center_textEdit.text()
+        data.scores.unit_test1_saved_solution1 = solution_Unit1_Q1
+        data.scores.unit_test1_saved_answer1 = answer1_Unit1_Q1
+        
+        # Question 2 , answer and solution
+        solution_Unit1_Q2 = self.unitTestQ2Sol_textEdit.toPlainText()
+        answer1_Unit1_Q2 = self.unitTestQ2Center_textEdit.text()
+        data.scores.unit_test1_saved_solution2 = solution_Unit1_Q2
+        data.scores.unit_test1_saved_answer2 = answer1_Unit1_Q2
+
+        # Question 3 , answer and solution
+        solution_Unit1_Q3 = self.unitTestQ3Sol_textEdit.toPlainText()
+        answer1_Unit1_Q3 = self.unitTestQ3Vertex_textEdit.text()
+        data.scores.unit_test1_saved_solution3 = solution_Unit1_Q3
+        data.scores.unit_test1_saved_answer3 = answer1_Unit1_Q3
+
+        # Question 4 , answer and solution
+        solution_Unit1_Q4 = self.unitTestQ4Sol_textEdit.toPlainText()
+        answer1_Unit1_Q4 = self.unitTestQ4Vertex_textEdit.text()
+        data.scores.unit_test1_saved_solution4 = solution_Unit1_Q4
+        data.scores.unit_test1_saved_answer4 = answer1_Unit1_Q4
+
+        # Question 5 , answer and solution
+        solution_Unit1_Q5 = self.unitTestQ5Sol_textEdit.toPlainText()
+        answer1_Unit1_Q5 = self.unitTestQ5Center_textEdit.text()
+        data.scores.unit_test1_saved_solution5 = solution_Unit1_Q5
+        data.scores.unit_test1_saved_answer5 = answer1_Unit1_Q5
+
+        # Question 6 , answer and solution
+        solution_Unit1_Q6 = self.unitTestQ6Sol_textEdit.toPlainText()
+        answer1_Unit1_Q6 = self.unitTestQ6Foci1_textEdit.text()
+        data.scores.unit_test1_saved_solution6 = solution_Unit1_Q6
+        data.scores.unit_test1_saved_answer6 = answer1_Unit1_Q6
+
+        # Question 7 , answer and solution
+        solution_Unit1_Q7 = self.unitTestQ7Sol_textEdit.toPlainText()
+        answer1_Unit1_Q7 = self.unitTestQ7Vertex1_textEdit.text()
+        data.scores.unit_test1_saved_solution7 = solution_Unit1_Q7
+        data.scores.unit_test1_saved_answer7 = answer1_Unit1_Q7
+
+        # Question 8 , answer and solution
+        solution_Unit1_Q8 = self.unitTestQ8Sol_textEdit.toPlainText()
+        answer1_Unit1_Q8 = self.unitTestQ8Center_textEdit.text()
+        data.scores.unit_test1_saved_solution8 = solution_Unit1_Q8
+        data.scores.unit_test1_saved_answer8 = answer1_Unit1_Q8
+
+        # Question 9 , answer and solution
+        solution_Unit1_Q9 = self.unitTestQ9Sol_textEdit.toPlainText()
+        answer1_Unit1_Q9 = self.unitTestQ9MinAxis_textEdit.text()
+        data.scores.unit_test1_saved_solution9 = solution_Unit1_Q9
+        data.scores.unit_test1_saved_answer9 = answer1_Unit1_Q9
+
+        # Question 10 , answer and solution
+        solution_Unit1_Q10 = self.unitTestQ10Sol_textEdit.toPlainText()
+        answer1_Unit1_Q10 = self.unitTestQ10StandEquat_textEdit.text()    
+        data.scores.unit_test1_saved_solution10 = solution_Unit1_Q10
+        data.scores.unit_test1_saved_answer10 = answer1_Unit1_Q10
+
+        # Checking of answer and calculating of score
+        data.scores.unit1_score = 0
+        data.scores.circ_score = 0
+        data.scores.parab_score = 0
+        data.scores.ellip_score = 0
+        data.scores.hyperb_score = 0
+
+        # Question 1, solution and answer
+        question = data.scores.unit1_1_solutionId
+        check_unit1_q1_sol = chat(question, solution_Unit1_Q1)
+        data.scores.check_unit1_q1_sol= check_unit1_q1_sol
+         
+        question = data.scores.unit1_1_answerId
+        check_unit1_q1_ans = chat(question, answer1_Unit1_Q1)
+        data.scores.check_unit1_q1_ans = check_unit1_q1_ans
+
+        if check_unit1_q1_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.circ_score = data.scores.circ_score + 4
+        if check_unit1_q1_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1  
+            data.scores.circ_score = data.scores.circ_score + 1
+
+        # Question 2, solution and answer
+        question = data.scores.unit1_2_solutionId
+        check_unit1_q2_sol = chat(question, solution_Unit1_Q2)
+        data.scores.check_unit1_q2_sol = check_unit1_q2_sol
+        question = data.scores.unit1_2_answerId
+        check_unit1_q2_center_ans = chat(question, answer1_Unit1_Q2)
+        data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
+
+        if check_unit1_q2_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.circ_score = data.scores.circ_score + 4
+        if check_unit1_q2_center_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.circ_score = data.scores.circ_score + 1
+
+        # Question 3, solution and answer
+        question = data.scores.unit1_3_solutionId
+        check_unit1_q3_sol = chat(question, solution_Unit1_Q3)
+        data.scores.check_unit1_q3_sol = check_unit1_q3_sol
+        question = data.scores.unit1_3_answerId
+        check_unit1_q3_vertex_ans = chat(question, answer1_Unit1_Q3)
+        data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
+
+        if check_unit1_q3_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.parab_score = data.scores.parab_score + 4
+        if check_unit1_q3_vertex_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.parab_score = data.scores.parab_score + 1  
+
+        # Question 4, solution and answer
+        question = data.scores.unit1_4_solutionId
+        check_unit1_q4_sol = chat(question, solution_Unit1_Q4)
+        data.scores.check_unit1_q4_sol = check_unit1_q4_sol
+        question = data.scores.unit1_4_answerId
+        check_unit1_q4_vertex_ans = chat(question, answer1_Unit1_Q4)
+        data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
+
+        if check_unit1_q4_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.parab_score = data.scores.parab_score + 4
+        if check_unit1_q4_vertex_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.parab_score = data.scores.parab_score + 1
+
+        # Question 5, solution and answer
+        question = data.scores.unit1_5_solutionId
+        check_unit1_q5_sol = chat(question, solution_Unit1_Q5)
+        data.scores.check_unit1_q5_sol = check_unit1_q5_sol
+        question = data.scores.unit1_5_answerId
+        check_unit1_q5_center_ans = chat(question, answer1_Unit1_Q5)
+        data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
+
+        if check_unit1_q5_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score+ 4
+            data.scores.ellip_score = data.scores.ellip_score + 4
+        if check_unit1_q5_center_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.ellip_score = data.scores.ellip_score + 1
+
+        # Question 6, solution and answer
+        question = data.scores.unit1_6_solutionId
+        check_unit1_q6_sol = chat(question, solution_Unit1_Q6)
+        data.scores.check_unit1_q6_sol = check_unit1_q6_sol
+        question = data.scores.unit1_6_answerId
+        check_unit1_q6_foci1_ans = chat(question, answer1_Unit1_Q6)
+        data.scores.check_unit1_q6_foci1_ans = check_unit1_q6_foci1_ans
+
+        if check_unit1_q6_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.ellip_score = data.scores.ellip_score + 4
+        if check_unit1_q6_foci1_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.ellip_score = data.scores.ellip_score + 1
+
+        # Question 7, solution and answer
+        question = data.scores.unit1_7_solutionId
+        check_unit1_q7_sol = chat(question, solution_Unit1_Q7)
+        data.scores.check_unit1_q7_sol = check_unit1_q7_sol
+        question = data.scores.unit1_7_answerId
+        check_unit1_q7_vertex1_ans = chat(question, answer1_Unit1_Q7)
+        data.scores.check_unit1_q7_vertex1_ans = check_unit1_q7_vertex1_ans
+
+        if check_unit1_q7_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.hyperb_score = data.scores.hyperb_score + 4
+        if check_unit1_q7_vertex1_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.hyperb_score = data.scores.hyperb_score + 1   
+
+        # Question 8, solution and answer
+        question = data.scores.unit1_8_solutionId
+        check_unit1_q8_sol = chat(question, solution_Unit1_Q8)
+        data.scores.check_unit1_q8_sol = check_unit1_q8_sol
+        question = data.scores.unit1_8_answerId
+        check_unit1_q8_center_ans = chat(question, answer1_Unit1_Q8)
+        data.scores.check_unit1_q8_center_ans = check_unit1_q8_center_ans
+
+        if check_unit1_q8_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.hyperb_score = data.scores.hyperb_score + 4
+        if check_unit1_q8_center_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.hyperb_score = data.scores.hyperb_score + 1
+
+        # Question 9, solution and answer
+        question = data.scores.unit1_9_solutionId
+        check_unit1_q9_sol = chat(question, solution_Unit1_Q9)
+        data.scores.check_unit1_q9_sol = check_unit1_q9_sol 
+        question =data.scores.unit1_9_answerId
+        check_unit1_q9_minorAxis_ans = chat(question, answer1_Unit1_Q9)
+        data.scores.check_unit1_q9_minorAxis_ans = check_unit1_q9_minorAxis_ans
+
+        if check_unit1_q9_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.hyperb_score = data.scores.hyperb_score + 4
+        if check_unit1_q9_minorAxis_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.hyperb_score = data.scores.hyperb_score + 1
+
+        # Question 10, solution and answer
+        question = data.scores.unit1_10_solutionId
+        check_unit1_q10_sol = chat(question, solution_Unit1_Q10)
+        data.scores.check_unit1_q10_sol = check_unit1_q10_sol
+        question = data.scores.unit1_10_answerId
+        check_unit1_q10_standEquat_ans = chat(question, answer1_Unit1_Q10)
+        data.scores.check_unit1_q10_standEquat_ans = check_unit1_q10_standEquat_ans
+
+        if check_unit1_q10_sol == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.parab_score = data.scores.parab_score + 4
+        if check_unit1_q10_standEquat_ans == "correct":
+            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.parab_score = data.scores.parab_score + 1
+        
+        print(data.scores.unit1_score)
+        studKey = db.child("student").get()
+        for keyAccess in studKey.each():
+            if keyAccess.val()["studentSchoolID"] == idKey:
+                keyID = keyAccess.key()
+        db.child("student").child(keyID).update({"unitTest1_score":str(data.scores.unit1_score)})
+
+        global submit_unit1, new_unitTest1
+        submit_unit1 = True
+        new_unitTest1 = False
+ 
+        self.hide()
+        self.reload = toProcessTest1()
+        self.reload.show()
+        self.reload.progress()
+
+    def mousePressEvent(self, event):
+        if self.maxWindow == True:
+            pass
+        else:
+            if event.button() == QtCore.Qt.LeftButton:
+                self.offset = event.pos()
+            else:
+                super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):
+        if self.maxWindow == True:
+            pass
+        else:   
+            if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
+                self.move(self.pos() + event.pos() - self.offset)
+            else:
+                super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event):
+        if self.maxWindow == True:
+            pass
+        else:
+            self.offset = None
+            super().mouseReleaseEvent(event)
+
+
 class assessmentWindow(QMainWindow):
     def __init__(self):
         super(assessmentWindow, self).__init__()
@@ -2598,7 +3703,7 @@ class assessmentWindow(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(11)
@@ -2789,9 +3894,9 @@ class assessmentWindow(QMainWindow):
                 if keyAccess.val()["studentSchoolID"] == idKey:
                     keyID = keyAccess.key()
             db.child("student").child(keyID).update({"assessment_score1":str(data.scores.assess_score),"assessment_count":"0"})
-        global new_preAssess
+        global new_preAssess, fromPost
         new_preAssess = False
-
+        fromPost = 1
         self.hide()
         self.back = toDashboard()
         self.back.show()
@@ -2833,7 +3938,7 @@ class unitTest_1(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
         
         self.topicPages.setCurrentIndex(5)
@@ -2852,6 +3957,17 @@ class unitTest_1(QMainWindow):
 
         self.restoreWindow = 0
         self.maxWindow = False
+
+        self.unitTest1Q1_ans_widget.setVisible(False)
+        self.unitTest1Q2_ans_widget.setVisible(False)
+        self.unitTest1Q3_ans_widget.setVisible(False)
+        self.unitTest1Q4_ans_widget.setVisible(False)
+        self.unitTest1Q5_ans_widget.setVisible(False)
+        self.unitTest1Q6_ans_widget.setVisible(False)
+        self.unitTest1Q7_ans_widget.setVisible(False)
+        self.unitTest1Q8_ans_widget.setVisible(False)
+        self.unitTest1Q9_ans_widget.setVisible(False)
+        self.unitTest1Q10_ans_widget.setVisible(False)
 
         if new_unitTest1 == True:
             # # RNGED UNIT TEST 1 QUESTIONS
@@ -3002,6 +4118,7 @@ class unitTest_1(QMainWindow):
             self.unitTestQ9MinAxis_textEdit.setText(data.scores.unit_test1_saved_answer9)
             self.unitTestQ10Sol_textEdit.setText(data.scores.unit_test1_saved_solution10)
             self.unitTestQ10StandEquat_textEdit.setText(data.scores.unit_test1_saved_answer10)
+
 # # question 1
             self.unitTestQ1Sol_textEdit.setReadOnly(True) 
             if data.scores.check_unit1_q1_sol == "incorrect":
@@ -3137,46 +4254,55 @@ class unitTest_1(QMainWindow):
         answer1_Unit1_Q1 = self.unitTestQ1Center_textEdit.text()
         data.scores.unit_test1_saved_solution1 = solution_Unit1_Q1
         data.scores.unit_test1_saved_answer1 = answer1_Unit1_Q1
+        
         # Question 2 , answer and solution
         solution_Unit1_Q2 = self.unitTestQ2Sol_textEdit.toPlainText()
         answer1_Unit1_Q2 = self.unitTestQ2Center_textEdit.text()
         data.scores.unit_test1_saved_solution2 = solution_Unit1_Q2
         data.scores.unit_test1_saved_answer2 = answer1_Unit1_Q2
+
         # Question 3 , answer and solution
         solution_Unit1_Q3 = self.unitTestQ3Sol_textEdit.toPlainText()
         answer1_Unit1_Q3 = self.unitTestQ3Vertex_textEdit.text()
         data.scores.unit_test1_saved_solution3 = solution_Unit1_Q3
         data.scores.unit_test1_saved_answer3 = answer1_Unit1_Q3
+
         # Question 4 , answer and solution
         solution_Unit1_Q4 = self.unitTestQ4Sol_textEdit.toPlainText()
         answer1_Unit1_Q4 = self.unitTestQ4Vertex_textEdit.text()
         data.scores.unit_test1_saved_solution4 = solution_Unit1_Q4
         data.scores.unit_test1_saved_answer4 = answer1_Unit1_Q4
+
         # Question 5 , answer and solution
         solution_Unit1_Q5 = self.unitTestQ5Sol_textEdit.toPlainText()
         answer1_Unit1_Q5 = self.unitTestQ5Center_textEdit.text()
         data.scores.unit_test1_saved_solution5 = solution_Unit1_Q5
         data.scores.unit_test1_saved_answer5 = answer1_Unit1_Q5
+
         # Question 6 , answer and solution
         solution_Unit1_Q6 = self.unitTestQ6Sol_textEdit.toPlainText()
         answer1_Unit1_Q6 = self.unitTestQ6Foci1_textEdit.text()
         data.scores.unit_test1_saved_solution6 = solution_Unit1_Q6
         data.scores.unit_test1_saved_answer6 = answer1_Unit1_Q6
+
         # Question 7 , answer and solution
         solution_Unit1_Q7 = self.unitTestQ7Sol_textEdit.toPlainText()
         answer1_Unit1_Q7 = self.unitTestQ7Vertex1_textEdit.text()
         data.scores.unit_test1_saved_solution7 = solution_Unit1_Q7
         data.scores.unit_test1_saved_answer7 = answer1_Unit1_Q7
+
         # Question 8 , answer and solution
         solution_Unit1_Q8 = self.unitTestQ8Sol_textEdit.toPlainText()
         answer1_Unit1_Q8 = self.unitTestQ8Center_textEdit.text()
         data.scores.unit_test1_saved_solution8 = solution_Unit1_Q8
         data.scores.unit_test1_saved_answer8 = answer1_Unit1_Q8
+
         # Question 9 , answer and solution
         solution_Unit1_Q9 = self.unitTestQ9Sol_textEdit.toPlainText()
         answer1_Unit1_Q9 = self.unitTestQ9MinAxis_textEdit.text()
         data.scores.unit_test1_saved_solution9 = solution_Unit1_Q9
         data.scores.unit_test1_saved_answer9 = answer1_Unit1_Q9
+
         # Question 10 , answer and solution
         solution_Unit1_Q10 = self.unitTestQ10Sol_textEdit.toPlainText()
         answer1_Unit1_Q10 = self.unitTestQ10StandEquat_textEdit.text()    
@@ -3351,10 +4477,11 @@ class unitTest_1(QMainWindow):
         global submit_unit1, new_unitTest1
         submit_unit1 = True
         new_unitTest1 = False
-
+ 
         self.hide()
-        self.reload = unitTest_1()
+        self.reload = toProcessTest1()
         self.reload.show()
+        self.reload.progress()
 
     def mousePressEvent(self, event):
         if self.maxWindow == True:
@@ -3393,13 +4520,21 @@ class unitTest_2(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(10)
 
-        unit_test2_quest = []
-        list_of_sol = []
+        self.unitTest2Q1_ans_widget.setVisible(False)
+        self.unitTest2Q2_ans_widget.setVisible(False)
+        self.unitTest2Q3_ans_widget.setVisible(False)
+        self.unitTest2Q4_ans_widget.setVisible(False)
+        self.unitTest2Q5_ans_widget.setVisible(False)
+        self.unitTest2Q6_ans_widget.setVisible(False)
+        self.unitTest2Q7_ans_widget.setVisible(False)
+        self.unitTest2Q8_ans_widget.setVisible(False)
+        self.unitTest2Q9_ans_widget.setVisible(False)
+        self.unitTest2Q10_ans_widget.setVisible(False)
 
         if new_unitTest2 == True:
             unit_test2_all = []
@@ -3543,6 +4678,7 @@ class unitTest_2(QMainWindow):
             self.unitTest2Q9_textEdit.setText(data.scores.unit_test2_saved_answer9)
             self.unitTest2Q10Sol_textEdit.setText(data.scores.unit_test2_saved_solution10)
             self.unitTest2Q10_textEdit.setText(data.scores.unit_test2_saved_answer10)
+
 # question 1
             self.unitTest2Q1Sol_textEdit.setReadOnly(True) 
             if data.scores.check_unit2_q1_sol == "incorrect":
@@ -3671,53 +4807,63 @@ class unitTest_2(QMainWindow):
         new_unitTest2 = True
         self.back = toDashboard()
         self.back.show()
-
+    
     def submitTest2(self):
         # Question 1 , answer and solution
         solution_Unit2_Q1 = self.unitTest2Q1Sol_textEdit.toPlainText()
         answer1_Unit2_Q1 = self.unitTest2Q1_textEdit.text()
         data.scores.unit_test2_saved_solution1 = solution_Unit2_Q1
         data.scores.unit_test2_saved_answer1 = answer1_Unit2_Q1
+        data.scores.unit2_1_advice = unitTest_2.checked_ai(data.scores.unit_test2_question1, data.scores.unit_test2_saved_solution1)
+
         # Question 2 , answer and solution
         solution_Unit2_Q2 = self.unitTest2Q2Sol_textEdit.toPlainText()
         answer1_Unit2_Q2 = self.unitTest2Q2_textEdit.text()
         data.scores.unit_test2_saved_solution2 = solution_Unit2_Q2
         data.scores.unit_test2_saved_answer2 = answer1_Unit2_Q2
+
         # Question 3 , answer and solution
         solution_Unit2_Q3 = self.unitTest2Q3Sol_textEdit.toPlainText()
         answer1_Unit2_Q3 = self.unitTest2Q3_textEdit.text()
         data.scores.unit_test2_saved_solution3 = solution_Unit2_Q3
         data.scores.unit_test2_saved_answer3 = answer1_Unit2_Q3
+
         # Question 4 , answer and solution
         solution_Unit2_Q4 = self.unitTest2Q4Sol_textEdit.toPlainText()
         answer1_Unit2_Q4 = self.unitTest2Q4_textEdit.text()
         data.scores.unit_test2_saved_solution4 = solution_Unit2_Q4
         data.scores.unit_test2_saved_answer4 = answer1_Unit2_Q4
+
         # Question 5 , answer and solution
         solution_Unit2_Q5 = self.unitTest2Q5Sol_textEdit.toPlainText()
         answer1_Unit2_Q5 = self.unitTest2Q5_textEdit.text()
         data.scores.unit_test2_saved_solution5 = solution_Unit2_Q5
         data.scores.unit_test2_saved_answer5 = answer1_Unit2_Q5
+
         # Question 6 , answer and solution
         solution_Unit2_Q6 = self.unitTest2Q6Sol_textEdit.toPlainText()
         answer1_Unit2_Q6 = self.unitTest2Q6_textEdit.text()
         data.scores.unit_test2_saved_solution6 = solution_Unit2_Q6
         data.scores.unit_test2_saved_answer6 = answer1_Unit2_Q6
+
         # Question 7 , answer and solution
         solution_Unit2_Q7 = self.unitTest2Q7Sol_textEdit.toPlainText()
         answer1_Unit2_Q7 = self.unitTest2Q7_textEdit.text()
         data.scores.unit_test2_saved_solution7 = solution_Unit2_Q7
         data.scores.unit_test2_saved_answer7 = answer1_Unit2_Q7
+
         # Question 8 , answer and solution
         solution_Unit2_Q8 = self.unitTest2Q8Sol_textEdit.toPlainText()
         answer1_Unit2_Q8 = self.unitTest2Q8_textEdit.text()
         data.scores.unit_test2_saved_solution8 = solution_Unit2_Q8
         data.scores.unit_test2_saved_answer8 = answer1_Unit2_Q8
+
         # Question 9 , answer and solution
         solution_Unit2_Q9 = self.unitTest2Q9Sol_textEdit.toPlainText()
         answer1_Unit2_Q9 = self.unitTest2Q9_textEdit.text()
         data.scores.unit_test2_saved_solution9 = solution_Unit2_Q9
         data.scores.unit_test2_saved_answer9 = answer1_Unit2_Q9
+
         # Question 10 , answer and solution
         solution_Unit2_Q10 = self.unitTest2Q10Sol_textEdit.toPlainText()
         answer1_Unit2_Q10 = self.unitTest2Q10_textEdit.text()
@@ -3891,9 +5037,10 @@ class unitTest_2(QMainWindow):
         new_unitTest2 = False
 
         self.hide()
-        self.reload = unitTest_2()
+        self.reload = toProcessTest2()
         self.reload.show()
-
+        self.reload.progress()
+        
     def mousePressEvent(self, event):
         if self.maxWindow == True:
             pass
@@ -3931,7 +5078,7 @@ class postAssessmentWindow_accept(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(13)
@@ -4124,9 +5271,9 @@ class postAssessmentWindow_accept(QMainWindow):
                     keyID = keyAccess.key()
             db.child("student").child(keyID).update({"post_assessment_score1":str(data.scores.postassess_score),"post_assessment_count":"0"})
 
-        global new_postAssess
+        global new_postAssess, fromPost
         new_postAssess = False
-
+        fromPost = 1
         self.hide()
         self.back = toDashboard()
         self.back.show()
@@ -4168,7 +5315,7 @@ class postAssessmentWindow_failed(QMainWindow):
         loadUi("data/lessonDashboard.ui",self)
         
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Student"
+        title = "PreCalGuro Student"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(12)
@@ -4237,7 +5384,7 @@ class toTeachUpdateProfile(QDialog):
         loadUi("data/updateInfo.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
 
         self.updateInfoPages.setCurrentIndex(1)
@@ -4340,7 +5487,7 @@ class toDashboardTeach(QMainWindow):
         loadUi("data/dashboardTeach.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
 
         all_teacher = db.child("teacher").get()
@@ -5225,7 +6372,7 @@ class create_unit1Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(16)
@@ -5602,7 +6749,7 @@ class create_unit2Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(17)
@@ -5826,7 +6973,7 @@ class create_unit1Question(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(16)
@@ -6205,7 +7352,7 @@ class create_preQuestion(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(14)
@@ -6740,7 +7887,7 @@ class create_postQuestion(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         self.topicPages.setCurrentIndex(15)
@@ -7280,7 +8427,7 @@ class update_unit1Circle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
@@ -7454,7 +8601,7 @@ class update_unit1Parabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("lesson1").child("parabolaQuestion").get()
@@ -7629,7 +8776,7 @@ class update_unit1Ellipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("lesson1").child("ellipseQuestion").get()
@@ -7803,7 +8950,7 @@ class update_unit1Hyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").get()
@@ -7978,7 +9125,7 @@ class update_unit2Substitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest2_substitution = db.child("precal_questions").child("lesson2").child("substitutionQuestion").get()
@@ -8153,7 +9300,7 @@ class update_unit2Elimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest2_elimination = db.child("precal_questions").child("lesson2").child("eliminationQuestion").get()
@@ -8328,7 +9475,7 @@ class update_preCircle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("pre-assess").child("circleQuestion").get()
@@ -8511,7 +9658,7 @@ class update_preParabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("pre-assess").child("parabolaQuestion").get()
@@ -8685,7 +9832,7 @@ class update_preEllipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("pre-assess").child("ellipseQuestion").get()
@@ -8858,7 +10005,7 @@ class update_preHyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").get()
@@ -9031,7 +10178,7 @@ class update_preSubstitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_substitution = db.child("precal_questions").child("pre-assess").child("substitutionQuestion").get()
@@ -9204,7 +10351,7 @@ class update_preElimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_elimination = db.child("precal_questions").child("pre-assess").child("eliminationQuestion").get()
@@ -9377,7 +10524,7 @@ class update_postCircle(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_circle = db.child("precal_questions").child("post-assess").child("circleQuestion").get()
@@ -9550,7 +10697,7 @@ class update_postParabola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_parabola = db.child("precal_questions").child("post-assess").child("parabolaQuestion").get()
@@ -9723,7 +10870,7 @@ class update_postEllipse(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_ellipse = db.child("precal_questions").child("post-assess").child("ellipseQuestion").get()
@@ -9896,7 +11043,7 @@ class update_postHyperbola(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_hyperbola = db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").get()
@@ -10069,7 +11216,7 @@ class update_postSubstitution(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_substitution = db.child("precal_questions").child("post-assess").child("substitutionQuestion").get()
@@ -10242,7 +11389,7 @@ class update_postElimination(QMainWindow):
 
         loadUi("data/lessonDashboard.ui",self)
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro"
+        title = "PreCalGuro"
         self.setWindowTitle(title)
 
         all_unitTest1_elimination = db.child("precal_questions").child("post-assess").child("eliminationQuestion").get()
@@ -10416,7 +11563,7 @@ class update_unit1Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10490,7 +11637,7 @@ class update_unit2Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10546,7 +11693,7 @@ class update_preQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10638,7 +11785,7 @@ class update_postQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10730,7 +11877,7 @@ class delete_unit1Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10864,7 +12011,7 @@ class delete_unit2Question(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -10955,7 +12102,7 @@ class delete_preQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -11133,7 +12280,7 @@ class delete_postQuestion(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         self.setWindowModality(Qt.ApplicationModal)
         global willLogout
@@ -11312,7 +12459,7 @@ class toTeachLogout(QDialog):
         loadUi("data/warningToLogout.ui",self)
 
         self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
         
         self.logoutUpdatePages.setCurrentIndex(1)
@@ -11340,7 +12487,7 @@ class toSplashScreen(QMainWindow):
 
         loadUi("data/loadingScreen1.ui", self)
         self.setWindowIcon(QIcon(resource_path("assets/images/logo.png")))
-        title = "Mathguro Teacher"
+        title = "PreCalGuro Teacher"
         self.setWindowTitle(title)
 
         self.setWindowFlag(Qt.FramelessWindowHint)

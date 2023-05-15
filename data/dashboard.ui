@@ -1275,7 +1275,7 @@ border-radius:10px;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>145</width>
+                                        <width>133</width>
                                         <height>1111</height>
                                        </rect>
                                       </property>
@@ -1680,33 +1680,31 @@ margin-right: 25px;</string>
                      </widget>
                     </item>
                     <item alignment="Qt::AlignHCenter">
-                     <widget class="QPushButton" name="assessment_pushButton">
+                     <widget class="QPushButton" name="playground_pushButton">
                       <property name="font">
                        <font>
                         <pointsize>13</pointsize>
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">
-
-QPushButton#assessment_pushButton{
+                       <string notr="true">QPushButton#playground_pushButton{
 	background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));
 	color:rgba();
 	color:rgba(255,255,255,210);
 	border-radius:5px;
 	padding: 10px 10px 10px 10px
 }
-QPushButton#assessment_pushButton:hover{
+QPushButton#playground_pushButton:hover{
 	background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));
 }
-QPushButton#assessment_pushButton:pressed{
+QPushButton#playground_pushButton:pressed{
 	padding-left:5px;
 	padding-top:5px;
 	background-color:rgba(105, 118, 132, 200)
 }</string>
                       </property>
                       <property name="text">
-                       <string>Pre-Assessment</string>
+                       <string>Playground Tests</string>
                       </property>
                      </widget>
                     </item>
@@ -1810,6 +1808,29 @@ QPushButton#assessment_pushButton:pressed{
                           <enum>QFrame::Raised</enum>
                          </property>
                          <layout class="QHBoxLayout" name="horizontalLayout_5">
+                          <item>
+                           <widget class="QPushButton" name="assessment_pushButton">
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QPushButton#assessment_pushButton:hover{
+	color: rgb(145, 173, 179);
+	border-radius: 5px
+}
+QPushButton#assessment_pushButton:pressed{
+	color: rgb(244, 77, 0);
+}
+</string>
+                            </property>
+                            <property name="text">
+                             <string>Pre-
+Assessment</string>
+                            </property>
+                           </widget>
+                          </item>
                           <item>
                            <widget class="QPushButton" name="module1_pushButton">
                             <property name="sizePolicy">
@@ -4267,7 +4288,7 @@ QPushButton#lesson2_1TestpushButton:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>661</width>
+                            <width>440</width>
                             <height>612</height>
                            </rect>
                           </property>
