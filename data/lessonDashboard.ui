@@ -351,7 +351,7 @@ border-radius: 5px;</string>
                    <item>
                     <widget class="QStackedWidget" name="topicPages">
                      <property name="currentIndex">
-                      <number>9</number>
+                      <number>18</number>
                      </property>
                      <widget class="QWidget" name="circlePage_1">
                       <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -407,7 +407,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1146</width>
+                               <width>1166</width>
                                <height>700</height>
                               </rect>
                              </property>
@@ -1257,7 +1257,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1116</width>
-                               <height>3888</height>
+                               <height>3877</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -1265,7 +1265,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_41">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_40" native="true">
@@ -1891,7 +1891,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1113</width>
-                               <height>6055</height>
+                               <height>6044</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -1899,7 +1899,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_63">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_62" native="true">
@@ -2468,7 +2468,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1125</width>
-                               <height>4373</height>
+                               <height>4362</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -2476,7 +2476,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_78">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_77" native="true">
@@ -3003,9 +3003,9 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>0</y>
-                               <width>1139</width>
-                               <height>4821</height>
+                               <y>-526</y>
+                               <width>1166</width>
+                               <height>6346</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -3013,7 +3013,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_126">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_125" native="true">
@@ -3479,6 +3479,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -3517,6 +3520,52 @@ border: 1px solid rgb(0, 0, 0);
                                    </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q1_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_341">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q1Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -3597,6 +3646,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -3632,6 +3684,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q2_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_342">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q2Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -3712,6 +3810,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -3747,6 +3848,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q3_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_350">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q3Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -3833,6 +3980,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -3868,6 +4018,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q4_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_351">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q4Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -3948,6 +4144,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -3983,6 +4182,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q5_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_352">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q5Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -4063,6 +4308,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -4098,6 +4346,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q6_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_353">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q6Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -4178,6 +4472,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -4213,6 +4510,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q7_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_354">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q7Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -4293,6 +4636,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -4328,6 +4674,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q8_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_355">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q8Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -4408,6 +4800,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -4443,6 +4838,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q9_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_356">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q9Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -4523,14 +4964,12 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QWidget" name="widget_260" native="true">
-                                <layout class="QVBoxLayout" name="verticalLayout_243"/>
                                </widget>
                               </item>
                               <item>
@@ -4563,6 +5002,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest1Q10_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_243">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest1Q10Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -4791,8 +5276,8 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1144</width>
-                               <height>3563</height>
+                               <width>1166</width>
+                               <height>3552</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -4800,7 +5285,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_154">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_162" native="true">
@@ -5268,8 +5753,8 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1113</width>
-                               <height>5077</height>
+                               <width>1166</width>
+                               <height>5066</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -5277,7 +5762,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_167">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_175" native="true">
@@ -5648,7 +6133,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1166</width>
-                               <height>3143</height>
+                               <height>3132</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -5656,7 +6141,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_187">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_194" native="true">
@@ -6000,7 +6485,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1166</width>
-                               <height>9300</height>
+                               <height>9289</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -6008,7 +6493,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_192">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_200" native="true">
@@ -6360,7 +6845,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1166</width>
-                               <height>5208</height>
+                               <height>6757</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -6368,7 +6853,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_179">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_157" native="true">
@@ -6661,7 +7146,7 @@ border-radius: 5px;</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:15pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex. V2)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex. V2),(use (+/-) if needed)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                       </property>
                                       <property name="textFormat">
                                        <enum>Qt::RichText</enum>
@@ -6751,6 +7236,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -6789,6 +7277,52 @@ border: 1px solid rgb(0, 0, 0);
                                    </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q1_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_148">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q1Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -6869,6 +7403,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -6904,6 +7441,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q2_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_330">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q2Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -6984,6 +7567,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -7019,6 +7605,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q3_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_331">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q3Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -7099,6 +7731,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -7134,6 +7769,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q4_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_334">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q4Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -7214,6 +7895,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -7249,6 +7933,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q5_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_335">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q5Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -7329,6 +8059,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -7364,6 +8097,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q6_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_336">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q6Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -7444,6 +8223,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -7479,6 +8261,58 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q7_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <property name="baseSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_337">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q7Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -7559,6 +8393,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -7594,6 +8431,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q8_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_338">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q8Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -7674,6 +8557,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -7709,6 +8595,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q9_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_339">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q9Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -7789,6 +8721,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -7824,6 +8759,52 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="unitTest2Q10_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_340">
+                                 <item>
+                                  <widget class="QTextEdit" name="unitTest2Q10Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -8053,7 +9034,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1166</width>
-                               <height>2562</height>
+                               <height>2551</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -8061,7 +9042,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_245">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_262" native="true">
@@ -8239,6 +9220,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -8277,6 +9261,9 @@ border: 1px solid rgb(0, 0, 0);
                                    </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -8357,6 +9344,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -8392,6 +9382,9 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -8472,6 +9465,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -8507,6 +9503,9 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -8587,6 +9586,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -8622,6 +9624,9 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -8702,6 +9707,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -8737,6 +9745,9 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -8906,7 +9917,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_264">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_276" native="true">
@@ -9085,7 +10096,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1166</width>
-                               <height>2517</height>
+                               <height>2506</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -9093,7 +10104,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_300">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_313" native="true">
@@ -9271,6 +10282,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -9309,6 +10323,9 @@ border: 1px solid rgb(0, 0, 0);
                                    </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -9389,6 +10406,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -9424,6 +10444,9 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -9504,6 +10527,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -9539,6 +10565,9 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -9619,6 +10648,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -9654,6 +10686,9 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -9734,6 +10769,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                    </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
                                   </widget>
                                  </item>
                                 </layout>
@@ -9769,6 +10807,9 @@ p, li { white-space: pre-wrap; }
 	color: rgb(0, 0, 0);
 border: 1px solid rgb(0, 0, 0);
 }</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -11328,7 +12369,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1154</width>
+                               <width>1166</width>
                                <height>1664</height>
                               </rect>
                              </property>
@@ -12727,8 +13768,8 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>772</width>
-                               <height>1675</height>
+                               <width>1166</width>
+                               <height>1664</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -12736,7 +13777,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_344">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_366" native="true">
@@ -13974,8 +15015,8 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>772</width>
-                               <height>1675</height>
+                               <width>1166</width>
+                               <height>1664</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -13983,7 +15024,7 @@ border-radius: 5px;</string>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_377">
                               <property name="bottomMargin">
-                               <number>20</number>
+                               <number>9</number>
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_406" native="true">
@@ -15005,6 +16046,1267 @@ border-radius: 5px;</string>
                              <item alignment="Qt::AlignHCenter">
                               <widget class="QWidget" name="widget_468" native="true">
                                <layout class="QVBoxLayout" name="verticalLayout_384"/>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="playground">
+                      <layout class="QVBoxLayout" name="verticalLayout_538">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QWidget" name="widget_455" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_483">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QScrollArea" name="scrollArea_17">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(6, 38, 56);</string>
+                            </property>
+                            <property name="verticalScrollBarPolicy">
+                             <enum>Qt::ScrollBarAsNeeded</enum>
+                            </property>
+                            <property name="horizontalScrollBarPolicy">
+                             <enum>Qt::ScrollBarAsNeeded</enum>
+                            </property>
+                            <property name="widgetResizable">
+                             <bool>true</bool>
+                            </property>
+                            <widget class="QWidget" name="scrollAreaWidgetContents_17">
+                             <property name="geometry">
+                              <rect>
+                               <x>0</x>
+                               <y>-2854</y>
+                               <width>1166</width>
+                               <height>3457</height>
+                              </rect>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">background-color: rgb(255, 255, 255);</string>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_484">
+                              <property name="bottomMargin">
+                               <number>9</number>
+                              </property>
+                              <item>
+                               <widget class="QWidget" name="widget_456" native="true">
+                                <property name="styleSheet">
+                                 <string notr="true"/>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_485">
+                                 <property name="bottomMargin">
+                                  <number>9</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QWidget" name="widget_457" native="true">
+                                   <layout class="QHBoxLayout" name="horizontalLayout_85">
+                                    <property name="spacing">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="leftMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="topMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="rightMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="bottomMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <item>
+                                     <widget class="QWidget" name="widget_458" native="true">
+                                      <layout class="QVBoxLayout" name="verticalLayout_486">
+                                       <item>
+                                        <widget class="QLabel" name="label_136">
+                                         <property name="font">
+                                          <font>
+                                           <pointsize>20</pointsize>
+                                          </font>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true"/>
+                                         </property>
+                                         <property name="text">
+                                          <string>Playground Tests</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                      </layout>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QWidget" name="widget_459" native="true">
+                                      <layout class="QVBoxLayout" name="verticalLayout_487">
+                                       <item>
+                                        <widget class="QLabel" name="label_137">
+                                         <property name="font">
+                                          <font>
+                                           <pointsize>20</pointsize>
+                                          </font>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true">color: rgb(0, 0, 0);</string>
+                                         </property>
+                                         <property name="text">
+                                          <string>Conic Sections and System of Nonlinear Equations</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                      </layout>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QWidget" name="showScore2_widget_2" native="true">
+                                   <layout class="QHBoxLayout" name="horizontalLayout_103">
+                                    <property name="spacing">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="leftMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="topMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="rightMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="bottomMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <item>
+                                     <widget class="QFrame" name="frame_15">
+                                      <property name="frameShape">
+                                       <enum>QFrame::StyledPanel</enum>
+                                      </property>
+                                      <property name="frameShadow">
+                                       <enum>QFrame::Raised</enum>
+                                      </property>
+                                      <layout class="QVBoxLayout" name="verticalLayout_488">
+                                       <item>
+                                        <widget class="QLabel" name="label_181">
+                                         <property name="font">
+                                          <font>
+                                           <pointsize>20</pointsize>
+                                          </font>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true"/>
+                                         </property>
+                                         <property name="text">
+                                          <string>Score in Playground Tests</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                      </layout>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QFrame" name="frame_16">
+                                      <property name="frameShape">
+                                       <enum>QFrame::StyledPanel</enum>
+                                      </property>
+                                      <property name="frameShadow">
+                                       <enum>QFrame::Raised</enum>
+                                      </property>
+                                      <layout class="QVBoxLayout" name="verticalLayout_489">
+                                       <item>
+                                        <widget class="QLabel" name="playground_label">
+                                         <property name="font">
+                                          <font>
+                                           <pointsize>20</pointsize>
+                                          </font>
+                                         </property>
+                                         <property name="styleSheet">
+                                          <string notr="true"/>
+                                         </property>
+                                         <property name="text">
+                                          <string/>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                      </layout>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QWidget" name="showlessonScore2_widget_2" native="true">
+                                   <layout class="QVBoxLayout" name="verticalLayout_490">
+                                    <property name="spacing">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="leftMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="topMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="rightMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="bottomMargin">
+                                     <number>0</number>
+                                    </property>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QWidget" name="widget_471" native="true">
+                                   <layout class="QVBoxLayout" name="verticalLayout_492">
+                                    <item>
+                                     <widget class="QLabel" name="label_138">
+                                      <property name="font">
+                                       <font>
+                                        <pointsize>15</pointsize>
+                                       </font>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true"/>
+                                      </property>
+                                      <property name="text">
+                                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:15pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex. V2),(use (+/-) if needed)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                      </property>
+                                      <property name="textFormat">
+                                       <enum>Qt::RichText</enum>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_488" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_493">
+                                 <item>
+                                  <widget class="QLabel" name="playgroundQ1_label">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#0000ff;&quot;&gt;1)&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;aa&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Use substition method to solve the system.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;4x + y = 6&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;5x + 3y = 4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_489" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_494">
+                                 <item>
+                                  <widget class="QLabel" name="sol11_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true"/>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Show your Solution:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_490" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true"/>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_495">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ1Sol_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ1Sol_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="html">
+                                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_491" native="true">
+                                <layout class="QHBoxLayout" name="horizontalLayout_106">
+                                 <item>
+                                  <widget class="QLabel" name="ans11_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Answer:</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="playgroundQ1Ans_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ1Ans_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="playgroundQ1_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_496">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ1Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_492" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_497">
+                                 <item>
+                                  <widget class="QLabel" name="playgroundQ2_label">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;2)&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aa&lt;/span&gt;Solve the system using substitution method.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;-x&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; + y + 3 = 7&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;5 = y - x&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; + 7x&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_493" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_498">
+                                 <item>
+                                  <widget class="QLabel" name="sol12_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true"/>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Show your Solution:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_494" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_499">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ2Sol_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ2Sol_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="html">
+                                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_495" native="true">
+                                <layout class="QHBoxLayout" name="horizontalLayout_107">
+                                 <item>
+                                  <widget class="QLabel" name="ans12_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Answer:</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="playgroundQ2Ans_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ2Ans_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="playgroundQ2_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_500">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ2Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_496" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_501">
+                                 <item>
+                                  <widget class="QLabel" name="playgroundQ3_label">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;3)&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aa&lt;/span&gt;Solve the following system using Substitution.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;4y = x&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; + 2x&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;y&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt;= 36&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_497" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_502">
+                                 <item>
+                                  <widget class="QLabel" name="sol13_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true"/>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Show your Solution:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_498" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_503">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ3Sol_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ3Sol_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="html">
+                                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_499" native="true">
+                                <layout class="QHBoxLayout" name="horizontalLayout_108">
+                                 <item>
+                                  <widget class="QLabel" name="ans13_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Answer:</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="playgroundQ3Ans_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ3Ans_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="playgroundQ3_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_504">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ3Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_500" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_505">
+                                 <item>
+                                  <widget class="QLabel" name="playgroundQ4_label">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;4)&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aa&lt;/span&gt;Use substitution method to solve the system.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;y&lt;span style=&quot; vertical-align:super;&quot;&gt;2 &lt;/span&gt;+ x&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; + 6x =18&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;y&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt;= x&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; - 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_501" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_506">
+                                 <item>
+                                  <widget class="QLabel" name="sol14_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true"/>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Show your Solution:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_502" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_507">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ4Sol_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ4Sol_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="html">
+                                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_503" native="true">
+                                <layout class="QHBoxLayout" name="horizontalLayout_109">
+                                 <item>
+                                  <widget class="QLabel" name="ans14_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Answer:</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="playgroundQ4Ans_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ4Ans_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="playgroundQ4_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_508">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ4Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_504" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_509">
+                                 <item>
+                                  <widget class="QLabel" name="playgroundQ5_label">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;5)&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aa&lt;/span&gt;Solve the following sytem using Substitution method.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;9x&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; + 4y&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; = 36&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;aaaa&lt;/span&gt;x = 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_505" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_510">
+                                 <item>
+                                  <widget class="QLabel" name="sol15_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true"/>
+                                   </property>
+                                   <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Show your Solution:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="textFormat">
+                                    <enum>Qt::RichText</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_506" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_511">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ5Sol_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ5Sol_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="html">
+                                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your complete solution here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_507" native="true">
+                                <layout class="QHBoxLayout" name="horizontalLayout_111">
+                                 <item>
+                                  <widget class="QLabel" name="ans15_label_2">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Answer:</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="playgroundQ5Ans_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">#playgroundQ5Ans_textEdit{
+	color: rgb(0, 0, 0);
+border: 1px solid rgb(0, 0, 0);
+}</string>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Your answer here.</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="playgroundQ5_ans_widget" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>150</height>
+                                 </size>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_512">
+                                 <item>
+                                  <widget class="QTextEdit" name="playgroundQ5Ai_textEdit">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>15</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                                   </property>
+                                   <property name="horizontalScrollBarPolicy">
+                                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                                   </property>
+                                   <property name="readOnly">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="textInteractionFlags">
+                                    <set>Qt::NoTextInteraction</set>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>This Blank is normal</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QWidget" name="widget_528" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_533">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QStackedWidget" name="playgroundSubmit_container">
+                                   <property name="currentIndex">
+                                    <number>0</number>
+                                   </property>
+                                   <widget class="QWidget" name="page_6">
+                                    <layout class="QVBoxLayout" name="verticalLayout_534">
+                                     <item alignment="Qt::AlignHCenter">
+                                      <widget class="QWidget" name="widget_529" native="true">
+                                       <layout class="QVBoxLayout" name="verticalLayout_535">
+                                        <item>
+                                         <widget class="QPushButton" name="submitPlayground_Button">
+                                          <property name="font">
+                                           <font>
+                                            <pointsize>20</pointsize>
+                                           </font>
+                                          </property>
+                                          <property name="styleSheet">
+                                           <string notr="true">#submitPlayground_Button{
+	color: rgb(0, 0, 0);
+	border-radius: 8px;
+	background-color: rgb(0, 218, 0);
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;	
+}
+#submitPlayground_Button:hover{
+	background-color: rgb(107, 255, 97);
+}
+#submitPlayground_Button:pressed{
+	background-color: rgb(0, 154, 0);
+}</string>
+                                          </property>
+                                          <property name="text">
+                                           <string>Submit</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                       </layout>
+                                      </widget>
+                                     </item>
+                                    </layout>
+                                   </widget>
+                                   <widget class="QWidget" name="page_7">
+                                    <layout class="QVBoxLayout" name="verticalLayout_536">
+                                     <item alignment="Qt::AlignHCenter">
+                                      <widget class="QWidget" name="widget_530" native="true">
+                                       <layout class="QVBoxLayout" name="verticalLayout_537">
+                                        <item>
+                                         <widget class="QPushButton" name="playgroundBack_Button">
+                                          <property name="font">
+                                           <font>
+                                            <pointsize>20</pointsize>
+                                           </font>
+                                          </property>
+                                          <property name="styleSheet">
+                                           <string notr="true">#playgroundBack_Button{
+	color: rgb(0, 0, 0);
+	border-radius: 8px;
+	background-color: rgb(0, 218, 0);
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;	
+}
+#playgroundBack_Button:hover{
+	background-color: rgb(107, 255, 97);
+}
+#playgroundBack_Button:pressed{
+	background-color: rgb(0, 154, 0);
+}</string>
+                                          </property>
+                                          <property name="text">
+                                           <string>Back</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                       </layout>
+                                      </widget>
+                                     </item>
+                                    </layout>
+                                   </widget>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QWidget" name="widget_257" native="true">
+                         <property name="styleSheet">
+                          <string notr="true">background-color: rgb(6, 38, 56);
+border-radius: 5px;</string>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_480">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QWidget" name="widget_260" native="true">
+                            <layout class="QHBoxLayout" name="horizontalLayout_84">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item alignment="Qt::AlignHCenter">
+                              <widget class="QWidget" name="widget_347" native="true">
+                               <layout class="QVBoxLayout" name="verticalLayout_481"/>
+                              </widget>
+                             </item>
+                             <item alignment="Qt::AlignHCenter">
+                              <widget class="QWidget" name="widget_354" native="true">
+                               <layout class="QVBoxLayout" name="verticalLayout_482"/>
                               </widget>
                              </item>
                             </layout>

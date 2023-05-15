@@ -120,3 +120,12 @@ def chat(question, answer):
         else: 
             print("incorrect")
             return("incorrect")
+# while True:
+#     question = input("what is the question: ")
+#     answer = input("answer: ")
+#     print(chat(question, answer))
+
+        
+
+
+

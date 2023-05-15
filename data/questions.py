@@ -200,8 +200,8 @@ class display_random_question():
     def to_json(list_of_ans):
         x={}
         x["intents"] = list_of_ans
-        json_object = json.dumps(x, indent = 1)
-        with open("data/intents.json", "w") as outfile:
+        json_object = json.dumps(x, indent = 3)
+        with open("1sample.json", "w") as outfile:
             outfile.write(json_object)
     def pre_assess_circle():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(circle)
@@ -209,15 +209,13 @@ class display_random_question():
         randomize_list = []
         randomize_display_question = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict = {}
-        all_answer_dict = {}
+        all_solution_dict =[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for circle in circle_questions.each():
             randomize_list.append(circle.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))        
+        sampled = (random.sample(randomize_list, 1))        
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -260,10 +258,8 @@ class display_random_question():
                     question_list.append(circle_question)
                     question_list.append(circle_solutionId)
                     question_list.append(circle_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
 
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(parabola)
@@ -272,15 +268,14 @@ class display_random_question():
         randomize_list = []
         randomize_display_question = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict={}
-        all_answer_dict={}
+        all_solution_dict=[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for parabola in parabola_questions.each():
             randomize_list.append(parabola.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -323,10 +318,8 @@ class display_random_question():
                     question_list.append(parabola_question)
                     question_list.append(parabola_solutionId)
                     question_list.append(parabola_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def pre_assess_ellipse():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(ellipse)
@@ -334,15 +327,15 @@ class display_random_question():
         randomize_display_question = []
         randomize_list = []
         question_list =[]
-        try_sol = []
-        try_ans = []
-        all_solution_dict={}
-        all_answer_dict={}
+        all_solution_dict=[]
+        all_answer_dict=[]
+
         # store all circle_questions key on the circle variable
         for ellipse in ellipse_questions.each():
             randomize_list.append(ellipse.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -385,10 +378,8 @@ class display_random_question():
                     question_list.append(ellipse_question)
                     question_list.append(ellipse_solutionId)
                     question_list.append(ellipse_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def pre_assess_hyper():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
@@ -396,15 +387,14 @@ class display_random_question():
         randomize_list = []
         randomize_display_question = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict ={}
-        all_answer_dict={}
+        all_solution_dict =[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for hyperbola in hyperbola_questions.each():
             randomize_list.append(hyperbola.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -449,26 +439,23 @@ class display_random_question():
                     question_list.append(hyperbola_question)
                     question_list.append(hyperbola_solutionId)
                     question_list.append(hyperbola_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def pre_assess_elim():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
         elimination_questions = db.child("precal_questions").child("pre-assess").child("eliminationQuestion").get()
+         
         randomize_display_question = []
         randomize_list = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict={}
-        all_answer_dict={}
+        all_solution_dict=[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for elimination in elimination_questions.each():
             randomize_list.append(elimination.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
 
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
@@ -514,26 +501,23 @@ class display_random_question():
                     question_list.append(elimination_question)
                     question_list.append(elimination_solutionId)
                     question_list.append(elimination_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def pre_assess_subs():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
         substitution_questions = db.child("precal_questions").child("pre-assess").child("substitutionQuestion").get()
+         
         randomize_display_question = []
         randomize_list = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict={}
-        all_answer_dict={}
+        all_solution_dict=[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for substitution in substitution_questions.each():
             randomize_list.append(substitution.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
 
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
@@ -577,27 +561,25 @@ class display_random_question():
                     question_list.append(substitution_question)
                     question_list.append(substitution_solutionId)
                     question_list.append(substitution_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     
     def post_assess_circle():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(circle)
         circle_questions = db.child("precal_questions").child("post-assess").child("circleQuestion").get()
+        
         randomize_list = []
         randomize_display_question = []
         question_list =[]
-        try_sol = []
-        try_ans = []
-        all_solution_dict={}
-        all_answer_dict={}
+        all_solution_dict=[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for circle in circle_questions.each():
             randomize_list.append(circle.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+        
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -640,27 +622,25 @@ class display_random_question():
                     question_list.append(circle_question)
                     question_list.append(circle_solutionId)
                     question_list.append(circle_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
 
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(parabola)
     def post_assess_parabola():
-        parabola_questions = db.child("precal_questions").child("post-assess").child("parabolaQuestion").get()    
+        parabola_questions = db.child("precal_questions").child("post-assess").child("parabolaQuestion").get()
+        
         randomize_list = []
         randomize_display_question = []
         question_list = []
-        try_ans = []
-        try_sol =[]
-        all_solution_dict={}
-        all_answer_dict={}
+        all_solution_dict=[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for parabola in parabola_questions.each():
             randomize_list.append(parabola.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -704,10 +684,8 @@ class display_random_question():
                     question_list.append(parabola_question)
                     question_list.append(parabola_solutionId)
                     question_list.append(parabola_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
 
     def post_assess_ellipse():
@@ -716,15 +694,14 @@ class display_random_question():
         randomize_display_question = []        
         randomize_list = []
         question_list = []
-        try_sol =[]
-        try_ans =[]
-        all_solution_dict={}
-        all_answer_dict={}
+        all_solution_dict=[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for ellipse in ellipse_questions.each():
             randomize_list.append(ellipse.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -768,10 +745,8 @@ class display_random_question():
                     question_list.append(ellipse_question)
                     question_list.append(ellipse_solutionId)
                     question_list.append(ellipse_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def post_assess_hyper():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
@@ -779,15 +754,14 @@ class display_random_question():
         randomize_list = []
         randomize_display_question = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict ={}
-        all_answer_dict={}
+        all_solution_dict =[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for hyperbola in hyperbola_questions.each():
             randomize_list.append(hyperbola.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -831,10 +805,8 @@ class display_random_question():
                     question_list.append(hyperbola_question)
                     question_list.append(hyperbola_solutionId)
                     question_list.append(hyperbola_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def post_assess_elim():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
@@ -842,15 +814,14 @@ class display_random_question():
         randomize_display_question = []
         randomize_list = []
         question_list = []
-        try_sol = []
-        try_ans =[]
-        all_solution_dict={}
-        all_answer_dict={}
+        all_solution_dict=[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for elimination in elimination_questions.each():
             randomize_list.append(elimination.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -895,10 +866,8 @@ class display_random_question():
                     question_list.append(elimination_question)
                     question_list.append(elimination_solutionId)
                     question_list.append(elimination_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def post_assess_subs():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
@@ -906,15 +875,14 @@ class display_random_question():
         randomize_display_question = []
         randomize_list = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict ={}
-        all_answer_dict={}
+        all_solution_dict =[]
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for substitution in substitution_questions.each():
             randomize_list.append(substitution.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 1))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -957,10 +925,8 @@ class display_random_question():
                     question_list.append(substitution_question)
                     question_list.append(substitution_solutionId)
                     question_list.append(substitution_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def unit_test_elim():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
@@ -968,15 +934,14 @@ class display_random_question():
         randomize_display_question = []
         randomize_list = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict = {}
-        all_answer_dict={}
+        all_solution_dict = []
+        all_answer_dict=[]
         # store all circle_questions key on the circle variable
         for elimination in elimination_questions.each():
             randomize_list.append(elimination.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 5))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -1021,10 +986,8 @@ class display_random_question():
                     question_list.append(elimination_question)
                     question_list.append(elimination_solutionId)
                     question_list.append(elimination_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def unit_test_subs():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
@@ -1032,15 +995,13 @@ class display_random_question():
         randomize_display_question = []
         randomize_list = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict ={}
-        all_answer_dict ={}
+        all_solution_dict =[]
+        all_answer_dict =[]
         # store all circle_questions key on the circle variable
         for substitution in substitution_questions.each():
             randomize_list.append(substitution.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 5))
 
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
@@ -1085,10 +1046,8 @@ class display_random_question():
                     question_list.append(substitution_question)
                     question_list.append(substitution_solutionId)
                     question_list.append(substitution_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def unit_test_circle():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(circle)
@@ -1096,15 +1055,15 @@ class display_random_question():
         randomize_list = []
         randomize_display_question = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict ={}
-        all_answer_dict = {}
+        all_solution_dict =[]
+        all_answer_dict = []
+
         # store all circle_questions key on the circle variable
         for circle in circle_questions.each():
             randomize_list.append(circle.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 3))
+        
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -1148,10 +1107,8 @@ class display_random_question():
                     question_list.append(circle_question)
                     question_list.append(circle_solutionId)
                     question_list.append(circle_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
 
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(parabola)
@@ -1160,15 +1117,15 @@ class display_random_question():
         randomize_list = []
         randomize_display_question = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict ={}
-        all_answer_dict = {}
+        all_solution_dict =[]
+        all_answer_dict = []
+
         # store all circle_questions key on the circle variable
         for parabola in parabola_questions.each():
             randomize_list.append(parabola.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 3))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -1211,10 +1168,8 @@ class display_random_question():
                     question_list.append(parabola_question)
                     question_list.append(parabola_solutionId)
                     question_list.append(parabola_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def unit_test_ellipse():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(ellipse)
@@ -1222,15 +1177,15 @@ class display_random_question():
         randomize_display_question = []        
         randomize_list = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict = {}
-        all_answer_dict = {}
+        all_solution_dict = []
+        all_answer_dict = []
+
         # store all circle_questions key on the circle variable
         for ellipse in ellipse_questions.each():
             randomize_list.append(ellipse.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 3))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -1276,10 +1231,8 @@ class display_random_question():
                     question_list.append(ellipse_question)
                     question_list.append(ellipse_solutionId)
                     question_list.append(ellipse_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
     def unit_test_hyper():
         # FETCH RANDOMIZED QUESTIONS FOR PRE-ASSESSMENT(hyperbola)
@@ -1287,15 +1240,14 @@ class display_random_question():
         randomize_list = []
         randomize_display_question = []
         question_list = []
-        try_sol = []
-        try_ans = []
-        all_solution_dict = {}
-        all_answer_dict = {}
+        all_solution_dict = []
+        all_answer_dict = []
         # store all circle_questions key on the circle variable
         for hyperbola in hyperbola_questions.each():
             randomize_list.append(hyperbola.key())
         # specify how many will questions will be generated, here we use 1
-        sampled = (random.sample(randomize_list, len(randomize_list)))
+        sampled = (random.sample(randomize_list, 3))
+
         # store all the randomized questions to be displayed
         randomize_display_question.append(sampled)
 
@@ -1342,8 +1294,136 @@ class display_random_question():
                     question_list.append(hyperbola_question)
                     question_list.append(hyperbola_solutionId)
                     question_list.append(hyperbola_answerId)
-                    try_sol.append(solution_dict)
-                    try_ans.append(answer_dict)
-        all_answer_dict["item"] = try_ans
-        all_solution_dict["item"] = try_sol
+                    all_solution_dict.append(solution_dict)
+                    all_answer_dict.append(answer_dict)
         return all_answer_dict, all_solution_dict, question_list
+    
+# 6 question for unitTest2 elim and subs
+# 3 questions for unitTest1 circ,para,ellip,hyper
+# 2 questions for pre-Assess circ,para,ellip,hyper,elim and subs
+# 2 questions for post-assess circ,para,ellip,hyper,elim and subs
+
+
+
+# 28
+#  IF USER WILL CREATE THEIR OWN PRE-CAL QUESTIONS
+
+# circle_1_question = "Write the circle equation in standard form. x^2 + y^2 - 6x + 8y + 4 = 0"
+# circle_1_answer1 = "(x-3)^2+(y+4)^2=21"
+# circle_1_answer2 = "-"
+# circle_1_solution1 = "x^2-6x+y^2+8y=-4 x^2-6x+9+y^2+8y+16=-4+9+16 (x-3)^2+(y+4)^2=21"
+# circle_1_solution2 = "-"
+# questionId = "circle_27_question"
+# checkId = "active"
+# answerId = "question_27_answer"
+# answer_num = "1"
+# solutionId = "question_27_solution"
+# sol_num = "2"
+
+# data ={"questionId":questionId,"circle_1_question":circle_1_question,
+#        "circle_1_solution1": circle_1_solution1,"circle_1_solution2": circle_1_solution2,
+#        "circle_1_answer1":circle_1_answer1, "circle_1_answer2":circle_1_answer2, 
+#        "isActive":checkId, "answerId":answerId, "answer_num":answer_num, "solutionId":solutionId, 
+#        "sol_num":sol_num}
+# db.child("precal_questions").child("post-assess").child("circleQuestion").push(data)
+# print("completed")
+
+# parabola_question = "Find the center of this ellipse. ((x^2/49) + (y^2/169)) = 1"
+# parabola_answer1 = "center(0,0)"
+# parabola_answer2 = "0,0"
+# parabola_solution1 = "h=0 k=0"
+# parabola_solution2 = "(x-h)^2 /a^2 + (y-k)^2/b^2 =1"
+# questionId = "question_21"
+# checkId = "active"
+# answerId = "question_21_answer"
+# answer_num = "2"
+# solutionId = "question_20_solution"
+# sol_num = "2"
+
+# data ={"questionId":questionId,"parabola_question":parabola_question,
+#        "parabola_solution1": parabola_solution1,"parabola_solution2": parabola_solution2,"parabola_answer1":parabola_answer1,
+#        "parabola_answer2":parabola_answer2, "isActive":checkId, "answerId":answerId,
+#        "answer_num":answer_num, "solutionId":solutionId, "sol_num":sol_num}
+# db.child("precal_questions").child("pre-assess").child("parabolaQuestion").push(data)
+# print("completed")
+
+# ellipse_question = "Find the center of this ellipse. ((x^2/49) + (y^2/169)) = 1"
+# ellipse_answer1 = "center(0,0)"
+# ellipse_answer2 = "0,0"
+# ellipse_solution1 = "h=0 k=0"
+# ellipse_solution2 = "(x-h)^2 /a^2 + (y-k)^2/b^2 =1"
+# questionId = "question_21"
+# checkId = "active"
+# answerId = "question_21_answer"
+# answer_num = "2"
+# solutionId = "question_21_solution"
+# sol_num = "2"
+
+# data ={"questionId":questionId,"ellipse_question":ellipse_question,
+#        "ellipse_solution1": ellipse_solution1,"ellipse_solution2": ellipse_solution2,"ellipse_answer1":ellipse_answer1,
+#        "ellipse_answer2":ellipse_answer2, "isActive":checkId, "answerId":answerId,
+#        "answer_num":answer_num, "solutionId":solutionId, "sol_num":sol_num}
+# db.child("precal_questions").child("pre-assess").child("ellipseQuestion").push(data)
+# print("completed")
+
+# hyperbola_question = "Simplify the hyperbolic equation to standard form. 4x^2 - 5y^2 + 32x + 30y = 1"
+# hyperbola_answer1 = "(x+4)^2/5-(y-3)^2/4=1"
+# hyperbola_answer2 = "(x+4)^2/5-(y-3)^2/4=1"
+# hyperbola_solution1 = "4(x^2+8x)-5(y^2-6y)=1 4(x^2+8x+16)-5(y^2-6y+9)=1+4(16)-5(9) 4(x+4)^2-5(y-3)^2=20 (x+4)^2/5-(y-3)^2/4=1"
+# hyperbola_solution2 = "-"
+# questionId = "question_26"
+# checkId = "active"
+# answerId = "question_26_answer"
+# answer_num = "2"
+# solutionId = "question_26_solution"
+# sol_num = "1"
+
+# data ={"questionId":questionId,"hyperbola_question":hyperbola_question,
+#        "hyperbola_solution1": hyperbola_solution1,"hyperbola_solution2": hyperbola_solution2,
+#        "hyperbola_answer1":hyperbola_answer1, "hyperbola_answer2":hyperbola_answer2,
+#        "isActive":checkId, "answerId":answerId, "answer_num":answer_num, 
+#        "solutionId":solutionId, "sol_num":sol_num}
+# db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").push(data)
+# print("completed")
+
+# elimination_question = "Use Elimination method to solve the system. y^2 - 4x - 6y = 11, 4(3-x) = (y-3)^2"
+# elimination_answer1 = "(-1,7),(-1,-1)"
+# elimination_answer2 = "(-1,7),(-1,-1)"
+# elimination_solution1 = "4(3-x)=(y-3)^2 12-4x=y^2-6y+9 y^2+4x-6y=3 y^2-4x-6y=11 y^2-4x-6y=3 2y^2-12y=14 y^2-6y-7=0 (y-7)(y+1)=0 y=7 y=-1 x=3-((y-3)^2/4) y=7 x=-1 y=-1 x=-1"
+# elimination_solution2 = "-"
+# questionId = "question_29"
+# checkId = "active"
+# answerId = "question_29_answer"
+# answer_num = "2"
+# solutionId = "question_29_solution"
+# sol_num = "1"
+
+# data ={"questionId":questionId,"elimination_question":elimination_question,
+#        "elimination_solution1": elimination_solution1,"elimination_solution2": elimination_solution2,
+#        "elimination_answer1":elimination_answer1, "elimination_answer2":elimination_answer2,
+#        "isActive":checkId, "answerId":answerId, "answer_num":answer_num, 
+#        "solutionId":solutionId, "sol_num":sol_num}
+# db.child("precal_questions").child("post-assess").child("eliminationQuestion").push(data)
+# print("completed")
+
+# substitution_question = "Find the center and radius of this circle. x^2 + y^2 - 6x = 7"
+# substitution_answer1 = "center(3,0) radius=4"
+# substitution_answer2 = "center(3,0) r=4"
+# substitution_answer3 = "c=(3,0) r=4"
+# substitution_answer4 = "(3,0) r=4"
+# substitution_solution1 = "x^2+y^2-6x=7 x^2-6x+9+y^2=7+9 (x-3)^2+y^2=16"
+# substitution_solution2 = "-"
+# questionId = "question_30"
+# checkId = "active"
+# answerId = "question_30_answer"
+# answer_num = "2"
+# solutionId = "question_30_solution"
+# sol_num = "2"
+
+# data ={"questionId":questionId,"substitution_question":substitution_question,
+#        "substitution_solution1": substitution_solution1,"substitution_solution2": substitution_solution2,
+#        "substitution_answer1":substitution_answer1,"substitution_answer2":substitution_answer2, 
+#        "isActive":checkId, "answerId":answerId, "answer_num":answer_num, 
+#        "solutionId":solutionId, "sol_num":sol_num}
+# db.child("precal_questions").child("post-assess").child("substitutionQuestion").push(data)
+# print("completed")
