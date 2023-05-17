@@ -174,7 +174,11 @@ QPushButton#updateStudButton:pressed,#backButton:pressed,#updateTeachButton:pres
                     </font>
                    </property>
                    <property name="text">
-                    <string>Student Information Update</string>
+                    <string>Student Information 
+Update</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
@@ -470,55 +474,6 @@ margin-right:30px;</string>
                          </layout>
                         </widget>
                        </item>
-                       <item>
-                        <widget class="QLineEdit" name="updStudSchool_lineEdit">
-                         <property name="font">
-                          <font>
-                           <pointsize>10</pointsize>
-                          </font>
-                         </property>
-                         <property name="toolTip">
-                          <string>Required*</string>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="placeholderText">
-                          <string>School:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QWidget" name="studWarnSchoolContainer" native="true">
-                         <layout class="QVBoxLayout" name="verticalLayout_18">
-                          <property name="leftMargin">
-                           <number>0</number>
-                          </property>
-                          <item>
-                           <widget class="QLabel" name="label_17">
-                            <property name="font">
-                             <font>
-                              <family>MS Shell Dlg 2</family>
-                              <pointsize>10</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your School&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                            </property>
-                            <property name="textFormat">
-                             <enum>Qt::RichText</enum>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
                       </layout>
                      </widget>
                     </item>
@@ -766,7 +721,11 @@ margin-right:30px;</string>
                     </font>
                    </property>
                    <property name="text">
-                    <string>Teacher Information Update</string>
+                    <string>Teacher Information
+ Update</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
@@ -1050,55 +1009,6 @@ margin-right:30px;</string>
                             </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your Last Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                            </property>
-                            <property name="textFormat">
-                             <enum>Qt::RichText</enum>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLineEdit" name="updTeachSchool_lineEdit">
-                         <property name="font">
-                          <font>
-                           <pointsize>10</pointsize>
-                          </font>
-                         </property>
-                         <property name="toolTip">
-                          <string>Required*</string>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="placeholderText">
-                          <string>School:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QWidget" name="teachWarnSchoolContainer" native="true">
-                         <layout class="QVBoxLayout" name="verticalLayout_64">
-                          <property name="leftMargin">
-                           <number>0</number>
-                          </property>
-                          <item>
-                           <widget class="QLabel" name="label_30">
-                            <property name="font">
-                             <font>
-                              <family>MS Shell Dlg 2</family>
-                              <pointsize>10</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your School&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                             <property name="textFormat">
                              <enum>Qt::RichText</enum>

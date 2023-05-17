@@ -1886,7 +1886,7 @@ margin-right: 25px;</string>
                                    <property name="geometry">
                                     <rect>
                                      <x>0</x>
-                                     <y>-1708</y>
+                                     <y>0</y>
                                      <width>642</width>
                                      <height>2244</height>
                                     </rect>
@@ -2039,7 +2039,7 @@ gridline-color: rgb(255, 255, 255);
                                                     <number>0</number>
                                                    </property>
                                                    <property name="columnCount">
-                                                    <number>11</number>
+                                                    <number>10</number>
                                                    </property>
                                                    <attribute name="horizontalHeaderDefaultSectionSize">
                                                     <number>200</number>
@@ -2155,25 +2155,6 @@ gridline-color: rgb(255, 255, 255);
                                                    <column>
                                                     <property name="text">
                                                      <string>Section</string>
-                                                    </property>
-                                                    <property name="font">
-                                                     <font>
-                                                      <pointsize>15</pointsize>
-                                                     </font>
-                                                    </property>
-                                                    <property name="foreground">
-                                                     <brush brushstyle="SolidPattern">
-                                                      <color alpha="255">
-                                                       <red>0</red>
-                                                       <green>0</green>
-                                                       <blue>0</blue>
-                                                      </color>
-                                                     </brush>
-                                                    </property>
-                                                   </column>
-                                                   <column>
-                                                    <property name="text">
-                                                     <string>School</string>
                                                     </property>
                                                     <property name="font">
                                                      <font>
@@ -5603,7 +5584,7 @@ border-radius:10px;</string>
                                </layout>
                               </widget>
                              </item>
-                             <item>
+                             <item alignment="Qt::AlignTop">
                               <widget class="QFrame" name="frame_38">
                                <property name="frameShape">
                                 <enum>QFrame::StyledPanel</enum>
@@ -5880,133 +5861,6 @@ p, li { white-space: pre-wrap; }
                                             <font>
                                              <pointsize>11</pointsize>
                                             </font>
-                                           </property>
-                                           <property name="readOnly">
-                                            <bool>true</bool>
-                                           </property>
-                                           <property name="html">
-                                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                           </property>
-                                          </widget>
-                                         </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                     </layout>
-                                    </widget>
-                                   </item>
-                                   <item>
-                                    <widget class="QFrame" name="frame_18">
-                                     <property name="frameShape">
-                                      <enum>QFrame::StyledPanel</enum>
-                                     </property>
-                                     <property name="frameShadow">
-                                      <enum>QFrame::Raised</enum>
-                                     </property>
-                                     <layout class="QHBoxLayout" name="horizontalLayout_4">
-                                      <property name="spacing">
-                                       <number>0</number>
-                                      </property>
-                                      <property name="leftMargin">
-                                       <number>0</number>
-                                      </property>
-                                      <property name="topMargin">
-                                       <number>0</number>
-                                      </property>
-                                      <property name="rightMargin">
-                                       <number>0</number>
-                                      </property>
-                                      <property name="bottomMargin">
-                                       <number>0</number>
-                                      </property>
-                                      <item>
-                                       <widget class="QFrame" name="frame_26">
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_61">
-                                         <property name="spacing">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="leftMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="topMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="rightMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="bottomMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_3">
-                                           <property name="font">
-                                            <font>
-                                             <pointsize>11</pointsize>
-                                            </font>
-                                           </property>
-                                           <property name="text">
-                                            <string>School: </string>
-                                           </property>
-                                          </widget>
-                                         </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_25">
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_36">
-                                         <property name="spacing">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="leftMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="topMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="rightMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="bottomMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QTextEdit" name="profSchoolLineEdit">
-                                           <property name="sizePolicy">
-                                            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                                             <horstretch>0</horstretch>
-                                             <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                           </property>
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>25</height>
-                                            </size>
-                                           </property>
-                                           <property name="font">
-                                            <font>
-                                             <pointsize>11</pointsize>
-                                            </font>
-                                           </property>
-                                           <property name="sizeAdjustPolicy">
-                                            <enum>QAbstractScrollArea::AdjustToContents</enum>
                                            </property>
                                            <property name="readOnly">
                                             <bool>true</bool>
