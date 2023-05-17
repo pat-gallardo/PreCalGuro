@@ -43,7 +43,7 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "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"
 idKey = ""
 submit_unit1 = False
 submit_unit2 = False
@@ -64,7 +64,6 @@ pre_count = ""
 post_count = ""
 studKey = ""
 willLogout = 0
-
 
 firebaseConfig = { "apiKey": "AIzaSyDyihbb440Vb2o0CIMINI_UfQLRln0uvXs",
   "authDomain": "mathguro-46712.firebaseapp.com",
@@ -297,7 +296,6 @@ class toStudRegister(QMainWindow):
         self.warningFname.setVisible(False)
         self.warningLname.setVisible(False)
         self.warningYrSec.setVisible(False)
-        self.warningSchool.setVisible(False)
         self.warningEmail.setVisible(False)
         self.warningPass.setVisible(False)
         self.warningContainer.setVisible(False)
@@ -325,6 +323,9 @@ class toStudRegister(QMainWindow):
         self.offset = None
         super().mouseReleaseEvent(event)
 
+    def num_there(s):
+        return any(i.isdigit() for i in s)
+
     def register(self):
         self.fnameError = 0
         self.lnameError = 0
@@ -338,7 +339,6 @@ class toStudRegister(QMainWindow):
         fname = self.studFirst_lineEdit.text()
         mname = self.studMiddle_lineEdit.text()
         lname = self.studLast_lineEdit.text()
-        school = self.studSchool_lineEdit.text()
         section = self.studSec_comboBox.currentText()
         course = self.studGrd_comboBox.currentText()
         year = self.studYr_comboBox.currentText()
@@ -346,6 +346,8 @@ class toStudRegister(QMainWindow):
         isActive = "1"
         email = self.studEmail_lineEdit.text()
         password = self.studPass_lineEdit.text()
+        length_of_pass = len(password)+1
+        check_if_num_is_there = toStudRegister.num_there(password)
 
         all_students = db.child("student").get()
         for student in all_students.each():
@@ -360,11 +362,9 @@ class toStudRegister(QMainWindow):
             self.lnameError = 1
         if section == "Section" or year == "Year" or course == "Strand":
             self.yrSecError = 1
-        if school == "":
-            self.schoolError = 1
         if email == "" :
             self.emailError = 1
-        if password == "" or password.isdigit() == False or len(password)+1 < 8:
+        if password == "" or length_of_pass < 8 or check_if_num_is_there == False:
             self.passError = 1
         if studentSchoolID == "":
             self.studIDError = 1
@@ -376,9 +376,7 @@ class toStudRegister(QMainWindow):
         if self.lnameError == 1:
             self.warningLname.setVisible(True)
         if self.yrSecError == 1:
-            self.warningYrSec.setVisible(True)
-        if self.schoolError == 1:
-            self.warningSchool.setVisible(True)        
+            self.warningYrSec.setVisible(True)      
         if self.emailError == 1:
             self.warningEmail.setVisible(True)
         if self.passError == 1:
@@ -386,8 +384,8 @@ class toStudRegister(QMainWindow):
         if self.studIDError == 1:
             self.warningStudID.setVisible(True)
 
-        if self.fnameError == 1 or self.lnameError == 1 or self.yrSecError == 1 or self.schoolError == 1 or self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1:
-            self.frame.setGeometry(QtCore.QRect(40, 50, 295, 680))
+        if self.fnameError == 1 or self.lnameError == 1 or self.yrSecError == 1 or self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1:
+            self.frame.setGeometry(QtCore.QRect(40, 50, 295, 580))
             self.warningContainer.setVisible(True)
             self.warningContainerMenu.setCurrentIndex(0)
             self.fnameError = 0
@@ -404,14 +402,13 @@ class toStudRegister(QMainWindow):
             self.studFirst_lineEdit.clear()
             self.studMiddle_lineEdit.clear()
             self.studLast_lineEdit.clear()
-            self.studSchool_lineEdit.clear()
             self.studSchoolID_lineEdit.clear()
             self.studEmail_lineEdit.clear()
             self.studPass_lineEdit.clear()
             reigster= auth.create_user_with_email_and_password(email, password)
             
             data ={"fname":fname,"mname":mname,"lname":lname, "course":course
-       ,"year":year,"section":section,"studentSchoolID":studentSchoolID,"school":school,"email":email
+       ,"year":year,"section":section,"studentSchoolID":studentSchoolID,"email":email
        ,"isActive":isActive, "assessment_score":"0", "assessment_count":"0", "post_assessment_count":"0","post_assessment_score":"0", "post_assessment_score1":"0",
        "assessment_score1":"0","unitTest1_score":"0", "unitTest2_score":"0"}
             db.child("student").push(data)
@@ -584,7 +581,6 @@ class toTeachRegister(QMainWindow):
         self.warningFname.setVisible(False)
         self.warningLname.setVisible(False)
         self.warningYrSec.setVisible(False)
-        self.warningSchool.setVisible(False)
         self.warningEmail.setVisible(False)
         self.warningPass.setVisible(False)
         self.warningContainer.setVisible(False)
@@ -623,14 +619,14 @@ class toTeachRegister(QMainWindow):
         fname = self.teachFirst_lineEdit.text()
         mname = self.teachMiddle_lineEdit.text()
         lname = self.teachLast_lineEdit.text()
-        school = self.teachSchool_lineEdit.text()
         teachSchoolID = self.teachID_lineEdit.text()
         course = self.teachGrd_comboBox.currentText()
         isActive = "1"
 
         email = self.teachEmail_lineEdit.text()
         password = self.teachPass_lineEdit.text()
-
+        length_of_pass = len(password)+1
+        check_if_num_is_there = toStudRegister.num_there(password)
         all_teacher = db.child("teacher").get()
         for teacher in all_teacher.each():
             if teacher.val()["email"] == email:
@@ -644,11 +640,9 @@ class toTeachRegister(QMainWindow):
             self.lnameError = 1
         if teachSchoolID == "" or course == "Course":
             self.teachIDError = 1
-        if school == "":
-            self.schoolError = 1
         if email == "":
             self.emailError = 1
-        if password == "" or password.isdigit() == False or len(password)+1 < 8:
+        if password == "" or length_of_pass < 8 or check_if_num_is_there == False:
             self.passError = 1
 
         if self.emailCheck_ifPair == 1:
@@ -658,16 +652,14 @@ class toTeachRegister(QMainWindow):
         if self.lnameError == 1:
             self.warningLname.setVisible(True)
         if self.teachIDError == 1:
-            self.warningYrSec.setVisible(True)
-        if self.schoolError == 1:
-            self.warningSchool.setVisible(True)        
+            self.warningYrSec.setVisible(True)     
         if self.emailError == 1:
             self.warningEmail.setVisible(True)
         if self.passError == 1:
             self.warningPass.setVisible(True)  
 
-        if self.fnameError == 1 or self.lnameError == 1 or self.teachIDError == 1 or self.schoolError == 1 or self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1:
-            self.frame.setGeometry(QtCore.QRect(50, 30, 295,680))
+        if self.fnameError == 1 or self.lnameError == 1 or self.teachIDError == 1 or self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1:
+            self.frame.setGeometry(QtCore.QRect(50, 30, 295,580))
             self.warningContainer.setVisible(True)
             self.warningContainerMenu.setCurrentIndex(0)
 
@@ -684,7 +676,6 @@ class toTeachRegister(QMainWindow):
             self.teachFirst_lineEdit.clear()
             self.teachMiddle_lineEdit.clear()
             self.teachLast_lineEdit.clear()
-            self.teachSchool_lineEdit.clear()
             self.teachSec_lineEdit.clear()
             self.teachSchoolID_lineEdit.clear()
             self.teachEmail_lineEdit.clear()
@@ -692,7 +683,7 @@ class toTeachRegister(QMainWindow):
             reigster= auth.create_user_with_email_and_password(email, password)
 
             data ={"fname":fname,"mname":mname,"lname":lname, "course":course
-       ,"teachSchoolID":teachSchoolID,"school":school,"email":email
+       ,"teachSchoolID":teachSchoolID,"email":email
        ,"isActive":isActive}
             db.child("teacher").push(data)
 
@@ -721,7 +712,6 @@ class toStudUpdateProfile(QDialog):
         self.updateInfoPages.setCurrentIndex(0)
         self.studWarnFirstContainer.setVisible(False)
         self.studWarnLastContainer.setVisible(False)
-        self.studWarnSchoolContainer.setVisible(False)
         self.studWarnContainer.setVisible(False)
         self.updateStudButton.clicked.connect(self.toUpdateProfile)
         self.backButton.clicked.connect(self.toBack)
@@ -736,7 +726,6 @@ class toStudUpdateProfile(QDialog):
         fname = self.updStudFirst_lineEdit.text()
         mname = self.updStudMiddle_lineEdit.text()
         lname = self.updStudLast_lineEdit.text()
-        school = self.updStudSchool_lineEdit.text()
 
 # REGISTER CHECKING
         if fname == "":
@@ -745,15 +734,11 @@ class toStudUpdateProfile(QDialog):
             mname = ""
         if lname == "":
             self.lnameError = 1
-        if school == "":
-            self.schoolError = 1
 
         if self.fnameError == 1:
             self.studWarnFirstContainer.setVisible(True)
         if self.lnameError == 1:
-            self.studWarnLastContainer.setVisible(True)
-        if self.schoolError == 1:
-            self.studWarnSchoolContainer.setVisible(True)        
+            self.studWarnLastContainer.setVisible(True)       
 
         if self.fnameError == 1 or self.lnameError == 1 or self.schoolError == 1:
             self.studWarnContainer.setVisible(True)
@@ -770,14 +755,13 @@ class toStudUpdateProfile(QDialog):
             self.updStudFirst_lineEdit.clear()
             self.updStudMiddle_lineEdit.clear()
             self.updStudLast_lineEdit.clear()
-            self.updStudSchool_lineEdit.clear()
 
             studKey = db.child("student").get()
             for keyAccess in studKey.each():
                 if keyAccess.val()["studentSchoolID"] == idKey:
                     keyID = keyAccess.key()
             db.child("student").child(keyID).update({"fname":fname, "mname":mname,
-                                                     "lname":lname, "school":school})
+                                                     "lname":lname})
             self.hide()
             self.next = toDashboard()
             self.next.show()
@@ -902,7 +886,6 @@ class toDashboard(QMainWindow):
                 studCourse = (student.val()["course"])
                 studYear = (student.val()["year"])
                 studSection = (student.val()["section"])
-                studSchool = (student.val()["school"])
                 studAssessment_score = (student.val()["assessment_score"])
                 studPostAssessment_score = (student.val()["post_assessment_score"])
                 studAssessment_score1 = (student.val()["assessment_score1"])
@@ -923,9 +906,8 @@ class toDashboard(QMainWindow):
         self.profCourseLineEdit.insertPlainText(studYear.upper())
         self.profCourseLineEdit.insertPlainText(" ")
         self.profCourseLineEdit.insertPlainText(studSection.upper())
-        self.profSchoolLineEdit.insertPlainText(studSchool.upper())
 
-        ave_assess = (int(studAssessment_score) / 30) * 100    
+        ave_assess = (int(studAssessment_score) / 25) * 100    
         if ave_assess > 80:
             assess_result=("Outstanding")
         elif ave_assess > 60:
@@ -935,7 +917,7 @@ class toDashboard(QMainWindow):
         else:
             assess_result=("Needs Improvement")
 
-        ave_assess = (int(studPostAssessment_score) / 30) * 100    
+        ave_assess = (int(studPostAssessment_score) / 25) * 100    
         if ave_assess > 80:
             postassess_result=("Outstanding")
         elif ave_assess > 60:
@@ -948,29 +930,29 @@ class toDashboard(QMainWindow):
         self.show_scorePreAssessMsg_label.setText(assess_result)
         self.show_scorePostAssessMsg_label.setText(postassess_result)
 
-        self.preAssess1_label.setText(str(studAssessment_score)+"/30")
+        self.preAssess1_label.setText(str(studAssessment_score)+"/25")
         self.preAssess1_progressBar.setValue(int(studAssessment_score))
-        self.preAssess1_progressBar.setMaximum(30)
+        self.preAssess1_progressBar.setMaximum(25)
             
-        self.preAssess2_label.setText(str(studAssessment_score1)+"/30")
+        self.preAssess2_label.setText(str(studAssessment_score1)+"/25")
         self.preAssess2_progressBar.setValue(int(studAssessment_score1))
-        self.preAssess2_progressBar.setMaximum(30)
+        self.preAssess2_progressBar.setMaximum(25)
 
-        self.postAssess1_label.setText(str(studPostAssessment_score)+"/30")
+        self.postAssess1_label.setText(str(studPostAssessment_score)+"/25")
         self.postAssess1_progressBar.setValue(int(studPostAssessment_score))
-        self.postAssess1_progressBar.setMaximum(30)
+        self.postAssess1_progressBar.setMaximum(25)
 
-        self.postAssess2_label.setText(str(studPostAssessment_score1)+"/30")
+        self.postAssess2_label.setText(str(studPostAssessment_score1)+"/25")
         self.postAssess2_progressBar.setValue(int(studPostAssessment_score1))
-        self.postAssess2_progressBar.setMaximum(30)
+        self.postAssess2_progressBar.setMaximum(25)
 
-        self.show_scoreUnit1_label.setText(str(studUnitTest1_score)+"/60")
+        self.show_scoreUnit1_label.setText(str(studUnitTest1_score)+"/50")
         self.unitTest1_progressBar.setValue(int(studUnitTest1_score))
-        self.unitTest1_progressBar.setMaximum(60)
+        self.unitTest1_progressBar.setMaximum(50)
 
-        self.show_scoreUnit2_label.setText(str(studUnitTest2_score)+"/60")
+        self.show_scoreUnit2_label.setText(str(studUnitTest2_score)+"/50")
         self.unitTest2_progressBar.setValue(int(studUnitTest2_score))
-        self.unitTest2_progressBar.setMaximum(60)
+        self.unitTest2_progressBar.setMaximum(50)
         
         self.leftMenuNum = 0
         self.centerMenuNum = 0
@@ -3012,9 +2994,9 @@ class playgroundTest(QMainWindow):
         data.scores.check_unit1_q1_ans = check_unit1_q1_ans
 
         if check_unit1_q1_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
         if check_unit1_q1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1  
+            data.scores.unit1_score = data.scores.unit1_score + 2  
 
         # Question 2, solution and answer
         question = data.scores.playground_solId2
@@ -3026,10 +3008,10 @@ class playgroundTest(QMainWindow):
         data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
 
         if check_unit1_q2_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
     
         if check_unit1_q2_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
     
         # Question 3, solution and answer
         question = data.scores.playground_solId3
@@ -3040,10 +3022,10 @@ class playgroundTest(QMainWindow):
         data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
 
         if check_unit1_q3_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
             
         if check_unit1_q3_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
               
         # Question 4, solution and answer
         question = data.scores.playground_solId4
@@ -3054,10 +3036,10 @@ class playgroundTest(QMainWindow):
         data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
 
         if check_unit1_q4_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
             
         if check_unit1_q4_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
             
         # Question 5, solution and answer
         question = data.scores.playground_solId5
@@ -3068,10 +3050,10 @@ class playgroundTest(QMainWindow):
         data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
 
         if check_unit1_q5_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score+ 4
+            data.scores.unit1_score = data.scores.unit1_score+ 3
             
         if check_unit1_q5_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
             
         global submit_unit1, new_unitTest1
         submit_unit1 = True
@@ -3508,11 +3490,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q1_ans = check_unit1_q1_ans
 
         if check_unit1_q1_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.circ_score = data.scores.circ_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.circ_score = data.scores.circ_score + 3
         if check_unit1_q1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1  
-            data.scores.circ_score = data.scores.circ_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2  
+            data.scores.circ_score = data.scores.circ_score + 2
 
         # Question 2, solution and answer
         question = data.scores.unit1_2_solutionId
@@ -3523,11 +3505,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
 
         if check_unit1_q2_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.circ_score = data.scores.circ_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.circ_score = data.scores.circ_score + 3
         if check_unit1_q2_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.circ_score = data.scores.circ_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.circ_score = data.scores.circ_score + 2
 
         # Question 3, solution and answer
         question = data.scores.unit1_3_solutionId
@@ -3538,11 +3520,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
 
         if check_unit1_q3_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.parab_score = data.scores.parab_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.parab_score = data.scores.parab_score + 3
         if check_unit1_q3_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.parab_score = data.scores.parab_score + 1  
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.parab_score = data.scores.parab_score + 2  
 
         # Question 4, solution and answer
         question = data.scores.unit1_4_solutionId
@@ -3553,11 +3535,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
 
         if check_unit1_q4_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.parab_score = data.scores.parab_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.parab_score = data.scores.parab_score + 3
         if check_unit1_q4_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.parab_score = data.scores.parab_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.parab_score = data.scores.parab_score + 2
 
         # Question 5, solution and answer
         question = data.scores.unit1_5_solutionId
@@ -3568,11 +3550,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
 
         if check_unit1_q5_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score+ 4
-            data.scores.ellip_score = data.scores.ellip_score + 4
+            data.scores.unit1_score = data.scores.unit1_score+ 3
+            data.scores.ellip_score = data.scores.ellip_score + 3
         if check_unit1_q5_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.ellip_score = data.scores.ellip_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.ellip_score = data.scores.ellip_score + 2
 
         # Question 6, solution and answer
         question = data.scores.unit1_6_solutionId
@@ -3583,11 +3565,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q6_foci1_ans = check_unit1_q6_foci1_ans
 
         if check_unit1_q6_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.ellip_score = data.scores.ellip_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.ellip_score = data.scores.ellip_score + 3
         if check_unit1_q6_foci1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.ellip_score = data.scores.ellip_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.ellip_score = data.scores.ellip_score + 2
 
         # Question 7, solution and answer
         question = data.scores.unit1_7_solutionId
@@ -3598,11 +3580,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q7_vertex1_ans = check_unit1_q7_vertex1_ans
 
         if check_unit1_q7_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.hyperb_score = data.scores.hyperb_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.hyperb_score = data.scores.hyperb_score + 3
         if check_unit1_q7_vertex1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.hyperb_score = data.scores.hyperb_score + 1   
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.hyperb_score = data.scores.hyperb_score + 2   
 
         # Question 8, solution and answer
         question = data.scores.unit1_8_solutionId
@@ -3613,11 +3595,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q8_center_ans = check_unit1_q8_center_ans
 
         if check_unit1_q8_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.hyperb_score = data.scores.hyperb_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.hyperb_score = data.scores.hyperb_score + 3
         if check_unit1_q8_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.hyperb_score = data.scores.hyperb_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.hyperb_score = data.scores.hyperb_score + 2
 
         # Question 9, solution and answer
         question = data.scores.unit1_9_solutionId
@@ -3628,11 +3610,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q9_minorAxis_ans = check_unit1_q9_minorAxis_ans
 
         if check_unit1_q9_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.hyperb_score = data.scores.hyperb_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.hyperb_score = data.scores.hyperb_score + 3
         if check_unit1_q9_minorAxis_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.hyperb_score = data.scores.hyperb_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.hyperb_score = data.scores.hyperb_score + 2
 
         # Question 10, solution and answer
         question = data.scores.unit1_10_solutionId
@@ -3643,11 +3625,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q10_standEquat_ans = check_unit1_q10_standEquat_ans
 
         if check_unit1_q10_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.parab_score = data.scores.parab_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.parab_score = data.scores.parab_score + 3
         if check_unit1_q10_standEquat_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.parab_score = data.scores.parab_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.parab_score = data.scores.parab_score + 2
         
         print(data.scores.unit1_score)
         studKey = db.child("student").get()
@@ -3833,9 +3815,9 @@ class assessmentWindow(QMainWindow):
         check_assess_q1_ans = chat(question, assess_ans_Q1)
                 
         if check_assess_q1_sol == "correct":
-            data.scores.assess_score = data.scores.assess_score + 4
+            data.scores.assess_score = data.scores.assess_score + 3
         if check_assess_q1_ans == "correct":
-            data.scores.assess_score = data.scores.assess_score + 1
+            data.scores.assess_score = data.scores.assess_score + 2
 
         # Question 2, solution and answer
         question = data.scores.pre2_solutionId
@@ -3844,9 +3826,9 @@ class assessmentWindow(QMainWindow):
         check_assess_q2_ans = chat(question, assess_ans_Q2)
 
         if check_assess_q2_sol == "correct":
-            data.scores.assess_score = data.scores.assess_score + 4
+            data.scores.assess_score = data.scores.assess_score + 3
         if check_assess_q2_ans == "correct":
-            data.scores.assess_score = data.scores.assess_score + 1
+            data.scores.assess_score = data.scores.assess_score + 2
 
         # Question 3, solution and answer
         question = data.scores.pre3_solutionId
@@ -3855,9 +3837,9 @@ class assessmentWindow(QMainWindow):
         check_assess_q3_ans = chat(question, assess_ans_Q3)
 
         if check_assess_q3_sol == "correct":
-            data.scores.assess_score = data.scores.assess_score + 4
+            data.scores.assess_score = data.scores.assess_score + 3
         if check_assess_q3_ans == "correct":
-            data.scores.assess_score = data.scores.assess_score + 1
+            data.scores.assess_score = data.scores.assess_score + 2
 
         # Question 4, solution and answer
         question = data.scores.pre4_solutionId
@@ -3866,9 +3848,9 @@ class assessmentWindow(QMainWindow):
         check_assess_q4_ans = chat(question, assess_ans_Q4)
 
         if check_assess_q4_sol == "correct":
-            data.scores.assess_score = data.scores.assess_score + 4
+            data.scores.assess_score = data.scores.assess_score + 3
         if check_assess_q4_ans == "correct":
-            data.scores.assess_score = data.scores.assess_score + 1
+            data.scores.assess_score = data.scores.assess_score + 2
 
         # Question 5, solution and answer
         question = data.scores.pre5_solutionId
@@ -3877,9 +3859,9 @@ class assessmentWindow(QMainWindow):
         check_assess_q5_ans = chat(question, assess_ans_Q5)
 
         if check_assess_q5_sol == "correct":
-            data.scores.assess_score = data.scores.assess_score + 4
+            data.scores.assess_score = data.scores.assess_score + 3
         if check_assess_q5_ans == "correct":
-            data.scores.assess_score = data.scores.assess_score + 1
+            data.scores.assess_score = data.scores.assess_score + 2
         
         print(data.scores.assess_score)
         if pre_count == "0":
@@ -4326,11 +4308,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q1_ans = check_unit1_q1_ans
 
         if check_unit1_q1_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.circ_score = data.scores.circ_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.circ_score = data.scores.circ_score + 3
         if check_unit1_q1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1  
-            data.scores.circ_score = data.scores.circ_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2  
+            data.scores.circ_score = data.scores.circ_score + 2
 
         # Question 2, solution and answer
         question = data.scores.unit1_2_solutionId
@@ -4341,11 +4323,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
 
         if check_unit1_q2_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.circ_score = data.scores.circ_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.circ_score = data.scores.circ_score + 3
         if check_unit1_q2_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.circ_score = data.scores.circ_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.circ_score = data.scores.circ_score + 2
 
         # Question 3, solution and answer
         question = data.scores.unit1_3_solutionId
@@ -4356,11 +4338,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
 
         if check_unit1_q3_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.parab_score = data.scores.parab_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.parab_score = data.scores.parab_score + 3
         if check_unit1_q3_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.parab_score = data.scores.parab_score + 1  
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.parab_score = data.scores.parab_score + 2  
 
         # Question 4, solution and answer
         question = data.scores.unit1_4_solutionId
@@ -4371,11 +4353,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
 
         if check_unit1_q4_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.parab_score = data.scores.parab_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.parab_score = data.scores.parab_score + 3
         if check_unit1_q4_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.parab_score = data.scores.parab_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.parab_score = data.scores.parab_score + 2
 
         # Question 5, solution and answer
         question = data.scores.unit1_5_solutionId
@@ -4386,11 +4368,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
 
         if check_unit1_q5_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score+ 4
-            data.scores.ellip_score = data.scores.ellip_score + 4
+            data.scores.unit1_score = data.scores.unit1_score+ 3
+            data.scores.ellip_score = data.scores.ellip_score + 3
         if check_unit1_q5_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.ellip_score = data.scores.ellip_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.ellip_score = data.scores.ellip_score + 2
 
         # Question 6, solution and answer
         question = data.scores.unit1_6_solutionId
@@ -4401,11 +4383,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q6_foci1_ans = check_unit1_q6_foci1_ans
 
         if check_unit1_q6_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.ellip_score = data.scores.ellip_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.ellip_score = data.scores.ellip_score + 3
         if check_unit1_q6_foci1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.ellip_score = data.scores.ellip_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.ellip_score = data.scores.ellip_score + 2
 
         # Question 7, solution and answer
         question = data.scores.unit1_7_solutionId
@@ -4416,11 +4398,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q7_vertex1_ans = check_unit1_q7_vertex1_ans
 
         if check_unit1_q7_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.hyperb_score = data.scores.hyperb_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.hyperb_score = data.scores.hyperb_score + 3
         if check_unit1_q7_vertex1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.hyperb_score = data.scores.hyperb_score + 1   
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.hyperb_score = data.scores.hyperb_score + 2   
 
         # Question 8, solution and answer
         question = data.scores.unit1_8_solutionId
@@ -4431,11 +4413,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q8_center_ans = check_unit1_q8_center_ans
 
         if check_unit1_q8_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.hyperb_score = data.scores.hyperb_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.hyperb_score = data.scores.hyperb_score + 3
         if check_unit1_q8_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.hyperb_score = data.scores.hyperb_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.hyperb_score = data.scores.hyperb_score + 2
 
         # Question 9, solution and answer
         question = data.scores.unit1_9_solutionId
@@ -4446,11 +4428,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q9_minorAxis_ans = check_unit1_q9_minorAxis_ans
 
         if check_unit1_q9_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.hyperb_score = data.scores.hyperb_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.hyperb_score = data.scores.hyperb_score + 3
         if check_unit1_q9_minorAxis_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.hyperb_score = data.scores.hyperb_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.hyperb_score = data.scores.hyperb_score + 2
 
         # Question 10, solution and answer
         question = data.scores.unit1_10_solutionId
@@ -4461,11 +4443,11 @@ class unitTest_1(QMainWindow):
         data.scores.check_unit1_q10_standEquat_ans = check_unit1_q10_standEquat_ans
 
         if check_unit1_q10_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 4
-            data.scores.parab_score = data.scores.parab_score + 4
+            data.scores.unit1_score = data.scores.unit1_score + 3
+            data.scores.parab_score = data.scores.parab_score + 3
         if check_unit1_q10_standEquat_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 1
-            data.scores.parab_score = data.scores.parab_score + 1
+            data.scores.unit1_score = data.scores.unit1_score + 2
+            data.scores.parab_score = data.scores.parab_score + 2
         
         print(data.scores.unit1_score)
         studKey = db.child("student").get()
@@ -4884,11 +4866,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q1_ans = check_unit2_q1_ans
 
         if check_unit2_q1_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4
-            data.scores.substi_score = data.scores.substi_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3
+            data.scores.substi_score = data.scores.substi_score + 3
         if check_unit2_q1_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.substi_score = data.scores.substi_score + 1
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.substi_score = data.scores.substi_score + 2
 
         # Question 2, solution and answer
         question = data.scores.unit2_2_solutionId
@@ -4899,11 +4881,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q2_ans = check_unit2_q2_ans
 
         if check_unit2_q2_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.substi_score = data.scores.substi_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.substi_score = data.scores.substi_score + 3
         if check_unit2_q2_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.substi_score = data.scores.substi_score + 1  
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.substi_score = data.scores.substi_score + 2  
 
         # Question 3, solution and answer
         question = data.scores.unit2_3_solutionId
@@ -4914,11 +4896,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q3_ans = check_unit2_q3_ans
 
         if check_unit2_q3_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.substi_score = data.scores.substi_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.substi_score = data.scores.substi_score + 3
         if check_unit2_q3_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.substi_score = data.scores.substi_score + 1  
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.substi_score = data.scores.substi_score + 2  
 
         # Question 4, solution and answer
         question = data.scores.unit2_4_solutionId
@@ -4929,11 +4911,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q4_ans = check_unit2_q4_ans
 
         if check_unit2_q4_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.substi_score = data.scores.substi_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.substi_score = data.scores.substi_score + 3
         if check_unit2_q4_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.substi_score = data.scores.substi_score + 1  
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.substi_score = data.scores.substi_score + 2  
 
         # Question 5, solution and answer
         question = data.scores.unit2_5_solutionId
@@ -4944,11 +4926,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q5_ans = check_unit2_q5_ans
 
         if check_unit2_q5_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.substi_score = data.scores.substi_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.substi_score = data.scores.substi_score + 3
         if check_unit2_q5_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.substi_score = data.scores.substi_score + 1 
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.substi_score = data.scores.substi_score + 2 
 
         # Question 6, solution and answer
         question = data.scores.unit2_6_solutionId
@@ -4959,11 +4941,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q6_ans = check_unit2_q6_ans
 
         if check_unit2_q6_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.elimin_score = data.scores.elimin_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.elimin_score = data.scores.elimin_score + 3
         if check_unit2_q6_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.elimin_score = data.scores.elimin_score + 1  
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.elimin_score = data.scores.elimin_score + 2  
 
         # Question 7, solution and answer
         question = data.scores.unit2_7_solutionId
@@ -4974,11 +4956,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q7_ans = check_unit2_q7_ans
 
         if check_unit2_q7_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.elimin_score = data.scores.elimin_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.elimin_score = data.scores.elimin_score + 3
         if check_unit2_q7_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.elimin_score = data.scores.elimin_score + 1  
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.elimin_score = data.scores.elimin_score + 2  
 
         # Question 8, solution and answer
         question = data.scores.unit2_8_solutionId
@@ -4989,11 +4971,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q8_ans = check_unit2_q8_ans
 
         if check_unit2_q8_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.elimin_score = data.scores.elimin_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.elimin_score = data.scores.elimin_score + 3
         if check_unit2_q8_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.elimin_score = data.scores.elimin_score + 1  
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.elimin_score = data.scores.elimin_score + 2  
 
         # Question 9, solution and answer
         question = data.scores.unit2_9_solutionId
@@ -5004,11 +4986,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q9_ans = check_unit2_q9_ans
 
         if check_unit2_q9_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.elimin_score = data.scores.elimin_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.elimin_score = data.scores.elimin_score + 3
         if check_unit2_q9_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.elimin_score = data.scores.elimin_score + 1  
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.elimin_score = data.scores.elimin_score + 2  
 
         # Question 10, solution and answer
         question = data.scores.unit2_10_solutionId
@@ -5019,11 +5001,11 @@ class unitTest_2(QMainWindow):
         data.scores.check_unit2_q10_ans = check_unit2_q10_ans
 
         if check_unit2_q10_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 4 
-            data.scores.elimin_score = data.scores.elimin_score + 4
+            data.scores.unit2_score = data.scores.unit2_score + 3 
+            data.scores.elimin_score = data.scores.elimin_score + 3
         if check_unit2_q10_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 1 
-            data.scores.elimin_score = data.scores.elimin_score + 1  
+            data.scores.unit2_score = data.scores.unit2_score + 2 
+            data.scores.elimin_score = data.scores.elimin_score + 2  
 
         print(data.scores.unit2_score)
         studKey = db.child("student").get()
@@ -5209,9 +5191,9 @@ class postAssessmentWindow_accept(QMainWindow):
         check_assess_q1_ans = chat(question, postassess_ans_Q1)
                 
         if check_assess_q1_sol == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 4
+            data.scores.postassess_score =  data.scores.postassess_score + 3
         if check_assess_q1_ans == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 1
+            data.scores.postassess_score =  data.scores.postassess_score + 2
 
         # Question 2, solution and answer
         question = data.scores.post2_solutionId
@@ -5220,9 +5202,9 @@ class postAssessmentWindow_accept(QMainWindow):
         check_assess_q2_ans = chat(question, postassess_ans_Q2)
 
         if check_assess_q2_sol == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 4
+            data.scores.postassess_score =  data.scores.postassess_score + 3
         if check_assess_q2_ans == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 1
+            data.scores.postassess_score =  data.scores.postassess_score + 2
 
         # Question 3, solution and answer
         question = data.scores.post3_solutionId
@@ -5231,9 +5213,9 @@ class postAssessmentWindow_accept(QMainWindow):
         check_assess_q3_ans = chat(question, postassess_ans_Q3)
 
         if check_assess_q3_sol == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 4
+            data.scores.postassess_score =  data.scores.postassess_score + 3
         if check_assess_q3_ans == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 1
+            data.scores.postassess_score =  data.scores.postassess_score + 2
 
         # Question 4, solution and answer
         question = data.scores.post4_solutionId
@@ -5242,9 +5224,9 @@ class postAssessmentWindow_accept(QMainWindow):
         check_assess_q4_ans = chat(question, postassess_ans_Q4)
 
         if check_assess_q4_sol == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 4
+            data.scores.postassess_score =  data.scores.postassess_score + 3
         if check_assess_q4_ans == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 1
+            data.scores.postassess_score =  data.scores.postassess_score + 2
 
         # Question 5, solution and answer
         question = data.scores.post5_solutionId
@@ -5253,9 +5235,9 @@ class postAssessmentWindow_accept(QMainWindow):
         check_assess_q5_ans = chat(question, postassess_ans_Q5)
 
         if check_assess_q5_sol == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 4
+            data.scores.postassess_score =  data.scores.postassess_score + 3
         if check_assess_q5_ans == "correct":
-            data.scores.postassess_score =  data.scores.postassess_score + 1
+            data.scores.postassess_score =  data.scores.postassess_score + 2
         
         print(data.scores.postassess_score)
         if post_count == "0":
@@ -5390,7 +5372,6 @@ class toTeachUpdateProfile(QDialog):
         self.updateInfoPages.setCurrentIndex(1)
         self.teachWarnFirstContainer.setVisible(False)
         self.teachWarnLastContainer.setVisible(False)
-        self.teachWarnSchoolContainer.setVisible(False)
         self.teachWarnContainer.setVisible(False)
         self.updateTeachButton.clicked.connect(self.toUpdateProfile)
         self.backButton_5.clicked.connect(self.toBack)
@@ -5405,7 +5386,6 @@ class toTeachUpdateProfile(QDialog):
         fname = self.updTeachFirst_lineEdit.text()
         mname = self.updTeachMiddle_lineEdit.text()
         lname = self.updTeachLast_lineEdit.text()
-        school = self.updTeachSchool_lineEdit.text()
 
 # REGISTER CHECKING
         if fname == "":
@@ -5414,15 +5394,11 @@ class toTeachUpdateProfile(QDialog):
             mname = ""
         if lname == "":
             self.lnameError = 1
-        if school == "":
-            self.schoolError = 1
 
         if self.fnameError == 1:
             self.teachWarnFirstContainer.setVisible(True)
         if self.lnameError == 1:
-            self.teachWarnLastContainer.setVisible(True)
-        if self.schoolError == 1:
-            self.teachWarnSchoolContainer.setVisible(True)        
+            self.teachWarnLastContainer.setVisible(True)     
 
         if self.fnameError == 1 or self.lnameError == 1 or self.schoolError == 1:
             self.teachWarnContainer.setVisible(True)
@@ -5439,14 +5415,13 @@ class toTeachUpdateProfile(QDialog):
             self.updTeachFirst_lineEdit.clear()
             self.updTeachMiddle_lineEdit.clear()
             self.updTeachLast_lineEdit.clear()
-            self.updTeachSchool_lineEdit.clear()
 
             teachKey = db.child("teacher").get()
             for keyAccess in teachKey.each():
                 if keyAccess.val()["teachSchoolID"] == idKey:
                     keyID = keyAccess.key()
             db.child("teacher").child(keyID).update({"fname":fname, "mname":mname,
-                                                     "lname":lname, "school":school})
+                                                     "lname":lname})
             self.hide()
             self.next = toDashboardTeach()
             self.next.show()
@@ -5497,15 +5472,13 @@ class toDashboardTeach(QMainWindow):
                 teachMname = (teacher.val()["mname"])
                 teachLname = (teacher.val()["lname"])
                 teachCourse = (teacher.val()["course"])
-                teachSchool = (teacher.val()["school"])
         self.profNameLineEdit.insertPlainText(teachLname.upper())
         self.profNameLineEdit.insertPlainText(", ")
         self.profNameLineEdit.insertPlainText(teachFname.upper())
         self.profNameLineEdit.insertPlainText(" ")
         self.profNameLineEdit.insertPlainText(teachMname.upper())
         self.profCourseLineEdit.insertPlainText(teachCourse.upper())
-        self.profSchoolLineEdit.insertPlainText(teachSchool.upper())
-        
+
         self.tableWidget.setColumnWidth(0,200)
         self.tableWidget.setColumnWidth(1,200)
         self.tableWidget.setColumnWidth(2,200)
@@ -5719,11 +5692,10 @@ class toDashboardTeach(QMainWindow):
                 self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(student.val()["course"]).upper()))
                 self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(student.val()["year"]).upper()))
                 self.tableWidget.setItem(row, 5, QtWidgets.QTableWidgetItem(str(student.val()["section"]).upper()))
-                self.tableWidget.setItem(row, 6, QtWidgets.QTableWidgetItem(str(student.val()["school"]).upper()))
-                self.tableWidget.setItem(row, 7, QtWidgets.QTableWidgetItem(str(student.val()["unitTest1_score"]).upper()))
-                self.tableWidget.setItem(row, 8, QtWidgets.QTableWidgetItem(str(student.val()["unitTest2_score"]).upper()))
-                self.tableWidget.setItem(row, 9, QtWidgets.QTableWidgetItem(str(student.val()["assessment_score"]).upper()))
-                self.tableWidget.setItem(row, 10, QtWidgets.QTableWidgetItem(str(student.val()["post_assessment_score"]).upper()))    
+                self.tableWidget.setItem(row, 6, QtWidgets.QTableWidgetItem(str(student.val()["unitTest1_score"]).upper()))
+                self.tableWidget.setItem(row, 7, QtWidgets.QTableWidgetItem(str(student.val()["unitTest2_score"]).upper()))
+                self.tableWidget.setItem(row, 8, QtWidgets.QTableWidgetItem(str(student.val()["assessment_score"]).upper()))
+                self.tableWidget.setItem(row, 9, QtWidgets.QTableWidgetItem(str(student.val()["post_assessment_score"]).upper()))    
                 row = row + 1 
                 if student.val()["section"] == "A":
                     student_A = student_A + 1
@@ -12506,7 +12478,9 @@ class toSplashScreen(QMainWindow):
 ##################################################################################
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)   
+    app = QApplication(sys.argv)  
+    if getattr(sys, 'frozen', False):
+        pyi_splash.close()
     w = toStudTeach()
     w.show()
     sys.exit(app.exec_())
