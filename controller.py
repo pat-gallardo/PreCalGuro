@@ -32,6 +32,7 @@ import time
 
 import pyrebase
 import openai
+import re
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -184,26 +185,24 @@ class toStudLogin(QMainWindow):
         global idKey
         idKey = studSchoolID
 
-        try: 
-            # DITO CHECK STUD ID
-            teachKey = db.child("student").get()
-            for keyAccess in teachKey.each():
-                if keyAccess.val()["studentSchoolID"] == studSchoolID:
-                    login= auth.sign_in_with_email_and_password(email,password)
-                    login = auth.refresh(login['refreshToken'])
-                    # now we have a fresh token
-                    login['idToken']                    
-                    self.hide()
-                    self.toLogin = splashScreen()
-                    self.toLogin.show()
-                    self.toLogin.progress()  
+        # DITO CHECK STUD ID
+        teachKey = db.child("student").get()
+        for keyAccess in teachKey.each():
+            if keyAccess.val()["studentSchoolID"] == studSchoolID:
+                login= auth.sign_in_with_email_and_password(email,password)
+                login = auth.refresh(login['refreshToken'])
+                # now we have a fresh token
+                login['idToken']                    
+                self.hide()
+                self.toLogin = splashScreen()
+                self.toLogin.show()
+                self.toLogin.progress()  
 
-                else:
-                    self.warning_Widget.setVisible(True)
-                    self.warningPages.setCurrentIndex(0)
-        except:
+            else:
                 self.warning_Widget.setVisible(True)
                 self.warningPages.setCurrentIndex(0)
+            self.warning_Widget.setVisible(True)
+            self.warningPages.setCurrentIndex(0)
 
     def toRegister(self):
         self.toRegis = toStudRegister()
@@ -257,21 +256,34 @@ class toStudForgotPass(QMainWindow):
 
     def toCheckEmail(self):
         emailCheck = self.studCheckEmail_lineEdit.text()
+        isCheck = 0
+        isCorrect = 1
+        all_student = db.child("student").get()
 
-        try:
-            all_student = db.child("student").get()
-            for student in all_student.each():
-                if student.val()["email"] == emailCheck:
-                    # TO SEND EMAIL TO RESET PASSWORD
-                    auth.send_password_reset_email(emailCheck)
-                    self.studWarnContainer.setVisible(True)  
-                    self.studWarnSubContainer.setCurrentIndex(1)      
-                else:
-                    self.warningStudEmail.setVisible(True)
-                    self.studWarnContainer.setVisible(True)
-        except:
-            self.warningStudEmail.setVisible(True)
-            self.studWarnContainer.setVisible(True)
+        for student in all_student.each():
+            if student.val()["email"] == emailCheck:
+                isCheck = 0
+                isCorrect = 0
+                for delete_student in all_student.each():
+                    if delete_student.val()["email"] == emailCheck:
+                        auth.send_password_reset_email(emailCheck)
+                    else:
+                        isCheck = 1
+        if isCheck == 0:
+            if isCorrect == 0:
+                self.warningStudEmail.setVisible(False)
+                self.studWarnContainer.setVisible(True)  
+                self.studWarnSubContainer.setCurrentIndex(1)  
+        else:
+            if isCorrect == 0:
+                self.warningStudEmail.setVisible(False)
+                self.studWarnContainer.setVisible(True)  
+                self.studWarnSubContainer.setCurrentIndex(1) 
+            else:
+                self.warningStudEmail.setVisible(True)
+                self.studWarnContainer.setVisible(True)
+                self.studWarnSubContainer.setCurrentIndex(0)
+
 
     def toBack(self):
         self.toLogin = toStudLogin()
@@ -385,7 +397,7 @@ class toStudRegister(QMainWindow):
             self.warningStudID.setVisible(True)
 
         if self.fnameError == 1 or self.lnameError == 1 or self.yrSecError == 1 or self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1:
-            self.frame.setGeometry(QtCore.QRect(40, 50, 295, 580))
+            self.frame.setGeometry(QtCore.QRect(40, 50, 295, 610))
             self.warningContainer.setVisible(True)
             self.warningContainerMenu.setCurrentIndex(0)
             self.fnameError = 0
@@ -397,6 +409,13 @@ class toStudRegister(QMainWindow):
             self.studIDError = 0
             self.emailCheck_ifPair = 0
         else:
+            self.warningFname.setVisible(False)
+            self.warningLname.setVisible(False)
+            self.warningYrSec.setVisible(False)
+            self.warningEmail.setVisible(False)
+            self.warningPass.setVisible(False)
+            self.warningStudID.setVisible(False)
+            self.warningEmailInUsed.setVisible(False)
             self.warningContainer.setVisible(True)
             self.warningContainerMenu.setCurrentIndex(1)
             self.studFirst_lineEdit.clear()
@@ -542,21 +561,32 @@ class toTeachForgotPass(QMainWindow):
 
     def toCheckEmail(self):
         emailCheck = self.teachCheckEmail_lineEdit.text()
-
-        try:
-            all_teacher = db.child("teacher").get()
-            for teacher in all_teacher.each():
-                if teacher.val()["email"] == emailCheck:
-                    # TO SEND EMAIL TO RESET PASSWORD
-                    auth.send_password_reset_email(emailCheck)
-                    self.teachWarnContainer.setVisible(True)  
-                    self.teachWarnSubContainer.setCurrentIndex(1)      
-                else:
-                    self.warningTeachEmail.setVisible(True)
-                    self.teachWarnContainer.setVisible(True)
-        except:
-            self.warningTeachEmail.setVisible(True)
-            self.teachWarnContainer.setVisible(True)
+        isCheck = 0
+        isCorrect = 1
+        all_teacher = db.child("teacher").get()
+        for teacher in all_teacher.each():
+            if teacher.val()["email"] == emailCheck:
+                isCheck = 0
+                isCorrect = 0
+                for delete_teacher in all_teacher.each():
+                    if delete_teacher.val()["email"] == emailCheck:
+                        auth.send_password_reset_email(emailCheck)
+                    else:
+                        isCheck = 1
+        if isCheck == 0:
+            if isCorrect == 0:
+                self.warningTeachEmail.setVisible(False)
+                self.teachWarnContainer.setVisible(True)  
+                self.teachWarnSubContainer.setCurrentIndex(1) 
+        else:
+            if isCorrect == 0:
+                self.warningTeachEmail.setVisible(False)
+                self.teachWarnContainer.setVisible(True)  
+                self.teachWarnSubContainer.setCurrentIndex(1) 
+            else:
+                self.warningTeachEmail.setVisible(True)
+                self.teachWarnContainer.setVisible(True)
+                self.teachWarnSubContainer.setCurrentIndex(0) 
 
     def toBack(self):
         self.toLogin = toTeachLogin()
@@ -659,7 +689,7 @@ class toTeachRegister(QMainWindow):
             self.warningPass.setVisible(True)  
 
         if self.fnameError == 1 or self.lnameError == 1 or self.teachIDError == 1 or self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1:
-            self.frame.setGeometry(QtCore.QRect(50, 30, 295,580))
+            self.frame.setGeometry(QtCore.QRect(50, 30, 295,610))
             self.warningContainer.setVisible(True)
             self.warningContainerMenu.setCurrentIndex(0)
 
@@ -671,13 +701,17 @@ class toTeachRegister(QMainWindow):
             self.emailError = 0
             self.passError = 0
         else:
+            self.warningFname.setVisible(False)
+            self.warningLname.setVisible(False)
+            self.warningYrSec.setVisible(False)
+            self.warningEmail.setVisible(False)
+            self.warningPass.setVisible(False)
+            self.warningEmailInUsed.setVisible(False)
             self.warningContainer.setVisible(True)
             self.warningContainerMenu.setCurrentIndex(1)
             self.teachFirst_lineEdit.clear()
             self.teachMiddle_lineEdit.clear()
             self.teachLast_lineEdit.clear()
-            self.teachSec_lineEdit.clear()
-            self.teachSchoolID_lineEdit.clear()
             self.teachEmail_lineEdit.clear()
             self.teachPass_lineEdit.clear()
             reigster= auth.create_user_with_email_and_password(email, password)
@@ -1506,27 +1540,35 @@ class toDashboard(QMainWindow):
             self.textEdit_2.setObjectName(newBotTextEdit)
             self.verticalLayout_85.addWidget(self.textEdit_2)
             self.verticalLayout_83.addWidget(self.widget_12)
-
-            with open("data/precalc_keywords.txt", "r", encoding='utf-8') as f:
+            
+            # check if the user's message contains precalculus-related keywords
+            user_message = re.sub(r'[^\w\s]','',user_message)
+            split_list = []
+            message_lower = user_message.lower()
+            splits = message_lower.split()
+            a = 0
+            with open("data\precalc_keywords.txt", "r",encoding='utf-8') as f:
                 precalc_keywords = [line.strip() for line in f]
-
-            if any(keyword in user_message.lower() for keyword in precalc_keywords):
-                #send
-                completions = openai.Completion.create(
-                engine="text-davinci-003",
-                prompt=user_message,
-                max_tokens=2048,
-                n=1,
-                stop=None,
-                temperature=0.5
-                )
-                chatbot_response = completions.choices[0].text
+            for split in splits:
+                split_list.append(split)
+            for keyword in split_list:
+                if keyword in precalc_keywords:
+                    a = 1
+            if a == 1:
+                response = openai.Completion.create(
+                    engine="text-davinci-002",
+                    prompt=user_message,
+                    max_tokens=100,
+                    n=1,
+                    stop=None,
+                    temperature=0.7
+                    )
+                chatbot_response = response.choices[0].text
                 self.textEdit_2.insertPlainText(chatbot_response)
             else:
                 chatbot_denied="Sorry, I can only help with precalculus-related questions."
                 self.textEdit_2.insertPlainText(chatbot_denied)
-
-            self.chatbot_count = self.chatbot_count + 1
+                self.chatbot_count = self.chatbot_count + 1
 
     def hideWindow(self):
         self.showMinimized()  
@@ -2824,15 +2866,7 @@ class playgroundTest(QMainWindow):
             data.scores.playground_4_advice = playgroundTest.checked_ai(data.scores.playground_question4, data.scores.unit_test1_saved_solution4)
             data.scores.playground_5_advice = playgroundTest.checked_ai(data.scores.playground_question5, data.scores.unit_test1_saved_solution5)
 
-            self.showScore2_widget_2.setVisible(True)
-            # self.showlessonScore_widget.setVisible(True)
             self.playgroundSubmit_container.setCurrentIndex(1)
-            self.playground_label.setText(str(data.scores.unit1_score))
-            self.show_score1_label.setText(str(data.scores.circ_score))
-            self.show_score2_label.setText(str(data.scores.parab_score))
-            self.show_score3_label.setText(str(data.scores.ellip_score))
-            self.show_score4_label.setText(str(data.scores.hyperb_score))
-
             self.unitTestQ1Sol_textEdit.setText(data.scores.unit_test1_saved_solution1)
             self.unitTestQ1Center_textEdit.setText(data.scores.unit_test1_saved_answer1)
             self.unitTestQ2Sol_textEdit.setText(data.scores.unit_test1_saved_solution2)
@@ -2855,63 +2889,74 @@ class playgroundTest(QMainWindow):
             self.playgroundQ3Ai_textEdit.setPlainText(data.scores.playground_3_advice)
             self.playgroundQ4Ai_textEdit.setPlainText(data.scores.playground_4_advice)
             self.playgroundQ5Ai_textEdit.setPlainText(data.scores.playground_5_advice)
+            self.playgroundQ1Sol_textEdit.setText(data.scores.unit_test1_saved_solution1)
+            self.playgroundQ1Ans_textEdit.setText(data.scores.unit_test1_saved_answer1)
+            self.playgroundQ2Sol_textEdit.setText(data.scores.unit_test1_saved_solution2)
+            self.playgroundQ2Ans_textEdit.setText(data.scores.unit_test1_saved_answer2)
+            self.playgroundQ3Sol_textEdit.setText(data.scores.unit_test1_saved_solution3)
+            self.playgroundQ3Ans_textEdit.setText(data.scores.unit_test1_saved_answer3)
+            self.playgroundQ4Sol_textEdit.setText(data.scores.unit_test1_saved_solution4)
+            self.playgroundQ4Ans_textEdit.setText(data.scores.unit_test1_saved_answer4)
+            self.playgroundQ5Sol_textEdit.setText(data.scores.unit_test1_saved_solution5)
+            self.playgroundQ5Ans_textEdit.setText(data.scores.unit_test1_saved_answer5)
 
-# # question 1
-            self.playgroundQ1Sol_textEdit.setReadOnly(True) 
+            self.playgroundQ1Sol_textEdit.setReadOnly(True)
+            self.playgroundQ1Ans_textEdit.setReadOnly(True)
+            self.playgroundQ2Sol_textEdit.setReadOnly(True)
+            self.playgroundQ2Ans_textEdit.setReadOnly(True)
+            self.playgroundQ3Sol_textEdit.setReadOnly(True)
+            self.playgroundQ3Ans_textEdit.setReadOnly(True) 
+            self.playgroundQ4Sol_textEdit.setReadOnly(True)
+            self.playgroundQ4Ans_textEdit.setReadOnly(True)
+            self.playgroundQ5Sol_textEdit.setReadOnly(True)
+            self.playgroundQ5Ans_textEdit.setReadOnly(True)
+            data.scores.unit1_score = 0
+# # question 1 
             if data.scores.check_unit1_q1_sol == "incorrect":
                 self.sol11_label_2.setStyleSheet("background-color: red")
             else:
                 self.sol11_label_2.setStyleSheet("background-color: green")
-            self.playgroundQ1Ans_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q1_ans == "incorrect":
                 self.ans11_label_2.setStyleSheet("background-color: red")
             else:
                 self.ans11_label_2.setStyleSheet("background-color: green")
 # question 2
-            self.playgroundQ2Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q2_sol == "incorrect":
                 self.sol12_label_2.setStyleSheet("background-color: red")
             else:
                 self.sol12_label_2.setStyleSheet("background-color: green")
-            self.playgroundQ2Ans_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q2_center_ans == "incorrect":
                 self.ans12_label_2.setStyleSheet("background-color: red")
             else:
                 self.ans12_label_2.setStyleSheet("background-color: green")
 # question 3
-            self.playgroundQ3Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q3_sol == "incorrect":
                 self.sol13_label_2.setStyleSheet("background-color: red")
             else:
                 self.sol13_label_2.setStyleSheet("background-color: green")
-            self.playgroundQ3Ans_textEdit.setReadOnly(True) 
             if data.scores.check_unit1_q3_vertex_ans == "incorrect":
                 self.ans13_label_2.setStyleSheet("background-color: red")
             else:
                 self.ans13_label_2.setStyleSheet("background-color: green")
 # question 4            
-            self.playgroundQ4Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q4_sol == "incorrect":
                 self.sol14_label_2.setStyleSheet("background-color: red")
             else:
                 self.sol14_label_2.setStyleSheet("background-color: green")
-            self.playgroundQ4Ans_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q4_vertex_ans == "incorrect":
                 self.ans14_label_2.setStyleSheet("background-color: red")
             else:
                 self.ans14_label_2.setStyleSheet("background-color: green")
 # question 5
-            self.playgroundQ5Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q5_sol == "incorrect":
                 self.sol15_label_2.setStyleSheet("background-color: red")
             else:
                 self.sol15_label_2.setStyleSheet("background-color: green")
-            self.playgroundQ5Ans_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q5_center_ans == "incorrect":
                 self.ans15_label_2.setStyleSheet("background-color: red")
             else:
                 self.ans15_label_2.setStyleSheet("background-color: green")
-
+            self.showScore2_widget_2.setVisible(True)       
     def bigWindow(self):
         if self.restoreWindow == 0:
             self.showMaximized()
@@ -2930,10 +2975,10 @@ class playgroundTest(QMainWindow):
         self.back.show()
     
     def checked_ai(question, solution):
-        prompt = f"Analyze the user's solution to the question:{question} User's solution is:{solution} Be a precalculus professor and tell whether the user's solution is correct or incorrect. If the user's solution is correct, explain the solution. If the user's solution is incorrect, give feedback on how to correctly answer the question, if the user's solution is blank it is incorrect, explain in 1 sentence."
+        prompt = f"Analyze the user's solution to the question:{question} User's solution is:{solution} Be a precalculus professor and tell whether the user's solution is correct or incorrect. If the user's solution is correct, explain the solution. If the user's solution is incorrect, give feedback on how to correctly answer the question, if the user's {solution} is blank it is incorrect, explain in 1 sentence."
         # Set the model and parameters for the API request
         model_engine = "text-davinci-003"
-        temperature=0.5
+        temperature=0.7
         max_tokens=2048
         
         # Send the prompt to the API and get the response
@@ -2954,107 +2999,54 @@ class playgroundTest(QMainWindow):
         # Question 1 , answer and solution
         solution_Unit1_Q1 = self.playgroundQ1Sol_textEdit.toPlainText()
         answer1_Unit1_Q1 = self.playgroundQ1Ans_textEdit.text()
-        data.scores.playground_saved_solution1 = solution_Unit1_Q1
+        data.scores.unit_test1_saved_solution1 = solution_Unit1_Q1
         data.scores.unit_test1_saved_answer1 = answer1_Unit1_Q1
-        
+
         # Question 2 , answer and solution
         solution_Unit1_Q2 = self.playgroundQ2Sol_textEdit.toPlainText()
         answer1_Unit1_Q2 = self.playgroundQ2Ans_textEdit.text()
-        data.scores.playground_saved_solution2 = solution_Unit1_Q2
+        data.scores.unit_test1_saved_solution2 = solution_Unit1_Q2
         data.scores.unit_test1_saved_answer2 = answer1_Unit1_Q2
 
         # Question 3 , answer and solution
         solution_Unit1_Q3 = self.playgroundQ3Sol_textEdit.toPlainText()
         answer1_Unit1_Q3 = self.playgroundQ3Ans_textEdit.text()
-        data.scores.playground_saved_solution3 = solution_Unit1_Q3
+        data.scores.unit_test1_saved_solution3 = solution_Unit1_Q3
         data.scores.unit_test1_saved_answer3 = answer1_Unit1_Q3
 
         # Question 4 , answer and solution
         solution_Unit1_Q4 = self.unitTestQ4Sol_textEdit.toPlainText()
         answer1_Unit1_Q4 = self.unitTestQ4Vertex_textEdit.text()
-        data.scores.playground_saved_solution4 = solution_Unit1_Q4
+        data.scores.unit_test1_saved_solution4 = solution_Unit1_Q4
         data.scores.unit_test1_saved_answer4 = answer1_Unit1_Q4
 
         # Question 5 , answer and solution
         solution_Unit1_Q5 = self.playgroundQ5Sol_textEdit.toPlainText()
         answer1_Unit1_Q5 = self.playgroundQ5Ans_textEdit.text()
-        data.scores.playground_saved_solution5 = solution_Unit1_Q5
+        data.scores.unit_test1_saved_solution5 = solution_Unit1_Q5
         data.scores.unit_test1_saved_answer5 = answer1_Unit1_Q5
 
         # Checking of answer and calculating of score
-        data.scores.unit1_score = 0
-
         # Question 1, solution and answer
-        question = data.scores.playground_solId1
-        check_unit1_q1_sol = chat(question, solution_Unit1_Q1)
-        data.scores.check_unit1_q1_sol= check_unit1_q1_sol
-         
-        question = data.scores.playground_ansId1
-        check_unit1_q1_ans = chat(question, answer1_Unit1_Q1)
-        data.scores.check_unit1_q1_ans = check_unit1_q1_ans
-
-        if check_unit1_q1_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-        if check_unit1_q1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2  
+        data.scores.check_unit1_q1_sol= chat(data.scores.playground_solId1, data.scores.unit_test1_saved_solution1)
+        data.scores.check_unit1_q1_ans = chat(data.scores.playground_ansId1,  data.scores.unit_test1_saved_answer1)
 
         # Question 2, solution and answer
-        question = data.scores.playground_solId2
-        check_unit1_q2_sol = chat(question, solution_Unit1_Q2)
-        data.scores.check_unit1_q2_sol = check_unit1_q2_sol
+        data.scores.check_unit1_q2_sol =  chat(data.scores.playground_solId2, data.scores.unit_test1_saved_solution2)
+        data.scores.check_unit1_q2_center_ans = chat(data.scores.playground_ansId2, data.scores.unit_test1_saved_answer2)
 
-        question =data.scores.playground_ansId2
-        check_unit1_q2_center_ans = chat(question, answer1_Unit1_Q2)
-        data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
-
-        if check_unit1_q2_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-    
-        if check_unit1_q2_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-    
         # Question 3, solution and answer
-        question = data.scores.playground_solId3
-        check_unit1_q3_sol = chat(question, solution_Unit1_Q3)
-        data.scores.check_unit1_q3_sol = check_unit1_q3_sol
-        question =data.scores.playground_ansId3
-        check_unit1_q3_vertex_ans = chat(question, answer1_Unit1_Q3)
-        data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
-
-        if check_unit1_q3_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            
-        if check_unit1_q3_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-              
+        data.scores.check_unit1_q3_sol = chat(data.scores.playground_solId3, solution_Unit1_Q3)
+        data.scores.check_unit1_q3_vertex_ans = chat(data.scores.playground_ansId3, data.scores.unit_test1_saved_answer3)
+        
         # Question 4, solution and answer
-        question = data.scores.playground_solId4
-        check_unit1_q4_sol = chat(question, solution_Unit1_Q4)
-        data.scores.check_unit1_q4_sol = check_unit1_q4_sol
-        question =data.scores.playground_ansId4
-        check_unit1_q4_vertex_ans = chat(question, answer1_Unit1_Q4)
-        data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
-
-        if check_unit1_q4_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            
-        if check_unit1_q4_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            
+        data.scores.check_unit1_q4_sol = chat(data.scores.playground_solId4, solution_Unit1_Q4)
+        data.scores.check_unit1_q4_vertex_ans = chat(data.scores.playground_ansId4, data.scores.unit_test1_saved_answer4)
+        
         # Question 5, solution and answer
-        question = data.scores.playground_solId5
-        check_unit1_q5_sol = chat(question, solution_Unit1_Q5)
-        data.scores.check_unit1_q5_sol = check_unit1_q5_sol
-        question =data.scores.playground_ansId5
-        check_unit1_q5_center_ans = chat(question, answer1_Unit1_Q5)
-        data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
-
-        if check_unit1_q5_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score+ 3
-            
-        if check_unit1_q5_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            
+        data.scores.check_unit1_q5_sol = chat(data.scores.playground_solId5, solution_Unit1_Q5)
+        data.scores.check_unit1_q5_center_ans = chat(data.scores.playground_ansId5, data.scores.unit_test1_saved_answer5)
+        
         global submit_unit1, new_unitTest1
         submit_unit1 = True
         new_unitTest1 = False
@@ -3088,591 +3080,10 @@ class playgroundTest(QMainWindow):
         else:
             self.offset = None
             super().mouseReleaseEvent(event)
-
-
-class unitTest_1(QMainWindow):
-    def __init__(self):
-        super(unitTest_1, self).__init__()
-        self.ui = Ui_topicLessonMainWindow()
-        self.ui.setupUi(self)
-
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.offset = None
-
-        loadUi("data/lessonDashboard.ui",self)
-
-        self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
-        self.setWindowTitle(title)
-        
-        self.topicPages.setCurrentIndex(5)
-
-        self.submitTest_Button.clicked.connect(self.submitTest)
-        self.back_Button.clicked.connect(self.toDashboardPage)
-
-        self.backButton.clicked.connect(self.toDashboardPage)
-        self.closeButton.clicked.connect(self.showMinimized)
-        self.maximizeButton.clicked.connect(self.bigWindow)
-        self.minimizeButton.clicked.connect(self.showMinimized)
-        
-        self.showScore_widget.setVisible(False)
-        self.showlessonScore_widget.setVisible(False)
-        self.unitTest1Submit_container.setCurrentIndex(0)
-
-        self.restoreWindow = 0
-        self.maxWindow = False
-
-        self.unitTest1Q1_ans_widget.setVisible(False)
-        self.unitTest1Q2_ans_widget.setVisible(False)
-        self.unitTest1Q3_ans_widget.setVisible(False)
-        self.unitTest1Q4_ans_widget.setVisible(False)
-        self.unitTest1Q5_ans_widget.setVisible(False)
-        self.unitTest1Q6_ans_widget.setVisible(False)
-        self.unitTest1Q7_ans_widget.setVisible(False)
-        self.unitTest1Q8_ans_widget.setVisible(False)
-        self.unitTest1Q9_ans_widget.setVisible(False)
-        self.unitTest1Q10_ans_widget.setVisible(False)
-
-        if new_unitTest1 == True:
-            # # RNGED UNIT TEST 1 QUESTIONS
-            unit_test1_all = []
-            unit_test1_each_quest1 = []
-            unit_test1_each_quest2 = []
-            unit_test1_each_quest3 = []
-            unit_test1_each_quest4 = []
-            unit_test1_each_quest5 = []
-            unit_test1_each_quest6 = []
-            unit_test1_each_quest7 = []
-            unit_test1_each_quest8 = []
-            unit_test1_each_quest9 = []
-            unit_test1_each_quest10 = []
-            unit_test1_each_quest11 = []
-            unit_test1_each_quest12 = []
-
-            circle_ans2, circle_solu2,  returned_circle2 = display_random_question.unit_test_circle()
-            parabola_ans2, parabola_solu2, returned_parabola2 = display_random_question.unit_test_parabola()
-            ellipse_ans2, ellipse_solu2, returned_ellipse2= display_random_question.unit_test_ellipse()
-            hyperbola_ans2, hyperbola_solu2, returned_hyperbola2= display_random_question.unit_test_hyper()
-
-            unit_test1_each_quest1.append(returned_circle2[0])
-            unit_test1_each_quest1.append(returned_circle2[1])
-            unit_test1_each_quest1.append(returned_circle2[2])
-            unit_test1_each_quest2.append(returned_circle2[3])
-            unit_test1_each_quest2.append(returned_circle2[4])
-            unit_test1_each_quest2.append(returned_circle2[5])
-            unit_test1_each_quest3.append(returned_circle2[6])
-            unit_test1_each_quest3.append(returned_circle2[7])
-            unit_test1_each_quest3.append(returned_circle2[8])
-
-            unit_test1_each_quest4.append(returned_parabola2[0])
-            unit_test1_each_quest4.append(returned_parabola2[1])
-            unit_test1_each_quest4.append(returned_parabola2[2])
-            unit_test1_each_quest5.append(returned_parabola2[3])
-            unit_test1_each_quest5.append(returned_parabola2[4])
-            unit_test1_each_quest5.append(returned_parabola2[5])
-            unit_test1_each_quest6.append(returned_parabola2[6])
-            unit_test1_each_quest6.append(returned_parabola2[7])
-            unit_test1_each_quest6.append(returned_parabola2[8])
-
-            unit_test1_each_quest7.append(returned_ellipse2[0])
-            unit_test1_each_quest7.append(returned_ellipse2[1])
-            unit_test1_each_quest7.append(returned_ellipse2[2])
-            unit_test1_each_quest8.append(returned_ellipse2[3])
-            unit_test1_each_quest8.append(returned_ellipse2[4])
-            unit_test1_each_quest8.append(returned_ellipse2[5])
-            unit_test1_each_quest9.append(returned_ellipse2[6])
-            unit_test1_each_quest9.append(returned_ellipse2[7])
-            unit_test1_each_quest9.append(returned_ellipse2[8])
-
-            unit_test1_each_quest10.append(returned_hyperbola2[0])
-            unit_test1_each_quest10.append(returned_hyperbola2[1])
-            unit_test1_each_quest10.append(returned_hyperbola2[2])
-            unit_test1_each_quest11.append(returned_hyperbola2[3])
-            unit_test1_each_quest11.append(returned_hyperbola2[4])
-            unit_test1_each_quest11.append(returned_hyperbola2[5])
-            unit_test1_each_quest12.append(returned_hyperbola2[6])
-            unit_test1_each_quest12.append(returned_hyperbola2[7])
-            unit_test1_each_quest12.append(returned_hyperbola2[8])
-
-            unit_test1_all.append(unit_test1_each_quest1)
-            unit_test1_all.append(unit_test1_each_quest2)
-            unit_test1_all.append(unit_test1_each_quest3)
-            unit_test1_all.append(unit_test1_each_quest4)
-            unit_test1_all.append(unit_test1_each_quest5)
-            unit_test1_all.append(unit_test1_each_quest6)
-            unit_test1_all.append(unit_test1_each_quest7)
-            unit_test1_all.append(unit_test1_each_quest8)
-            unit_test1_all.append(unit_test1_each_quest9)
-            unit_test1_all.append(unit_test1_each_quest10)
-            unit_test1_all.append(unit_test1_each_quest11)
-            unit_test1_all.append(unit_test1_each_quest12)
-
-            unit_test1_question1, unit_test1_question2, unit_test1_question3, unit_test1_question4, unit_test1_question5, unit_test1_question6, unit_test1_question7, unit_test1_question8 ,unit_test1_question9 ,unit_test1_question10= display_random_question.random_questions_2(unit_test1_all)
-
-            data.scores.unit_test1_question1 = unit_test1_question1[0]
-            data.scores.unit_test1_question2 = unit_test1_question2[0]
-            data.scores.unit_test1_question3 = unit_test1_question3[0]
-            data.scores.unit_test1_question4 = unit_test1_question4[0]
-            data.scores.unit_test1_question5 = unit_test1_question5[0]
-            data.scores.unit_test1_question6 = unit_test1_question6[0]
-            data.scores.unit_test1_question7 = unit_test1_question7[0]
-            data.scores.unit_test1_question8 = unit_test1_question8[0]
-            data.scores.unit_test1_question9 = unit_test1_question9[0]
-            data.scores.unit_test1_question10 = unit_test1_question10[0]
-
-            data.scores.unit1_1_solutionId = unit_test1_question1[1]
-            data.scores.unit1_1_answerId =unit_test1_question1[2]
-            data.scores.unit1_2_solutionId = unit_test1_question2[1]
-            data.scores.unit1_2_answerId =unit_test1_question2[2]
-            data.scores.unit1_3_solutionId = unit_test1_question3[1]
-            data.scores.unit1_3_answerId =unit_test1_question3[2]
-            data.scores.unit1_4_solutionId = unit_test1_question4[1]
-            data.scores.unit1_4_answerId =unit_test1_question4[2]
-            data.scores.unit1_5_solutionId = unit_test1_question5[1]
-            data.scores.unit1_5_answerId =unit_test1_question5[2]
-            data.scores.unit1_6_solutionId = unit_test1_question6[1]
-            data.scores.unit1_6_answerId =unit_test1_question6[2]
-            data.scores.unit1_7_solutionId = unit_test1_question7[1]
-            data.scores.unit1_7_answerId =unit_test1_question7[2]
-            data.scores.unit1_8_solutionId = unit_test1_question8[1]
-            data.scores.unit1_8_answerId =unit_test1_question8[2]
-            data.scores.unit1_9_solutionId = unit_test1_question9[1]
-            data.scores.unit1_9_answerId =unit_test1_question9[2]
-            data.scores.unit1_10_solutionId = unit_test1_question10[1]
-            data.scores.unit1_10_answerId =unit_test1_question10[2]
-
-        self.unitTest1_Q1_label.setText("1."+ data.scores.unit_test1_question1)
-        self.unitTest1_Q2_label.setText("2."+ data.scores.unit_test1_question2)
-        self.unitTest1_Q3_label.setText("3."+ data.scores.unit_test1_question3)
-        self.unitTest1_Q4_label.setText("4."+ data.scores.unit_test1_question4)
-        self.unitTest1_Q5_label.setText("5."+ data.scores.unit_test1_question5)
-        self.unitTest1_Q6_label.setText("6."+ data.scores.unit_test1_question6)
-        self.unitTest1_Q7_label.setText("7."+ data.scores.unit_test1_question7)
-        self.unitTest1_Q8_label.setText("8."+ data.scores.unit_test1_question8)
-        self.unitTest1_Q9_label.setText("9."+ data.scores.unit_test1_question9)
-        self.unitTest1_Q10_label.setText("10."+ data.scores.unit_test1_question10)
-        
-        if submit_unit1 == True:
-            self.showScore_widget.setVisible(True)
-            # self.showlessonScore_widget.setVisible(True)
-            self.unitTest1Submit_container.setCurrentIndex(1)
-            self.show_scoreUnit1_label.setText(str(data.scores.unit1_score))
-            self.show_score1_label.setText(str(data.scores.circ_score))
-            self.show_score2_label.setText(str(data.scores.parab_score))
-            self.show_score3_label.setText(str(data.scores.ellip_score))
-            self.show_score4_label.setText(str(data.scores.hyperb_score))
-
-            self.unitTestQ1Sol_textEdit.setText(data.scores.unit_test1_saved_solution1)
-            self.unitTestQ1Center_textEdit.setText(data.scores.unit_test1_saved_answer1)
-            self.unitTestQ2Sol_textEdit.setText(data.scores.unit_test1_saved_solution2)
-            self.unitTestQ2Center_textEdit.setText(data.scores.unit_test1_saved_answer2)
-            self.unitTestQ3Sol_textEdit.setText(data.scores.unit_test1_saved_solution3)
-            self.unitTestQ3Vertex_textEdit.setText(data.scores.unit_test1_saved_answer3)
-            self.unitTestQ4Sol_textEdit.setText(data.scores.unit_test1_saved_solution4)
-            self.unitTestQ4Vertex_textEdit.setText(data.scores.unit_test1_saved_answer4)
-            self.unitTestQ5Sol_textEdit.setText(data.scores.unit_test1_saved_solution5)
-            self.unitTestQ5Center_textEdit.setText(data.scores.unit_test1_saved_answer5)
-            self.unitTestQ6Sol_textEdit.setText(data.scores.unit_test1_saved_solution6)
-            self.unitTestQ6Foci1_textEdit.setText(data.scores.unit_test1_saved_answer6)
-            self.unitTestQ7Sol_textEdit.setText(data.scores.unit_test1_saved_solution7)
-            self.unitTestQ7Vertex1_textEdit.setText(data.scores.unit_test1_saved_answer7)
-            self.unitTestQ8Sol_textEdit.setText(data.scores.unit_test1_saved_solution8)
-            self.unitTestQ8Center_textEdit.setText(data.scores.unit_test1_saved_answer8)
-            self.unitTestQ9Sol_textEdit.setText(data.scores.unit_test1_saved_solution9)
-            self.unitTestQ9MinAxis_textEdit.setText(data.scores.unit_test1_saved_answer9)
-            self.unitTestQ10Sol_textEdit.setText(data.scores.unit_test1_saved_solution10)
-            self.unitTestQ10StandEquat_textEdit.setText(data.scores.unit_test1_saved_answer10)
-
-# # question 1
-            self.unitTestQ1Sol_textEdit.setReadOnly(True) 
-            if data.scores.check_unit1_q1_sol == "incorrect":
-                self.sol1_label.setStyleSheet("background-color: red")
-            else:
-                self.sol1_label.setStyleSheet("background-color: green")
-            self.unitTestQ1Center_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q1_ans == "incorrect":
-                self.ans1_label.setStyleSheet("background-color: red")
-            else:
-                self.ans1_label.setStyleSheet("background-color: green")
-# question 2
-            self.unitTestQ2Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q2_sol == "incorrect":
-                self.sol2_label.setStyleSheet("background-color: red")
-            else:
-                self.sol2_label.setStyleSheet("background-color: green")
-            self.unitTestQ2Center_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q2_center_ans == "incorrect":
-                self.ans2Center_label.setStyleSheet("background-color: red")
-            else:
-                self.ans2Center_label.setStyleSheet("background-color: green")
-# question 3
-            self.unitTestQ3Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q3_sol == "incorrect":
-                self.sol3_label.setStyleSheet("background-color: red")
-            else:
-                self.sol3_label.setStyleSheet("background-color: green")
-            self.unitTestQ3Vertex_textEdit.setReadOnly(True) 
-            if data.scores.check_unit1_q3_vertex_ans == "incorrect":
-                self.ans3Vertex_label.setStyleSheet("background-color: red")
-            else:
-                self.ans3Vertex_label.setStyleSheet("background-color: green")
-# question 4            
-            self.unitTestQ4Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q4_sol == "incorrect":
-                self.sol4_label.setStyleSheet("background-color: red")
-            else:
-                self.sol4_label.setStyleSheet("background-color: green")
-            self.unitTestQ4Vertex_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q4_vertex_ans == "incorrect":
-                self.ans4Vertex_label.setStyleSheet("background-color: red")
-            else:
-                self.ans4Vertex_label.setStyleSheet("background-color: green")
-# question 5
-            self.unitTestQ5Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q5_sol == "incorrect":
-                self.sol5_label.setStyleSheet("background-color: red")
-            else:
-                self.sol5_label.setStyleSheet("background-color: green")
-            self.unitTestQ5Center_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q5_center_ans == "incorrect":
-                self.ans5_label.setStyleSheet("background-color: red")
-            else:
-                self.ans5_label.setStyleSheet("background-color: green")
-# question 6
-            self.unitTestQ6Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q6_sol == "incorrect":
-                self.sol6_label.setStyleSheet("background-color: red")
-            else:
-                self.sol6_label.setStyleSheet("background-color: green")
-            self.unitTestQ6Foci1_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q6_foci1_ans == "incorrect":
-                self.ans6Foci1_label.setStyleSheet("background-color: red")
-            else:
-                self.ans6Foci1_label.setStyleSheet("background-color: green")
-# question 7
-            self.unitTestQ7Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q7_sol == "incorrect":
-                self.sol7_label.setStyleSheet("background-color: red")
-            else:
-                self.sol7_label.setStyleSheet("background-color: green")
-            self.unitTestQ7Vertex1_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q7_vertex1_ans== "incorrect":
-                self.ans7Vertex1_label.setStyleSheet("background-color: red")
-            else:
-                self.ans7Vertex1_label.setStyleSheet("background-color: green")
-# question 8
-            self.unitTestQ8Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q8_sol == "incorrect":
-                self.sol8_label.setStyleSheet("background-color: red")
-            else:
-                self.sol8_label.setStyleSheet("background-color: green")
-            self.unitTestQ8Center_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q8_center_ans == "incorrect":
-                self.ans8_label.setStyleSheet("background-color: red")
-            else:
-                self.ans8_label.setStyleSheet("background-color: green")
-# question 9
-            self.unitTestQ9Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q9_sol == "incorrect":
-                self.sol9_label.setStyleSheet("background-color: red")
-            else:
-                self.sol9_label.setStyleSheet("background-color: green")
-            self.unitTestQ9MinAxis_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q9_minorAxis_ans == "incorrect":
-                self.ans9_label.setStyleSheet("background-color: red")
-            else:
-                self.ans9_label.setStyleSheet("background-color: green")
-# question 10
-            self.unitTestQ10Sol_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q10_sol == "incorrect":
-                self.sol10_label.setStyleSheet("background-color: red")
-            else:
-                self.sol10_label.setStyleSheet("background-color: green")
-            self.unitTestQ10StandEquat_textEdit.setReadOnly(True)
-            if data.scores.check_unit1_q10_standEquat_ans == "incorrect":
-                self.ans10_label.setStyleSheet("background-color: red")
-            else:
-                self.ans10_label.setStyleSheet("background-color: green")
-
-    def bigWindow(self):
-        if self.restoreWindow == 0:
-            self.showMaximized()
-            self.maxWindow = True
-            self.restoreWindow = 1
-        else:           
-            self.showNormal()  
-            self.maxWindow = False
-            self.restoreWindow = 0
-
-    def toDashboardPage(self):
-        self.hide()
-        global fromLesson1, new_unitTest1
-        fromLesson1 = 1
-        new_unitTest1 = True
-        self.back = toDashboard()
-        self.back.show()
-
-    def submitTest(self):
-        # Question 1 , answer and solution
-        solution_Unit1_Q1 = self.unitTestQ1Sol_textEdit.toPlainText()
-        answer1_Unit1_Q1 = self.unitTestQ1Center_textEdit.text()
-        data.scores.unit_test1_saved_solution1 = solution_Unit1_Q1
-        data.scores.unit_test1_saved_answer1 = answer1_Unit1_Q1
-        
-        # Question 2 , answer and solution
-        solution_Unit1_Q2 = self.unitTestQ2Sol_textEdit.toPlainText()
-        answer1_Unit1_Q2 = self.unitTestQ2Center_textEdit.text()
-        data.scores.unit_test1_saved_solution2 = solution_Unit1_Q2
-        data.scores.unit_test1_saved_answer2 = answer1_Unit1_Q2
-
-        # Question 3 , answer and solution
-        solution_Unit1_Q3 = self.unitTestQ3Sol_textEdit.toPlainText()
-        answer1_Unit1_Q3 = self.unitTestQ3Vertex_textEdit.text()
-        data.scores.unit_test1_saved_solution3 = solution_Unit1_Q3
-        data.scores.unit_test1_saved_answer3 = answer1_Unit1_Q3
-
-        # Question 4 , answer and solution
-        solution_Unit1_Q4 = self.unitTestQ4Sol_textEdit.toPlainText()
-        answer1_Unit1_Q4 = self.unitTestQ4Vertex_textEdit.text()
-        data.scores.unit_test1_saved_solution4 = solution_Unit1_Q4
-        data.scores.unit_test1_saved_answer4 = answer1_Unit1_Q4
-
-        # Question 5 , answer and solution
-        solution_Unit1_Q5 = self.unitTestQ5Sol_textEdit.toPlainText()
-        answer1_Unit1_Q5 = self.unitTestQ5Center_textEdit.text()
-        data.scores.unit_test1_saved_solution5 = solution_Unit1_Q5
-        data.scores.unit_test1_saved_answer5 = answer1_Unit1_Q5
-
-        # Question 6 , answer and solution
-        solution_Unit1_Q6 = self.unitTestQ6Sol_textEdit.toPlainText()
-        answer1_Unit1_Q6 = self.unitTestQ6Foci1_textEdit.text()
-        data.scores.unit_test1_saved_solution6 = solution_Unit1_Q6
-        data.scores.unit_test1_saved_answer6 = answer1_Unit1_Q6
-
-        # Question 7 , answer and solution
-        solution_Unit1_Q7 = self.unitTestQ7Sol_textEdit.toPlainText()
-        answer1_Unit1_Q7 = self.unitTestQ7Vertex1_textEdit.text()
-        data.scores.unit_test1_saved_solution7 = solution_Unit1_Q7
-        data.scores.unit_test1_saved_answer7 = answer1_Unit1_Q7
-
-        # Question 8 , answer and solution
-        solution_Unit1_Q8 = self.unitTestQ8Sol_textEdit.toPlainText()
-        answer1_Unit1_Q8 = self.unitTestQ8Center_textEdit.text()
-        data.scores.unit_test1_saved_solution8 = solution_Unit1_Q8
-        data.scores.unit_test1_saved_answer8 = answer1_Unit1_Q8
-
-        # Question 9 , answer and solution
-        solution_Unit1_Q9 = self.unitTestQ9Sol_textEdit.toPlainText()
-        answer1_Unit1_Q9 = self.unitTestQ9MinAxis_textEdit.text()
-        data.scores.unit_test1_saved_solution9 = solution_Unit1_Q9
-        data.scores.unit_test1_saved_answer9 = answer1_Unit1_Q9
-
-        # Question 10 , answer and solution
-        solution_Unit1_Q10 = self.unitTestQ10Sol_textEdit.toPlainText()
-        answer1_Unit1_Q10 = self.unitTestQ10StandEquat_textEdit.text()    
-        data.scores.unit_test1_saved_solution10 = solution_Unit1_Q10
-        data.scores.unit_test1_saved_answer10 = answer1_Unit1_Q10
-
-        # Checking of answer and calculating of score
-        data.scores.unit1_score = 0
-        data.scores.circ_score = 0
-        data.scores.parab_score = 0
-        data.scores.ellip_score = 0
-        data.scores.hyperb_score = 0
-
-        # Question 1, solution and answer
-        question = data.scores.unit1_1_solutionId
-        check_unit1_q1_sol = chat(question, solution_Unit1_Q1)
-        data.scores.check_unit1_q1_sol= check_unit1_q1_sol
-         
-        question = data.scores.unit1_1_answerId
-        check_unit1_q1_ans = chat(question, answer1_Unit1_Q1)
-        data.scores.check_unit1_q1_ans = check_unit1_q1_ans
-
-        if check_unit1_q1_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.circ_score = data.scores.circ_score + 3
-        if check_unit1_q1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2  
-            data.scores.circ_score = data.scores.circ_score + 2
-
-        # Question 2, solution and answer
-        question = data.scores.unit1_2_solutionId
-        check_unit1_q2_sol = chat(question, solution_Unit1_Q2)
-        data.scores.check_unit1_q2_sol = check_unit1_q2_sol
-        question = data.scores.unit1_2_answerId
-        check_unit1_q2_center_ans = chat(question, answer1_Unit1_Q2)
-        data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
-
-        if check_unit1_q2_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.circ_score = data.scores.circ_score + 3
-        if check_unit1_q2_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.circ_score = data.scores.circ_score + 2
-
-        # Question 3, solution and answer
-        question = data.scores.unit1_3_solutionId
-        check_unit1_q3_sol = chat(question, solution_Unit1_Q3)
-        data.scores.check_unit1_q3_sol = check_unit1_q3_sol
-        question = data.scores.unit1_3_answerId
-        check_unit1_q3_vertex_ans = chat(question, answer1_Unit1_Q3)
-        data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
-
-        if check_unit1_q3_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.parab_score = data.scores.parab_score + 3
-        if check_unit1_q3_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.parab_score = data.scores.parab_score + 2  
-
-        # Question 4, solution and answer
-        question = data.scores.unit1_4_solutionId
-        check_unit1_q4_sol = chat(question, solution_Unit1_Q4)
-        data.scores.check_unit1_q4_sol = check_unit1_q4_sol
-        question = data.scores.unit1_4_answerId
-        check_unit1_q4_vertex_ans = chat(question, answer1_Unit1_Q4)
-        data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
-
-        if check_unit1_q4_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.parab_score = data.scores.parab_score + 3
-        if check_unit1_q4_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.parab_score = data.scores.parab_score + 2
-
-        # Question 5, solution and answer
-        question = data.scores.unit1_5_solutionId
-        check_unit1_q5_sol = chat(question, solution_Unit1_Q5)
-        data.scores.check_unit1_q5_sol = check_unit1_q5_sol
-        question = data.scores.unit1_5_answerId
-        check_unit1_q5_center_ans = chat(question, answer1_Unit1_Q5)
-        data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
-
-        if check_unit1_q5_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score+ 3
-            data.scores.ellip_score = data.scores.ellip_score + 3
-        if check_unit1_q5_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.ellip_score = data.scores.ellip_score + 2
-
-        # Question 6, solution and answer
-        question = data.scores.unit1_6_solutionId
-        check_unit1_q6_sol = chat(question, solution_Unit1_Q6)
-        data.scores.check_unit1_q6_sol = check_unit1_q6_sol
-        question = data.scores.unit1_6_answerId
-        check_unit1_q6_foci1_ans = chat(question, answer1_Unit1_Q6)
-        data.scores.check_unit1_q6_foci1_ans = check_unit1_q6_foci1_ans
-
-        if check_unit1_q6_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.ellip_score = data.scores.ellip_score + 3
-        if check_unit1_q6_foci1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.ellip_score = data.scores.ellip_score + 2
-
-        # Question 7, solution and answer
-        question = data.scores.unit1_7_solutionId
-        check_unit1_q7_sol = chat(question, solution_Unit1_Q7)
-        data.scores.check_unit1_q7_sol = check_unit1_q7_sol
-        question = data.scores.unit1_7_answerId
-        check_unit1_q7_vertex1_ans = chat(question, answer1_Unit1_Q7)
-        data.scores.check_unit1_q7_vertex1_ans = check_unit1_q7_vertex1_ans
-
-        if check_unit1_q7_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.hyperb_score = data.scores.hyperb_score + 3
-        if check_unit1_q7_vertex1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.hyperb_score = data.scores.hyperb_score + 2   
-
-        # Question 8, solution and answer
-        question = data.scores.unit1_8_solutionId
-        check_unit1_q8_sol = chat(question, solution_Unit1_Q8)
-        data.scores.check_unit1_q8_sol = check_unit1_q8_sol
-        question = data.scores.unit1_8_answerId
-        check_unit1_q8_center_ans = chat(question, answer1_Unit1_Q8)
-        data.scores.check_unit1_q8_center_ans = check_unit1_q8_center_ans
-
-        if check_unit1_q8_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.hyperb_score = data.scores.hyperb_score + 3
-        if check_unit1_q8_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.hyperb_score = data.scores.hyperb_score + 2
-
-        # Question 9, solution and answer
-        question = data.scores.unit1_9_solutionId
-        check_unit1_q9_sol = chat(question, solution_Unit1_Q9)
-        data.scores.check_unit1_q9_sol = check_unit1_q9_sol 
-        question =data.scores.unit1_9_answerId
-        check_unit1_q9_minorAxis_ans = chat(question, answer1_Unit1_Q9)
-        data.scores.check_unit1_q9_minorAxis_ans = check_unit1_q9_minorAxis_ans
-
-        if check_unit1_q9_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.hyperb_score = data.scores.hyperb_score + 3
-        if check_unit1_q9_minorAxis_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.hyperb_score = data.scores.hyperb_score + 2
-
-        # Question 10, solution and answer
-        question = data.scores.unit1_10_solutionId
-        check_unit1_q10_sol = chat(question, solution_Unit1_Q10)
-        data.scores.check_unit1_q10_sol = check_unit1_q10_sol
-        question = data.scores.unit1_10_answerId
-        check_unit1_q10_standEquat_ans = chat(question, answer1_Unit1_Q10)
-        data.scores.check_unit1_q10_standEquat_ans = check_unit1_q10_standEquat_ans
-
-        if check_unit1_q10_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.parab_score = data.scores.parab_score + 3
-        if check_unit1_q10_standEquat_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.parab_score = data.scores.parab_score + 2
-        
-        print(data.scores.unit1_score)
-        studKey = db.child("student").get()
-        for keyAccess in studKey.each():
-            if keyAccess.val()["studentSchoolID"] == idKey:
-                keyID = keyAccess.key()
-        db.child("student").child(keyID).update({"unitTest1_score":str(data.scores.unit1_score)})
-
-        global submit_unit1, new_unitTest1
-        submit_unit1 = True
-        new_unitTest1 = False
- 
-        self.hide()
-        self.reload = toProcessTest1()
-        self.reload.show()
-        self.reload.progress()
-
-    def mousePressEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:
-            if event.button() == QtCore.Qt.LeftButton:
-                self.offset = event.pos()
-            else:
-                super().mousePressEvent(event)
-
-    def mouseMoveEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:   
-            if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
-                self.move(self.pos() + event.pos() - self.offset)
-            else:
-                super().mouseMoveEvent(event)
-
-    def mouseReleaseEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:
-            self.offset = None
-            super().mouseReleaseEvent(event)
-
-
+def _delay():
+    for i in range(3):
+        QApplication.processEvents()
+        time.sleep(.1)
 class assessmentWindow(QMainWindow):
     def __init__(self):
         super(assessmentWindow, self).__init__()
@@ -3809,10 +3220,10 @@ class assessmentWindow(QMainWindow):
         # Checking of answer and calculating of score
         data.scores.assess_score = 0
         # Question 1, solution and answer
-        question = data.scores.pre1_solutionId
-        check_assess_q1_sol = chat(question, assess_sol_Q1)
-        question = data.scores.pre1_answerId
-        check_assess_q1_ans = chat(question, assess_ans_Q1)
+        check_assess_q1_sol = chat(data.scores.pre1_solutionId, assess_sol_Q1)
+        _delay()
+        check_assess_q1_ans = chat(data.scores.pre1_answerId, assess_ans_Q1)
+        _delay()
                 
         if check_assess_q1_sol == "correct":
             data.scores.assess_score = data.scores.assess_score + 3
@@ -3820,10 +3231,10 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 2
 
         # Question 2, solution and answer
-        question = data.scores.pre2_solutionId
-        check_assess_q2_sol = chat(question, assess_sol_Q2)
-        question = data.scores.pre2_answerId
-        check_assess_q2_ans = chat(question, assess_ans_Q2)
+        check_assess_q2_sol = chat(data.scores.pre2_solutionId, assess_sol_Q2)
+        _delay()
+        check_assess_q2_ans = chat(data.scores.pre2_answerId, assess_ans_Q2)
+        _delay()
 
         if check_assess_q2_sol == "correct":
             data.scores.assess_score = data.scores.assess_score + 3
@@ -3831,10 +3242,10 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 2
 
         # Question 3, solution and answer
-        question = data.scores.pre3_solutionId
-        check_assess_q3_sol = chat(question, assess_sol_Q3)
-        question = data.scores.pre3_answerId
-        check_assess_q3_ans = chat(question, assess_ans_Q3)
+        check_assess_q3_sol = chat(data.scores.pre3_solutionId, assess_sol_Q3)
+        _delay()
+        check_assess_q3_ans = chat(data.scores.pre3_answerId, assess_ans_Q3)
+        _delay()
 
         if check_assess_q3_sol == "correct":
             data.scores.assess_score = data.scores.assess_score + 3
@@ -3842,10 +3253,10 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 2
 
         # Question 4, solution and answer
-        question = data.scores.pre4_solutionId
-        check_assess_q4_sol = chat(question, assess_sol_Q4)
-        question = data.scores.pre4_answerId
-        check_assess_q4_ans = chat(question, assess_ans_Q4)
+        check_assess_q4_sol = chat(data.scores.pre4_solutionId, assess_sol_Q4)
+        _delay()
+        check_assess_q4_ans = chat(data.scores.pre4_answerId, assess_ans_Q4)
+        _delay()
 
         if check_assess_q4_sol == "correct":
             data.scores.assess_score = data.scores.assess_score + 3
@@ -3853,10 +3264,10 @@ class assessmentWindow(QMainWindow):
             data.scores.assess_score = data.scores.assess_score + 2
 
         # Question 5, solution and answer
-        question = data.scores.pre5_solutionId
-        check_assess_q5_sol = chat(question, assess_sol_Q5)
-        question = data.scores.pre5_answerId
-        check_assess_q5_ans = chat(question, assess_ans_Q5)
+        check_assess_q5_sol = chat(data.scores.pre5_solutionId, assess_sol_Q5)
+        _delay()
+        check_assess_q5_ans = chat(data.scores.pre5_answerId, assess_ans_Q5)
+        _delay()
 
         if check_assess_q5_sol == "correct":
             data.scores.assess_score = data.scores.assess_score + 3
@@ -4071,14 +3482,6 @@ class unitTest_1(QMainWindow):
         self.unitTest1_Q10_label.setText("10."+ data.scores.unit_test1_question10)
         
         if submit_unit1 == True:
-            self.showScore_widget.setVisible(True)
-            # self.showlessonScore_widget.setVisible(True)
-            self.unitTest1Submit_container.setCurrentIndex(1)
-            self.show_scoreUnit1_label.setText(str(data.scores.unit1_score))
-            self.show_score1_label.setText(str(data.scores.circ_score))
-            self.show_score2_label.setText(str(data.scores.parab_score))
-            self.show_score3_label.setText(str(data.scores.ellip_score))
-            self.show_score4_label.setText(str(data.scores.hyperb_score))
 
             self.unitTestQ1Sol_textEdit.setText(data.scores.unit_test1_saved_solution1)
             self.unitTestQ1Center_textEdit.setText(data.scores.unit_test1_saved_answer1)
@@ -4101,116 +3504,147 @@ class unitTest_1(QMainWindow):
             self.unitTestQ10Sol_textEdit.setText(data.scores.unit_test1_saved_solution10)
             self.unitTestQ10StandEquat_textEdit.setText(data.scores.unit_test1_saved_answer10)
 
-# # question 1
-            self.unitTestQ1Sol_textEdit.setReadOnly(True) 
+            self.unitTestQ1Sol_textEdit.setReadOnly(True)
+            self.unitTestQ1Center_textEdit.setReadOnly(True)
+            self.unitTestQ2Sol_textEdit.setReadOnly(True)
+            self.unitTestQ2Center_textEdit.setReadOnly(True)
+            self.unitTestQ3Sol_textEdit.setReadOnly(True)
+            self.unitTestQ3Vertex_textEdit.setReadOnly(True) 
+            self.unitTestQ4Sol_textEdit.setReadOnly(True)
+            self.unitTestQ4Vertex_textEdit.setReadOnly(True)
+            self.unitTestQ5Sol_textEdit.setReadOnly(True)
+            self.unitTestQ5Center_textEdit.setReadOnly(True)
+            self.unitTestQ6Sol_textEdit.setReadOnly(True)
+            self.unitTestQ6Foci1_textEdit.setReadOnly(True)
+            self.unitTestQ7Sol_textEdit.setReadOnly(True)
+            self.unitTestQ7Vertex1_textEdit.setReadOnly(True)
+            self.unitTestQ8Sol_textEdit.setReadOnly(True)
+            self.unitTestQ8Center_textEdit.setReadOnly(True)
+            self.unitTestQ9Sol_textEdit.setReadOnly(True)
+            self.unitTestQ9MinAxis_textEdit.setReadOnly(True)
+            self.unitTestQ10Sol_textEdit.setReadOnly(True)
+            self.unitTestQ10StandEquat_textEdit.setReadOnly(True)
+            data.scores.unit1_score = 0
+
+# # question 1 
             if data.scores.check_unit1_q1_sol == "incorrect":
                 self.sol1_label.setStyleSheet("background-color: red")
             else:
                 self.sol1_label.setStyleSheet("background-color: green")
-            self.unitTestQ1Center_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q1_ans == "incorrect":
                 self.ans1_label.setStyleSheet("background-color: red")
             else:
                 self.ans1_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2  
 # question 2
-            self.unitTestQ2Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q2_sol == "incorrect":
                 self.sol2_label.setStyleSheet("background-color: red")
             else:
                 self.sol2_label.setStyleSheet("background-color: green")
-            self.unitTestQ2Center_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q2_center_ans == "incorrect":
                 self.ans2Center_label.setStyleSheet("background-color: red")
             else:
                 self.ans2Center_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2
 # question 3
-            self.unitTestQ3Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q3_sol == "incorrect":
                 self.sol3_label.setStyleSheet("background-color: red")
             else:
                 self.sol3_label.setStyleSheet("background-color: green")
-            self.unitTestQ3Vertex_textEdit.setReadOnly(True) 
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q3_vertex_ans == "incorrect":
                 self.ans3Vertex_label.setStyleSheet("background-color: red")
             else:
                 self.ans3Vertex_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2
 # question 4            
-            self.unitTestQ4Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q4_sol == "incorrect":
                 self.sol4_label.setStyleSheet("background-color: red")
             else:
                 self.sol4_label.setStyleSheet("background-color: green")
-            self.unitTestQ4Vertex_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q4_vertex_ans == "incorrect":
                 self.ans4Vertex_label.setStyleSheet("background-color: red")
             else:
                 self.ans4Vertex_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2
 # question 5
-            self.unitTestQ5Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q5_sol == "incorrect":
                 self.sol5_label.setStyleSheet("background-color: red")
             else:
                 self.sol5_label.setStyleSheet("background-color: green")
-            self.unitTestQ5Center_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score+ 3
             if data.scores.check_unit1_q5_center_ans == "incorrect":
                 self.ans5_label.setStyleSheet("background-color: red")
             else:
                 self.ans5_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2
 # question 6
-            self.unitTestQ6Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q6_sol == "incorrect":
                 self.sol6_label.setStyleSheet("background-color: red")
             else:
                 self.sol6_label.setStyleSheet("background-color: green")
-            self.unitTestQ6Foci1_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q6_foci1_ans == "incorrect":
                 self.ans6Foci1_label.setStyleSheet("background-color: red")
             else:
                 self.ans6Foci1_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2
 # question 7
-            self.unitTestQ7Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q7_sol == "incorrect":
                 self.sol7_label.setStyleSheet("background-color: red")
             else:
                 self.sol7_label.setStyleSheet("background-color: green")
-            self.unitTestQ7Vertex1_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q7_vertex1_ans== "incorrect":
                 self.ans7Vertex1_label.setStyleSheet("background-color: red")
             else:
                 self.ans7Vertex1_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2 
 # question 8
-            self.unitTestQ8Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q8_sol == "incorrect":
                 self.sol8_label.setStyleSheet("background-color: red")
             else:
                 self.sol8_label.setStyleSheet("background-color: green")
-            self.unitTestQ8Center_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q8_center_ans == "incorrect":
                 self.ans8_label.setStyleSheet("background-color: red")
             else:
                 self.ans8_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2
 # question 9
-            self.unitTestQ9Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q9_sol == "incorrect":
                 self.sol9_label.setStyleSheet("background-color: red")
             else:
                 self.sol9_label.setStyleSheet("background-color: green")
-            self.unitTestQ9MinAxis_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q9_minorAxis_ans == "incorrect":
                 self.ans9_label.setStyleSheet("background-color: red")
             else:
                 self.ans9_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2
 # question 10
-            self.unitTestQ10Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit1_q10_sol == "incorrect":
                 self.sol10_label.setStyleSheet("background-color: red")
             else:
                 self.sol10_label.setStyleSheet("background-color: green")
-            self.unitTestQ10StandEquat_textEdit.setReadOnly(True)
+                data.scores.unit1_score = data.scores.unit1_score + 3
             if data.scores.check_unit1_q10_standEquat_ans == "incorrect":
                 self.ans10_label.setStyleSheet("background-color: red")
             else:
                 self.ans10_label.setStyleSheet("background-color: green")
+                data.scores.unit1_score = data.scores.unit1_score + 2
+
+            studKey = db.child("student").get()
+            for keyAccess in studKey.each():
+                if keyAccess.val()["studentSchoolID"] == idKey:
+                    keyID = keyAccess.key()
+            db.child("student").child(keyID).update({"unitTest1_score":str(data.scores.unit1_score)})
+            self.showScore_widget.setVisible(True)
+            self.unitTest1Submit_container.setCurrentIndex(1)
+            self.show_scoreUnit1_label.setText(str(data.scores.unit1_score))
 
     def bigWindow(self):
         if self.restoreWindow == 0:
@@ -4232,234 +3666,104 @@ class unitTest_1(QMainWindow):
 
     def submitTest(self):
         # Question 1 , answer and solution
-        solution_Unit1_Q1 = self.unitTestQ1Sol_textEdit.toPlainText()
-        answer1_Unit1_Q1 = self.unitTestQ1Center_textEdit.text()
-        data.scores.unit_test1_saved_solution1 = solution_Unit1_Q1
-        data.scores.unit_test1_saved_answer1 = answer1_Unit1_Q1
+        data.scores.unit_test1_saved_solution1 = self.unitTestQ1Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer1 = self.unitTestQ1Center_textEdit.text()
         
         # Question 2 , answer and solution
-        solution_Unit1_Q2 = self.unitTestQ2Sol_textEdit.toPlainText()
-        answer1_Unit1_Q2 = self.unitTestQ2Center_textEdit.text()
-        data.scores.unit_test1_saved_solution2 = solution_Unit1_Q2
-        data.scores.unit_test1_saved_answer2 = answer1_Unit1_Q2
+        data.scores.unit_test1_saved_solution2 = self.unitTestQ2Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer2 = self.unitTestQ2Center_textEdit.text()
 
         # Question 3 , answer and solution
-        solution_Unit1_Q3 = self.unitTestQ3Sol_textEdit.toPlainText()
-        answer1_Unit1_Q3 = self.unitTestQ3Vertex_textEdit.text()
-        data.scores.unit_test1_saved_solution3 = solution_Unit1_Q3
-        data.scores.unit_test1_saved_answer3 = answer1_Unit1_Q3
+        data.scores.unit_test1_saved_solution3 = self.unitTestQ3Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer3 = self.unitTestQ3Vertex_textEdit.text()
 
         # Question 4 , answer and solution
-        solution_Unit1_Q4 = self.unitTestQ4Sol_textEdit.toPlainText()
-        answer1_Unit1_Q4 = self.unitTestQ4Vertex_textEdit.text()
-        data.scores.unit_test1_saved_solution4 = solution_Unit1_Q4
-        data.scores.unit_test1_saved_answer4 = answer1_Unit1_Q4
+        data.scores.unit_test1_saved_solution4 = self.unitTestQ4Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer4 = self.unitTestQ4Vertex_textEdit.text()
 
         # Question 5 , answer and solution
-        solution_Unit1_Q5 = self.unitTestQ5Sol_textEdit.toPlainText()
-        answer1_Unit1_Q5 = self.unitTestQ5Center_textEdit.text()
-        data.scores.unit_test1_saved_solution5 = solution_Unit1_Q5
-        data.scores.unit_test1_saved_answer5 = answer1_Unit1_Q5
+        data.scores.unit_test1_saved_solution5 = self.unitTestQ5Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer5 = self.unitTestQ5Center_textEdit.text()
 
         # Question 6 , answer and solution
-        solution_Unit1_Q6 = self.unitTestQ6Sol_textEdit.toPlainText()
-        answer1_Unit1_Q6 = self.unitTestQ6Foci1_textEdit.text()
-        data.scores.unit_test1_saved_solution6 = solution_Unit1_Q6
-        data.scores.unit_test1_saved_answer6 = answer1_Unit1_Q6
+        data.scores.unit_test1_saved_solution6= self.unitTestQ6Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer6 = self.unitTestQ6Foci1_textEdit.text()
 
         # Question 7 , answer and solution
-        solution_Unit1_Q7 = self.unitTestQ7Sol_textEdit.toPlainText()
-        answer1_Unit1_Q7 = self.unitTestQ7Vertex1_textEdit.text()
-        data.scores.unit_test1_saved_solution7 = solution_Unit1_Q7
-        data.scores.unit_test1_saved_answer7 = answer1_Unit1_Q7
+        data.scores.unit_test1_saved_solution7 = self.unitTestQ7Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer7 = self.unitTestQ7Vertex1_textEdit.text()
 
         # Question 8 , answer and solution
-        solution_Unit1_Q8 = self.unitTestQ8Sol_textEdit.toPlainText()
-        answer1_Unit1_Q8 = self.unitTestQ8Center_textEdit.text()
-        data.scores.unit_test1_saved_solution8 = solution_Unit1_Q8
-        data.scores.unit_test1_saved_answer8 = answer1_Unit1_Q8
+        data.scores.unit_test1_saved_solution8 = self.unitTestQ8Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer8 = self.unitTestQ8Center_textEdit.text()
 
         # Question 9 , answer and solution
-        solution_Unit1_Q9 = self.unitTestQ9Sol_textEdit.toPlainText()
-        answer1_Unit1_Q9 = self.unitTestQ9MinAxis_textEdit.text()
-        data.scores.unit_test1_saved_solution9 = solution_Unit1_Q9
-        data.scores.unit_test1_saved_answer9 = answer1_Unit1_Q9
+        data.scores.unit_test1_saved_solution9 = self.unitTestQ9Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer9 = self.unitTestQ9MinAxis_textEdit.text()
 
         # Question 10 , answer and solution
-        solution_Unit1_Q10 = self.unitTestQ10Sol_textEdit.toPlainText()
-        answer1_Unit1_Q10 = self.unitTestQ10StandEquat_textEdit.text()    
-        data.scores.unit_test1_saved_solution10 = solution_Unit1_Q10
-        data.scores.unit_test1_saved_answer10 = answer1_Unit1_Q10
-
-        # Checking of answer and calculating of score
-        data.scores.unit1_score = 0
-        data.scores.circ_score = 0
-        data.scores.parab_score = 0
-        data.scores.ellip_score = 0
-        data.scores.hyperb_score = 0
-
+        data.scores.unit_test1_saved_solution10 = self.unitTestQ10Sol_textEdit.toPlainText()
+        data.scores.unit_test1_saved_answer10 = self.unitTestQ10StandEquat_textEdit.text()    
+# a
         # Question 1, solution and answer
-        question = data.scores.unit1_1_solutionId
-        check_unit1_q1_sol = chat(question, solution_Unit1_Q1)
-        data.scores.check_unit1_q1_sol= check_unit1_q1_sol
-         
-        question = data.scores.unit1_1_answerId
-        check_unit1_q1_ans = chat(question, answer1_Unit1_Q1)
-        data.scores.check_unit1_q1_ans = check_unit1_q1_ans
-
-        if check_unit1_q1_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.circ_score = data.scores.circ_score + 3
-        if check_unit1_q1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2  
-            data.scores.circ_score = data.scores.circ_score + 2
-
+        data.scores.check_unit1_q1_sol= chat(data.scores.unit1_1_solutionId, data.scores.unit_test1_saved_solution1)
+        _delay()
+        data.scores.check_unit1_q1_ans =chat(data.scores.unit1_1_answerId, data.scores.unit_test1_saved_answer1)
+        _delay()
         # Question 2, solution and answer
-        question = data.scores.unit1_2_solutionId
-        check_unit1_q2_sol = chat(question, solution_Unit1_Q2)
-        data.scores.check_unit1_q2_sol = check_unit1_q2_sol
-        question = data.scores.unit1_2_answerId
-        check_unit1_q2_center_ans = chat(question, answer1_Unit1_Q2)
-        data.scores.check_unit1_q2_center_ans = check_unit1_q2_center_ans
-
-        if check_unit1_q2_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.circ_score = data.scores.circ_score + 3
-        if check_unit1_q2_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.circ_score = data.scores.circ_score + 2
-
+        data.scores.check_unit1_q2_sol =chat(data.scores.unit1_2_solutionId, data.scores.unit_test1_saved_solution2)
+        _delay()
+        data.scores.check_unit1_q2_center_ans =chat(data.scores.unit1_2_answerId, data.scores.unit_test1_saved_answer2)
+        _delay()
         # Question 3, solution and answer
-        question = data.scores.unit1_3_solutionId
-        check_unit1_q3_sol = chat(question, solution_Unit1_Q3)
-        data.scores.check_unit1_q3_sol = check_unit1_q3_sol
-        question = data.scores.unit1_3_answerId
-        check_unit1_q3_vertex_ans = chat(question, answer1_Unit1_Q3)
-        data.scores.check_unit1_q3_vertex_ans = check_unit1_q3_vertex_ans
-
-        if check_unit1_q3_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.parab_score = data.scores.parab_score + 3
-        if check_unit1_q3_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.parab_score = data.scores.parab_score + 2  
-
+        data.scores.check_unit1_q3_sol =chat(data.scores.unit1_3_solutionId, data.scores.unit_test1_saved_solution3)
+        _delay()
+        data.scores.check_unit1_q3_vertex_ans =chat(data.scores.unit1_3_answerId, data.scores.unit_test1_saved_answer3)
+        _delay()
         # Question 4, solution and answer
-        question = data.scores.unit1_4_solutionId
-        check_unit1_q4_sol = chat(question, solution_Unit1_Q4)
-        data.scores.check_unit1_q4_sol = check_unit1_q4_sol
-        question = data.scores.unit1_4_answerId
-        check_unit1_q4_vertex_ans = chat(question, answer1_Unit1_Q4)
-        data.scores.check_unit1_q4_vertex_ans = check_unit1_q4_vertex_ans
-
-        if check_unit1_q4_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.parab_score = data.scores.parab_score + 3
-        if check_unit1_q4_vertex_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.parab_score = data.scores.parab_score + 2
-
+        data.scores.check_unit1_q4_sol =chat( data.scores.unit1_4_solutionId, data.scores.unit_test1_saved_solution4)
+        _delay()
+        data.scores.check_unit1_q4_vertex_ans =chat(data.scores.unit1_4_answerId, data.scores.unit_test1_saved_answer4)
+        _delay()
         # Question 5, solution and answer
-        question = data.scores.unit1_5_solutionId
-        check_unit1_q5_sol = chat(question, solution_Unit1_Q5)
-        data.scores.check_unit1_q5_sol = check_unit1_q5_sol
-        question = data.scores.unit1_5_answerId
-        check_unit1_q5_center_ans = chat(question, answer1_Unit1_Q5)
-        data.scores.check_unit1_q5_center_ans = check_unit1_q5_center_ans
-
-        if check_unit1_q5_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score+ 3
-            data.scores.ellip_score = data.scores.ellip_score + 3
-        if check_unit1_q5_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.ellip_score = data.scores.ellip_score + 2
+        data.scores.check_unit1_q5_sol =chat(data.scores.unit1_5_solutionId, data.scores.unit_test1_saved_solution5)
+        _delay()
+        data.scores.check_unit1_q5_center_ans =chat(data.scores.unit1_5_answerId, data.scores.unit_test1_saved_answer5)
+        _delay()
 
         # Question 6, solution and answer
-        question = data.scores.unit1_6_solutionId
-        check_unit1_q6_sol = chat(question, solution_Unit1_Q6)
-        data.scores.check_unit1_q6_sol = check_unit1_q6_sol
-        question = data.scores.unit1_6_answerId
-        check_unit1_q6_foci1_ans = chat(question, answer1_Unit1_Q6)
-        data.scores.check_unit1_q6_foci1_ans = check_unit1_q6_foci1_ans
-
-        if check_unit1_q6_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.ellip_score = data.scores.ellip_score + 3
-        if check_unit1_q6_foci1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.ellip_score = data.scores.ellip_score + 2
+        data.scores.check_unit1_q6_sol =chat(data.scores.unit1_6_solutionId, data.scores.unit_test1_saved_solution6)
+        _delay()
+        data.scores.check_unit1_q6_foci1_ans =chat(data.scores.unit1_6_answerId, data.scores.unit_test1_saved_answer6)
+        _delay()
 
         # Question 7, solution and answer
-        question = data.scores.unit1_7_solutionId
-        check_unit1_q7_sol = chat(question, solution_Unit1_Q7)
-        data.scores.check_unit1_q7_sol = check_unit1_q7_sol
-        question = data.scores.unit1_7_answerId
-        check_unit1_q7_vertex1_ans = chat(question, answer1_Unit1_Q7)
-        data.scores.check_unit1_q7_vertex1_ans = check_unit1_q7_vertex1_ans
-
-        if check_unit1_q7_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.hyperb_score = data.scores.hyperb_score + 3
-        if check_unit1_q7_vertex1_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.hyperb_score = data.scores.hyperb_score + 2   
+        data.scores.check_unit1_q7_sol =chat(data.scores.unit1_7_solutionId, data.scores.unit_test1_saved_solution7)
+        _delay()
+        data.scores.check_unit1_q7_vertex1_ans =chat(data.scores.unit1_7_answerId, data.scores.unit_test1_saved_answer7)
+        _delay()
 
         # Question 8, solution and answer
-        question = data.scores.unit1_8_solutionId
-        check_unit1_q8_sol = chat(question, solution_Unit1_Q8)
-        data.scores.check_unit1_q8_sol = check_unit1_q8_sol
-        question = data.scores.unit1_8_answerId
-        check_unit1_q8_center_ans = chat(question, answer1_Unit1_Q8)
-        data.scores.check_unit1_q8_center_ans = check_unit1_q8_center_ans
-
-        if check_unit1_q8_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.hyperb_score = data.scores.hyperb_score + 3
-        if check_unit1_q8_center_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.hyperb_score = data.scores.hyperb_score + 2
+        data.scores.check_unit1_q8_sol =chat(data.scores.unit1_8_solutionId, data.scores.unit_test1_saved_solution8)
+        _delay()
+        data.scores.check_unit1_q8_center_ans =chat( data.scores.unit1_8_answerId, data.scores.unit_test1_saved_answer8)
+        _delay()
 
         # Question 9, solution and answer
-        question = data.scores.unit1_9_solutionId
-        check_unit1_q9_sol = chat(question, solution_Unit1_Q9)
-        data.scores.check_unit1_q9_sol = check_unit1_q9_sol 
-        question =data.scores.unit1_9_answerId
-        check_unit1_q9_minorAxis_ans = chat(question, answer1_Unit1_Q9)
-        data.scores.check_unit1_q9_minorAxis_ans = check_unit1_q9_minorAxis_ans
-
-        if check_unit1_q9_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.hyperb_score = data.scores.hyperb_score + 3
-        if check_unit1_q9_minorAxis_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.hyperb_score = data.scores.hyperb_score + 2
+        data.scores.check_unit1_q9_sol =chat(data.scores.unit1_9_solutionId, data.scores.unit_test1_saved_solution9)
+        _delay()
+        data.scores.check_unit1_q9_minorAxis_ans =chat(data.scores.unit1_9_answerId, data.scores.unit_test1_saved_answer9)
+        _delay()
 
         # Question 10, solution and answer
-        question = data.scores.unit1_10_solutionId
-        check_unit1_q10_sol = chat(question, solution_Unit1_Q10)
-        data.scores.check_unit1_q10_sol = check_unit1_q10_sol
-        question = data.scores.unit1_10_answerId
-        check_unit1_q10_standEquat_ans = chat(question, answer1_Unit1_Q10)
-        data.scores.check_unit1_q10_standEquat_ans = check_unit1_q10_standEquat_ans
-
-        if check_unit1_q10_sol == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 3
-            data.scores.parab_score = data.scores.parab_score + 3
-        if check_unit1_q10_standEquat_ans == "correct":
-            data.scores.unit1_score = data.scores.unit1_score + 2
-            data.scores.parab_score = data.scores.parab_score + 2
+        data.scores.check_unit1_q10_sol =chat(data.scores.unit1_10_solutionId, data.scores.unit_test1_saved_solution10)
+        _delay()
+        data.scores.check_unit1_q10_standEquat_ans =chat(data.scores.unit1_10_answerId, data.scores.unit_test1_saved_answer10)
+        _delay()
         
-        print(data.scores.unit1_score)
-        studKey = db.child("student").get()
-        for keyAccess in studKey.each():
-            if keyAccess.val()["studentSchoolID"] == idKey:
-                keyID = keyAccess.key()
-        db.child("student").child(keyID).update({"unitTest1_score":str(data.scores.unit1_score)})
-
         global submit_unit1, new_unitTest1
         submit_unit1 = True
         new_unitTest1 = False
- 
         self.hide()
         self.reload = toProcessTest1()
         self.reload.show()
@@ -4636,10 +3940,6 @@ class unitTest_2(QMainWindow):
         self.showlessonScore2_widget.setVisible(False)
 
         if submit_unit2 == True:
-            self.showScore2_widget.setVisible(True)
-            self.unitTest2Submit_container.setCurrentIndex(1)
-            self.show_scoreUnit2_label.setText(str(data.scores.unit2_score))
-
             self.unitTest2Q1Sol_textEdit.setText(data.scores.unit_test2_saved_solution1)
             self.unitTest2Q1_textEdit.setText(data.scores.unit_test2_saved_answer1)
             self.unitTest2Q2Sol_textEdit.setText(data.scores.unit_test2_saved_solution2)
@@ -4661,116 +3961,147 @@ class unitTest_2(QMainWindow):
             self.unitTest2Q10Sol_textEdit.setText(data.scores.unit_test2_saved_solution10)
             self.unitTest2Q10_textEdit.setText(data.scores.unit_test2_saved_answer10)
 
-# question 1
             self.unitTest2Q1Sol_textEdit.setReadOnly(True) 
+            self.unitTest2Q1_textEdit.setReadOnly(True)
+            self.unitTest2Q2Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q2_textEdit.setReadOnly(True)
+            self.unitTest2Q3Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q3_textEdit.setReadOnly(True) 
+            self.unitTest2Q4Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q4_textEdit.setReadOnly(True)
+            self.unitTest2Q5Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q5_textEdit.setReadOnly(True)
+            self.unitTest2Q6Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q6_textEdit.setReadOnly(True)
+            self.unitTest2Q7Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q7_textEdit.setReadOnly(True)
+            self.unitTest2Q8Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q8_textEdit.setReadOnly(True)
+            self.unitTest2Q9Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q9_textEdit.setReadOnly(True)
+            self.unitTest2Q10Sol_textEdit.setReadOnly(True)
+            self.unitTest2Q10_textEdit.setReadOnly(True)
+            data.scores.unit2_score = 0
+# question 1
             if data.scores.check_unit2_q1_sol == "incorrect":
                 self.sol11_label.setStyleSheet("background-color: red")
             else:
                 self.sol11_label.setStyleSheet("background-color: green")
-            self.unitTest2Q1_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3
             if data.scores.check_unit2_q1_ans == "incorrect":
                 self.ans11_label.setStyleSheet("background-color: red")
             else:
                 self.ans11_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2 
 # question 2
-            self.unitTest2Q2Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q2_sol == "incorrect":
                 self.sol12_label.setStyleSheet("background-color: red")
             else:
                 self.sol12_label.setStyleSheet("background-color: green")
-            self.unitTest2Q2_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q2_ans == "incorrect":
                 self.ans12_label.setStyleSheet("background-color: red")
             else:
                 self.ans12_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2 
 # question 3
-            self.unitTest2Q3Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q3_sol == "incorrect":
                 self.sol13_label.setStyleSheet("background-color: red")
             else:
                 self.sol13_label.setStyleSheet("background-color: green")
-            self.unitTest2Q3_textEdit.setReadOnly(True) 
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q3_ans == "incorrect":
                 self.ans13_label.setStyleSheet("background-color: red")
             else:
                 self.ans13_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2 
 # question 4            
-            self.unitTest2Q4Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q4_sol == "incorrect":
                 self.sol14_label.setStyleSheet("background-color: red")
             else:
                 self.sol14_label.setStyleSheet("background-color: green")
-            self.unitTest2Q4_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q4_ans == "incorrect":
                 self.ans14_label.setStyleSheet("background-color: red")
             else:
                 self.ans14_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2 
 # question 5
-            self.unitTest2Q5Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q5_sol == "incorrect":
                 self.sol15_label.setStyleSheet("background-color: red")
             else:
                 self.sol15_label.setStyleSheet("background-color: green")
-            self.unitTest2Q5_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q5_ans == "incorrect":
                 self.ans15_label.setStyleSheet("background-color: red")
             else:
                 self.ans15_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2 
 # question 6
-            self.unitTest2Q6Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q6_sol == "incorrect":
                 self.sol16_label.setStyleSheet("background-color: red")
             else:
                 self.sol16_label.setStyleSheet("background-color: green")
-            self.unitTest2Q6_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q6_ans == "incorrect":
                 self.ans16_label.setStyleSheet("background-color: red")
             else:
                 self.ans16_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2  
 # question 7
-            self.unitTest2Q7Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q7_sol == "incorrect":
                 self.sol17_label.setStyleSheet("background-color: red")
             else:
                 self.sol17_label.setStyleSheet("background-color: green")
-            self.unitTest2Q7_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q7_ans== "incorrect":
                 self.ans17_label.setStyleSheet("background-color: red")
             else:
                 self.ans17_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2 
 # question 8
-            self.unitTest2Q8Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q8_sol == "incorrect":
                 self.sol18_label.setStyleSheet("background-color: red")
             else:
                 self.sol18_label.setStyleSheet("background-color: green")
-            self.unitTest2Q8_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q8_ans == "incorrect":
                 self.ans18_label.setStyleSheet("background-color: red")
             else:
                 self.ans18_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2 
 # question 9
-            self.unitTest2Q9Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q9_sol == "incorrect":
                 self.sol19_label.setStyleSheet("background-color: red")
             else:
                 self.sol19_label.setStyleSheet("background-color: green")
-            self.unitTest2Q9_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q9_ans == "incorrect":
                 self.ans19_label.setStyleSheet("background-color: red")
             else:
                 self.ans19_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2  
 # question 10
-            self.unitTest2Q10Sol_textEdit.setReadOnly(True)
             if data.scores.check_unit2_q10_sol == "incorrect":
                 self.sol20_label.setStyleSheet("background-color: red")
             else:
                 self.sol20_label.setStyleSheet("background-color: green")
-            self.unitTest2Q10_textEdit.setReadOnly(True)
+                data.scores.unit2_score = data.scores.unit2_score + 3 
             if data.scores.check_unit2_q10_ans == "incorrect":
                 self.ans20_label.setStyleSheet("background-color: red")
             else:
                 self.ans20_label.setStyleSheet("background-color: green")
+                data.scores.unit2_score = data.scores.unit2_score + 2
+
+            studKey = db.child("student").get()
+            for keyAccess in studKey.each():
+                if keyAccess.val()["studentSchoolID"] == idKey:
+                    keyID = keyAccess.key()
+            db.child("student").child(keyID).update({"unitTest2_score":str(data.scores.unit2_score)})
+
+            self.showScore2_widget.setVisible(True)
+            self.unitTest2Submit_container.setCurrentIndex(1)
+            self.show_scoreUnit2_label.setText(str(data.scores.unit2_score))
 
     def bigWindow(self):
         if self.restoreWindow == 0:
@@ -4792,227 +4123,105 @@ class unitTest_2(QMainWindow):
     
     def submitTest2(self):
         # Question 1 , answer and solution
-        solution_Unit2_Q1 = self.unitTest2Q1Sol_textEdit.toPlainText()
-        answer1_Unit2_Q1 = self.unitTest2Q1_textEdit.text()
-        data.scores.unit_test2_saved_solution1 = solution_Unit2_Q1
-        data.scores.unit_test2_saved_answer1 = answer1_Unit2_Q1
-        data.scores.unit2_1_advice = unitTest_2.checked_ai(data.scores.unit_test2_question1, data.scores.unit_test2_saved_solution1)
+        data.scores.unit_test2_saved_solution1 = self.unitTest2Q1Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer1 = self.unitTest2Q1_textEdit.text()
 
         # Question 2 , answer and solution
-        solution_Unit2_Q2 = self.unitTest2Q2Sol_textEdit.toPlainText()
-        answer1_Unit2_Q2 = self.unitTest2Q2_textEdit.text()
-        data.scores.unit_test2_saved_solution2 = solution_Unit2_Q2
-        data.scores.unit_test2_saved_answer2 = answer1_Unit2_Q2
+        data.scores.unit_test2_saved_solution2 = self.unitTest2Q2Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer2 = self.unitTest2Q2_textEdit.text()
 
         # Question 3 , answer and solution
-        solution_Unit2_Q3 = self.unitTest2Q3Sol_textEdit.toPlainText()
-        answer1_Unit2_Q3 = self.unitTest2Q3_textEdit.text()
-        data.scores.unit_test2_saved_solution3 = solution_Unit2_Q3
-        data.scores.unit_test2_saved_answer3 = answer1_Unit2_Q3
+        data.scores.unit_test2_saved_solution3 = self.unitTest2Q3Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer3 = self.unitTest2Q3_textEdit.text()
 
         # Question 4 , answer and solution
-        solution_Unit2_Q4 = self.unitTest2Q4Sol_textEdit.toPlainText()
-        answer1_Unit2_Q4 = self.unitTest2Q4_textEdit.text()
-        data.scores.unit_test2_saved_solution4 = solution_Unit2_Q4
-        data.scores.unit_test2_saved_answer4 = answer1_Unit2_Q4
+        data.scores.unit_test2_saved_solution4 = self.unitTest2Q4Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer4 = self.unitTest2Q4_textEdit.text()
 
         # Question 5 , answer and solution
-        solution_Unit2_Q5 = self.unitTest2Q5Sol_textEdit.toPlainText()
-        answer1_Unit2_Q5 = self.unitTest2Q5_textEdit.text()
-        data.scores.unit_test2_saved_solution5 = solution_Unit2_Q5
-        data.scores.unit_test2_saved_answer5 = answer1_Unit2_Q5
+        data.scores.unit_test2_saved_solution5 = self.unitTest2Q5Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer5 = self.unitTest2Q5_textEdit.text()
 
         # Question 6 , answer and solution
-        solution_Unit2_Q6 = self.unitTest2Q6Sol_textEdit.toPlainText()
-        answer1_Unit2_Q6 = self.unitTest2Q6_textEdit.text()
-        data.scores.unit_test2_saved_solution6 = solution_Unit2_Q6
-        data.scores.unit_test2_saved_answer6 = answer1_Unit2_Q6
+        data.scores.unit_test2_saved_solution6 = self.unitTest2Q6Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer6 = self.unitTest2Q6_textEdit.text()
 
         # Question 7 , answer and solution
-        solution_Unit2_Q7 = self.unitTest2Q7Sol_textEdit.toPlainText()
-        answer1_Unit2_Q7 = self.unitTest2Q7_textEdit.text()
-        data.scores.unit_test2_saved_solution7 = solution_Unit2_Q7
-        data.scores.unit_test2_saved_answer7 = answer1_Unit2_Q7
+        data.scores.unit_test2_saved_solution7 = self.unitTest2Q7Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer7 = self.unitTest2Q7_textEdit.text()
 
         # Question 8 , answer and solution
-        solution_Unit2_Q8 = self.unitTest2Q8Sol_textEdit.toPlainText()
-        answer1_Unit2_Q8 = self.unitTest2Q8_textEdit.text()
-        data.scores.unit_test2_saved_solution8 = solution_Unit2_Q8
-        data.scores.unit_test2_saved_answer8 = answer1_Unit2_Q8
+        data.scores.unit_test2_saved_solution8 = self.unitTest2Q8Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer8 = self.unitTest2Q8_textEdit.text()
 
         # Question 9 , answer and solution
-        solution_Unit2_Q9 = self.unitTest2Q9Sol_textEdit.toPlainText()
-        answer1_Unit2_Q9 = self.unitTest2Q9_textEdit.text()
-        data.scores.unit_test2_saved_solution9 = solution_Unit2_Q9
-        data.scores.unit_test2_saved_answer9 = answer1_Unit2_Q9
+        data.scores.unit_test2_saved_solution9 = self.unitTest2Q9Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer9 = self.unitTest2Q9_textEdit.text()
 
         # Question 10 , answer and solution
-        solution_Unit2_Q10 = self.unitTest2Q10Sol_textEdit.toPlainText()
-        answer1_Unit2_Q10 = self.unitTest2Q10_textEdit.text()
-        data.scores.unit_test2_saved_solution10 = solution_Unit2_Q10
-        data.scores.unit_test2_saved_answer10 = answer1_Unit2_Q10
+        data.scores.unit_test2_saved_solution10 = self.unitTest2Q10Sol_textEdit.toPlainText()
+        data.scores.unit_test2_saved_answer10 = self.unitTest2Q10_textEdit.text()
 
         # Checking of answer and calculating of score
-        data.scores.unit2_score = 0
-        data.scores.substi_score = 0
-        data.scores.elimin_score = 0
-
         # Question 1, solution and answer
-        question = data.scores.unit2_1_solutionId
-        check_unit2_q1_sol = chat(question, solution_Unit2_Q1)
-        data.scores.check_unit2_q1_sol = check_unit2_q1_sol
-        question = data.scores.unit2_1_answerId
-        check_unit2_q1_ans = chat(question, answer1_Unit2_Q1)
-        data.scores.check_unit2_q1_ans = check_unit2_q1_ans
-
-        if check_unit2_q1_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3
-            data.scores.substi_score = data.scores.substi_score + 3
-        if check_unit2_q1_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.substi_score = data.scores.substi_score + 2
+        data.scores.check_unit2_q1_sol = chat(data.scores.unit2_1_solutionId, data.scores.unit_test2_saved_solution1)
+        _delay()
+        data.scores.check_unit2_q1_ans = chat(data.scores.unit2_1_answerId, data.scores.unit_test2_saved_answer1)
+        _delay()
 
         # Question 2, solution and answer
-        question = data.scores.unit2_2_solutionId
-        check_unit2_q2_sol = chat(question, solution_Unit2_Q2)
-        data.scores.check_unit2_q2_sol = check_unit2_q2_sol
-        question = data.scores.unit2_2_answerId
-        check_unit2_q2_ans = chat(question, answer1_Unit2_Q2)
-        data.scores.check_unit2_q2_ans = check_unit2_q2_ans
-
-        if check_unit2_q2_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.substi_score = data.scores.substi_score + 3
-        if check_unit2_q2_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.substi_score = data.scores.substi_score + 2  
+        data.scores.check_unit2_q2_sol = chat(data.scores.unit2_2_solutionId, data.scores.unit_test2_saved_solution2)
+        _delay()
+        data.scores.check_unit2_q2_ans = chat(data.scores.unit2_2_answerId, data.scores.unit_test2_saved_answer2)
+        _delay()
 
         # Question 3, solution and answer
-        question = data.scores.unit2_3_solutionId
-        check_unit2_q3_sol = chat(question, solution_Unit2_Q3)
-        data.scores.check_unit2_q3_sol = check_unit2_q3_sol
-        question = data.scores.unit2_3_answerId
-        check_unit2_q3_ans = chat(question, answer1_Unit2_Q3)
-        data.scores.check_unit2_q3_ans = check_unit2_q3_ans
-
-        if check_unit2_q3_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.substi_score = data.scores.substi_score + 3
-        if check_unit2_q3_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.substi_score = data.scores.substi_score + 2  
+        data.scores.check_unit2_q3_sol = chat(data.scores.unit2_3_solutionId, data.scores.unit_test2_saved_solution3)
+        _delay()
+        data.scores.check_unit2_q3_ans = chat(data.scores.unit2_3_answerId, data.scores.unit_test2_saved_answer3)
+        _delay()
 
         # Question 4, solution and answer
-        question = data.scores.unit2_4_solutionId
-        check_unit2_q4_sol = chat(question, solution_Unit2_Q4)
-        data.scores.check_unit2_q4_sol = check_unit2_q4_sol
-        question = data.scores.unit2_4_answerId
-        check_unit2_q4_ans = chat(question, answer1_Unit2_Q4)
-        data.scores.check_unit2_q4_ans = check_unit2_q4_ans
-
-        if check_unit2_q4_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.substi_score = data.scores.substi_score + 3
-        if check_unit2_q4_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.substi_score = data.scores.substi_score + 2  
+        data.scores.check_unit2_q4_sol = chat(data.scores.unit2_4_solutionId, data.scores.unit_test2_saved_solution4)
+        _delay()
+        data.scores.check_unit2_q4_ans = chat(data.scores.unit2_4_answerId, data.scores.unit_test2_saved_answer4)
+        _delay()
 
         # Question 5, solution and answer
-        question = data.scores.unit2_5_solutionId
-        check_unit2_q5_sol = chat(question, solution_Unit2_Q5)
-        data.scores.check_unit2_q5_sol = check_unit2_q5_sol
-        question = data.scores.unit2_5_answerId
-        check_unit2_q5_ans = chat(question, answer1_Unit2_Q5)
-        data.scores.check_unit2_q5_ans = check_unit2_q5_ans
-
-        if check_unit2_q5_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.substi_score = data.scores.substi_score + 3
-        if check_unit2_q5_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.substi_score = data.scores.substi_score + 2 
+        data.scores.check_unit2_q5_sol = chat(data.scores.unit2_5_solutionId, data.scores.unit_test2_saved_solution5)
+        _delay()
+        data.scores.check_unit2_q5_ans = chat(data.scores.unit2_5_answerId, data.scores.unit_test2_saved_answer5)
+        _delay()
 
         # Question 6, solution and answer
-        question = data.scores.unit2_6_solutionId
-        check_unit2_q6_sol = chat(question, solution_Unit2_Q6)
-        data.scores.check_unit2_q6_sol = check_unit2_q6_sol
-        question = data.scores.unit2_6_answerId
-        check_unit2_q6_ans = chat(question, answer1_Unit2_Q6)
-        data.scores.check_unit2_q6_ans = check_unit2_q6_ans
-
-        if check_unit2_q6_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.elimin_score = data.scores.elimin_score + 3
-        if check_unit2_q6_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.elimin_score = data.scores.elimin_score + 2  
+        data.scores.check_unit2_q6_sol = chat(data.scores.unit2_6_solutionId, data.scores.unit_test2_saved_solution6)
+        _delay()
+        data.scores.check_unit2_q6_ans = chat(data.scores.unit2_6_answerId, data.scores.unit_test2_saved_answer6)
+        _delay()
 
         # Question 7, solution and answer
-        question = data.scores.unit2_7_solutionId
-        check_unit2_q7_sol = chat(question, solution_Unit2_Q7)
-        data.scores.check_unit2_q7_sol = check_unit2_q7_sol
-        question = data.scores.unit2_7_answerId
-        check_unit2_q7_ans = chat(question, answer1_Unit2_Q7)
-        data.scores.check_unit2_q7_ans = check_unit2_q7_ans
-
-        if check_unit2_q7_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.elimin_score = data.scores.elimin_score + 3
-        if check_unit2_q7_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.elimin_score = data.scores.elimin_score + 2  
+        data.scores.check_unit2_q7_sol = chat(data.scores.unit2_7_solutionId, data.scores.unit_test2_saved_solution7)
+        _delay()
+        data.scores.check_unit2_q7_ans = chat(data.scores.unit2_7_answerId, data.scores.unit_test2_saved_answer7)
+        _delay()
 
         # Question 8, solution and answer
-        question = data.scores.unit2_8_solutionId
-        check_unit2_q8_sol = chat(question, solution_Unit2_Q8)
-        data.scores.check_unit2_q8_sol = check_unit2_q8_sol
-        question = data.scores.unit2_8_answerId
-        check_unit2_q8_ans = chat(question, answer1_Unit2_Q8)
-        data.scores.check_unit2_q8_ans = check_unit2_q8_ans
-
-        if check_unit2_q8_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.elimin_score = data.scores.elimin_score + 3
-        if check_unit2_q8_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.elimin_score = data.scores.elimin_score + 2  
+        data.scores.check_unit2_q8_sol = chat(data.scores.unit2_8_solutionId, data.scores.unit_test2_saved_solution8)
+        _delay()
+        data.scores.check_unit2_q8_ans = chat(data.scores.unit2_8_answerId, data.scores.unit_test2_saved_answer8)
+        _delay()
 
         # Question 9, solution and answer
-        question = data.scores.unit2_9_solutionId
-        check_unit2_q9_sol = chat(question, solution_Unit2_Q9)
-        data.scores.check_unit2_q9_sol = check_unit2_q9_sol
-        question = data.scores.unit2_9_answerId
-        check_unit2_q9_ans = chat(question, answer1_Unit2_Q9)
-        data.scores.check_unit2_q9_ans = check_unit2_q9_ans
-
-        if check_unit2_q9_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.elimin_score = data.scores.elimin_score + 3
-        if check_unit2_q9_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.elimin_score = data.scores.elimin_score + 2  
+        data.scores.check_unit2_q9_sol = chat(data.scores.unit2_9_solutionId, data.scores.unit_test2_saved_solution9)
+        _delay()
+        data.scores.check_unit2_q9_ans = chat(data.scores.unit2_9_answerId, data.scores.unit_test2_saved_answer9)
+        _delay()
 
         # Question 10, solution and answer
-        question = data.scores.unit2_10_solutionId
-        check_unit2_q10_sol = chat(question, solution_Unit2_Q10)
-        data.scores.check_unit2_q10_sol = check_unit2_q10_sol
-        question = data.scores.unit2_10_answerId
-        check_unit2_q10_ans = chat(question, answer1_Unit2_Q10)
-        data.scores.check_unit2_q10_ans = check_unit2_q10_ans
-
-        if check_unit2_q10_sol == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 3 
-            data.scores.elimin_score = data.scores.elimin_score + 3
-        if check_unit2_q10_ans == "correct":
-            data.scores.unit2_score = data.scores.unit2_score + 2 
-            data.scores.elimin_score = data.scores.elimin_score + 2  
-
-        print(data.scores.unit2_score)
-        studKey = db.child("student").get()
-        for keyAccess in studKey.each():
-            if keyAccess.val()["studentSchoolID"] == idKey:
-                keyID = keyAccess.key()
-        db.child("student").child(keyID).update({"unitTest2_score":str(data.scores.unit2_score)})
+        data.scores.check_unit2_q10_sol =chat(data.scores.unit2_10_solutionId, data.scores.unit_test2_saved_solution10)
+        _delay()
+        data.scores.check_unit2_q10_ans =chat(data.scores.unit2_10_answerId, data.scores.unit_test2_saved_answer10)
+        _delay()
 
         global submit_unit2, new_unitTest2
         submit_unit2 = True
@@ -5185,10 +4394,8 @@ class postAssessmentWindow_accept(QMainWindow):
         # Checking of answer and calculating of score
         data.scores.postassess_score = 0
         # Question 1, solution and answer
-        question = data.scores.post1_solutionId
-        check_assess_q1_sol = chat(question, postassess_sol_Q1)
-        question = data.scores.post1_answerId
-        check_assess_q1_ans = chat(question, postassess_ans_Q1)
+        check_assess_q1_sol = chat(data.scores.post1_solutionId, postassess_sol_Q1)
+        check_assess_q1_ans = chat(data.scores.post1_answerId, postassess_ans_Q1)
                 
         if check_assess_q1_sol == "correct":
             data.scores.postassess_score =  data.scores.postassess_score + 3
@@ -5196,10 +4403,8 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 2
 
         # Question 2, solution and answer
-        question = data.scores.post2_solutionId
-        check_assess_q2_sol = chat(question, postassess_sol_Q2)
-        question = data.scores.post2_answerId
-        check_assess_q2_ans = chat(question, postassess_ans_Q2)
+        check_assess_q2_sol = chat(data.scores.post2_solutionId, postassess_sol_Q2)
+        check_assess_q2_ans = chat(data.scores.post2_answerId, postassess_ans_Q2)
 
         if check_assess_q2_sol == "correct":
             data.scores.postassess_score =  data.scores.postassess_score + 3
@@ -5207,10 +4412,8 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 2
 
         # Question 3, solution and answer
-        question = data.scores.post3_solutionId
-        check_assess_q3_sol = chat(question, postassess_sol_Q3)
-        question = data.scores.post3_answerId
-        check_assess_q3_ans = chat(question, postassess_ans_Q3)
+        check_assess_q3_sol = chat(data.scores.post3_solutionId, postassess_sol_Q3)
+        check_assess_q3_ans = chat(data.scores.post3_answerId, postassess_ans_Q3)
 
         if check_assess_q3_sol == "correct":
             data.scores.postassess_score =  data.scores.postassess_score + 3
@@ -5218,10 +4421,8 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 2
 
         # Question 4, solution and answer
-        question = data.scores.post4_solutionId
-        check_assess_q4_sol = chat(question, postassess_sol_Q4)
-        question = data.scores.post4_answerId
-        check_assess_q4_ans = chat(question, postassess_ans_Q4)
+        check_assess_q4_sol = chat(data.scores.post4_solutionId, postassess_sol_Q4)
+        check_assess_q4_ans = chat(data.scores.post4_answerId, postassess_ans_Q4)
 
         if check_assess_q4_sol == "correct":
             data.scores.postassess_score =  data.scores.postassess_score + 3
@@ -5229,10 +4430,8 @@ class postAssessmentWindow_accept(QMainWindow):
             data.scores.postassess_score =  data.scores.postassess_score + 2
 
         # Question 5, solution and answer
-        question = data.scores.post5_solutionId
-        check_assess_q5_sol = chat(question, postassess_sol_Q5)
-        question = data.scores.post5_answerId
-        check_assess_q5_ans = chat(question, postassess_ans_Q5)
+        check_assess_q5_sol = chat(data.scores.post5_solutionId, postassess_sol_Q5)
+        check_assess_q5_ans = chat(data.scores.post5_answerId, postassess_ans_Q5)
 
         if check_assess_q5_sol == "correct":
             data.scores.postassess_score =  data.scores.postassess_score + 3
@@ -8235,10 +7434,6 @@ class create_postQuestion(QMainWindow):
 
     
     def questionSubstitution(self):
-        # .setText
-        # self.unitTest2Q1Sol_textEdit.toPlainText() QTEXTEDIT malaki
-        # self.unitTest2Q9_textEdit.text() QLINEEDIT maliit
-
         self.questionId_error = 0
         self.question_error = 0
         self.solutionId_error = 0
@@ -8727,11 +7922,11 @@ class update_unit1Parabola(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
+            all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("parabolaQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
                     keyId = update_circle.key()
-            db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).update({
+            db.child("precal_questions").child("lesson1").child("parabolaQuestion").child(keyId).update({
                 "questionId":questionId,"parabola_question":parabola_question,
            "parabola_solution1": parabola_solution1,"parabola_solution2": parabola_solution2,"parabola_answer1":parabola_answer1,
            "parabola_answer2":parabola_answer2, "answerId":answerId,
@@ -8902,11 +8097,11 @@ class update_unit1Ellipse(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
+            all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("ellipseQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
                     keyId = update_circle.key()
-            db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).update({
+            db.child("precal_questions").child("lesson1").child("ellipseQuestion").child(keyId).update({
                 "questionId":questionId,"ellipse_question":ellipse_question,
            "ellipse_solution1": ellipse_solution1,"ellipse_solution2": ellipse_solution2,"ellipse_answer1":ellipse_answer1,
            "ellipse_answer2":ellipse_answer2, "answerId":answerId,"solutionId":solutionId})
@@ -9076,11 +8271,11 @@ class update_unit1Hyperbola(QMainWindow):
             self.unitTest1_answerId_textEdit.clear()
             self.unitTest1_solutionId_textEdit.clear()
 
-            all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("circleQuestion").get()
+            all_unitTest1_circle = db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").get()
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
                     keyId = update_circle.key()
-            db.child("precal_questions").child("lesson1").child("circleQuestion").child(keyId).update({
+            db.child("precal_questions").child("lesson1").child("hyperbolaQuestion").child(keyId).update({
                 "questionId":questionId,"hyperbola_question":hyperbola_question,
        "hyperbola_solution1": hyperbola_solution1,"hyperbola_solution2": hyperbola_solution2,
        "hyperbola_answer1":hyperbola_answer1, "hyperbola_answer2":hyperbola_answer2,"answerId":answerId, 
@@ -10654,7 +9849,7 @@ class update_postCircle(QMainWindow):
             for update_circle in all_unitTest1_circle.each():
                 if update_circle.val()["questionId"] == questionId_save:
                     keyId = update_circle.key()
-            db.child("precal_questions").child("pre-assess").child("circleQuestion").child(keyId).update({
+            db.child("precal_questions").child("post-assess").child("circleQuestion").child(keyId).update({
                 "questionId":questionId,"circle_1_question":circle_1_question,"circle_1_solution1": circle_1_solution1,
                 "circle_1_solution2": circle_1_solution2,"circle_1_answer1":circle_1_answer1,"circle_1_answer2":circle_1_answer2,
                 "answerId":answerId,"solutionId":solutionId})
@@ -10827,7 +10022,7 @@ class update_postParabola(QMainWindow):
             for update_parabola in all_unitTest1_parabola.each():
                 if update_parabola.val()["questionId"] == questionId_save:
                     keyId = update_parabola.key()
-            db.child("precal_questions").child("pre-assess").child("parabolaQuestion").child(keyId).update({
+            db.child("precal_questions").child("post-assess").child("parabolaQuestion").child(keyId).update({
                 "questionId":questionId,"parabola_question":parabola_question,"parabola_solution1": parabola_solution1,
                 "parabola_solution2": parabola_solution2,"parabola_answer1":parabola_answer1,"parabola_answer2":parabola_answer2,
                 "answerId":answerId,"solutionId":solutionId})
@@ -11000,7 +10195,7 @@ class update_postEllipse(QMainWindow):
             for update_ellipse in all_unitTest1_ellipse.each():
                 if update_ellipse.val()["questionId"] == questionId_save:
                     keyId = update_ellipse.key()
-            db.child("precal_questions").child("pre-assess").child("ellipseQuestion").child(keyId).update({
+            db.child("precal_questions").child("post-assess").child("ellipseQuestion").child(keyId).update({
                 "questionId":questionId,"ellipse_question":ellipse_question,"ellipse_solution1": ellipse_solution1,
                 "ellipse_solution2": ellipse_solution2,"ellipse_answer1":ellipse_answer1,"ellipse_answer2":ellipse_answer2,
                 "answerId":answerId,"solutionId":solutionId})
@@ -11173,7 +10368,7 @@ class update_postHyperbola(QMainWindow):
             for update_hyperbola in all_unitTest1_hyperbola.each():
                 if update_hyperbola.val()["questionId"] == questionId_save:
                     keyId = update_hyperbola.key()
-            db.child("precal_questions").child("pre-assess").child("hyperbolaQuestion").child(keyId).update({
+            db.child("precal_questions").child("post-assess").child("hyperbolaQuestion").child(keyId).update({
                 "questionId":questionId,"hyperbola_question":hyperbola_question,"hyperbola_solution1": hyperbola_solution1,
                 "hyperbola_solution2": hyperbola_solution2,"hyperbola_answer1":hyperbola_answer1,"hyperbola_answer2":hyperbola_answer2,
                 "answerId":answerId,"solutionId":solutionId})
@@ -11346,7 +10541,7 @@ class update_postSubstitution(QMainWindow):
             for update_substitution in all_unitTest1_substitution.each():
                 if update_substitution.val()["questionId"] == questionId_save:
                     keyId = update_substitution.key()
-            db.child("precal_questions").child("pre-assess").child("substitutionQuestion").child(keyId).update({
+            db.child("precal_questions").child("post-assess").child("substitutionQuestion").child(keyId).update({
                 "questionId":questionId,"substitution_question":substitution_question,"substitution_solution1": substitution_solution1,
                 "substitution_solution2": substitution_solution2,"substitution_answer1":substitution_answer1,"substitution_answer2":substitution_answer2,
                 "answerId":answerId,"solutionId":solutionId})
@@ -11519,7 +10714,7 @@ class update_postElimination(QMainWindow):
             for update_elimination in all_unitTest1_elimination.each():
                 if update_elimination.val()["questionId"] == questionId_save:
                     keyId = update_elimination.key()
-            db.child("precal_questions").child("pre-assess").child("eliminationQuestion").child(keyId).update({
+            db.child("precal_questions").child("post-assess").child("eliminationQuestion").child(keyId).update({
                 "questionId":questionId,"elimination_question":elimination_question,"elimination_solution1": elimination_solution1,
                 "elimination_solution2": elimination_solution2,"elimination_answer1":elimination_answer1,"elimination_answer2":elimination_answer2,
                 "answerId":answerId,"solutionId":solutionId})
@@ -11590,7 +10785,7 @@ class update_unit1Question(QDialog):
                 self.toHyper.show()
             else:
                 pass
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.unitTest1_error_widget.setVisible(True)
     
     def cancelFunction(self):
