@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>663</height>
+    <height>676</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -334,7 +334,7 @@ Profile</string>
                 </font>
                </property>
                <property name="toolTip">
-                <string>Questions List</string>
+                <string>Teacher Profile</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton#reports_pushButton:hover{
@@ -346,8 +346,7 @@ background-color: rgb(117, 171, 181);
 }</string>
                </property>
                <property name="text">
-                <string>Teacher and
-Admin Profile</string>
+                <string>Teacher Profile</string>
                </property>
                <property name="icon">
                 <iconset resource="res.qrc">
@@ -1661,6 +1660,21 @@ margin-right: 25px;</string>
                </widget>
                <widget class="QWidget" name="page_7">
                 <layout class="QVBoxLayout" name="verticalLayout_18">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
                  <item>
                   <widget class="QWidget" name="widget" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_25">
@@ -1901,7 +1915,7 @@ margin-right: 25px;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>624</width>
+                                        <width>642</width>
                                         <height>2194</height>
                                        </rect>
                                       </property>
@@ -2053,7 +2067,7 @@ gridline-color: rgb(255, 255, 255);
                                                        <number>0</number>
                                                       </property>
                                                       <property name="columnCount">
-                                                       <number>12</number>
+                                                       <number>13</number>
                                                       </property>
                                                       <attribute name="horizontalHeaderDefaultSectionSize">
                                                        <number>200</number>
@@ -2064,6 +2078,25 @@ gridline-color: rgb(255, 255, 255);
                                                       <attribute name="verticalHeaderVisible">
                                                        <bool>false</bool>
                                                       </attribute>
+                                                      <column>
+                                                       <property name="text">
+                                                        <string>Account Status</string>
+                                                       </property>
+                                                       <property name="font">
+                                                        <font>
+                                                         <pointsize>15</pointsize>
+                                                        </font>
+                                                       </property>
+                                                       <property name="foreground">
+                                                        <brush brushstyle="SolidPattern">
+                                                         <color alpha="255">
+                                                          <red>0</red>
+                                                          <green>0</green>
+                                                          <blue>0</blue>
+                                                         </color>
+                                                        </brush>
+                                                       </property>
+                                                      </column>
                                                       <column>
                                                        <property name="text">
                                                         <string>Last Name</string>
@@ -2314,7 +2347,53 @@ gridline-color: rgb(255, 255, 255);
                                           </item>
                                           <item>
                                            <widget class="QWidget" name="widget_20" native="true">
-                                            <layout class="QVBoxLayout" name="verticalLayout_80">
+                                            <layout class="QHBoxLayout" name="horizontalLayout_3">
+                                             <item alignment="Qt::AlignHCenter">
+                                              <widget class="QPushButton" name="addStud_pushButton">
+                                               <property name="font">
+                                                <font>
+                                                 <pointsize>12</pointsize>
+                                                </font>
+                                               </property>
+                                               <property name="styleSheet">
+                                                <string notr="true">#addStud_pushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 189, 0);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+#addStud_pushButton:hover{
+	background-color: rgb(110, 197, 115);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+#addStud_pushButton:pressed{
+	background-color: rgba(0, 189, 0,150);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}</string>
+                                               </property>
+                                               <property name="text">
+                                                <string>Add Account</string>
+                                               </property>
+                                               <property name="icon">
+                                                <iconset resource="res.qrc">
+                                                 <normaloff>:/icons/icons/plus-square.svg</normaloff>:/icons/icons/plus-square.svg</iconset>
+                                               </property>
+                                               <property name="iconSize">
+                                                <size>
+                                                 <width>25</width>
+                                                 <height>25</height>
+                                                </size>
+                                               </property>
+                                              </widget>
+                                             </item>
                                              <item alignment="Qt::AlignHCenter">
                                               <widget class="QPushButton" name="removeStud_pushButton">
                                                <property name="font">
@@ -3740,7 +3819,7 @@ in Post-Assessment Test</string>
                              </font>
                             </property>
                             <property name="text">
-                             <string>Teacher and Admin Profile</string>
+                             <string>Teacher Profile</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignCenter</set>
@@ -3869,9 +3948,9 @@ in Post-Assessment Test</string>
                                    <property name="geometry">
                                     <rect>
                                      <x>0</x>
-                                     <y>-89</y>
+                                     <y>-1</y>
                                      <width>642</width>
-                                     <height>1014</height>
+                                     <height>513</height>
                                     </rect>
                                    </property>
                                    <property name="sizePolicy">
@@ -4063,7 +4142,7 @@ gridline-color: rgb(255, 255, 255);
                                                     <number>0</number>
                                                    </property>
                                                    <property name="columnCount">
-                                                    <number>4</number>
+                                                    <number>5</number>
                                                    </property>
                                                    <attribute name="horizontalHeaderDefaultSectionSize">
                                                     <number>200</number>
@@ -4074,6 +4153,25 @@ gridline-color: rgb(255, 255, 255);
                                                    <attribute name="verticalHeaderVisible">
                                                     <bool>false</bool>
                                                    </attribute>
+                                                   <column>
+                                                    <property name="text">
+                                                     <string>Account Status</string>
+                                                    </property>
+                                                    <property name="font">
+                                                     <font>
+                                                      <pointsize>15</pointsize>
+                                                     </font>
+                                                    </property>
+                                                    <property name="foreground">
+                                                     <brush brushstyle="SolidPattern">
+                                                      <color alpha="255">
+                                                       <red>0</red>
+                                                       <green>0</green>
+                                                       <blue>0</blue>
+                                                      </color>
+                                                     </brush>
+                                                    </property>
+                                                   </column>
                                                    <column>
                                                     <property name="text">
                                                      <string>Last Name</string>
@@ -4181,368 +4279,14 @@ gridline-color: rgb(255, 255, 255);
                                                      <number>0</number>
                                                     </property>
                                                     <item alignment="Qt::AlignHCenter">
-                                                     <widget class="QPushButton" name="removeTeach_pushButton">
+                                                     <widget class="QPushButton" name="addTeach_pushButton">
                                                       <property name="font">
                                                        <font>
                                                         <pointsize>12</pointsize>
                                                        </font>
                                                       </property>
                                                       <property name="styleSheet">
-                                                       <string notr="true">#removeTeach_pushButton{
-	color: rgb(255, 255, 255);
-	background-color: rgb(195, 0, 0);
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	padding-right: 10px;
-}
-#removeTeach_pushButton:hover{
-	background-color: rgb(212, 80, 80);
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	padding-right: 10px;
-}
-#removeTeach_pushButton:pressed{
-	background-color: rgba(195, 0, 0,150);
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	padding-right: 10px;
-}</string>
-                                                      </property>
-                                                      <property name="text">
-                                                       <string>Remove Account</string>
-                                                      </property>
-                                                      <property name="icon">
-                                                       <iconset resource="res.qrc">
-                                                        <normaloff>:/icons/icons/trash-2.svg</normaloff>:/icons/icons/trash-2.svg</iconset>
-                                                      </property>
-                                                      <property name="iconSize">
-                                                       <size>
-                                                        <width>25</width>
-                                                        <height>25</height>
-                                                       </size>
-                                                      </property>
-                                                     </widget>
-                                                    </item>
-                                                   </layout>
-                                                  </widget>
-                                                 </item>
-                                                </layout>
-                                               </widget>
-                                              </item>
-                                             </layout>
-                                            </widget>
-                                           </item>
-                                          </layout>
-                                         </widget>
-                                        </widget>
-                                       </item>
-                                      </layout>
-                                     </widget>
-                                    </item>
-                                    <item>
-                                     <widget class="QWidget" name="widget_22" native="true">
-                                      <property name="styleSheet">
-                                       <string notr="true">background-color: rgb(0, 52, 76);
-color: rgb(255, 255, 255);</string>
-                                      </property>
-                                      <layout class="QVBoxLayout" name="verticalLayout_77">
-                                       <property name="leftMargin">
-                                        <number>0</number>
-                                       </property>
-                                       <item>
-                                        <widget class="QLabel" name="label_101">
-                                         <property name="sizePolicy">
-                                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                                           <horstretch>0</horstretch>
-                                           <verstretch>0</verstretch>
-                                          </sizepolicy>
-                                         </property>
-                                         <property name="minimumSize">
-                                          <size>
-                                           <width>0</width>
-                                           <height>0</height>
-                                          </size>
-                                         </property>
-                                         <property name="font">
-                                          <font>
-                                           <pointsize>13</pointsize>
-                                          </font>
-                                         </property>
-                                         <property name="text">
-                                          <string>List of Admin Person</string>
-                                         </property>
-                                         <property name="alignment">
-                                          <set>Qt::AlignCenter</set>
-                                         </property>
-                                        </widget>
-                                       </item>
-                                      </layout>
-                                     </widget>
-                                    </item>
-                                    <item>
-                                     <widget class="QWidget" name="widget_16" native="true">
-                                      <property name="minimumSize">
-                                       <size>
-                                        <width>0</width>
-                                        <height>450</height>
-                                       </size>
-                                      </property>
-                                      <property name="styleSheet">
-                                       <string notr="true">background-color: rgb(62, 109, 122);
-</string>
-                                      </property>
-                                      <layout class="QVBoxLayout" name="verticalLayout_73">
-                                       <item>
-                                        <widget class="QStackedWidget" name="teacherListMenuPages_2">
-                                         <property name="maximumSize">
-                                          <size>
-                                           <width>16777215</width>
-                                           <height>16777215</height>
-                                          </size>
-                                         </property>
-                                         <property name="currentIndex">
-                                          <number>0</number>
-                                         </property>
-                                         <widget class="QWidget" name="page_11">
-                                          <property name="styleSheet">
-                                           <string notr="true"/>
-                                          </property>
-                                          <layout class="QVBoxLayout" name="verticalLayout_38">
-                                           <property name="spacing">
-                                            <number>0</number>
-                                           </property>
-                                           <property name="leftMargin">
-                                            <number>0</number>
-                                           </property>
-                                           <property name="topMargin">
-                                            <number>0</number>
-                                           </property>
-                                           <property name="rightMargin">
-                                            <number>0</number>
-                                           </property>
-                                           <property name="bottomMargin">
-                                            <number>0</number>
-                                           </property>
-                                           <item>
-                                            <widget class="QFrame" name="frame_17">
-                                             <property name="sizePolicy">
-                                              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                                               <horstretch>0</horstretch>
-                                               <verstretch>0</verstretch>
-                                              </sizepolicy>
-                                             </property>
-                                             <property name="styleSheet">
-                                              <string notr="true"/>
-                                             </property>
-                                             <property name="frameShape">
-                                              <enum>QFrame::StyledPanel</enum>
-                                             </property>
-                                             <property name="frameShadow">
-                                              <enum>QFrame::Raised</enum>
-                                             </property>
-                                             <layout class="QVBoxLayout" name="verticalLayout_65">
-                                              <property name="spacing">
-                                               <number>0</number>
-                                              </property>
-                                              <property name="leftMargin">
-                                               <number>0</number>
-                                              </property>
-                                              <property name="topMargin">
-                                               <number>0</number>
-                                              </property>
-                                              <property name="rightMargin">
-                                               <number>0</number>
-                                              </property>
-                                              <property name="bottomMargin">
-                                               <number>0</number>
-                                              </property>
-                                              <item>
-                                               <widget class="QFrame" name="frame_18">
-                                                <property name="minimumSize">
-                                                 <size>
-                                                  <width>0</width>
-                                                  <height>0</height>
-                                                 </size>
-                                                </property>
-                                                <property name="styleSheet">
-                                                 <string notr="true"/>
-                                                </property>
-                                                <property name="frameShape">
-                                                 <enum>QFrame::StyledPanel</enum>
-                                                </property>
-                                                <property name="frameShadow">
-                                                 <enum>QFrame::Raised</enum>
-                                                </property>
-                                                <layout class="QVBoxLayout" name="verticalLayout_72">
-                                                 <property name="spacing">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="leftMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="topMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="rightMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <property name="bottomMargin">
-                                                  <number>0</number>
-                                                 </property>
-                                                 <item>
-                                                  <widget class="QTableWidget" name="tableWidget_3">
-                                                   <property name="font">
-                                                    <font>
-                                                     <pointsize>15</pointsize>
-                                                    </font>
-                                                   </property>
-                                                   <property name="styleSheet">
-                                                    <string notr="true">color: rgb(255, 255, 255);
-gridline-color: rgb(255, 255, 255);
-</string>
-                                                   </property>
-                                                   <property name="sizeAdjustPolicy">
-                                                    <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
-                                                   </property>
-                                                   <property name="editTriggers">
-                                                    <set>QAbstractItemView::NoEditTriggers</set>
-                                                   </property>
-                                                   <property name="sortingEnabled">
-                                                    <bool>true</bool>
-                                                   </property>
-                                                   <property name="rowCount">
-                                                    <number>0</number>
-                                                   </property>
-                                                   <property name="columnCount">
-                                                    <number>4</number>
-                                                   </property>
-                                                   <attribute name="horizontalHeaderDefaultSectionSize">
-                                                    <number>200</number>
-                                                   </attribute>
-                                                   <attribute name="horizontalHeaderStretchLastSection">
-                                                    <bool>true</bool>
-                                                   </attribute>
-                                                   <attribute name="verticalHeaderVisible">
-                                                    <bool>false</bool>
-                                                   </attribute>
-                                                   <column>
-                                                    <property name="text">
-                                                     <string>Last Name</string>
-                                                    </property>
-                                                    <property name="font">
-                                                     <font>
-                                                      <pointsize>15</pointsize>
-                                                     </font>
-                                                    </property>
-                                                    <property name="background">
-                                                     <color>
-                                                      <red>255</red>
-                                                      <green>255</green>
-                                                      <blue>255</blue>
-                                                     </color>
-                                                    </property>
-                                                    <property name="foreground">
-                                                     <brush brushstyle="SolidPattern">
-                                                      <color alpha="255">
-                                                       <red>0</red>
-                                                       <green>0</green>
-                                                       <blue>0</blue>
-                                                      </color>
-                                                     </brush>
-                                                    </property>
-                                                   </column>
-                                                   <column>
-                                                    <property name="text">
-                                                     <string>First Name</string>
-                                                    </property>
-                                                    <property name="font">
-                                                     <font>
-                                                      <pointsize>15</pointsize>
-                                                     </font>
-                                                    </property>
-                                                    <property name="foreground">
-                                                     <brush brushstyle="SolidPattern">
-                                                      <color alpha="255">
-                                                       <red>0</red>
-                                                       <green>0</green>
-                                                       <blue>0</blue>
-                                                      </color>
-                                                     </brush>
-                                                    </property>
-                                                   </column>
-                                                   <column>
-                                                    <property name="text">
-                                                     <string>M.I.</string>
-                                                    </property>
-                                                    <property name="font">
-                                                     <font>
-                                                      <pointsize>15</pointsize>
-                                                     </font>
-                                                    </property>
-                                                    <property name="foreground">
-                                                     <brush brushstyle="SolidPattern">
-                                                      <color alpha="255">
-                                                       <red>0</red>
-                                                       <green>0</green>
-                                                       <blue>0</blue>
-                                                      </color>
-                                                     </brush>
-                                                    </property>
-                                                   </column>
-                                                   <column>
-                                                    <property name="text">
-                                                     <string>Email</string>
-                                                    </property>
-                                                    <property name="font">
-                                                     <font>
-                                                      <family>MS Shell Dlg 2</family>
-                                                      <pointsize>15</pointsize>
-                                                      <weight>50</weight>
-                                                      <bold>false</bold>
-                                                     </font>
-                                                    </property>
-                                                    <property name="foreground">
-                                                     <brush brushstyle="SolidPattern">
-                                                      <color alpha="255">
-                                                       <red>0</red>
-                                                       <green>0</green>
-                                                       <blue>0</blue>
-                                                      </color>
-                                                     </brush>
-                                                    </property>
-                                                   </column>
-                                                  </widget>
-                                                 </item>
-                                                 <item>
-                                                  <widget class="QWidget" name="widget_21" native="true">
-                                                   <layout class="QHBoxLayout" name="horizontalLayout_59">
-                                                    <property name="spacing">
-                                                     <number>0</number>
-                                                    </property>
-                                                    <property name="leftMargin">
-                                                     <number>0</number>
-                                                    </property>
-                                                    <property name="topMargin">
-                                                     <number>5</number>
-                                                    </property>
-                                                    <property name="rightMargin">
-                                                     <number>0</number>
-                                                    </property>
-                                                    <property name="bottomMargin">
-                                                     <number>0</number>
-                                                    </property>
-                                                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                                                     <widget class="QPushButton" name="addAdmin_pushButton">
-                                                      <property name="font">
-                                                       <font>
-                                                        <pointsize>12</pointsize>
-                                                       </font>
-                                                      </property>
-                                                      <property name="styleSheet">
-                                                       <string notr="true">#addAdmin_pushButton{
+                                                       <string notr="true">#addTeach_pushButton{
 	color: rgb(255, 255, 255);
 	background-color: rgb(0, 189, 0);
 	padding-left: 10px;
@@ -4550,14 +4294,14 @@ gridline-color: rgb(255, 255, 255);
 	padding-top: 10px;
 	padding-right: 10px;
 }
-#addAdmin_pushButton:hover{
+#addTeach_pushButton:hover{
 	background-color: rgb(110, 197, 115);
 	padding-left: 10px;
 	padding-bottom: 10px;
 	padding-top: 10px;
 	padding-right: 10px;
 }
-#addAdmin_pushButton:pressed{
+#addTeach_pushButton:pressed{
 	background-color: rgba(0, 189, 0,150);
 	padding-left: 10px;
 	padding-bottom: 10px;
@@ -4581,14 +4325,14 @@ gridline-color: rgb(255, 255, 255);
                                                      </widget>
                                                     </item>
                                                     <item alignment="Qt::AlignHCenter">
-                                                     <widget class="QPushButton" name="removeAdmin_pushButton">
+                                                     <widget class="QPushButton" name="removeTeach_pushButton">
                                                       <property name="font">
                                                        <font>
                                                         <pointsize>12</pointsize>
                                                        </font>
                                                       </property>
                                                       <property name="styleSheet">
-                                                       <string notr="true">#removeAdmin_pushButton{
+                                                       <string notr="true">#removeTeach_pushButton{
 	color: rgb(255, 255, 255);
 	background-color: rgb(195, 0, 0);
 	padding-left: 10px;
@@ -4596,14 +4340,14 @@ gridline-color: rgb(255, 255, 255);
 	padding-top: 10px;
 	padding-right: 10px;
 }
-#removeAdmin_pushButton:hover{
+#removeTeach_pushButton:hover{
 	background-color: rgb(212, 80, 80);
 	padding-left: 10px;
 	padding-bottom: 10px;
 	padding-top: 10px;
 	padding-right: 10px;
 }
-#removeAdmin_pushButton:pressed{
+#removeTeach_pushButton:pressed{
 	background-color: rgba(195, 0, 0,150);
 	padding-left: 10px;
 	padding-bottom: 10px;

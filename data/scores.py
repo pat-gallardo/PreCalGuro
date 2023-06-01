@@ -1,3 +1,5 @@
+academic_year = "2022 - 2023"
+
 assess_score = 0
 unit1_score = 0
 unit2_score = 0
