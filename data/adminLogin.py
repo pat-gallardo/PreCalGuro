@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'data\studLogin.ui'
+# Form implementation generated from reading ui file 'data\adminLogin.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_studLoginWindow(object):
-    def setupUi(self, studLoginWindow):
-        studLoginWindow.setObjectName("studLoginWindow")
-        studLoginWindow.resize(297, 444)
-        self.centralwidget = QtWidgets.QWidget(studLoginWindow)
+class Ui_adminWindow(object):
+    def setupUi(self, adminWindow):
+        adminWindow.setObjectName("adminWindow")
+        adminWindow.resize(294, 437)
+        self.centralwidget = QtWidgets.QWidget(adminWindow)
         self.centralwidget.setStyleSheet("*{\n"
 "border: none;\n"
 "background-color: transparent;\n"
@@ -35,21 +35,21 @@ class Ui_studLoginWindow(object):
 "#label, #label_2, #label_3, #label_4{\n"
 "color: rgba(255, 255, 255,210);\n"
 "}\n"
-"QPushButton#closeButton,#loginStudButton,#backButton{\n"
+"QPushButton#closeButton,#loginAdminButton,#backButton{\n"
 "    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
 "    color:rgba();\n"
 "    color:rgba(255,255,255,210);\n"
 "    border-radius:5px;\n"
 "}\n"
-"QPushButton#closeButton:hover, #loginStudButton:hover, #backButton:hover{\n"
+"QPushButton#closeButton:hover, #loginAdminButton:hover, #backButton:hover{\n"
 "    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
 "}\n"
-"QPushButton#closeButton:pressed, #loginStudButton:pressed, #backButton:pressed{\n"
+"QPushButton#closeButton:pressed, #loginAdminButton:pressed, #backButton:pressed{\n"
 "    padding-left:5px;\n"
 "    padding-top:5px;\n"
 "    background-color:rgba(105, 118, 132, 200)\n"
 "}\n"
-"#studEmail_lineEdit, #studPass_lineEdit, #studID_lineEdit{\n"
+"#adminEmail_lineEdit, #adminPass_lineEdit{\n"
 "background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(105, 118, 132, 255);\n"
@@ -127,31 +127,23 @@ class Ui_studLoginWindow(object):
         self.verticalLayout_6.setContentsMargins(40, 0, 40, 0)
         self.verticalLayout_6.setSpacing(15)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.studID_lineEdit = QtWidgets.QLineEdit(self.widget_6)
+        self.adminEmail_lineEdit = QtWidgets.QLineEdit(self.widget_6)
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.studID_lineEdit.setFont(font)
-        self.studID_lineEdit.setStyleSheet("")
-        self.studID_lineEdit.setText("")
-        self.studID_lineEdit.setObjectName("studID_lineEdit")
-        self.verticalLayout_6.addWidget(self.studID_lineEdit)
-        self.studEmail_lineEdit = QtWidgets.QLineEdit(self.widget_6)
+        self.adminEmail_lineEdit.setFont(font)
+        self.adminEmail_lineEdit.setStyleSheet("")
+        self.adminEmail_lineEdit.setText("")
+        self.adminEmail_lineEdit.setObjectName("adminEmail_lineEdit")
+        self.verticalLayout_6.addWidget(self.adminEmail_lineEdit)
+        self.adminPass_lineEdit = QtWidgets.QLineEdit(self.widget_6)
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.studEmail_lineEdit.setFont(font)
-        self.studEmail_lineEdit.setStyleSheet("")
-        self.studEmail_lineEdit.setText("")
-        self.studEmail_lineEdit.setObjectName("studEmail_lineEdit")
-        self.verticalLayout_6.addWidget(self.studEmail_lineEdit)
-        self.studPass_lineEdit = QtWidgets.QLineEdit(self.widget_6)
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.studPass_lineEdit.setFont(font)
-        self.studPass_lineEdit.setStyleSheet("")
-        self.studPass_lineEdit.setText("")
-        self.studPass_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.studPass_lineEdit.setObjectName("studPass_lineEdit")
-        self.verticalLayout_6.addWidget(self.studPass_lineEdit)
+        self.adminPass_lineEdit.setFont(font)
+        self.adminPass_lineEdit.setStyleSheet("")
+        self.adminPass_lineEdit.setText("")
+        self.adminPass_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.adminPass_lineEdit.setObjectName("adminPass_lineEdit")
+        self.verticalLayout_6.addWidget(self.adminPass_lineEdit)
         self.warning_Widget = QtWidgets.QWidget(self.widget_6)
         self.warning_Widget.setStyleSheet("")
         self.warning_Widget.setObjectName("warning_Widget")
@@ -216,22 +208,22 @@ class Ui_studLoginWindow(object):
         self.horizontalLayout_3.setContentsMargins(0, 0, 5, 0)
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.loginStudButton = QtWidgets.QPushButton(self.widget)
+        self.loginAdminButton = QtWidgets.QPushButton(self.widget)
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.loginStudButton.setFont(font)
-        self.loginStudButton.setStyleSheet("    padding: 10px 40px;\n"
+        self.loginAdminButton.setFont(font)
+        self.loginAdminButton.setStyleSheet("    padding: 10px 40px;\n"
 "    border-top-left-radius: 10px;\n"
 "    border-bottom-left-radius: 10px;")
-        self.loginStudButton.setIconSize(QtCore.QSize(12, 12))
-        self.loginStudButton.setAutoDefault(False)
-        self.loginStudButton.setDefault(False)
-        self.loginStudButton.setFlat(False)
-        self.loginStudButton.setObjectName("loginStudButton")
-        self.horizontalLayout_3.addWidget(self.loginStudButton)
+        self.loginAdminButton.setIconSize(QtCore.QSize(12, 12))
+        self.loginAdminButton.setAutoDefault(False)
+        self.loginAdminButton.setDefault(False)
+        self.loginAdminButton.setFlat(False)
+        self.loginAdminButton.setObjectName("loginAdminButton")
+        self.horizontalLayout_3.addWidget(self.loginAdminButton)
         self.horizontalLayout.addWidget(self.widget)
         self.widget_4 = QtWidgets.QWidget(self.widget_5)
         self.widget_4.setObjectName("widget_4")
@@ -258,69 +250,35 @@ class Ui_studLoginWindow(object):
         self.backButton.setObjectName("backButton")
         self.horizontalLayout_4.addWidget(self.backButton)
         self.horizontalLayout.addWidget(self.widget_4)
-        self.verticalLayout_3.addWidget(self.widget_5, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignBottom)
-        self.widget_2 = QtWidgets.QWidget(self.frame_3)
-        self.widget_2.setObjectName("widget_2")
-        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.widget_2)
-        self.verticalLayout_5.setContentsMargins(0, 0, 0, 10)
-        self.verticalLayout_5.setSpacing(8)
-        self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.toForgotPassStudButton = QtWidgets.QPushButton(self.widget_2)
-        self.toForgotPassStudButton.setStyleSheet("QPushButton#toForgotPassStudButton{\n"
-"    color:rgba(255,255,255,140)\n"
-"}\n"
-"QPushButton#toForgotPassStudButton:pressed{\n"
-"    color: rgba(251, 153, 93, 1);\n"
-"}\n"
-"")
-        self.toForgotPassStudButton.setDefault(False)
-        self.toForgotPassStudButton.setFlat(True)
-        self.toForgotPassStudButton.setObjectName("toForgotPassStudButton")
-        self.verticalLayout_5.addWidget(self.toForgotPassStudButton, 0, QtCore.Qt.AlignBottom)
-        self.toRegisterStudButton = QtWidgets.QPushButton(self.widget_2)
-        self.toRegisterStudButton.setStyleSheet("QPushButton#toRegisterStudButton{\n"
-"    color:rgba(255,255,255,140)\n"
-"}\n"
-"QPushButton#toRegisterStudButton:pressed{\n"
-"    color: rgba(251, 153, 93, 1);\n"
-"}\n"
-"")
-        self.toRegisterStudButton.setFlat(True)
-        self.toRegisterStudButton.setObjectName("toRegisterStudButton")
-        self.verticalLayout_5.addWidget(self.toRegisterStudButton, 0, QtCore.Qt.AlignTop)
-        self.verticalLayout_3.addWidget(self.widget_2, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.verticalLayout_3.addWidget(self.widget_5, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.verticalLayout.addWidget(self.frame_3)
         self.verticalLayout_8.addWidget(self.frame_4)
         self.verticalLayout_11.addWidget(self.frame)
-        studLoginWindow.setCentralWidget(self.centralwidget)
+        adminWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(studLoginWindow)
-        self.warningPages.setCurrentIndex(1)
-        QtCore.QMetaObject.connectSlotsByName(studLoginWindow)
+        self.retranslateUi(adminWindow)
+        self.warningPages.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(adminWindow)
 
-    def retranslateUi(self, studLoginWindow):
+    def retranslateUi(self, adminWindow):
         _translate = QtCore.QCoreApplication.translate
-        studLoginWindow.setWindowTitle(_translate("studLoginWindow", "MainWindow"))
-        self.label.setText(_translate("studLoginWindow", "PreCalGuro"))
-        self.label_4.setText(_translate("studLoginWindow", "Student\'s Log In"))
-        self.studID_lineEdit.setPlaceholderText(_translate("studLoginWindow", "LRN:"))
-        self.studEmail_lineEdit.setPlaceholderText(_translate("studLoginWindow", "Email:"))
-        self.studPass_lineEdit.setPlaceholderText(_translate("studLoginWindow", "Password:"))
-        self.label_5.setText(_translate("studLoginWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; color:#ff9393;\">Incorrect LRN, </span></p><p align=\"center\"><span style=\" font-size:10pt; color:#ff9393;\">Email or Password</span></p></body></html>"))
-        self.label_6.setText(_translate("studLoginWindow", "<html><head/><body><p><span style=\" font-size:10pt; color:#ff9393;\">User Doesn\'t Exist</span></p></body></html>"))
-        self.loginStudButton.setText(_translate("studLoginWindow", "Log In"))
-        self.backButton.setText(_translate("studLoginWindow", "Back"))
-        self.toForgotPassStudButton.setText(_translate("studLoginWindow", "Forgot you Password ?"))
-        self.toRegisterStudButton.setText(_translate("studLoginWindow", "Don\'t have and Account? Register Here"))
+        adminWindow.setWindowTitle(_translate("adminWindow", "MainWindow"))
+        self.label.setText(_translate("adminWindow", "PreCalGuro"))
+        self.label_4.setText(_translate("adminWindow", "Admin Log In"))
+        self.adminEmail_lineEdit.setPlaceholderText(_translate("adminWindow", "Email:"))
+        self.adminPass_lineEdit.setPlaceholderText(_translate("adminWindow", "Password:"))
+        self.label_5.setText(_translate("adminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; color:#ff9393;\">Incorrect</span></p><p align=\"center\"><span style=\" font-size:10pt; color:#ff9393;\">Email or Password</span></p></body></html>"))
+        self.label_6.setText(_translate("adminWindow", "<html><head/><body><p><span style=\" font-size:10pt; color:#ff9393;\">User Doesn\'t Exist</span></p></body></html>"))
+        self.loginAdminButton.setText(_translate("adminWindow", "Log In"))
+        self.backButton.setText(_translate("adminWindow", "Back"))
 import sys
 sys.path.append("assets")
 import res
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    studLoginWindow = QtWidgets.QMainWindow()
-    ui = Ui_studLoginWindow()
-    ui.setupUi(studLoginWindow)
-    studLoginWindow.show()
+    adminWindow = QtWidgets.QMainWindow()
+    ui = Ui_adminWindow()
+    ui.setupUi(adminWindow)
+    adminWindow.show()
     sys.exit(app.exec_())

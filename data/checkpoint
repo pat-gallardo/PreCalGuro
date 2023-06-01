@@ -1,2 +1,2 @@
-model_checkpoint_path: "E:\\output\\data\\model.tflearn"
-all_model_checkpoint_paths: "E:\\output\\data\\model.tflearn"
+model_checkpoint_path: "C:\\Users\\Patrick.DARKDRIFT\\Desktop\\APPS\\PROGRAMMING FILES\\Mathguro\\data\\model.tflearn"
+all_model_checkpoint_paths: "C:\\Users\\Patrick.DARKDRIFT\\Desktop\\APPS\\PROGRAMMING FILES\\Mathguro\\data\\model.tflearn"

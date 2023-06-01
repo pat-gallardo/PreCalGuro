@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>340</width>
-    <height>484</height>
+    <width>310</width>
+    <height>413</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,26 +30,26 @@ border-radius: 20px;
 background-color:rgba(0,0,0,175);
 border-radius: 20px;
 }
-#label,#label_2,#label_5,#label_6,#label_7,#label_8,#label_9,#label_10{
+#label,#label_2,#label_5,#label_6,#label_7,#label_8,#label_9,#label_10,#label_11,#label_16{
 color: rgba(255, 255, 255,210);
 }
-#updStudFirst_lineEdit,#updStudMiddle_lineEdit,#updStudLast_lineEdit,#updStudSchool_lineEdit,#updTeachFirst_lineEdit,#updTeachMiddle_lineEdit,#updTeachLast_lineEdit,#updTeachSchool_lineEdit,#updStudPass_lineEdit,#updTeachPass_lineEdit{
+#updStudFirst_lineEdit,#updStudMiddle_lineEdit,#updStudLast_lineEdit,#updTeachFirst_lineEdit,#updTeachMiddle_lineEdit,#updTeachLast_lineEdit,#updAdminFirst_lineEdit,#updAdminMiddle_lineEdit,#updAdminLast_lineEdit{
 background-color:rgba(0,0,0,0);
 border:none;
 border-bottom:2px solid rgba(105, 118, 132, 255);
 color: rgb(255, 255, 255);
 padding-bottom:7px
 }
-QPushButton#updateStudButton,#backButton,#updateTeachButton,#backButton_5,#updateStudPassButton,#backButton_3,#updateTeachPassButton,#backButton_4{
+QPushButton#updateStudButton,#backButton,#updateTeachButton,#backButton_5,#updateStudPassButton,#backButton_3,#updateTeachPassButton,#backButton_4,#updateAdminButton,#backAdminButton{
 	background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));
 	color:rgba();
 	color:rgba(255,255,255,210);
 	border-radius:5px;
 }
-QPushButton#updateStudButton:hover,#backButton:hover,#updateTeachButton:hover,#backButton_5:hover,#updateStudPassButton:hover,#backButton_3:hover,#updateTeachPassButton:hover,#backButton_4:hover{
+QPushButton#updateStudButton:hover,#backButton:hover,#updateTeachButton:hover,#backButton_5:hover,#updateStudPassButton:hover,#backButton_3:hover,#updateTeachPassButton:hover,#backButton_4:hover,#updateAdminButton:hover,#backAdminButton:hover{
 	background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));
 }
-QPushButton#updateStudButton:pressed,#backButton:pressed,#updateTeachButton:pressed,#backButton_5:pressed,#updateStudPassButton:pressed,#backButton_3:pressed,#updateTeachPassButton:pressed,#backButton_4:pressed{
+QPushButton#updateStudButton:pressed,#backButton:pressed,#updateTeachButton:pressed,#backButton_5:pressed,#updateStudPassButton:pressed,#backButton_3:pressed,#updateTeachPassButton:pressed,#backButton_4:pressed,#updateAdminButton:pressed,#backAdminButton:pressed{
 	padding-left:5px;
 	padding-top:5px;
 	background-color:rgba(105, 118, 132, 200)
@@ -58,10 +58,10 @@ QPushButton#updateStudButton:pressed,#backButton:pressed,#updateTeachButton:pres
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>313</width>
-     <height>421</height>
+     <x>9</x>
+     <y>9</y>
+     <width>295</width>
+     <height>395</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -1182,8 +1182,8 @@ margin-right:30px;</string>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_7">
-          <layout class="QVBoxLayout" name="verticalLayout_50">
+         <widget class="QWidget" name="page_5">
+          <layout class="QVBoxLayout" name="verticalLayout_9">
            <property name="spacing">
             <number>0</number>
            </property>
@@ -1200,14 +1200,14 @@ margin-right:30px;</string>
             <number>0</number>
            </property>
            <item>
-            <widget class="QFrame" name="frame_9">
+            <widget class="QFrame" name="frame_6">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_7">
+             <layout class="QVBoxLayout" name="verticalLayout_39">
               <property name="spacing">
                <number>0</number>
               </property>
@@ -1224,16 +1224,16 @@ margin-right:30px;</string>
                <number>0</number>
               </property>
               <item>
-               <widget class="QFrame" name="frame_10">
+               <widget class="QFrame" name="frame_20">
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_9">
+                <layout class="QVBoxLayout" name="verticalLayout_64">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>6</number>
                  </property>
                  <property name="leftMargin">
                   <number>0</number>
@@ -1248,19 +1248,19 @@ margin-right:30px;</string>
                   <number>0</number>
                  </property>
                  <item alignment="Qt::AlignHCenter">
-                  <widget class="QLabel" name="label_5">
+                  <widget class="QLabel" name="label_11">
                    <property name="font">
                     <font>
                      <pointsize>24</pointsize>
                     </font>
                    </property>
                    <property name="text">
-                    <string>Mathguro</string>
+                    <string>PreCalGuro</string>
                    </property>
                   </widget>
                  </item>
                  <item alignment="Qt::AlignHCenter">
-                  <widget class="QLabel" name="label_6">
+                  <widget class="QLabel" name="label_16">
                    <property name="font">
                     <font>
                      <family>Consolas</family>
@@ -1268,7 +1268,11 @@ margin-right:30px;</string>
                     </font>
                    </property>
                    <property name="text">
-                    <string>Student Change Password</string>
+                    <string>Admin Information
+ Update</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
@@ -1276,22 +1280,22 @@ margin-right:30px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QFrame" name="frame_11">
+               <widget class="QFrame" name="frame_21">
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_22">
+                <layout class="QVBoxLayout" name="verticalLayout_70">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>6</number>
                  </property>
                  <property name="leftMargin">
                   <number>0</number>
                  </property>
                  <property name="topMargin">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <property name="rightMargin">
                   <number>0</number>
@@ -1299,9 +1303,114 @@ margin-right:30px;</string>
                  <property name="bottomMargin">
                   <number>0</number>
                  </property>
-                 <item alignment="Qt::AlignVCenter">
-                  <widget class="QWidget" name="widget_10" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_40">
+                 <item>
+                  <widget class="QWidget" name="widget_25" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_6">
+                    <property name="spacing">
+                     <number>5</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QWidget" name="widget_26" native="true">
+                      <layout class="QVBoxLayout" name="verticalLayout_71">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>30</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLineEdit" name="updAdminFirst_lineEdit">
+                         <property name="font">
+                          <font>
+                           <pointsize>10</pointsize>
+                          </font>
+                         </property>
+                         <property name="toolTip">
+                          <string>Required*</string>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="placeholderText">
+                          <string>First Name:</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QWidget" name="widget_27" native="true">
+                      <layout class="QVBoxLayout" name="verticalLayout_72">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>30</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLineEdit" name="updAdminMiddle_lineEdit">
+                         <property name="font">
+                          <font>
+                           <pointsize>10</pointsize>
+                          </font>
+                         </property>
+                         <property name="toolTip">
+                          <string>Required*</string>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="placeholderText">
+                          <string>M.I:</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widget_28" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_73">
                     <property name="spacing">
                      <number>6</number>
                     </property>
@@ -1318,39 +1427,14 @@ margin-right:30px;</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QLineEdit" name="updStudPass_lineEdit">
-                      <property name="font">
-                       <font>
-                        <pointsize>10</pointsize>
-                       </font>
-                      </property>
-                      <property name="toolTip">
-                       <string>Required*</string>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">margin-left: 30px;
-margin-right: 30px;</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="echoMode">
-                       <enum>QLineEdit::Password</enum>
-                      </property>
-                      <property name="placeholderText">
-                       <string>Password:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QWidget" name="studWarnPassContainer" native="true">
+                     <widget class="QWidget" name="widget_29" native="true">
                       <property name="styleSheet">
                        <string notr="true">margin-left:30px;
 margin-right:30px;</string>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_43">
+                      <layout class="QVBoxLayout" name="verticalLayout_74">
                        <property name="spacing">
-                        <number>6</number>
+                        <number>0</number>
                        </property>
                        <property name="leftMargin">
                         <number>0</number>
@@ -1365,22 +1449,123 @@ margin-right:30px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QLabel" name="label_24">
+                        <widget class="QWidget" name="adminWarnFirstContainer" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_75">
+                          <property name="spacing">
+                           <number>6</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>9</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>9</number>
+                          </property>
+                          <item>
+                           <widget class="QLabel" name="label_24">
+                            <property name="font">
+                             <font>
+                              <family>MS Shell Dlg 2</family>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your First Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            </property>
+                            <property name="textFormat">
+                             <enum>Qt::RichText</enum>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="updAdminLast_lineEdit">
                          <property name="font">
                           <font>
-                           <family>MS Shell Dlg 2</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
+                         <property name="toolTip">
+                          <string>Required*</string>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; color:#ff9393;&quot;&gt;Must be 8 or more alphanumeric characters&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string/>
                          </property>
-                         <property name="textFormat">
-                          <enum>Qt::RichText</enum>
+                         <property name="placeholderText">
+                          <string>Last Name:</string>
                          </property>
-                         <property name="alignment">
-                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QWidget" name="widget_30" native="true">
+                      <property name="styleSheet">
+                       <string notr="true">margin-left:30px;
+margin-right:30px;</string>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_76">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QWidget" name="adminWarnLastContainer" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_77">
+                          <property name="spacing">
+                           <number>6</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>9</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>6</number>
+                          </property>
+                          <item>
+                           <widget class="QLabel" name="label_25">
+                            <property name="font">
+                             <font>
+                              <family>MS Shell Dlg 2</family>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter your Last Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            </property>
+                            <property name="textFormat">
+                             <enum>Qt::RichText</enum>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
                         </widget>
                        </item>
                       </layout>
@@ -1393,14 +1578,14 @@ margin-right:30px;</string>
                </widget>
               </item>
               <item alignment="Qt::AlignBottom">
-               <widget class="QFrame" name="frame_12">
+               <widget class="QFrame" name="frame_22">
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_46">
+                <layout class="QVBoxLayout" name="verticalLayout_78">
                  <property name="spacing">
                   <number>0</number>
                  </property>
@@ -1417,236 +1602,11 @@ margin-right:30px;</string>
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QWidget" name="studChangeContainer" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_47">
-                    <item>
-                     <widget class="QStackedWidget" name="studChangeSubContainer">
-                      <property name="currentIndex">
-                       <number>1</number>
-                      </property>
-                      <widget class="QWidget" name="page_8">
-                       <layout class="QVBoxLayout" name="verticalLayout_48">
-                        <item>
-                         <widget class="QLabel" name="label_25">
-                          <property name="font">
-                           <font>
-                            <family>MS Shell Dlg 2</family>
-                            <pointsize>10</pointsize>
-                           </font>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter the required information&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                          <property name="textFormat">
-                           <enum>Qt::RichText</enum>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignCenter</set>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QWidget" name="page_9">
-                       <layout class="QVBoxLayout" name="verticalLayout_49">
-                        <item>
-                         <widget class="QLabel" name="label_26">
-                          <property name="font">
-                           <font>
-                            <family>MS Shell Dlg 2</family>
-                            <pointsize>10</pointsize>
-                           </font>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#9eff99;&quot;&gt;Password Updated&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                          <property name="textFormat">
-                           <enum>Qt::RichText</enum>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignCenter</set>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter">
-                  <widget class="QWidget" name="widget_32" native="true">
-                   <layout class="QHBoxLayout" name="horizontalLayout_6">
-                    <item>
-                     <widget class="QPushButton" name="updateStudPassButton">
-                      <property name="font">
-                       <font>
-                        <pointsize>12</pointsize>
-                        <weight>75</weight>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">	padding: 10px 25px;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;</string>
-                      </property>
-                      <property name="text">
-                       <string>Update</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="backButton_3">
-                      <property name="font">
-                       <font>
-                        <pointsize>12</pointsize>
-                        <weight>75</weight>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">	padding: 10px 10px;
-
-</string>
-                      </property>
-                      <property name="text">
-                       <string>Back</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="page_10">
-          <layout class="QVBoxLayout" name="verticalLayout_45">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QFrame" name="frame_13">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_24">
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QFrame" name="frame_14">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_39">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item alignment="Qt::AlignHCenter">
-                  <widget class="QLabel" name="label_7">
-                   <property name="font">
-                    <font>
-                     <pointsize>24</pointsize>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>Mathguro</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter">
-                  <widget class="QLabel" name="label_8">
-                   <property name="font">
-                    <font>
-                     <family>Consolas</family>
-                     <pointsize>13</pointsize>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>Teacher Change Password</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="frame_15">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_41">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item alignment="Qt::AlignVCenter">
-                  <widget class="QWidget" name="widget_25" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_42">
+                  <widget class="QWidget" name="adminWarnContainer" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_79">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
                     <property name="leftMargin">
                      <number>0</number>
                     </property>
@@ -1660,116 +1620,14 @@ margin-right:30px;</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QLineEdit" name="updTeachPass_lineEdit">
-                      <property name="font">
-                       <font>
-                        <pointsize>10</pointsize>
-                       </font>
-                      </property>
-                      <property name="toolTip">
-                       <string>Required*</string>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">margin-left: 30px;
-margin-right: 30px;</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="echoMode">
-                       <enum>QLineEdit::Password</enum>
-                      </property>
-                      <property name="placeholderText">
-                       <string>Password:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QWidget" name="teachWarnPassContainer" native="true">
-                      <property name="styleSheet">
-                       <string notr="true">margin-left:30px;
-margin-right:30px;</string>
-                      </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_44">
-                       <property name="spacing">
-                        <number>6</number>
-                       </property>
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="topMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>0</number>
-                       </property>
-                       <item>
-                        <widget class="QLabel" name="label_27">
-                         <property name="font">
-                          <font>
-                           <family>MS Shell Dlg 2</family>
-                           <pointsize>10</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; color:#ff9393;&quot;&gt;Must be 8 or more alphanumeric characters&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                         </property>
-                         <property name="textFormat">
-                          <enum>Qt::RichText</enum>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item alignment="Qt::AlignBottom">
-               <widget class="QFrame" name="frame_16">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_51">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QWidget" name="teachChangePassContainer" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_52">
-                    <item>
-                     <widget class="QStackedWidget" name="teachChangePassSubContainer">
+                     <widget class="QStackedWidget" name="adminWarnSubContainer">
                       <property name="currentIndex">
                        <number>0</number>
                       </property>
-                      <widget class="QWidget" name="page_11">
-                       <layout class="QVBoxLayout" name="verticalLayout_53">
+                      <widget class="QWidget" name="page_15">
+                       <layout class="QVBoxLayout" name="verticalLayout_80">
                         <item>
-                         <widget class="QLabel" name="label_28">
+                         <widget class="QLabel" name="label_33">
                           <property name="font">
                            <font>
                             <family>MS Shell Dlg 2</family>
@@ -1789,10 +1647,10 @@ margin-right:30px;</string>
                         </item>
                        </layout>
                       </widget>
-                      <widget class="QWidget" name="page_12">
-                       <layout class="QVBoxLayout" name="verticalLayout_54">
+                      <widget class="QWidget" name="page_16">
+                       <layout class="QVBoxLayout" name="verticalLayout_81">
                         <item>
-                         <widget class="QLabel" name="label_29">
+                         <widget class="QLabel" name="label_34">
                           <property name="font">
                            <font>
                             <family>MS Shell Dlg 2</family>
@@ -1800,7 +1658,7 @@ margin-right:30px;</string>
                            </font>
                           </property>
                           <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#9eff99;&quot;&gt;Password Updated&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#9eff99;&quot;&gt;Account Updated&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                           <property name="textFormat">
                            <enum>Qt::RichText</enum>
@@ -1818,12 +1676,13 @@ margin-right:30px;</string>
                   </widget>
                  </item>
                  <item alignment="Qt::AlignHCenter">
-                  <widget class="QWidget" name="widget_33" native="true">
-                   <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <widget class="QWidget" name="widget_31" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_9">
                     <item>
-                     <widget class="QPushButton" name="updateTeachPassButton">
+                     <widget class="QPushButton" name="updateAdminButton">
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
@@ -1840,9 +1699,10 @@ margin-right:30px;</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="backButton_4">
+                     <widget class="QPushButton" name="backAdminButton">
                       <property name="font">
                        <font>
+                        <family>MS Sans Serif</family>
                         <pointsize>12</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>

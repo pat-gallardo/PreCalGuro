@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>teachRegisterWindow</class>
- <widget class="QMainWindow" name="teachRegisterWindow">
+ <class>adminRegisterWindow</class>
+ <widget class="QMainWindow" name="adminRegisterWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>303</width>
-    <height>588</height>
+    <height>516</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,22 +36,22 @@ border-radius: 20px;
 #label, #label_2, #label_3, #label_4{
 color: rgba(255, 255, 255,210);
 }
-QPushButton#closeButton,#registerTeachButton,#backButton{
+QPushButton#closeButton,#registerAdminButton,#backButton{
 	background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));
 	color:rgba();
 	color:rgba(255,255,255,210);
 	border-radius:5px;
 }
-QPushButton#closeButton:hover,#registerTeachButton:hover,#backButton:hover{
+QPushButton#closeButton:hover,#registerAdminButton:hover,#backButton:hover{
 	background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));
 }
-QPushButton#closeButton:pressed,#registerTeachButton:pressed,#backButton:pressed{
+QPushButton#closeButton:pressed,#registerAdminButton:pressed,#backButton:pressed{
 	padding-left:5px;
 	padding-top:5px;
 	background-color:rgba(105, 118, 132, 200)
 }
-#teachEmail_lineEdit, #teachPass_lineEdit, #teachLast_lineEdit, #teachSchool_lineEdit
-, #teachID_lineEdit, #teachMiddle_lineEdit, #teachFirst_lineEdit{
+#adminEmail_lineEdit, #adminPass_lineEdit, #adminLast_lineEdit
+, #adminMiddle_lineEdit, #adminFirst_lineEdit{
 background-color:rgba(0,0,0,0);
 border:none;
 border-bottom:2px solid rgba(105, 118, 132, 255);
@@ -60,7 +60,7 @@ padding-bottom:7px
 }
 </string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_18">
+   <layout class="QVBoxLayout" name="verticalLayout_17">
     <item>
      <widget class="QFrame" name="frame">
       <property name="frameShape">
@@ -118,7 +118,7 @@ padding-bottom:7px
              <property name="bottomMargin">
               <number>0</number>
              </property>
-             <item alignment="Qt::AlignTop">
+             <item>
               <widget class="QFrame" name="frame_2">
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
@@ -160,26 +160,6 @@ padding-bottom:7px
                    <property name="bottomMargin">
                     <number>0</number>
                    </property>
-                   <item>
-                    <widget class="QPushButton" name="closeButton">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="res.qrc">
-                       <normaloff>:/icons/icons/x.svg</normaloff>:/icons/icons/x.svg</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>25</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -227,7 +207,7 @@ padding-bottom:7px
                       </font>
                      </property>
                      <property name="text">
-                      <string>Teacher's Register</string>
+                      <string>Admin Register</string>
                      </property>
                     </widget>
                    </item>
@@ -281,7 +261,7 @@ padding-bottom:7px
                    </property>
                    <item>
                     <widget class="QWidget" name="widget_12" native="true">
-                     <layout class="QVBoxLayout" name="verticalLayout_26">
+                     <layout class="QVBoxLayout" name="verticalLayout_18">
                       <property name="spacing">
                        <number>0</number>
                       </property>
@@ -337,7 +317,7 @@ padding-bottom:7px
                              <number>0</number>
                             </property>
                             <item>
-                             <widget class="QLineEdit" name="teachFirst_lineEdit">
+                             <widget class="QLineEdit" name="adminFirst_lineEdit">
                               <property name="font">
                                <font>
                                 <pointsize>10</pointsize>
@@ -379,7 +359,7 @@ padding-bottom:7px
                              <number>0</number>
                             </property>
                             <item>
-                             <widget class="QLineEdit" name="teachMiddle_lineEdit">
+                             <widget class="QLineEdit" name="adminMiddle_lineEdit">
                               <property name="font">
                                <font>
                                 <pointsize>10</pointsize>
@@ -491,7 +471,7 @@ padding-bottom:7px
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QLineEdit" name="teachLast_lineEdit">
+                          <widget class="QLineEdit" name="adminLast_lineEdit">
                            <property name="font">
                             <font>
                              <pointsize>10</pointsize>
@@ -555,94 +535,6 @@ padding-bottom:7px
                        </widget>
                       </item>
                       <item>
-                       <widget class="QFrame" name="frame_8">
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_6">
-                         <property name="spacing">
-                          <number>0</number>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item>
-                          <widget class="QLineEdit" name="teachID_lineEdit">
-                           <property name="font">
-                            <font>
-                             <pointsize>10</pointsize>
-                            </font>
-                           </property>
-                           <property name="toolTip">
-                            <string>Required*</string>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true"/>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="placeholderText">
-                            <string>Teacher's School I.D.</string>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QWidget" name="warningYrSec" native="true">
-                        <layout class="QVBoxLayout" name="verticalLayout_17">
-                         <property name="spacing">
-                          <number>0</number>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item>
-                          <widget class="QLabel" name="label_16">
-                           <property name="font">
-                            <font>
-                             <family>MS Shell Dlg 2</family>
-                             <pointsize>10</pointsize>
-                            </font>
-                           </property>
-                           <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please enter School I.D.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                           </property>
-                           <property name="textFormat">
-                            <enum>Qt::RichText</enum>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
                        <widget class="QFrame" name="frame_10">
                         <property name="frameShape">
                          <enum>QFrame::StyledPanel</enum>
@@ -667,7 +559,7 @@ padding-bottom:7px
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QLineEdit" name="teachEmail_lineEdit">
+                          <widget class="QLineEdit" name="adminEmail_lineEdit">
                            <property name="font">
                             <font>
                              <pointsize>10</pointsize>
@@ -792,7 +684,7 @@ padding-bottom:7px
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QLineEdit" name="teachPass_lineEdit">
+                          <widget class="QLineEdit" name="adminPass_lineEdit">
                            <property name="font">
                             <font>
                              <pointsize>10</pointsize>
@@ -1002,7 +894,7 @@ padding-bottom:7px
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QPushButton" name="registerTeachButton">
+                       <widget class="QPushButton" name="registerAdminButton">
                         <property name="font">
                          <font>
                           <family>MS Sans Serif</family>
@@ -1124,25 +1016,6 @@ padding-bottom:7px
                    <property name="bottomMargin">
                     <number>0</number>
                    </property>
-                   <item alignment="Qt::AlignTop">
-                    <widget class="QPushButton" name="toLoginTeachButton">
-                     <property name="styleSheet">
-                      <string notr="true">QPushButton#toLoginTeachButton{
-	color:rgba(255,255,255,140)
-}
-QPushButton#toLoginTeachButton:pressed{
-	color: rgba(251, 153, 93, 1);
-}
-</string>
-                     </property>
-                     <property name="text">
-                      <string>Already have an Account? Log In Here</string>
-                     </property>
-                     <property name="flat">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </widget>
                 </item>
