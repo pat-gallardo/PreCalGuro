@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'studTeach.ui'
+# Form implementation generated from reading ui file 'data\studTeach.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -9,21 +9,23 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
-sys.path.append("assets")
-import res
+
 
 class Ui_studTeachWindow(object):
     def setupUi(self, studTeachWindow):
         studTeachWindow.setObjectName("studTeachWindow")
-        studTeachWindow.resize(376, 502)
-        studTeachWindow.setFixedSize(376, 502)
-        # to remove close,minimize,maximize button
-        studTeachWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        # to remove the constant background of the app
-        studTeachWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        studTeachWindow.resize(285, 424)
+        studTeachWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(studTeachWindow)
-        self.centralwidget.setStyleSheet("#frame{\n"
+        self.centralwidget.setStyleSheet("*{\n"
+"border: none;\n"
+"background-color: transparent;\n"
+"background: transparent;\n"
+"padding: 0;\n"
+"margin: 0;\n"
+"color: #fff\n"
+"}\n"
+"#frame{\n"
 "border-image: url(:/images/back1.png);\n"
 "border-radius: 20px;\n"
 "}\n"
@@ -35,24 +37,25 @@ class Ui_studTeachWindow(object):
 "#label, #label_2, #label_3{\n"
 "color: rgba(255, 255, 255,210);\n"
 "}\n"
-"QPushButton#closeButton,#toStudButton,#toTeachButton{\n"
+"QPushButton#closeButton,#toStudButton,#toTeachButton,#toAdminButton{\n"
 "    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(20, 47, 78, 219), stop:1 rgba(85, 98, 112, 226));\n"
 "    color:rgba();\n"
 "    color:rgba(255,255,255,210);\n"
 "    border-radius:5px;\n"
 "}\n"
-"QPushButton#closeButton:hover, #toStudButton:hover, #toTeachButton:hover{\n"
+"QPushButton#closeButton:hover, #toStudButton:hover, #toTeachButton:hover,#toAdminButton:hover{\n"
 "    background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.989, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop:1 rgba(105, 118, 132, 226));\n"
 "}\n"
-"QPushButton#closeButton:pressed, #toStudButton:pressed, #toTeachButton:pressed{\n"
+"QPushButton#closeButton:pressed, #toStudButton:pressed, #toTeachButton:pressed,#toAdminButton:pressed{\n"
 "    padding-left:5px;\n"
 "    padding-top:5px;\n"
 "    background-color:rgba(105, 118, 132, 200)\n"
 "}\n"
 "")
         self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(40, 50, 291, 401))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -66,7 +69,13 @@ class Ui_studTeachWindow(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.frame_2 = QtWidgets.QFrame(self.frame_4)
+        self.widget_7 = QtWidgets.QWidget(self.frame_4)
+        self.widget_7.setObjectName("widget_7")
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.widget_7)
+        self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_11.setSpacing(30)
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.frame_2 = QtWidgets.QFrame(self.widget_7)
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -89,23 +98,14 @@ class Ui_studTeachWindow(object):
         self.closeButton.setIconSize(QtCore.QSize(25, 25))
         self.closeButton.setObjectName("closeButton")
         self.horizontalLayout_2.addWidget(self.closeButton)
-        self.verticalLayout_2.addWidget(self.widget_3, 0, QtCore.Qt.AlignRight|QtCore.Qt.AlignTop)
+        self.verticalLayout_2.addWidget(self.widget_3, 0, QtCore.Qt.AlignRight)
         self.label = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
         font.setPointSize(24)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.verticalLayout_2.addWidget(self.label, 0, QtCore.Qt.AlignHCenter)
-        self.verticalLayout.addWidget(self.frame_2, 0, QtCore.Qt.AlignTop)
-        self.frame_3 = QtWidgets.QFrame(self.frame_4)
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_3)
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 75)
-        self.verticalLayout_3.setSpacing(10)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.widget = QtWidgets.QWidget(self.frame_3)
+        self.widget = QtWidgets.QWidget(self.frame_2)
         self.widget.setObjectName("widget")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.widget)
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -117,7 +117,16 @@ class Ui_studTeachWindow(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.verticalLayout_4.addWidget(self.label_2, 0, QtCore.Qt.AlignHCenter)
-        self.verticalLayout_3.addWidget(self.widget)
+        self.verticalLayout_2.addWidget(self.widget)
+        self.verticalLayout_11.addWidget(self.frame_2)
+        self.frame_3 = QtWidgets.QFrame(self.widget_7)
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_3)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 28)
+        self.verticalLayout_3.setSpacing(10)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.widget_5 = QtWidgets.QWidget(self.frame_3)
         self.widget_5.setObjectName("widget_5")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.widget_5)
@@ -132,6 +141,7 @@ class Ui_studTeachWindow(object):
         self.toStudButton.setSizePolicy(sizePolicy)
         self.toStudButton.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
@@ -164,6 +174,7 @@ class Ui_studTeachWindow(object):
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.toTeachButton = QtWidgets.QPushButton(self.widget_2)
         font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
@@ -178,12 +189,27 @@ class Ui_studTeachWindow(object):
         self.toTeachButton.setObjectName("toTeachButton")
         self.verticalLayout_5.addWidget(self.toTeachButton, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_3.addWidget(self.widget_2)
-        self.verticalLayout.addWidget(self.frame_3)
+        self.widget_6 = QtWidgets.QWidget(self.frame_3)
+        self.widget_6.setObjectName("widget_6")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.widget_6)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.toAdminButton = QtWidgets.QPushButton(self.widget_6)
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.toAdminButton.setFont(font)
+        self.toAdminButton.setStyleSheet("    padding: 10px 20px;\n"
+"    border-top-left-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;")
+        self.toAdminButton.setObjectName("toAdminButton")
+        self.verticalLayout_9.addWidget(self.toAdminButton, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_3.addWidget(self.widget_6)
+        self.verticalLayout_11.addWidget(self.frame_3)
+        self.verticalLayout.addWidget(self.widget_7)
         self.verticalLayout_8.addWidget(self.frame_4)
-        self.drag = QtWidgets.QLabel(self.centralwidget)
-        self.drag.setGeometry(QtCore.QRect(50, 50, 241, 31))
-        self.drag.setText("")
-        self.drag.setObjectName("drag")
+        self.verticalLayout_10.addWidget(self.frame)
         studTeachWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(studTeachWindow)
@@ -192,14 +218,15 @@ class Ui_studTeachWindow(object):
     def retranslateUi(self, studTeachWindow):
         _translate = QtCore.QCoreApplication.translate
         studTeachWindow.setWindowTitle(_translate("studTeachWindow", "MainWindow"))
-        self.label.setText(_translate("studTeachWindow", "Mathguro"))
+        self.label.setText(_translate("studTeachWindow", "PreCalGuro"))
         self.label_2.setText(_translate("studTeachWindow", "Are you a"))
         self.toStudButton.setText(_translate("studTeachWindow", " Student "))
         self.label_3.setText(_translate("studTeachWindow", "or"))
         self.toTeachButton.setText(_translate("studTeachWindow", " Teacher "))
-
-
-
+        self.toAdminButton.setText(_translate("studTeachWindow", "Admin"))
+import sys
+sys.path.append("assets")
+import res
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

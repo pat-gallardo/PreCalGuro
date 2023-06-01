@@ -351,7 +351,7 @@ border-radius: 5px;</string>
                    <item>
                     <widget class="QStackedWidget" name="topicPages">
                      <property name="currentIndex">
-                      <number>18</number>
+                      <number>5</number>
                      </property>
                      <widget class="QWidget" name="circlePage_1">
                       <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -715,7 +715,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1130</width>
+                               <width>1166</width>
                                <height>3386</height>
                               </rect>
                              </property>
@@ -1256,7 +1256,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1116</width>
+                               <width>1166</width>
                                <height>3877</height>
                               </rect>
                              </property>
@@ -1890,7 +1890,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1113</width>
+                               <width>1166</width>
                                <height>6044</height>
                               </rect>
                              </property>
@@ -2467,7 +2467,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1125</width>
+                               <width>1166</width>
                                <height>4362</height>
                               </rect>
                              </property>
@@ -3003,9 +3003,9 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-526</y>
+                               <y>0</y>
                                <width>1166</width>
-                               <height>6346</height>
+                               <height>6505</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -3386,7 +3386,7 @@ border-radius: 5px;</string>
                                        <string notr="true"/>
                                       </property>
                                       <property name="text">
-                                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item according to its missing pieces. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex.V2)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item according to its missing pieces. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex.V2)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Each &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#005500;&quot;&gt;correct&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; solution has a score of 3 points.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Each &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#005500;&quot;&gt;correct&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; answer has a score of 2 points.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ff0000;&quot;&gt;Wrong&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; solution or answer has a score of 0 points.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                       </property>
                                       <property name="textFormat">
                                        <enum>Qt::RichText</enum>
@@ -6845,7 +6845,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1166</width>
-                               <height>6757</height>
+                               <height>6928</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -7146,7 +7146,11 @@ border-radius: 5px;</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:15pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex. V2),(use (+/-) if needed)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex. V2),(use (+/-) if needed)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Each &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#005500;&quot;&gt;correct&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; solution has a score of 3 points.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Each &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#005500;&quot;&gt;correct&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; answer has a score of 2 points.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#ff0000;&quot;&gt;Wrong&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; solution or answer has a score of 0 points.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                       </property>
                                       <property name="textFormat">
                                        <enum>Qt::RichText</enum>
@@ -9034,7 +9038,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1166</width>
-                               <height>2551</height>
+                               <height>2710</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -9130,7 +9134,7 @@ border-radius: 5px;</string>
                                        <string notr="true"/>
                                       </property>
                                       <property name="text">
-                                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex.&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#ff0000;&quot;/&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;V2)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex.V2)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Each &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#005500;&quot;&gt;correct&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; solution has a score of 3 points.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Each &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#005500;&quot;&gt;correct&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; answer has a score of 2 points.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ff0000;&quot;&gt;Wrong&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; solution or answer has a score of 0 points.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                       </property>
                                       <property name="textFormat">
                                        <enum>Qt::RichText</enum>
@@ -10096,7 +10100,7 @@ border-radius: 5px;</string>
                                <x>0</x>
                                <y>0</y>
                                <width>1166</width>
-                               <height>2506</height>
+                               <height>2665</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -10192,7 +10196,7 @@ border-radius: 5px;</string>
                                        <string notr="true"/>
                                       </property>
                                       <property name="text">
-                                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex.&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#ff0000;&quot;/&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;V2)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#2e8c8c;&quot;&gt;I.&lt;/span&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt; Answer each item. (&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;use letter (V) when square root ex.V2)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Each &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#005500;&quot;&gt;correct&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; solution has a score of 3 points.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;Each &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#005500;&quot;&gt;correct&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; answer has a score of 2 points.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ff0000;&quot;&gt;Wrong&lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt; solution or answer has a score of 0 points.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                       </property>
                                       <property name="textFormat">
                                        <enum>Qt::RichText</enum>
@@ -16109,7 +16113,7 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-2854</y>
+                               <y>0</y>
                                <width>1166</width>
                                <height>3457</height>
                               </rect>
@@ -17307,6 +17311,116 @@ border-radius: 5px;</string>
                              <item alignment="Qt::AlignHCenter">
                               <widget class="QWidget" name="widget_354" native="true">
                                <layout class="QVBoxLayout" name="verticalLayout_482"/>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="teacherLesson">
+                      <layout class="QVBoxLayout" name="verticalLayout_465">
+                       <item>
+                        <widget class="QWidget" name="widget_103" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_357">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QScrollArea" name="scrollArea_6">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(6, 38, 56);</string>
+                            </property>
+                            <property name="verticalScrollBarPolicy">
+                             <enum>Qt::ScrollBarAsNeeded</enum>
+                            </property>
+                            <property name="horizontalScrollBarPolicy">
+                             <enum>Qt::ScrollBarAsNeeded</enum>
+                            </property>
+                            <property name="widgetResizable">
+                             <bool>true</bool>
+                            </property>
+                            <widget class="QWidget" name="scrollAreaWidgetContents_6">
+                             <property name="geometry">
+                              <rect>
+                               <x>0</x>
+                               <y>0</y>
+                               <width>1165</width>
+                               <height>579</height>
+                              </rect>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">background-color: rgb(255, 255, 255);</string>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_358">
+                              <property name="bottomMargin">
+                               <number>9</number>
+                              </property>
+                             </layout>
+                            </widget>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QWidget" name="widget_355" native="true">
+                         <property name="styleSheet">
+                          <string notr="true">background-color: rgb(6, 38, 56);
+border-radius: 5px;</string>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_462">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QWidget" name="widget_356" native="true">
+                            <layout class="QHBoxLayout" name="horizontalLayout_71">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QWidget" name="widget_357" native="true">
+                               <layout class="QVBoxLayout" name="verticalLayout_463"/>
                               </widget>
                              </item>
                             </layout>

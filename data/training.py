@@ -97,6 +97,7 @@ def bag_of_words(s,words):
                 bag[i] = 1
     return np.array(bag)
 
+# function for checking of answer and solutions
 def chat(question, answer):
 
     while True:
@@ -108,10 +109,15 @@ def chat(question, answer):
         # to check if the answer is appropriate to the question
         if tag == question:
             print(tag)
+            # to check if the results is 90% or great accurate
             if results[results_index] > 0.9:
+                # check the intents.json file for all the data inside of it
                 for tg in data["intents"]:
+                    # check deeply the intents.json 
                     for items in tg["item"]:
+                        # check if the questionId (tag) == to the intents.json "tag"
                         if items["tag"] == tag:
+                            # the value of response is equal to the items inside the "response" in intents.json
                             responses = items["responses"]
                             return(random.choice(responses))
                 else: 
