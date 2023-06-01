@@ -1136,7 +1136,7 @@ class toDashboardAdmin(QMainWindow):
                 if student.val()["isActive"] == "1":
                     status = "Active"
                 else:
-                    status = "Inactive"
+                    status = "Deleted"
                 self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(status.upper()))    
                 self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(student.val()["lname"]).upper()))
                 self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(student.val()["fname"]).upper()))
@@ -1647,7 +1647,7 @@ class toDashboardAdmin(QMainWindow):
                 if teacher.val()["isActive"] == "1":
                     status = "Active"
                 else:
-                    status = "Inactive"
+                    status = "Deleted"
                 self.tableWidget_2.setItem(row, 0, QtWidgets.QTableWidgetItem(status.upper()))    
                 self.tableWidget_2.setItem(row, 1, QtWidgets.QTableWidgetItem(str(teacher.val()["lname"]).upper()))
                 self.tableWidget_2.setItem(row, 2, QtWidgets.QTableWidgetItem(str(teacher.val()["fname"]).upper()))
