@@ -344,17 +344,20 @@ class toStudForgotPass(QMainWindow):
         all_student = db.child("student").get()
 
         for student in all_student.each():
-            if student.val()["email"] == emailCheck:
-                if student.val()["isActive"] == "1":
-                    isCheck = 0
-                    isCorrect = 0
-                    for delete_student in all_student.each():
-                        if delete_student.val()["email"] == emailCheck:
-                            auth.send_password_reset_email(emailCheck)
-                        else:
-                            isCheck = 1
-                else:
-                    isCheck = 1
+            if student.val()["isActive"] == "1":
+                if student.val()["email"] == emailCheck:
+                    if student.val()["isActive"] == "1":
+                        isCheck = 0
+                        isCorrect = 0
+                        for delete_student in all_student.each():
+                            if delete_student.val()["email"] == emailCheck:
+                                auth.send_password_reset_email(emailCheck)
+                            else:
+                                isCheck = 1
+                    else:
+                        isCheck = 1
+            else:
+                isCheck = 1
         if isCheck == 0:
             if isCorrect == 0:
                 self.warningStudEmail.setVisible(False)
@@ -438,6 +441,7 @@ class toStudRegister(QMainWindow):
         fname = self.studFirst_lineEdit.text()
         mname = self.studMiddle_lineEdit.text()
         lname = self.studLast_lineEdit.text()
+        acad_year = self.studAY_comboBox.currentText()
         section = self.studSec_comboBox.currentText()
         studentSchoolID = self.studSchoolID_lineEdit.text()
         isActive = "1"
@@ -458,7 +462,7 @@ class toStudRegister(QMainWindow):
             mname = ""
         if lname == "":
             self.lnameError = 1
-        if section == "Section":
+        if section == "Section" or acad_year == "Academic Year":
             self.yrSecError = 1
         if email == "" :
             self.emailError = 1
@@ -510,11 +514,11 @@ class toStudRegister(QMainWindow):
             self.studEmail_lineEdit.clear()
             self.studPass_lineEdit.clear()
             register= auth.create_user_with_email_and_password(email, password)
-            
+            localId = register["localId"]
             data ={"fname":fname,"mname":mname,"lname":lname, "course":"STEM"
        ,"year":"11","section":section,"studentSchoolID":studentSchoolID,"email":email
        ,"isActive":isActive, "assessment_score":"0", "assessment_count":"0", "post_assessment_count":"0","post_assessment_score":"0", "post_assessment_score1":"0",
-       "assessment_score1":"0","unitTest1_score":"0", "unitTest2_score":"0", "uid":register}
+       "assessment_score1":"0","unitTest1_score":"0", "unitTest2_score":"0", "uid":localId, "academic_year":acad_year}
             db.child("student").push(data)
 
     def toBack(self):
@@ -578,23 +582,21 @@ class toTeachLogin(QMainWindow):
         global idKey
         idKey = teachSchoolID
 
-        try:
-            teachKey = db.child("teacher").get()
-            for keyAccess in teachKey.each():
-                if keyAccess.val()["teachSchoolID"] == teachSchoolID:
-                    if keyAccess.val()["isActive"] == "1":
-                        login= auth.sign_in_with_email_and_password(email,password)
-                        login = auth.refresh(login['refreshToken'])
-                        # now we have a fresh token
-                        login['idToken']
-                        self.hide()
-                        self.toLogin = toSplashScreen()
-                        self.toLogin.show()
-                        self.toLogin.progress()
-                    else:
-                        self.warning_Widget.setVisible(True)
-        except:
-            self.warning_Widget.setVisible(True)
+        teachKey = db.child("teacher").get()
+        for keyAccess in teachKey.each():
+            if keyAccess.val()["teachSchoolID"] == teachSchoolID:
+                if keyAccess.val()["isActive"] == "1":
+                    login= auth.sign_in_with_email_and_password(email,password)
+                    login = auth.refresh(login['refreshToken'])
+                    # now we have a fresh token
+                    login['idToken']
+                    self.hide()
+                    self.toLogin = toSplashScreen()
+                    self.toLogin.show()
+                    self.toLogin.progress()
+                else:
+                    self.warning_Widget.setVisible(True)
+        self.warning_Widget.setVisible(True)
 
     def toRegister(self):
         self.toRegis = toTeachRegister()
@@ -653,17 +655,20 @@ class toTeachForgotPass(QMainWindow):
         isCorrect = 1
         all_teacher = db.child("teacher").get()
         for teacher in all_teacher.each():
-            if teacher.val()["email"] == emailCheck:
-                if teacher.val()["isActive"] =="1":
-                    isCheck = 0
-                    isCorrect = 0
-                    for delete_teacher in all_teacher.each():
-                        if delete_teacher.val()["email"] == emailCheck:
-                            auth.send_password_reset_email(emailCheck)
-                        else:
-                            isCheck = 1
-                else:
-                    isCheck = 1
+            if teacher.val()["isActive"] == "1":
+                if teacher.val()["email"] == emailCheck:
+                    if teacher.val()["isActive"] =="1":
+                        isCheck = 0
+                        isCorrect = 0
+                        for delete_teacher in all_teacher.each():
+                            if delete_teacher.val()["email"] == emailCheck:
+                                auth.send_password_reset_email(emailCheck)
+                            else:
+                                isCheck = 1
+                    else:
+                        isCheck = 1
+            else:
+                isCheck = 1
         if isCheck == 0:
             if isCorrect == 0:
                 self.warningTeachEmail.setVisible(False)
@@ -806,10 +811,10 @@ class toTeachRegister(QMainWindow):
             self.teachEmail_lineEdit.clear()
             self.teachPass_lineEdit.clear()
             register= auth.create_user_with_email_and_password(email, password)
-
+            localId = register["localId"]
             data ={"fname":fname,"mname":mname,"lname":lname, "course":"STEM"
        ,"teachSchoolID":teachSchoolID,"email":email,"isActive":isActive
-       ,"uid":register}
+       ,"uid":localId }
             db.child("teacher").push(data)
 
     def toBack(self):
@@ -1073,15 +1078,23 @@ class toDashboardAdmin(QMainWindow):
         self.updateAcc_pushButton.clicked.connect(self.updateProfile)
         self.logoutAcc_pushButton.clicked.connect(self.logoutProfile)
 
-        # DELETE BUTTONS
+        # ADD and REMOVE STUDENT AND TEACHER BUTTONS
+        self.addTeach_pushButton.clicked.connect(self.add_teacher)
+        self.addStud_pushButton.clicked.connect(self.add_student)
         self.removeStud_pushButton.clicked.connect(self.delete_student)
         self.removeTeach_pushButton.clicked.connect(self.delete_teacher)
 
-        # ADD ADMIN BUTTONS
-        self.addAdmin_pushButton.clicked.connect(self.add_admin)
-        self.removeAdmin_pushButton.clicked.connect(self.remove_admin)
-
         QSizeGrip(self.sizeGrip)
+        global fromLesson1 , fromLesson2
+        if fromLesson1 == 1:
+            fromLesson1 = 0
+            self.load_student_info()
+            self.menuPages.setCurrentIndex(1)
+
+        if fromLesson2 == 1:
+            fromLesson2 = 0
+            self.load_teacher_info()
+            self.menuPages.setCurrentIndex(2)
 
     def load_student_info(self):
         row = 0
@@ -1120,19 +1133,25 @@ class toDashboardAdmin(QMainWindow):
         self.tableWidget.setRowCount(rowCount)
 
         for student in all_students.each():
-                self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(student.val()["lname"]).upper()))
-                self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(student.val()["fname"]).upper()))
-                self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(student.val()["mname"]).upper()))
-                self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(student.val()["email"])))
-                self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(student.val()["course"]).upper()))
-                self.tableWidget.setItem(row, 5, QtWidgets.QTableWidgetItem(str(student.val()["year"]).upper()))
-                self.tableWidget.setItem(row, 6, QtWidgets.QTableWidgetItem(str(student.val()["section"]).upper()))
-                self.tableWidget.setItem(row, 7, QtWidgets.QTableWidgetItem(str(student.val()["academic_year"])))
-                self.tableWidget.setItem(row, 8, QtWidgets.QTableWidgetItem(str(student.val()["unitTest1_score"]).upper()))
-                self.tableWidget.setItem(row, 9, QtWidgets.QTableWidgetItem(str(student.val()["unitTest2_score"]).upper()))
-                self.tableWidget.setItem(row, 10, QtWidgets.QTableWidgetItem(str(student.val()["assessment_score"]).upper()))
-                self.tableWidget.setItem(row, 11, QtWidgets.QTableWidgetItem(str(student.val()["post_assessment_score"]).upper()))    
+                if student.val()["isActive"] == "1":
+                    status = "Active"
+                else:
+                    status = "Inactive"
+                self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(status.upper()))    
+                self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(student.val()["lname"]).upper()))
+                self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(student.val()["fname"]).upper()))
+                self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(student.val()["mname"]).upper()))
+                self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(student.val()["email"])))
+                self.tableWidget.setItem(row, 5, QtWidgets.QTableWidgetItem(str(student.val()["course"]).upper()))
+                self.tableWidget.setItem(row, 6, QtWidgets.QTableWidgetItem(str(student.val()["year"]).upper()))
+                self.tableWidget.setItem(row, 7, QtWidgets.QTableWidgetItem(str(student.val()["section"]).upper()))
+                self.tableWidget.setItem(row, 8, QtWidgets.QTableWidgetItem(str(student.val()["academic_year"])))
+                self.tableWidget.setItem(row, 9, QtWidgets.QTableWidgetItem(str(student.val()["unitTest1_score"]).upper()))
+                self.tableWidget.setItem(row, 10, QtWidgets.QTableWidgetItem(str(student.val()["unitTest2_score"]).upper()))
+                self.tableWidget.setItem(row, 11, QtWidgets.QTableWidgetItem(str(student.val()["assessment_score"]).upper()))
+                self.tableWidget.setItem(row, 12, QtWidgets.QTableWidgetItem(str(student.val()["post_assessment_score"]).upper()))    
                 row = row + 1 
+
                 if student.val()["section"] == "A":
                     student_A = student_A + 1
                     student_total = student_total + 1
@@ -1188,7 +1207,7 @@ class toDashboardAdmin(QMainWindow):
                     postAssess_less20 = postAssess_less20 + 1
                 elif int(student.val()["post_assessment_score"]) <= 30:
                     postAssess_less30 = postAssess_less30 + 1
-
+        
         self.label_45.setText(str(student_A))
         self.label_46.setText(str(student_B))
         self.label_47.setText(str(student_C))
@@ -1383,20 +1402,21 @@ class toDashboardAdmin(QMainWindow):
         else:
             pass
         
-    def add_admin(self):
+    def add_student(self):
         if willLogout == 0:
             self.hide()
-            self.addAdmin = toAddAdmin()
-            self.addAdmin.show()
+            self.addStudent = toAddStudent()
+            self.addStudent.show()
         else:
             pass
-    
-    def remove_admin(self):
+    def add_teacher(self):
         if willLogout == 0:
-            self.removeAdmin = toRemoveAdmin(self)
-            self.removeAdmin.show()
+            self.hide()
+            self.addTeacher = toAddTeacher()
+            self.addTeacher.show()
         else:
             pass
+
         
     # PROFILE BUTTON FUNCTIONS
     def updateProfile(self):
@@ -1465,7 +1485,6 @@ class toDashboardAdmin(QMainWindow):
     def showProgress(self):
         if willLogout == 0:
             self.load_teacher_info()
-            self.load_admin_info()
             self.menuPages.setCurrentIndex(2)
         else:
             pass
@@ -1587,7 +1606,6 @@ class toDashboardAdmin(QMainWindow):
             self.animaRightContainer2.start() 
             self.rightMenuNum = 0 
 
-            self.chatbot_session == 0
         else:
             pass
 
@@ -1626,30 +1644,20 @@ class toDashboardAdmin(QMainWindow):
         self.tableWidget_2.setRowCount(rowCount)
 
         for teacher in all_teacher.each():
-                self.tableWidget_2.setItem(row, 0, QtWidgets.QTableWidgetItem(str(teacher.val()["lname"]).upper()))
-                self.tableWidget_2.setItem(row, 1, QtWidgets.QTableWidgetItem(str(teacher.val()["fname"]).upper()))
-                self.tableWidget_2.setItem(row, 2, QtWidgets.QTableWidgetItem(str(teacher.val()["mname"]).upper()))
-                self.tableWidget_2.setItem(row, 3, QtWidgets.QTableWidgetItem(str(teacher.val()["email"])))
-                row = row + 1 
-    def load_admin_info(self):
-        row = 0
-        rowCount = 0
-        all_admin = db.child("admin").get()
-        
-        for i in all_admin.each():
-            rowCount = rowCount + 1
-        self.tableWidget_3.setRowCount(rowCount)
+                if teacher.val()["isActive"] == "1":
+                    status = "Active"
+                else:
+                    status = "Inactive"
+                self.tableWidget_2.setItem(row, 0, QtWidgets.QTableWidgetItem(status.upper()))    
+                self.tableWidget_2.setItem(row, 1, QtWidgets.QTableWidgetItem(str(teacher.val()["lname"]).upper()))
+                self.tableWidget_2.setItem(row, 2, QtWidgets.QTableWidgetItem(str(teacher.val()["fname"]).upper()))
+                self.tableWidget_2.setItem(row, 3, QtWidgets.QTableWidgetItem(str(teacher.val()["mname"]).upper()))
+                self.tableWidget_2.setItem(row, 4, QtWidgets.QTableWidgetItem(str(teacher.val()["email"])))
+                row = row + 1
 
-        for admin in all_admin.each():
-                self.tableWidget_3.setItem(row, 0, QtWidgets.QTableWidgetItem(str(admin.val()["lname"]).upper()))
-                self.tableWidget_3.setItem(row, 1, QtWidgets.QTableWidgetItem(str(admin.val()["fname"]).upper()))
-                self.tableWidget_3.setItem(row, 2, QtWidgets.QTableWidgetItem(str(admin.val()["mname"]).upper()))
-                self.tableWidget_3.setItem(row, 3, QtWidgets.QTableWidgetItem(str(admin.val()["email"])))
-                row = row + 1 
-
-class toAddAdmin(QMainWindow):
+class toAddStudent(QMainWindow):
     def __init__(self):
-        super(toAddAdmin, self).__init__()
+        super(toAddStudent, self).__init__()
         self.ui = Ui_adminRegisterWindow()
         self.ui.setupUi(self)
 
@@ -1663,15 +1671,19 @@ class toAddAdmin(QMainWindow):
         title = "PreCalGuro"
         self.setWindowTitle(title)
 
-        self.warningFname.setVisible(False)
-        self.warningLname.setVisible(False)
-        self.warningEmail.setVisible(False)
-        self.warningPass.setVisible(False)
-        self.warningContainer.setVisible(False)
-        self.warningEmailInUsed.setVisible(False)
+        self.add_account_stackedWidget.setCurrentIndex(1)
 
-        self.backButton.clicked.connect(self.toBack)
-        self.registerAdminButton.clicked.connect(self.register)
+        self.warningFname_2.setVisible(False)
+        self.warningLname_2.setVisible(False)
+        self.warningEmail_2.setVisible(False)
+        self.warningYrSec.setVisible(False)
+        self.warningStudID.setVisible(False)
+        self.warningPass_2.setVisible(False)
+        self.warningContainer_2.setVisible(False)
+        self.warningEmailInUsed_2.setVisible(False)
+
+        self.backButton_2.clicked.connect(self.toBack)
+        self.registerStudButton.clicked.connect(self.register)
 
     def mousePressEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
@@ -1692,24 +1704,175 @@ class toAddAdmin(QMainWindow):
     def register(self):
         self.fnameError = 0
         self.lnameError = 0
-        self.teachIDError = 0
+        self.sectionAY = 0
         self.schoolError = 0
         self.emailError = 0
         self.passError = 0
         self.emailCheck_ifPair = 0
+        self.schoolIdError = 0
 
-        fname = self.adminFirst_lineEdit.text()
-        mname = self.adminMiddle_lineEdit.text()
-        lname = self.adminLast_lineEdit.text()        
+        fname = self.studFirst_lineEdit.text()
+        mname = self.studMiddle_lineEdit.text()
+        lname = self.studLast_lineEdit.text()   
+        academic_year = self.studAY_comboBox.currentText()
+        schoolId = self.studSchoolID_lineEdit.text()
+        section = self.studSec_comboBox.currentText() 
+        email = self.studEmail_lineEdit.text()
+        password = self.studPass_lineEdit.text()
         isActive = "1"
-        email = self.adminEmail_lineEdit.text()
-        password = self.adminPass_lineEdit.text()
         length_of_pass = len(password)+1
         check_if_num_is_there = toStudRegister.num_there(password)
-        all_admin = db.child("admin").get()
-        for admin in all_admin.each():
-            if admin.val()["email"] == email:
-                if admin.val()["isActive"] == "1":
+        all_student = db.child("student").get()
+        for student in all_student.each():
+            if student.val()["email"] == email:
+                if student.val()["isActive"] == "1":
+                    self.emailCheck_ifPair = 1
+# REGISTER CHECKING
+        if fname == "":
+            self.fnameError = 1
+        if mname == "":
+            mname = ""
+        if lname == "":
+            self.lnameError = 1
+        if academic_year == "Academic Year" or section == "Section":
+            self.sectionAY = 1
+        if email == "":
+            self.emailError = 1
+        if password == "" or length_of_pass < 8 or check_if_num_is_there == False:
+            self.passError = 1
+        if schoolId == "":
+            self.schoolIdError = 1
+
+        if self.emailCheck_ifPair == 1:
+            self.warningEmailInUsed_2.setVisible(True)
+        if self.fnameError == 1:
+            self.warningFname_2.setVisible(True)
+        if self.lnameError == 1:
+            self.warningLname_2.setVisible(True) 
+        if self.sectionAY == 1:
+            self.warningYrSec.setVisible(True)
+        if self.emailError == 1:
+            self.warningEmail_2.setVisible(True)
+        if self.passError == 1:
+            self.warningPass_2.setVisible(True)  
+        if self.schoolIdError == 1:
+            self.warningStudID.setVisible(True)
+
+        if self.fnameError == 1 or self.lnameError == 1 or self.sectionAY  == 1 or self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1 or self.schoolIdError == 1:
+            self.warningContainer_2.setVisible(True)
+            self.warningContainerMenu_2.setCurrentIndex(0)
+            self.fnameError = 0
+            self.lnameError = 0
+            self.sectionAY = 0
+            self.schoolError = 0
+            self.emailError = 0
+            self.passError = 0
+            self.emailCheck_ifPair = 0
+        else:
+            self.warningFname_2.setVisible(False)
+            self.warningLname_2.setVisible(False)
+            self.warningEmail_2.setVisible(False)
+            self.warningPass_2.setVisible(False)
+            self.warningEmailInUsed_2.setVisible(False)
+            self.warningStudID.setVisible(False)
+            self.warningYrSec.setVisible(False)
+            self.warningContainer_2.setVisible(True)
+            self.warningContainerMenu_2.setCurrentIndex(1)
+
+            self.studFirst_lineEdit.clear()
+            self.studMiddle_lineEdit.clear()
+            self.studLast_lineEdit.clear()
+            self.studAY_comboBox.clear()
+            self.studSchoolID_lineEdit.clear()
+            self.studEmail_lineEdit.clear()
+            self.studPass_lineEdit.clear()
+
+            register= auth.create_user_with_email_and_password(email, password)
+            localId = register["localId"]
+            data ={"fname":fname,"mname":mname,"lname":lname, "course":"STEM"
+       ,"year":"11","section":section,"studentSchoolID":schoolId,"email":email
+       ,"isActive":isActive, "assessment_score":"0", "assessment_count":"0", "post_assessment_count":"0","post_assessment_score":"0", "post_assessment_score1":"0",
+       "assessment_score1":"0","unitTest1_score":"0", "unitTest2_score":"0", "uid":localId}
+            db.child("student").push(data)
+
+    def toBack(self):
+        global fromLesson1
+        fromLesson1 = 1
+        self.toGoBack = toDashboardAdmin()
+        self.toGoBack.show()
+        self.hide()
+
+    def toExitProg(self):
+        sys.exit()
+
+class toAddTeacher(QMainWindow):
+    def __init__(self):
+        super(toAddTeacher, self).__init__()
+        self.ui = Ui_adminRegisterWindow()
+        self.ui.setupUi(self)
+
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.offset = None
+
+        loadUi("data/adminRegister.ui",self)
+
+        self.setWindowIcon(QIcon(":/images/logo.png"))
+        title = "PreCalGuro"
+        self.setWindowTitle(title)
+
+        self.add_account_stackedWidget.setCurrentIndex(2)
+
+        self.warningFname_3.setVisible(False)
+        self.warningLname_3.setVisible(False)
+        self.warningEmail_3.setVisible(False)
+        self.warningYrSec_2.setVisible(False)
+        self.warningPass_3.setVisible(False)
+        self.warningContainer_3.setVisible(False)
+        self.warningEmailInUsed_3.setVisible(False)
+
+        self.backButton_3.clicked.connect(self.toBack)
+        self.registerTeachButton.clicked.connect(self.register)
+
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.offset = event.pos()
+        else:
+            super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):
+        if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
+            self.move(self.pos() + event.pos() - self.offset)
+        else:
+            super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event):
+        self.offset = None
+        super().mouseReleaseEvent(event)
+
+    def register(self):
+        self.fnameError = 0
+        self.lnameError = 0
+        self.sectionAY = 0
+        self.schoolError = 0
+        self.emailError = 0
+        self.passError = 0
+        self.emailCheck_ifPair = 0
+        self.schoolIdError = 0
+
+        fname = self.teachFirst_lineEdit.text()
+        mname = self.teachMiddle_lineEdit.text()
+        lname = self.teachLast_lineEdit.text()   
+        schoolId = self.teachID_lineEdit.text()
+        email = self.teachEmail_lineEdit.text()
+        password = self.teachPass_lineEdit.text()
+        isActive = "1"
+        length_of_pass = len(password)+1
+        check_if_num_is_there = toStudRegister.num_there(password)
+        all_teacher = db.child("teacher").get()
+        for teacher in all_teacher.each():
+            if teacher.val()["email"] == email:
+                if teacher.val()["isActive"] == "1":
                     self.emailCheck_ifPair = 1
 # REGISTER CHECKING
         if fname == "":
@@ -1722,123 +1885,64 @@ class toAddAdmin(QMainWindow):
             self.emailError = 1
         if password == "" or length_of_pass < 8 or check_if_num_is_there == False:
             self.passError = 1
+        if schoolId == "":
+            self.schoolIdError = 1
 
         if self.emailCheck_ifPair == 1:
-            self.warningEmailInUsed.setVisible(True)
+            self.warningEmailInUsed_3.setVisible(True)
         if self.fnameError == 1:
-            self.warningFname.setVisible(True)
+            self.warningFname_3.setVisible(True)
         if self.lnameError == 1:
-            self.warningLname.setVisible(True) 
+            self.warningLname_3.setVisible(True) 
         if self.emailError == 1:
-            self.warningEmail.setVisible(True)
+            self.warningEmail_3.setVisible(True)
         if self.passError == 1:
-            self.warningPass.setVisible(True)  
+            self.warningPass_3.setVisible(True)  
+        if self.schoolIdError == 1:
+            self.warningYrSec_2.setVisible(True)
 
-        if self.fnameError == 1 or self.lnameError == 1 or self.teachIDError == 1 or self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1:
-            self.warningContainer.setVisible(True)
-            self.warningContainerMenu.setCurrentIndex(0)
-
-            self.emailCheck_ifPair = 0
+        if self.fnameError == 1 or self.lnameError == 1 or  self.emailError == 1 or self.passError == 1 or self.emailCheck_ifPair == 1 or self.schoolIdError == 1:
+            self.warningContainer_3.setVisible(True)
+            self.warningContainerMenu_3.setCurrentIndex(0)
             self.fnameError = 0
             self.lnameError = 0
-            self.teachIDError = 0
             self.schoolError = 0
             self.emailError = 0
             self.passError = 0
+            self.emailCheck_ifPair = 0
         else:
-            self.warningFname.setVisible(False)
-            self.warningLname.setVisible(False)
-            self.warningEmail.setVisible(False)
-            self.warningPass.setVisible(False)
-            self.warningEmailInUsed.setVisible(False)
-            self.warningContainer.setVisible(True)
-            self.warningContainerMenu.setCurrentIndex(1)
-            self.adminFirst_lineEdit.clear()
-            self.adminMiddle_lineEdit.clear()
-            self.adminLast_lineEdit.clear()
-            self.adminEmail_lineEdit.clear()
-            self.adminPass_lineEdit.clear()
-            register= auth.create_user_with_email_and_password(email, password)
+            self.warningFname_3.setVisible(False)
+            self.warningLname_3.setVisible(False)
+            self.warningEmail_3.setVisible(False)
+            self.warningPass_3.setVisible(False)
+            self.warningEmailInUsed_3.setVisible(False)
+            self.warningYrSec_2.setVisible(False)
+            self.warningContainer_3.setVisible(True)
+            self.warningContainerMenu_3.setCurrentIndex(1)
 
-            data ={"fname":fname,"mname":mname,"lname":lname,"email":email
-       ,"isActive":isActive, "uid":register}
-            db.child("admin").push(data)
+            self.teachFirst_lineEdit.clear()
+            self.teachMiddle_lineEdit.clear()
+            self.teachLast_lineEdit.clear()
+            self.teachID_lineEdit.clear()
+            self.teachEmail_lineEdit.clear()
+            self.teachPass_lineEdit.clear()
+
+            register= auth.create_user_with_email_and_password(email, password)
+            localId = register["localId"]
+            data ={"fname":fname,"mname":mname,"lname":lname, "course":"STEM"
+       ,"teachSchoolID":schoolId,"email":email,"isActive":isActive
+       ,"uid":localId }
+            db.child("teacher").push(data)
 
     def toBack(self):
+        global fromLesson2
+        fromLesson2 = 2
         self.toGoBack = toDashboardAdmin()
         self.toGoBack.show()
         self.hide()
 
     def toExitProg(self):
         sys.exit()
-
-class toRemoveAdmin(QDialog):
-    def __init__(self, parent):
-        super(toRemoveAdmin, self).__init__(parent)
-        self.ui = Ui_logoutDialog()
-
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.offset = None
-
-        loadUi("data/warningToLogout.ui",self)
-
-        self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Admin"
-        self.setWindowTitle(title)
-        
-        self.logoutUpdatePages.setCurrentIndex(3)
-        self.stackedWidget_5.setCurrentIndex(0)
-        global willLogout 
-        willLogout = 1
-        self.admin_error_widget.setVisible(True)
-
-        self.removeAdmin_pushButton.clicked.connect(self.deleteFunction)
-        self.cancelAdmin_pushButton.clicked.connect(self.cancelFunction)
-
-    def deleteFunction(self):
-        self.emailId = self.adminEmail_textEdit.toPlainText()
-        self.no_id = 0
-        self.same_id = 0
-        self.check = 0
-
-        if self.emailId == "":
-            self.no_id = 1
-
-        all_admin = db.child("admin").get()
-        for admin in all_admin.each():
-            if admin.val()["email"] == self.emailId:
-                if admin.val()["email"] == studKey:
-                    self.same_id = 1
-                else:
-                    keyId = admin.key()
-                    self.check = 1
-                    deleted_uid = admin.val(["uid"])
-                    auth.delete_user_account(deleted_uid)
-                    db.child("admin").child(keyId).child("isActive").update({"isActive":"0"})
-            else:
-                self.no_id = 1
-        if self.same_id == 1:
-            self.same_id = 0
-            self.no_id = 0
-            self.admin_error_widget.setVisible(True)
-            self.stackedWidget_5.setCurrentIndex(3)
-
-        if self.no_id == 1:
-            self.same_id = 0
-            self.no_id = 0
-            self.admin_error_widget.setVisible(True)
-            self.stackedWidget_5.setCurrentIndex(1)
-
-        if self.check == 1:
-            self.same_id = 0
-            self.no_id = 0
-            self.admin_error_widget.setVisible(True)
-            self.stackedWidget_5.setCurrentIndex(2)
-
-    def cancelFunction(self):
-        global willLogout
-        willLogout = 0
-        self.hide()
 
 class toDeleteStudent(QDialog):
     def __init__(self, parent):
@@ -1883,9 +1987,14 @@ class toDeleteStudent(QDialog):
                 self.no_id = 1
 
         if self.no_id == 1:
-            self.no_id == 0
-            self.admin_error_widget.setVisible(True)
-            self.stackedWidget_5.setCurrentIndex(1)
+            if self.check == 1:
+                self.no_id = 0
+                self.admin_error_widget.setVisible(True)
+                self.stackedWidget_5.setCurrentIndex(2)
+            else:
+                self.no_id == 0
+                self.admin_error_widget.setVisible(True)
+                self.stackedWidget_5.setCurrentIndex(1)
 
         if self.check == 1:
             self.no_id = 0
@@ -1940,9 +2049,14 @@ class toDeleteTeacher(QDialog):
                 self.no_id = 1
 
         if self.no_id == 1:
-            self.no_id == 0
-            self.admin_error_widget.setVisible(True)
-            self.stackedWidget_5.setCurrentIndex(1)
+            if self.check == 1:
+                self.no_id = 0
+                self.admin_error_widget.setVisible(True)
+                self.stackedWidget_5.setCurrentIndex(2)
+            else:
+                self.no_id == 0
+                self.admin_error_widget.setVisible(True)
+                self.stackedWidget_5.setCurrentIndex(1)
 
         if self.check == 1:
             self.no_id = 0
@@ -4490,6 +4604,11 @@ class assessmentWindow(QMainWindow):
             data.scores.pre5_solutionId = pre_question5[1]
             data.scores.pre5_answerId = pre_question5[2]
 
+            data.scores.pre_question1 = "Find the center and radius. x^2 + y^2 + 8y = 33"
+            data.scores.pre1_solutionId = "question_37_Solution"
+            data.scores.pre1_answerId = "question_37_Answer"
+        
+        
         self.pre_Q1_label.setText("1."+ data.scores.pre_question1)
         self.pre_Q2_label.setText("2."+ data.scores.pre_question2)
         self.pre_Q3_label.setText("3."+ data.scores.pre_question3)
@@ -5027,7 +5146,7 @@ class unitTest_1(QMainWindow):
         # Question 10 , answer and solution
         data.scores.unit_test1_saved_solution10 = self.unitTestQ10Sol_textEdit.toPlainText()
         data.scores.unit_test1_saved_answer10 = self.unitTestQ10StandEquat_textEdit.text()    
-# a
+
         # Question 1, solution and answer
         data.scores.check_unit1_q1_sol= chat(data.scores.unit1_1_solutionId, data.scores.unit_test1_saved_solution1)
         _delay()
@@ -6205,77 +6324,80 @@ class toDashboardTeach(QMainWindow):
         unit2_total = 0
         all_students = db.child("student").get()
         for student in all_students.each():
-            rowCount = rowCount + 1
+            if student.val()["isActive"] == "1":
+                if student.val()["academic_year"] == data.scores.academic_year:
+                    rowCount = rowCount + 1
         self.tableWidget.setRowCount(rowCount)
 
         for student in all_students.each():
-                self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(student.val()["lname"]).upper()))
-                self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(student.val()["fname"]).upper()))
-                self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(student.val()["mname"]).upper()))
-                self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(student.val()["course"]).upper()))
-                self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(student.val()["year"]).upper()))
-                self.tableWidget.setItem(row, 5, QtWidgets.QTableWidgetItem(str(student.val()["section"]).upper()))
-                self.tableWidget.setItem(row, 6, QtWidgets.QTableWidgetItem(str(student.val()["academic_year"])))
-                self.tableWidget.setItem(row, 7, QtWidgets.QTableWidgetItem(str(student.val()["unitTest1_score"]).upper()))
-                self.tableWidget.setItem(row, 8, QtWidgets.QTableWidgetItem(str(student.val()["unitTest2_score"]).upper()))
-                self.tableWidget.setItem(row, 9, QtWidgets.QTableWidgetItem(str(student.val()["assessment_score"]).upper()))
-                self.tableWidget.setItem(row, 10, QtWidgets.QTableWidgetItem(str(student.val()["post_assessment_score"]).upper()))    
-                row = row + 1 
-                if student.val()["section"] == "A":
-                    student_A = student_A + 1
-                    student_total = student_total + 1
-                if student.val()["section"] == "B":
-                    student_B = student_B + 1
-                    student_total = student_total + 1
-                if student.val()["section"] == "C":
-                    student_C = student_C + 1
-                    student_total = student_total + 1
-                if student.val()["section"] == "D":
-                    student_D = student_D + 1
-                    student_total = student_total + 1
-                if student.val()["section"] == "E":
-                    student_E = student_E + 1  
-                    student_total = student_total + 1
+                if student.val()["academic_year"] == data.scores.academic_year:
+                    self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(student.val()["lname"]).upper()))
+                    self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(student.val()["fname"]).upper()))
+                    self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(student.val()["mname"]).upper()))
+                    self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(student.val()["course"]).upper()))
+                    self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(student.val()["year"]).upper()))
+                    self.tableWidget.setItem(row, 5, QtWidgets.QTableWidgetItem(str(student.val()["section"]).upper()))
+                    self.tableWidget.setItem(row, 6, QtWidgets.QTableWidgetItem(str(student.val()["academic_year"])))
+                    self.tableWidget.setItem(row, 7, QtWidgets.QTableWidgetItem(str(student.val()["unitTest1_score"]).upper()))
+                    self.tableWidget.setItem(row, 8, QtWidgets.QTableWidgetItem(str(student.val()["unitTest2_score"]).upper()))
+                    self.tableWidget.setItem(row, 9, QtWidgets.QTableWidgetItem(str(student.val()["assessment_score"]).upper()))
+                    self.tableWidget.setItem(row, 10, QtWidgets.QTableWidgetItem(str(student.val()["post_assessment_score"]).upper()))    
+                    row = row + 1 
+                    if student.val()["section"] == "A":
+                        student_A = student_A + 1
+                        student_total = student_total + 1
+                    if student.val()["section"] == "B":
+                        student_B = student_B + 1
+                        student_total = student_total + 1
+                    if student.val()["section"] == "C":
+                        student_C = student_C + 1
+                        student_total = student_total + 1
+                    if student.val()["section"] == "D":
+                        student_D = student_D + 1
+                        student_total = student_total + 1
+                    if student.val()["section"] == "E":
+                        student_E = student_E + 1  
+                        student_total = student_total + 1
 
-                if int(student.val()["unitTest1_score"]) <= 10:
-                    unit1_less10 = unit1_less10 + 1
-                elif int(student.val()["unitTest1_score"]) <= 20:
-                    unit1_less20 = unit1_less20 + 1
-                elif int(student.val()["unitTest1_score"]) <= 30:
-                    unit1_less30 = unit1_less30 + 1
-                elif int(student.val()["unitTest1_score"]) <= 40:
-                    unit1_less40 = unit1_less40 + 1
-                elif int(student.val()["unitTest1_score"]) <= 50:
-                    unit1_less50 = unit1_less50 + 1
-                elif int(student.val()["unitTest1_score"]) <= 60:
-                    unit1_less60 = unit1_less60 + 1
-                
-                if int(student.val()["unitTest2_score"]) <= 10:
-                    unit2_less10 = unit2_less10 + 1
-                elif int(student.val()["unitTest2_score"]) <= 20:
-                    unit2_less20 = unit2_less20 + 1
-                elif int(student.val()["unitTest2_score"]) <= 30:
-                    unit2_less30 = unit2_less30 + 1
-                elif int(student.val()["unitTest2_score"]) <= 40:
-                    unit2_less40 = unit2_less40 + 1
-                elif int(student.val()["unitTest2_score"]) <= 50:
-                    unit2_less50 = unit2_less50 + 1
-                elif int(student.val()["unitTest2_score"]) <= 60:
-                    unit2_less60 = unit2_less60 + 1
-                
-                if int(student.val()["assessment_score"]) <= 10:
-                    preAssess_less10 = preAssess_less10 + 1
-                elif int(student.val()["assessment_score"]) <= 20:
-                    preAssess_less20 = preAssess_less20 + 1
-                elif int(student.val()["assessment_score"]) <= 30:
-                    preAssess_less30 = preAssess_less30 + 1
-                
-                if int(student.val()["post_assessment_score"]) <= 10:
-                    postAssess_less10 = postAssess_less10 + 1
-                elif int(student.val()["post_assessment_score"]) <= 20:
-                    postAssess_less20 = postAssess_less20 + 1
-                elif int(student.val()["post_assessment_score"]) <= 30:
-                    postAssess_less30 = postAssess_less30 + 1
+                    if int(student.val()["unitTest1_score"]) <= 10:
+                        unit1_less10 = unit1_less10 + 1
+                    elif int(student.val()["unitTest1_score"]) <= 20:
+                        unit1_less20 = unit1_less20 + 1
+                    elif int(student.val()["unitTest1_score"]) <= 30:
+                        unit1_less30 = unit1_less30 + 1
+                    elif int(student.val()["unitTest1_score"]) <= 40:
+                        unit1_less40 = unit1_less40 + 1
+                    elif int(student.val()["unitTest1_score"]) <= 50:
+                        unit1_less50 = unit1_less50 + 1
+                    elif int(student.val()["unitTest1_score"]) <= 60:
+                        unit1_less60 = unit1_less60 + 1
+                    
+                    if int(student.val()["unitTest2_score"]) <= 10:
+                        unit2_less10 = unit2_less10 + 1
+                    elif int(student.val()["unitTest2_score"]) <= 20:
+                        unit2_less20 = unit2_less20 + 1
+                    elif int(student.val()["unitTest2_score"]) <= 30:
+                        unit2_less30 = unit2_less30 + 1
+                    elif int(student.val()["unitTest2_score"]) <= 40:
+                        unit2_less40 = unit2_less40 + 1
+                    elif int(student.val()["unitTest2_score"]) <= 50:
+                        unit2_less50 = unit2_less50 + 1
+                    elif int(student.val()["unitTest2_score"]) <= 60:
+                        unit2_less60 = unit2_less60 + 1
+                    
+                    if int(student.val()["assessment_score"]) <= 10:
+                        preAssess_less10 = preAssess_less10 + 1
+                    elif int(student.val()["assessment_score"]) <= 20:
+                        preAssess_less20 = preAssess_less20 + 1
+                    elif int(student.val()["assessment_score"]) <= 30:
+                        preAssess_less30 = preAssess_less30 + 1
+                    
+                    if int(student.val()["post_assessment_score"]) <= 10:
+                        postAssess_less10 = postAssess_less10 + 1
+                    elif int(student.val()["post_assessment_score"]) <= 20:
+                        postAssess_less20 = postAssess_less20 + 1
+                    elif int(student.val()["post_assessment_score"]) <= 30:
+                        postAssess_less30 = postAssess_less30 + 1
 
         self.label_45.setText(str(student_A))
         self.label_46.setText(str(student_B))

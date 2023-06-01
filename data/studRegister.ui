@@ -632,6 +632,34 @@ padding-left: 3px;</string>
                            </item>
                           </widget>
                          </item>
+                         <item>
+                          <widget class="QComboBox" name="studAY_comboBox">
+                           <property name="font">
+                            <font>
+                             <pointsize>10</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background-color: rgb(29, 89, 98);
+padding-left: 3px;</string>
+                           </property>
+                           <item>
+                            <property name="text">
+                             <string>Academic Year</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>2022 - 2023</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>2023 - 2024</string>
+                            </property>
+                           </item>
+                          </widget>
+                         </item>
                         </layout>
                        </widget>
                       </item>
@@ -662,7 +690,7 @@ padding-left: 3px;</string>
                             </font>
                            </property>
                            <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Please choose your Section.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9393;&quot;&gt;Choose Section and Academic Year&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                            </property>
                            <property name="textFormat">
                             <enum>Qt::RichText</enum>
