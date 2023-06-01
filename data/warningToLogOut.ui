@@ -53,7 +53,7 @@ color: #fff
          <item>
           <widget class="QStackedWidget" name="logoutUpdatePages">
            <property name="currentIndex">
-            <number>4</number>
+            <number>3</number>
            </property>
            <widget class="QWidget" name="page">
             <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1050,7 +1050,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_5">
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="page_13">
                       <layout class="QVBoxLayout" name="verticalLayout_52">
@@ -1077,7 +1077,7 @@ p, li { white-space: pre-wrap; }
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Pressing &amp;quot;Delete&amp;quot; will remove the &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;question contents immediately.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Pressing &amp;quot;Delete&amp;quot; will remove &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;the account immediately.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -1751,6 +1751,9 @@ p, li { white-space: pre-wrap; }
                    </property>
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_11">
+                     <property name="currentIndex">
+                      <number>0</number>
+                     </property>
                      <widget class="QWidget" name="page_6">
                       <layout class="QVBoxLayout" name="verticalLayout_65">
                        <property name="spacing">
@@ -2125,7 +2128,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_9">
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="page_24">
                       <layout class="QVBoxLayout" name="verticalLayout_60">

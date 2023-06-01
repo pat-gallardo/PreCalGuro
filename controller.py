@@ -1980,9 +1980,9 @@ class toDeleteStudent(QDialog):
             if student.val()["email"] == self.emailId :
                 keyId = student.key()
                 self.check = 1
-                deleted_uid = student.val(["uid"])
-                auth.delete_user_account(deleted_uid)
-                db.child("student").child(keyId).child("isActive").update({"isActive":"0"})
+                deleted_uid = student.val()["uid"]
+                # auth.delete_user_account(deleted_uid)
+                db.child("student").child(keyId).update({"isActive":"0"})
             else:
                 self.no_id = 1
 
@@ -2042,9 +2042,9 @@ class toDeleteTeacher(QDialog):
             if teacher.val()["email"] == self.emailId :
                 keyId = teacher.key()
                 self.check = 1
-                deleted_uid = teacher.val(["uid"])
-                auth.delete_user_account(deleted_uid)
-                db.child("teacher").child(keyId).child("isActive").update({"isActive":"0"})
+                deleted_uid = teacher.val()["uid"]
+                # auth.delete_user_account(deleted_uid)
+                db.child("teacher").child(keyId).update({"isActive":"0"})
             else:
                 self.no_id = 1
 
@@ -5146,7 +5146,7 @@ class unitTest_1(QMainWindow):
         # Question 10 , answer and solution
         data.scores.unit_test1_saved_solution10 = self.unitTestQ10Sol_textEdit.toPlainText()
         data.scores.unit_test1_saved_answer10 = self.unitTestQ10StandEquat_textEdit.text()    
-
+# a
         # Question 1, solution and answer
         data.scores.check_unit1_q1_sol= chat(data.scores.unit1_1_solutionId, data.scores.unit_test1_saved_solution1)
         _delay()
