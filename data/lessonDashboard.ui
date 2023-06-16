@@ -351,7 +351,7 @@ border-radius: 5px;</string>
                    <item>
                     <widget class="QStackedWidget" name="topicPages">
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>4</number>
                      </property>
                      <widget class="QWidget" name="circlePage_1">
                       <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -715,7 +715,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1130</width>
+                               <width>1166</width>
                                <height>3386</height>
                               </rect>
                              </property>
@@ -1256,7 +1256,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1116</width>
+                               <width>1166</width>
                                <height>3877</height>
                               </rect>
                              </property>
@@ -1890,7 +1890,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1113</width>
+                               <width>1166</width>
                                <height>6044</height>
                               </rect>
                              </property>
@@ -2466,8 +2466,8 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>0</y>
-                               <width>1125</width>
+                               <y>-3607</y>
+                               <width>1166</width>
                                <height>4362</height>
                               </rect>
                              </property>
@@ -2939,7 +2939,47 @@ border-radius: 5px;</string>
                              </item>
                              <item alignment="Qt::AlignHCenter">
                               <widget class="QWidget" name="widget_88" native="true">
-                               <layout class="QVBoxLayout" name="verticalLayout_88"/>
+                               <layout class="QVBoxLayout" name="verticalLayout_88">
+                                <item>
+                                 <widget class="QPushButton" name="nextPage5Button">
+                                  <property name="font">
+                                   <font>
+                                    <pointsize>15</pointsize>
+                                   </font>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">#nextPage5Button{
+	background-color: rgb(96, 139, 149);
+	border-radius: 10px;
+	padding-right: 3px;
+}
+#nextPage5Button:hover{
+	background-color: rgb(145, 173, 179);
+	border-radius: 10px
+}
+#nextPage5Button:pressed{
+	background-color: rgb(78, 93, 100);
+}
+
+
+</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>Next</string>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset resource="res.qrc">
+                                    <normaloff>:/icons/icons/arrow-right-circle.svg</normaloff>:/icons/icons/arrow-right-circle.svg</iconset>
+                                  </property>
+                                  <property name="iconSize">
+                                   <size>
+                                    <width>50</width>
+                                    <height>50</height>
+                                   </size>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
                               </widget>
                              </item>
                             </layout>
@@ -5643,7 +5683,47 @@ border-radius: 5px;</string>
                              </property>
                              <item alignment="Qt::AlignHCenter">
                               <widget class="QWidget" name="widget_159" native="true">
-                               <layout class="QVBoxLayout" name="verticalLayout_151"/>
+                               <layout class="QVBoxLayout" name="verticalLayout_151">
+                                <item>
+                                 <widget class="QPushButton" name="prevPage6Button">
+                                  <property name="font">
+                                   <font>
+                                    <pointsize>15</pointsize>
+                                   </font>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">#prevPage6Button{
+	background-color: rgb(96, 139, 149);
+	border-radius: 10px;
+	padding-right: 3px;
+}
+#prevPage6Button:hover{
+	background-color: rgb(145, 173, 179);
+	border-radius: 10px
+}
+#prevPage6Button:pressed{
+	background-color: rgb(78, 93, 100);
+}
+
+
+</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>Previous</string>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset resource="res.qrc">
+                                    <normaloff>:/icons/icons/arrow-left-circle.svg</normaloff>:/icons/icons/arrow-left-circle.svg</iconset>
+                                  </property>
+                                  <property name="iconSize">
+                                   <size>
+                                    <width>50</width>
+                                    <height>50</height>
+                                   </size>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
                               </widget>
                              </item>
                              <item alignment="Qt::AlignHCenter">
@@ -6843,8 +6923,8 @@ border-radius: 5px;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-69</y>
-                               <width>1166</width>
+                               <y>0</y>
+                               <width>1138</width>
                                <height>6838</height>
                               </rect>
                              </property>
@@ -9035,7 +9115,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1166</width>
+                               <width>1138</width>
                                <height>2620</height>
                               </rect>
                              </property>
@@ -9910,8 +9990,8 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1183</width>
-                               <height>603</height>
+                               <width>1082</width>
+                               <height>87</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -10097,7 +10177,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1166</width>
+                               <width>1138</width>
                                <height>2575</height>
                               </rect>
                              </property>
@@ -10972,7 +11052,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1166</width>
+                               <width>1154</width>
                                <height>1664</height>
                               </rect>
                              </property>
@@ -12371,7 +12451,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1166</width>
+                               <width>1154</width>
                                <height>1664</height>
                               </rect>
                              </property>
@@ -13770,7 +13850,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1166</width>
+                               <width>772</width>
                                <height>1664</height>
                               </rect>
                              </property>
@@ -15017,7 +15097,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1166</width>
+                               <width>772</width>
                                <height>1664</height>
                               </rect>
                              </property>
@@ -16112,7 +16192,7 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1166</width>
+                               <width>1035</width>
                                <height>3457</height>
                               </rect>
                              </property>
@@ -17358,8 +17438,8 @@ border-radius: 5px;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>1165</width>
-                               <height>579</height>
+                               <width>100</width>
+                               <height>30</height>
                               </rect>
                              </property>
                              <property name="styleSheet">

@@ -1858,7 +1858,7 @@ QPushButton#module1_pushButton:pressed{
                             </property>
                             <property name="text">
                              <string>Lessons from the App:
-Conics and System</string>
+Conics Sections</string>
                             </property>
                             <property name="iconSize">
                              <size>
@@ -2329,72 +2329,6 @@ QPushButton#lesson1_1TestpushButton:pressed{
                                                      </property>
                                                      <property name="text">
                                                       <string>Unit Test 1</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_1EpushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_1EpushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_1EpushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>5) Substitution Method</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_1FpushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_1FpushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_1FpushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>6) Elimination Method</string>
-                                                     </property>
-                                                    </widget>
-                                                   </item>
-                                                   <item alignment="Qt::AlignLeft">
-                                                    <widget class="QPushButton" name="lesson1_1GpushButton">
-                                                     <property name="font">
-                                                      <font>
-                                                       <pointsize>12</pointsize>
-                                                      </font>
-                                                     </property>
-                                                     <property name="styleSheet">
-                                                      <string notr="true">QPushButton#lesson1_1GpushButton:hover{
-	color: rgb(145, 173, 179);
-	border-radius: 5px
-}
-QPushButton#lesson1_1GpushButton:pressed{
-	color: rgb(244, 77, 0);
-}
-</string>
-                                                     </property>
-                                                     <property name="text">
-                                                      <string>7) Graphical Solutions and Equations</string>
                                                      </property>
                                                     </widget>
                                                    </item>
