@@ -1790,7 +1790,7 @@ class toAddStudent(QMainWindow):
             register= auth.create_user_with_email_and_password(email, password)
             localId = register["localId"]
             data ={"fname":fname,"mname":mname,"lname":lname, "course":"STEM"
-       ,"year":"11","section":section,"studentSchoolID":schoolId,"email":email
+       ,"year":"11","section":section,"studentSchoolID":schoolId,"email":email, "academic_year": academic_year
        ,"isActive":isActive, "assessment_score":"0", "assessment_count":"0", "post_assessment_count":"0","post_assessment_score":"0", "post_assessment_score1":"0",
        "assessment_score1":"0","unitTest1_score":"0", "unitTest2_score":"0", "uid":localId}
             db.child("student").push(data)
@@ -2418,9 +2418,6 @@ class toDashboard(QMainWindow):
         self.lesson1_1CpushButton.clicked.connect(self.lesson1_1C)
         self.lesson1_1DpushButton.clicked.connect(self.lesson1_1D)
         self.lesson1_1TestpushButton.clicked.connect(self.lesson1_1Test)
-        self.lesson1_1EpushButton.clicked.connect(self.lesson2_1A)
-        self.lesson1_1FpushButton.clicked.connect(self.lesson2_1B)
-        self.lesson1_1GpushButton.clicked.connect(self.lesson2_1C)
         self.lesson1_2TestpushButton.clicked.connect(self.lesson2_1Test)
 
         # PROCEED BUTTONS OF TOPICS      
@@ -2428,10 +2425,6 @@ class toDashboard(QMainWindow):
         self.proceedLesson1_1B_pushButton.clicked.connect(self.lessons_parabola)
         self.proceedLesson1_1C_pushButton.clicked.connect(self.lessons_ellipse)
         self.proceedLesson1_1D_pushButton.clicked.connect(self.lessons_hyperbola)
-
-        self.proceedLesson1_2A_pushButton.clicked.connect(self.lessons_substitute)
-        self.proceedLesson1_2B_pushButton.clicked.connect(self.lessons_eliminate)
-        self.proceedLesson1_2C_pushButton.clicked.connect(self.lessons_graphSolApp)
 
         # UNIT TESTS
         self.proceedLesson1_1Test_pushButton.clicked.connect(self.unitTest1)
@@ -2548,27 +2541,6 @@ class toDashboard(QMainWindow):
             self.hide()
             self.hyperbola= topicLesson4()
             self.hyperbola.show()
-        else:
-            pass
-    def lessons_substitute(self):
-        if willLogout == 0:
-            self.hide()
-            self.substitute = topicLesson5()
-            self.substitute.show()
-        else:
-            pass
-    def lessons_eliminate(self):
-        if willLogout == 0:
-            self.hide()
-            self.eliminate = topicLesson6()
-            self.eliminate.show()
-        else:
-            pass
-    def lessons_graphSolApp(self):
-        if willLogout == 0:
-            self.hide()
-            self.graphSolApp = topicLesson7()
-            self.graphSolApp.show()
         else:
             pass
 
@@ -3339,11 +3311,19 @@ class topicLesson1(QMainWindow):
         self.nextPage2Button.clicked.connect(self.nextPage1)
         self.nextPage3Button.clicked.connect(self.nextPage2)
         self.nextPage4Button.clicked.connect(self.nextPage3)
+        self.nextPage5Button.clicked.connect(self.nextPage5)
+        self.nextPage6Button.clicked.connect(self.nextPage6)
+        self.nextPage7Button.clicked.connect(self.nextPage7)
+        self.nextPage8Button.clicked.connect(self.nextPage8)
 
         self.prevPage2Button.clicked.connect(self.prevPage0)
         self.prevPage3Button.clicked.connect(self.prevPage1)
         self.prevPage4Button.clicked.connect(self.prevPage2)
         self.prevPage5Button.clicked.connect(self.prevPage3)
+        self.prevPage6Button.clicked.connect(self.prevPage6)
+        self.prevPage7Button.clicked.connect(self.prevPage7)
+        self.prevPage8Button.clicked.connect(self.prevPage8)
+        self.prevPage9Button.clicked.connect(self.prevPage9)
 
         self.backButton.clicked.connect(self.toDashboardPage)
         self.closeButton.clicked.connect(self.showMinimized)
@@ -3381,6 +3361,7 @@ class topicLesson1(QMainWindow):
     def hyperbolaGraph2(self):
         self.hyper = hyperbolaGraph2Window()
         self.hyper.show()
+
     def nextPage0(self):
         self.topicPages.setCurrentIndex(1)
     def nextPage1(self):
@@ -3389,7 +3370,15 @@ class topicLesson1(QMainWindow):
         self.topicPages.setCurrentIndex(3)
     def nextPage3(self):
         self.topicPages.setCurrentIndex(4)
-
+    def nextPage5(self):
+        self.topicPages.setCurrentIndex(6)
+    def nextPage6(self):
+        self.topicPages.setCurrentIndex(7)
+    def nextPage7(self):
+        self.topicPages.setCurrentIndex(8)
+    def nextPage8(self):
+        self.topicPages.setCurrentIndex(9)
+    
     def prevPage0(self):
         self.topicPages.setCurrentIndex(0)
     def prevPage1(self):
@@ -3398,6 +3387,14 @@ class topicLesson1(QMainWindow):
         self.topicPages.setCurrentIndex(2)
     def prevPage3(self):
         self.topicPages.setCurrentIndex(3)
+    def prevPage6(self):
+        self.topicPages.setCurrentIndex(4)
+    def prevPage7(self):
+        self.topicPages.setCurrentIndex(6)
+    def prevPage8(self):
+        self.topicPages.setCurrentIndex(7)
+    def prevPage9(self):
+        self.topicPages.setCurrentIndex(8)
 
     def toDashboardPage(self):
         self.hide()
@@ -3459,11 +3456,19 @@ class topicLesson2(QMainWindow):
         self.nextPage2Button.clicked.connect(self.nextPage1)
         self.nextPage3Button.clicked.connect(self.nextPage2)
         self.nextPage4Button.clicked.connect(self.nextPage3)
+        self.nextPage5Button.clicked.connect(self.nextPage5)
+        self.nextPage6Button.clicked.connect(self.nextPage6)
+        self.nextPage7Button.clicked.connect(self.nextPage7)
+        self.nextPage8Button.clicked.connect(self.nextPage8)
 
         self.prevPage2Button.clicked.connect(self.prevPage0)
         self.prevPage3Button.clicked.connect(self.prevPage1)
         self.prevPage4Button.clicked.connect(self.prevPage2)
         self.prevPage5Button.clicked.connect(self.prevPage3)
+        self.prevPage6Button.clicked.connect(self.prevPage6)
+        self.prevPage7Button.clicked.connect(self.prevPage7)
+        self.prevPage8Button.clicked.connect(self.prevPage8)
+        self.prevPage9Button.clicked.connect(self.prevPage9)
 
         self.backButton.clicked.connect(self.toDashboardPage)
         self.closeButton.clicked.connect(self.showMinimized)
@@ -3510,7 +3515,15 @@ class topicLesson2(QMainWindow):
         self.topicPages.setCurrentIndex(3)
     def nextPage3(self):
         self.topicPages.setCurrentIndex(4)
-
+    def nextPage5(self):
+        self.topicPages.setCurrentIndex(6)
+    def nextPage6(self):
+        self.topicPages.setCurrentIndex(7)
+    def nextPage7(self):
+        self.topicPages.setCurrentIndex(8)
+    def nextPage8(self):
+        self.topicPages.setCurrentIndex(9)
+    
     def prevPage0(self):
         self.topicPages.setCurrentIndex(0)
     def prevPage1(self):
@@ -3519,6 +3532,14 @@ class topicLesson2(QMainWindow):
         self.topicPages.setCurrentIndex(2)
     def prevPage3(self):
         self.topicPages.setCurrentIndex(3)
+    def prevPage6(self):
+        self.topicPages.setCurrentIndex(4)
+    def prevPage7(self):
+        self.topicPages.setCurrentIndex(6)
+    def prevPage8(self):
+        self.topicPages.setCurrentIndex(7)
+    def prevPage9(self):
+        self.topicPages.setCurrentIndex(8)
 
     def toDashboardPage(self):
         self.hide()
@@ -3580,11 +3601,19 @@ class topicLesson3(QMainWindow):
         self.nextPage2Button.clicked.connect(self.nextPage1)
         self.nextPage3Button.clicked.connect(self.nextPage2)
         self.nextPage4Button.clicked.connect(self.nextPage3)
+        self.nextPage5Button.clicked.connect(self.nextPage5)
+        self.nextPage6Button.clicked.connect(self.nextPage6)
+        self.nextPage7Button.clicked.connect(self.nextPage7)
+        self.nextPage8Button.clicked.connect(self.nextPage8)
 
         self.prevPage2Button.clicked.connect(self.prevPage0)
         self.prevPage3Button.clicked.connect(self.prevPage1)
         self.prevPage4Button.clicked.connect(self.prevPage2)
         self.prevPage5Button.clicked.connect(self.prevPage3)
+        self.prevPage6Button.clicked.connect(self.prevPage6)
+        self.prevPage7Button.clicked.connect(self.prevPage7)
+        self.prevPage8Button.clicked.connect(self.prevPage8)
+        self.prevPage9Button.clicked.connect(self.prevPage9)
 
         self.backButton.clicked.connect(self.toDashboardPage)
         self.closeButton.clicked.connect(self.showMinimized)
@@ -3631,7 +3660,15 @@ class topicLesson3(QMainWindow):
         self.topicPages.setCurrentIndex(3)
     def nextPage3(self):
         self.topicPages.setCurrentIndex(4)
-
+    def nextPage5(self):
+        self.topicPages.setCurrentIndex(6)
+    def nextPage6(self):
+        self.topicPages.setCurrentIndex(7)
+    def nextPage7(self):
+        self.topicPages.setCurrentIndex(8)
+    def nextPage8(self):
+        self.topicPages.setCurrentIndex(9)
+    
     def prevPage0(self):
         self.topicPages.setCurrentIndex(0)
     def prevPage1(self):
@@ -3640,6 +3677,14 @@ class topicLesson3(QMainWindow):
         self.topicPages.setCurrentIndex(2)
     def prevPage3(self):
         self.topicPages.setCurrentIndex(3)
+    def prevPage6(self):
+        self.topicPages.setCurrentIndex(4)
+    def prevPage7(self):
+        self.topicPages.setCurrentIndex(6)
+    def prevPage8(self):
+        self.topicPages.setCurrentIndex(7)
+    def prevPage9(self):
+        self.topicPages.setCurrentIndex(8)
 
     def toDashboardPage(self):
         self.hide()
@@ -3701,11 +3746,19 @@ class topicLesson4(QMainWindow):
         self.nextPage2Button.clicked.connect(self.nextPage1)
         self.nextPage3Button.clicked.connect(self.nextPage2)
         self.nextPage4Button.clicked.connect(self.nextPage3)
+        self.nextPage5Button.clicked.connect(self.nextPage5)
+        self.nextPage6Button.clicked.connect(self.nextPage6)
+        self.nextPage7Button.clicked.connect(self.nextPage7)
+        self.nextPage8Button.clicked.connect(self.nextPage8)
 
         self.prevPage2Button.clicked.connect(self.prevPage0)
         self.prevPage3Button.clicked.connect(self.prevPage1)
         self.prevPage4Button.clicked.connect(self.prevPage2)
         self.prevPage5Button.clicked.connect(self.prevPage3)
+        self.prevPage6Button.clicked.connect(self.prevPage6)
+        self.prevPage7Button.clicked.connect(self.prevPage7)
+        self.prevPage8Button.clicked.connect(self.prevPage8)
+        self.prevPage9Button.clicked.connect(self.prevPage9)
 
         self.backButton.clicked.connect(self.toDashboardPage)
         self.closeButton.clicked.connect(self.showMinimized)
@@ -3752,7 +3805,15 @@ class topicLesson4(QMainWindow):
         self.topicPages.setCurrentIndex(3)
     def nextPage3(self):
         self.topicPages.setCurrentIndex(4)
-
+    def nextPage5(self):
+        self.topicPages.setCurrentIndex(6)
+    def nextPage6(self):
+        self.topicPages.setCurrentIndex(7)
+    def nextPage7(self):
+        self.topicPages.setCurrentIndex(8)
+    def nextPage8(self):
+        self.topicPages.setCurrentIndex(9)
+    
     def prevPage0(self):
         self.topicPages.setCurrentIndex(0)
     def prevPage1(self):
@@ -3761,264 +3822,8 @@ class topicLesson4(QMainWindow):
         self.topicPages.setCurrentIndex(2)
     def prevPage3(self):
         self.topicPages.setCurrentIndex(3)
-
-    def toDashboardPage(self):
-        self.hide()
-        global fromLesson1
-        fromLesson1 = 1
-        self.back = toDashboard()
-        self.back.show()
-    
-    def mousePressEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:
-            if event.button() == QtCore.Qt.LeftButton:
-                self.offset = event.pos()
-            else:
-                super().mousePressEvent(event)
-
-    def mouseMoveEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:   
-            if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
-                self.move(self.pos() + event.pos() - self.offset)
-            else:
-                super().mouseMoveEvent(event)
-
-    def mouseReleaseEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:
-            self.offset = None
-            super().mouseReleaseEvent(event)
-
-class topicLesson5(QMainWindow):
-    def __init__(self):
-        super(topicLesson5, self).__init__()
-        self.ui = Ui_topicLessonMainWindow()
-        self.ui.setupUi(self)
-
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.offset = None
-
-        loadUi("data/lessonDashboard.ui",self)
-
-        self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
-        self.setWindowTitle(title)
-
-        self.topicPages.setCurrentIndex(6)
-
-        self.nextPage6Button.clicked.connect(self.nextPage6)
-        self.nextPage7Button.clicked.connect(self.nextPage7)
-        self.nextPage8Button.clicked.connect(self.nextPage8)
-
-        self.prevPage7Button.clicked.connect(self.prevPage7)
-        self.prevPage8Button.clicked.connect(self.prevPage8)
-        self.prevPage9Button.clicked.connect(self.prevPage9)
-        
-        self.backButton.clicked.connect(self.toDashboardPage)
-        self.closeButton.clicked.connect(self.showMinimized)
-        self.maximizeButton.clicked.connect(self.bigWindow)
-        self.minimizeButton.clicked.connect(self.showMinimized)
-
-        self.restoreWindow = 0
-        self.maxWindow = False
-
-    def bigWindow(self):
-        if self.restoreWindow == 0:
-            self.showMaximized()
-            self.maxWindow = True
-            self.restoreWindow = 1
-        else:           
-            self.showNormal()  
-            self.maxWindow = False
-            self.restoreWindow = 0
-
-    def nextPage6(self):
-        self.topicPages.setCurrentIndex(7)
-    def nextPage7(self):
-        self.topicPages.setCurrentIndex(8)
-    def nextPage8(self):
-        self.topicPages.setCurrentIndex(9)
-    def prevPage7(self):
-        self.topicPages.setCurrentIndex(6)
-    def prevPage8(self):
-        self.topicPages.setCurrentIndex(7)
-    def prevPage9(self):
-        self.topicPages.setCurrentIndex(8)
-    
-    def toDashboardPage(self):
-        self.hide()
-        global fromLesson1
-        fromLesson1 = 1
-        self.back = toDashboard()
-        self.back.show()
-    
-    def mousePressEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:
-            if event.button() == QtCore.Qt.LeftButton:
-                self.offset = event.pos()
-            else:
-                super().mousePressEvent(event)
-
-    def mouseMoveEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:   
-            if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
-                self.move(self.pos() + event.pos() - self.offset)
-            else:
-                super().mouseMoveEvent(event)
-
-    def mouseReleaseEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:
-            self.offset = None
-            super().mouseReleaseEvent(event)
-
-class topicLesson6(QMainWindow):
-    def __init__(self):
-        super(topicLesson6, self).__init__()
-        self.ui = Ui_topicLessonMainWindow()
-        self.ui.setupUi(self)
-
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.offset = None
-
-        loadUi("data/lessonDashboard.ui",self)
-
-        self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
-        self.setWindowTitle(title)
-
-        self.topicPages.setCurrentIndex(8)
-
-        self.nextPage6Button.clicked.connect(self.nextPage6)
-        self.nextPage7Button.clicked.connect(self.nextPage7)
-        self.nextPage8Button.clicked.connect(self.nextPage8)
-
-        self.prevPage7Button.clicked.connect(self.prevPage7)
-        self.prevPage8Button.clicked.connect(self.prevPage8)
-        self.prevPage9Button.clicked.connect(self.prevPage9)
-        
-        self.backButton.clicked.connect(self.toDashboardPage)
-        self.closeButton.clicked.connect(self.showMinimized)
-        self.maximizeButton.clicked.connect(self.bigWindow)
-        self.minimizeButton.clicked.connect(self.showMinimized)
-
-        self.restoreWindow = 0
-        self.maxWindow = False
-
-    def bigWindow(self):
-        if self.restoreWindow == 0:
-            self.showMaximized()
-            self.maxWindow = True
-            self.restoreWindow = 1
-        else:           
-            self.showNormal()  
-            self.maxWindow = False
-            self.restoreWindow = 0
-
-    def nextPage6(self):
-        self.topicPages.setCurrentIndex(7)
-    def nextPage7(self):
-        self.topicPages.setCurrentIndex(8)
-    def nextPage8(self):
-        self.topicPages.setCurrentIndex(9)
-    def prevPage7(self):
-        self.topicPages.setCurrentIndex(6)
-    def prevPage8(self):
-        self.topicPages.setCurrentIndex(7)
-    def prevPage9(self):
-        self.topicPages.setCurrentIndex(8)
-
-    def toDashboardPage(self):
-        self.hide()
-        global fromLesson1
-        fromLesson1 = 1
-        self.back = toDashboard()
-        self.back.show()
-    
-    def mousePressEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:
-            if event.button() == QtCore.Qt.LeftButton:
-                self.offset = event.pos()
-            else:
-                super().mousePressEvent(event)
-
-    def mouseMoveEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:   
-            if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
-                self.move(self.pos() + event.pos() - self.offset)
-            else:
-                super().mouseMoveEvent(event)
-
-    def mouseReleaseEvent(self, event):
-        if self.maxWindow == True:
-            pass
-        else:
-            self.offset = None
-            super().mouseReleaseEvent(event)
-
-class topicLesson7(QMainWindow):
-    def __init__(self):
-        super(topicLesson7, self).__init__()
-        self.ui = Ui_topicLessonMainWindow()
-        self.ui.setupUi(self)
-
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.offset = None
-
-        loadUi("data/lessonDashboard.ui",self)
-
-        self.setWindowIcon(QIcon(":/images/logo.png"))
-        title = "PreCalGuro Student"
-        self.setWindowTitle(title)
-
-        self.topicPages.setCurrentIndex(9)
-
-        self.nextPage6Button.clicked.connect(self.nextPage6)
-        self.nextPage7Button.clicked.connect(self.nextPage7)
-        self.nextPage8Button.clicked.connect(self.nextPage8)
-
-        self.prevPage7Button.clicked.connect(self.prevPage7)
-        self.prevPage8Button.clicked.connect(self.prevPage8)
-        self.prevPage9Button.clicked.connect(self.prevPage9)
-        
-        self.backButton.clicked.connect(self.toDashboardPage)
-        self.closeButton.clicked.connect(self.showMinimized)
-        self.maximizeButton.clicked.connect(self.bigWindow)
-        self.minimizeButton.clicked.connect(self.showMinimized)
-
-        self.restoreWindow = 0
-        self.maxWindow = False
-
-    def bigWindow(self):
-        if self.restoreWindow == 0:
-            self.showMaximized()
-            self.maxWindow = True
-            self.restoreWindow = 1
-        else:           
-            self.showNormal()  
-            self.maxWindow = False
-            self.restoreWindow = 0
-
-    def nextPage6(self):
-        self.topicPages.setCurrentIndex(7)
-    def nextPage7(self):
-        self.topicPages.setCurrentIndex(8)
-    def nextPage8(self):
-        self.topicPages.setCurrentIndex(9)
+    def prevPage6(self):
+        self.topicPages.setCurrentIndex(4)
     def prevPage7(self):
         self.topicPages.setCurrentIndex(6)
     def prevPage8(self):
@@ -4911,6 +4716,10 @@ class unitTest_1(QMainWindow):
             data.scores.unit1_9_answerId =unit_test1_question9[2]
             data.scores.unit1_10_solutionId = unit_test1_question10[1]
             data.scores.unit1_10_answerId =unit_test1_question10[2]
+
+            data.scores.unit_test1_question1 = "Write the standard form of a circle with radius = 3, center = (0,0)"
+            data.scores.unit1_1_solutionId = "question_1_Solution"
+            data.scores.unit1_1_answerId = "question_1_Answer"
 
         self.unitTest1_Q1_label.setText("1."+ data.scores.unit_test1_question1)
         self.unitTest1_Q2_label.setText("2."+ data.scores.unit_test1_question2)
@@ -6330,6 +6139,7 @@ class toDashboardTeach(QMainWindow):
         self.tableWidget.setRowCount(rowCount)
 
         for student in all_students.each():
+            if student.val()["isActive"] == "1":
                 if student.val()["academic_year"] == data.scores.academic_year:
                     self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(student.val()["lname"]).upper()))
                     self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(student.val()["fname"]).upper()))
@@ -13269,5 +13079,6 @@ if __name__ == '__main__':
         pyi_splash.close()
     w = toStudTeach()
     # w = toDashboardAdmin()
+    # w = toDashboardTeach()
     w.show()
     sys.exit(app.exec_())
