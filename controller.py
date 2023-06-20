@@ -46,7 +46,6 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 openai.api_key = "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"
-idKey = ""
 submit_unit1 = False
 submit_unit2 = False
 pre_assess_total_items = 0
@@ -1083,6 +1082,8 @@ class toDashboardAdmin(QMainWindow):
         self.addStud_pushButton.clicked.connect(self.add_student)
         self.removeStud_pushButton.clicked.connect(self.delete_student)
         self.removeTeach_pushButton.clicked.connect(self.delete_teacher)
+        self.retrieveStud_pushButton.clicked.connect(self.retrieve_student)
+        self.retrieveTeach_pushButton.clicked.connect(self.retrieve_teacher)
 
         QSizeGrip(self.sizeGrip)
         global fromLesson1 , fromLesson2
@@ -1095,6 +1096,20 @@ class toDashboardAdmin(QMainWindow):
             fromLesson2 = 0
             self.load_teacher_info()
             self.menuPages.setCurrentIndex(2)
+    
+    def retrieve_student(self):
+        if willLogout == 0:
+            self.tologoutProf = toRetrieveStudent(self)
+            self.tologoutProf.show()
+        else:
+            pass
+    
+    def retrieve_teacher(self):
+        if willLogout == 0:
+            self.tologoutProf = toRetrieveTeacher(self)
+            self.tologoutProf.show()
+        else:
+            pass
 
     def load_student_info(self):
         row = 0
@@ -1136,7 +1151,7 @@ class toDashboardAdmin(QMainWindow):
                 if student.val()["isActive"] == "1":
                     status = "Active"
                 else:
-                    status = "Deleted"
+                    status = "Archived"
                 self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(status.upper()))    
                 self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(student.val()["lname"]).upper()))
                 self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(student.val()["fname"]).upper()))
@@ -1647,13 +1662,157 @@ class toDashboardAdmin(QMainWindow):
                 if teacher.val()["isActive"] == "1":
                     status = "Active"
                 else:
-                    status = "Deleted"
+                    status = "Archived"
                 self.tableWidget_2.setItem(row, 0, QtWidgets.QTableWidgetItem(status.upper()))    
                 self.tableWidget_2.setItem(row, 1, QtWidgets.QTableWidgetItem(str(teacher.val()["lname"]).upper()))
                 self.tableWidget_2.setItem(row, 2, QtWidgets.QTableWidgetItem(str(teacher.val()["fname"]).upper()))
                 self.tableWidget_2.setItem(row, 3, QtWidgets.QTableWidgetItem(str(teacher.val()["mname"]).upper()))
                 self.tableWidget_2.setItem(row, 4, QtWidgets.QTableWidgetItem(str(teacher.val()["email"])))
                 row = row + 1
+
+class toRetrieveTeacher(QDialog):
+    def __init__(self, parent):
+        super(toRetrieveTeacher, self).__init__(parent)
+        self.ui = Ui_logoutDialog()
+
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.offset = None
+
+        loadUi("data/warningToLogout.ui",self)
+
+        self.setWindowIcon(QIcon(":/images/logo.png"))
+        title = "PreCalGuro Admin"
+        self.setWindowTitle(title)
+        
+        self.logoutUpdatePages.setCurrentIndex(3)
+        self.stackedWidget_5.setCurrentIndex(4)
+        self.stackedWidget_6.setCurrentIndex(1)
+        global willLogout 
+        willLogout = 1
+        self.admin_error_widget.setVisible(True)
+
+        self.retrieveAdmin_pushButton.clicked.connect(self.retrieveFunction)
+        self.cancelAdmin_pushButton_2.clicked.connect(self.cancelFunction)
+
+    def retrieveFunction(self):
+        self.emailId = self.adminEmail_textEdit.toPlainText()
+        self.no_id = 0
+        self.check = 0
+        self.false_retrieve = 0
+
+        if self.emailId == "":
+            self.no_id = 1
+
+        all_teacher = db.child("teacher").get()
+        for teacher in all_teacher.each():
+            if teacher.val()["email"] == self.emailId :
+                if teacher.val()['isActive'] == "1":
+                    self.false_retrieve = 1
+                else:
+                    keyId = teacher.key()
+                    self.check = 1
+                    deleted_uid = teacher.val()["uid"]
+                    # auth.delete_user_account(deleted_uid)
+                    db.child("teacher").child(keyId).update({"isActive":"1"})
+            else:
+                self.no_id = 1
+
+        if self.no_id == 1:
+            if self.check == 1:
+                self.no_id = 0
+                self.admin_error_widget.setVisible(True)
+                self.stackedWidget_5.setCurrentIndex(5)
+            else:
+                self.no_id == 0
+                self.admin_error_widget.setVisible(True)
+                self.stackedWidget_5.setCurrentIndex(1)
+
+        if self.check == 1:
+            self.no_id = 0
+            self.admin_error_widget.setVisible(True)
+            self.stackedWidget_5.setCurrentIndex(5)
+        
+        if self.false_retrieve == 1:
+            self.no_id = 0
+            self.admin_error_widget.setVisible(True)
+            self.stackedWidget_5.setCurrentIndex(6)
+
+    def cancelFunction(self):
+        global willLogout
+        willLogout = 0
+        self.hide() 
+class toRetrieveStudent(QDialog):
+    def __init__(self, parent):
+        super(toRetrieveStudent, self).__init__(parent)
+        self.ui = Ui_logoutDialog()
+
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.offset = None
+
+        loadUi("data/warningToLogout.ui",self)
+
+        self.setWindowIcon(QIcon(":/images/logo.png"))
+        title = "PreCalGuro Admin"
+        self.setWindowTitle(title)
+        
+        self.logoutUpdatePages.setCurrentIndex(3)
+        self.stackedWidget_5.setCurrentIndex(4)
+        self.stackedWidget_6.setCurrentIndex(1)
+        global willLogout 
+        willLogout = 1
+        self.admin_error_widget.setVisible(True)
+
+        self.retrieveAdmin_pushButton.clicked.connect(self.retrieveFunction)
+        self.cancelAdmin_pushButton_2.clicked.connect(self.cancelFunction)
+
+    def retrieveFunction(self):
+        self.emailId = self.adminEmail_textEdit.toPlainText()
+        self.no_id = 0
+        self.check = 0
+        self.false_retrieve = 0
+
+        if self.emailId == "":
+            self.no_id = 1
+
+        all_student = db.child("student").get()
+        for student in all_student.each():
+            if student.val()["email"] == self.emailId :
+                if student.val()['isActive'] == "1":
+                    self.false_retrieve = 1
+                else:
+                    keyId = student.key()
+                    self.check = 1
+                    deleted_uid = student.val()["uid"]
+                    # auth.delete_user_account(deleted_uid)
+                    db.child("student").child(keyId).update({"isActive":"1"})
+            else:
+                self.no_id = 1
+
+        if self.no_id == 1:
+            if self.check == 1:
+                self.no_id = 0
+                self.admin_error_widget.setVisible(True)
+                self.stackedWidget_5.setCurrentIndex(5)
+            else:
+                self.no_id == 0
+                self.admin_error_widget.setVisible(True)
+                self.stackedWidget_5.setCurrentIndex(1)
+
+        if self.check == 1:
+            self.no_id = 0
+            self.admin_error_widget.setVisible(True)
+            self.stackedWidget_5.setCurrentIndex(5)
+
+        if self.false_retrieve == 1:
+            self.no_id = 0
+            self.admin_error_widget.setVisible(True)
+            self.stackedWidget_5.setCurrentIndex(6)
+
+
+    def cancelFunction(self):
+        global willLogout
+        willLogout = 0
+        self.hide()
 
 class toAddStudent(QMainWindow):
     def __init__(self):
@@ -1960,6 +2119,7 @@ class toDeleteStudent(QDialog):
         
         self.logoutUpdatePages.setCurrentIndex(3)
         self.stackedWidget_5.setCurrentIndex(0)
+        self.stackedWidget_6.setCurrentIndex(0)
         global willLogout 
         willLogout = 1
         self.admin_error_widget.setVisible(True)
@@ -1971,6 +2131,7 @@ class toDeleteStudent(QDialog):
         self.emailId = self.adminEmail_textEdit.toPlainText()
         self.no_id = 0
         self.check = 0
+        self.false_delete = 0
 
         if self.emailId == "":
             self.no_id = 1
@@ -1978,11 +2139,14 @@ class toDeleteStudent(QDialog):
         all_student = db.child("student").get()
         for student in all_student.each():
             if student.val()["email"] == self.emailId :
-                keyId = student.key()
-                self.check = 1
-                deleted_uid = student.val()["uid"]
-                # auth.delete_user_account(deleted_uid)
-                db.child("student").child(keyId).update({"isActive":"0"})
+                if student.val()['isActive'] == "0":
+                    self.false_delete = 1
+                else:
+                    keyId = student.key()
+                    self.check = 1
+                    deleted_uid = student.val()["uid"]
+                    # auth.delete_user_account(deleted_uid)
+                    db.child("student").child(keyId).update({"isActive":"0"})
             else:
                 self.no_id = 1
 
@@ -2000,6 +2164,11 @@ class toDeleteStudent(QDialog):
             self.no_id = 0
             self.admin_error_widget.setVisible(True)
             self.stackedWidget_5.setCurrentIndex(2)
+        
+        if self.false_delete == 1:
+            self.no_id = 0
+            self.admin_error_widget.setVisible(True)
+            self.stackedWidget_5.setCurrentIndex(7)
 
     def cancelFunction(self):
         global willLogout
@@ -2022,6 +2191,7 @@ class toDeleteTeacher(QDialog):
         
         self.logoutUpdatePages.setCurrentIndex(3)
         self.stackedWidget_5.setCurrentIndex(0)
+        self.stackedWidget_6.setCurrentIndex(0)
         global willLogout 
         willLogout = 1
         self.admin_error_widget.setVisible(True)
@@ -2033,6 +2203,7 @@ class toDeleteTeacher(QDialog):
         self.emailId = self.adminEmail_textEdit.toPlainText()
         self.no_id = 0
         self.check = 0
+        self.false_delete = 0
 
         if self.emailId == "":
             self.no_id = 1
@@ -2040,11 +2211,14 @@ class toDeleteTeacher(QDialog):
         all_teacher = db.child("teacher").get()
         for teacher in all_teacher.each():
             if teacher.val()["email"] == self.emailId :
-                keyId = teacher.key()
-                self.check = 1
-                deleted_uid = teacher.val()["uid"]
-                # auth.delete_user_account(deleted_uid)
-                db.child("teacher").child(keyId).update({"isActive":"0"})
+                if teacher.val()['isActive'] == "0":
+                    self.false_delete = 1
+                else:
+                    keyId = teacher.key()
+                    self.check = 1
+                    deleted_uid = teacher.val()["uid"]
+                    # auth.delete_user_account(deleted_uid)
+                    db.child("teacher").child(keyId).update({"isActive":"0"})
             else:
                 self.no_id = 1
 
@@ -2062,6 +2236,11 @@ class toDeleteTeacher(QDialog):
             self.no_id = 0
             self.admin_error_widget.setVisible(True)
             self.stackedWidget_5.setCurrentIndex(2)
+        
+        if self.false_delete == 1:
+            self.no_id = 0
+            self.admin_error_widget.setVisible(True)
+            self.stackedWidget_5.setCurrentIndex(7)
 
     def cancelFunction(self):
         global willLogout
@@ -2448,8 +2627,9 @@ class toDashboard(QMainWindow):
         self.total_modules = 0
         all_modules = db.child("modules").get()
         for modules in all_modules.each():
-            self.total_modules = self.total_modules + 1
-            self.modules_list.append(modules.val()["lesson"])
+            if modules.val()["isActive"] == "1":
+                self.total_modules = self.total_modules + 1
+                self.modules_list.append(modules.val()["lesson"])
         
         for i in range(self.total_modules): # change the looping variable to add more or less buttons
             newName = "module" + str(i)
@@ -5996,6 +6176,7 @@ class toDashboardTeach(QMainWindow):
 
         self.add_lesson_pushButton.clicked.connect(self.upload_pdf)
         self.delete_lesson_pushButton.clicked.connect(self.delete_pdf)
+        self.retrieve_lesson_pushButton.clicked.connect(self.retrieve_pdf)
 
         self.unit1_create_pushButton.clicked.connect(self.create_unit1)
         self.unit2_create_pushButton.clicked.connect(self.create_unit2)
@@ -6025,6 +6206,13 @@ class toDashboardTeach(QMainWindow):
         if willLogout == 0:
             self.delete = delete_pdf_window(self)
             self.delete.show()
+        else:
+            pass
+    
+    def retrieve_pdf(self):
+        if willLogout == 0:
+            self.retrieve = retrieve_pdf_window(self)
+            self.retrieve.show()
         else:
             pass
 
@@ -6399,9 +6587,14 @@ class toDashboardTeach(QMainWindow):
         self.tableWidget_6.setRowCount(rowCount)
 
         for pdfFiles in all_modules.each():
-                self.tableWidget_6.setItem(row, 0, QtWidgets.QTableWidgetItem(str(pdfFiles.val()["lessonId"])))
-                self.tableWidget_6.setItem(row, 1, QtWidgets.QTableWidgetItem(str(pdfFiles.val()["lesson"])))
-                row = row + 1 
+            if pdfFiles.val()["isActive"] == "1":
+                status = "Active"
+            else:
+                status = "Archived"
+            self.tableWidget_6.setItem(row, 0, QtWidgets.QTableWidgetItem(status))
+            self.tableWidget_6.setItem(row, 1, QtWidgets.QTableWidgetItem(str(pdfFiles.val()["lessonId"])))
+            self.tableWidget_6.setItem(row, 2, QtWidgets.QTableWidgetItem(str(pdfFiles.val()["lesson"])))
+            row = row + 1 
 
     def loadUnitTest1(self):
         row = 0
@@ -7244,7 +7437,7 @@ class add_pdf_window(QDialog):
             self.widget_34.setVisible(True)
             self.stackedWidget_11.setCurrentIndex(0)
             self.lessonId_error_widget.setVisible(False)
-            data ={"lesson":self.base_filename, "lessonId":self.lessonId}
+            data ={"lesson":self.base_filename, "lessonId":self.lessonId, "isActive":"1"}
             db.child("modules").push(data)
 
             storage.child(self.base_filename).put(self.filename)
@@ -7273,6 +7466,7 @@ class delete_pdf_window(QDialog):
         self.logoutUpdatePages.setCurrentIndex(5)
         self.unitTest1_error_widget_3.setVisible(True)
         self.stackedWidget_9.setCurrentIndex(0)
+        self.stackedWidget_10.setCurrentIndex(0)
 
         self.delete_pdf_pushButton.clicked.connect(self.delete_file_function)
         self.cancel_delete_pushButton.clicked.connect(self.cancel_file_function)
@@ -7281,6 +7475,7 @@ class delete_pdf_window(QDialog):
         self.lessonId = self.delete_lesson_id_textEdit.toPlainText()
         self.no_id = 0
         self.check = 0
+        self.false_delete = 0
 
         if self.lessonId == "":
             self.no_id = 1
@@ -7288,11 +7483,13 @@ class delete_pdf_window(QDialog):
         all_modules = db.child("modules").get()
         for module in all_modules.each():
             if module.val()["lessonId"] == self.lessonId :
-                keyId = module.key()
-                file_to_delete = module.val()["lesson"]
-                self.check = 1
-                db.child("modules").child(keyId).remove()
-                storage.delete(file_to_delete, None)
+                if module.val()["isActive"] == "0":
+                    self.false_delete = 1
+                else:
+                    keyId = module.key()
+                    file_to_delete = module.val()["lesson"]
+                    self.check = 1
+                    db.child("modules").child(keyId).update({"isActive":"0"})
             else:
                 self.no_id = 1
 
@@ -7305,6 +7502,77 @@ class delete_pdf_window(QDialog):
             self.no_id = 0
             self.unitTest1_error_widget_3.setVisible(True)
             self.stackedWidget_9.setCurrentIndex(2)
+        
+        if self.false_delete == 1:
+            self.no_id = 0
+            self.unitTest1_error_widget_3.setVisible(True)
+            self.stackedWidget_9.setCurrentIndex(6)
+
+    def cancel_file_function(self):
+        global willLogout
+        willLogout = 0
+        self.hide()
+
+class retrieve_pdf_window(QDialog):
+    def __init__(self, parent):
+        super(retrieve_pdf_window, self).__init__(parent)
+        self.ui = Ui_logoutDialog()
+
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.offset = None
+
+        loadUi("data/warningToLogout.ui",self)
+
+        self.setWindowIcon(QIcon(":/images/logo.png"))
+        title = "PreCalGuro Teacher"
+        self.setWindowTitle(title)
+        self.setWindowModality(QtCore.Qt.ApplicationModal)
+        global willLogout
+        willLogout = 1
+        self.logoutUpdatePages.setCurrentIndex(5)
+        self.unitTest1_error_widget_3.setVisible(True)
+        self.stackedWidget_9.setCurrentIndex(3)
+        self.stackedWidget_10.setCurrentIndex(1)
+
+        self.retrieve_pdf_pushButton.clicked.connect(self.retrieve_file_function)
+        self.cancel_delete_pushButton_2.clicked.connect(self.cancel_file_function)
+
+    def retrieve_file_function(self):
+        self.lessonId = self.delete_lesson_id_textEdit.toPlainText()
+        self.no_id = 0
+        self.check = 0
+        self.false_retrieve = 0
+
+        if self.lessonId == "":
+            self.no_id = 1
+
+        all_modules = db.child("modules").get()
+        for module in all_modules.each():
+            if module.val()["lessonId"] == self.lessonId :
+                if module.val()["isActive"] == "1":
+                    self.false_delete = 1
+                else:
+                    keyId = module.key()
+                    file_to_delete = module.val()["lesson"]
+                    self.check = 1
+                    db.child("modules").child(keyId).update({"isActive":"1"})
+            else:
+                self.no_id = 1
+
+        if self.no_id == 1:
+            self.no_id == 0
+            self.unitTest1_error_widget_3.setVisible(True)
+            self.stackedWidget_9.setCurrentIndex(1)
+
+        if self.check == 1:
+            self.no_id = 0
+            self.unitTest1_error_widget_3.setVisible(True)
+            self.stackedWidget_9.setCurrentIndex(4)
+        
+        if self.false_retrieve == 1:
+            self.no_id = 0
+            self.unitTest1_error_widget_3.setVisible(True)
+            self.stackedWidget_9.setCurrentIndex(5)
 
     def cancel_file_function(self):
         global willLogout
@@ -13078,7 +13346,5 @@ if __name__ == '__main__':
     if getattr(sys, 'frozen', False):
         pyi_splash.close()
     w = toStudTeach()
-    # w = toDashboardAdmin()
-    # w = toDashboardTeach()
     w.show()
     sys.exit(app.exec_())

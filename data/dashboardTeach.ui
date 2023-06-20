@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
+    <width>1212</width>
     <height>663</height>
    </rect>
   </property>
@@ -1887,7 +1887,7 @@ margin-right: 25px;</string>
                                     <rect>
                                      <x>0</x>
                                      <y>0</y>
-                                     <width>642</width>
+                                     <width>654</width>
                                      <height>2194</height>
                                     </rect>
                                    </property>
@@ -3782,7 +3782,7 @@ in Post-Assessment Test</string>
                                     <rect>
                                      <x>0</x>
                                      <y>0</y>
-                                     <width>642</width>
+                                     <width>654</width>
                                      <height>2292</height>
                                     </rect>
                                    </property>
@@ -3867,6 +3867,48 @@ border-radius: 5px</string>
                                          </property>
                                          <layout class="QVBoxLayout" name="verticalLayout_116">
                                           <item>
+                                           <widget class="QWidget" name="widget_14" native="true">
+                                            <layout class="QVBoxLayout" name="verticalLayout_117">
+                                             <property name="spacing">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="leftMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="topMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="rightMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="bottomMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <item>
+                                              <widget class="QWidget" name="widget_91" native="true">
+                                               <layout class="QHBoxLayout" name="horizontalLayout_23">
+                                                <property name="spacing">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="leftMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="topMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="rightMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="bottomMargin">
+                                                 <number>0</number>
+                                                </property>
+                                               </layout>
+                                              </widget>
+                                             </item>
+                                            </layout>
+                                           </widget>
+                                          </item>
+                                          <item>
                                            <widget class="QTableWidget" name="tableWidget_6">
                                             <property name="font">
                                              <font>
@@ -3891,7 +3933,7 @@ gridline-color: rgb(255, 255, 255);
                                              <number>0</number>
                                             </property>
                                             <property name="columnCount">
-                                             <number>2</number>
+                                             <number>3</number>
                                             </property>
                                             <attribute name="horizontalHeaderDefaultSectionSize">
                                              <number>200</number>
@@ -3902,6 +3944,25 @@ gridline-color: rgb(255, 255, 255);
                                             <attribute name="verticalHeaderVisible">
                                              <bool>false</bool>
                                             </attribute>
+                                            <column>
+                                             <property name="text">
+                                              <string>File Status</string>
+                                             </property>
+                                             <property name="font">
+                                              <font>
+                                               <pointsize>15</pointsize>
+                                              </font>
+                                             </property>
+                                             <property name="foreground">
+                                              <brush brushstyle="SolidPattern">
+                                               <color alpha="255">
+                                                <red>0</red>
+                                                <green>0</green>
+                                                <blue>0</blue>
+                                               </color>
+                                              </brush>
+                                             </property>
+                                            </column>
                                             <column>
                                              <property name="text">
                                               <string>Lesson ID</string>
@@ -3958,6 +4019,9 @@ gridline-color: rgb(255, 255, 255);
                                           <string notr="true">color: rgb(255, 255, 255);</string>
                                          </property>
                                          <layout class="QHBoxLayout" name="horizontalLayout_4">
+                                          <property name="spacing">
+                                           <number>20</number>
+                                          </property>
                                           <item>
                                            <widget class="QWidget" name="widget_84" native="true">
                                             <layout class="QVBoxLayout" name="verticalLayout_110">
@@ -4010,7 +4074,59 @@ gridline-color: rgb(255, 255, 255);
                                            </widget>
                                           </item>
                                           <item>
-                                           <widget class="QWidget" name="widget_85" native="true">
+                                           <widget class="QWidget" name="retrieve_widget" native="true">
+                                            <layout class="QVBoxLayout" name="verticalLayout_63">
+                                             <item alignment="Qt::AlignHCenter">
+                                              <widget class="QPushButton" name="retrieve_lesson_pushButton">
+                                               <property name="font">
+                                                <font>
+                                                 <pointsize>12</pointsize>
+                                                </font>
+                                               </property>
+                                               <property name="styleSheet">
+                                                <string notr="true">#retrieve_lesson_pushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(227, 151, 0);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+#retrieve_lesson_pushButton:hover{
+	background-color: rgb(227, 192, 109);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+#retrieve_lesson_pushButton:pressed{
+	background-color: rgb(167, 108, 0);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}</string>
+                                               </property>
+                                               <property name="text">
+                                                <string>Retrieve</string>
+                                               </property>
+                                               <property name="icon">
+                                                <iconset resource="res.qrc">
+                                                 <normaloff>:/icons/icons/rotate-ccw.svg</normaloff>:/icons/icons/rotate-ccw.svg</iconset>
+                                               </property>
+                                               <property name="iconSize">
+                                                <size>
+                                                 <width>25</width>
+                                                 <height>25</height>
+                                                </size>
+                                               </property>
+                                              </widget>
+                                             </item>
+                                            </layout>
+                                           </widget>
+                                          </item>
+                                          <item>
+                                           <widget class="QWidget" name="delete_widget" native="true">
                                             <layout class="QVBoxLayout" name="verticalLayout_111">
                                              <item alignment="Qt::AlignHCenter">
                                               <widget class="QPushButton" name="delete_lesson_pushButton">
