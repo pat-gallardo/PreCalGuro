@@ -1827,7 +1827,7 @@ margin-right: 25px;</string>
                                     <number>5</number>
                                    </property>
                                    <property name="topMargin">
-                                    <number>2</number>
+                                    <number>5</number>
                                    </property>
                                    <property name="rightMargin">
                                     <number>5</number>
@@ -1951,6 +1951,48 @@ border-radius: 5px</string>
                                           <string notr="true">background-color: rgb(6, 38, 56);</string>
                                          </property>
                                          <layout class="QVBoxLayout" name="verticalLayout_30">
+                                          <item>
+                                           <widget class="QWidget" name="widget_16" native="true">
+                                            <layout class="QVBoxLayout" name="verticalLayout_38">
+                                             <property name="spacing">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="leftMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="topMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="rightMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="bottomMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <item>
+                                              <widget class="QWidget" name="widget_21" native="true">
+                                               <layout class="QHBoxLayout" name="horizontalLayout_5">
+                                                <property name="spacing">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="leftMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="topMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="rightMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="bottomMargin">
+                                                 <number>0</number>
+                                                </property>
+                                               </layout>
+                                              </widget>
+                                             </item>
+                                            </layout>
+                                           </widget>
+                                          </item>
                                           <item>
                                            <widget class="QStackedWidget" name="studentListMenuPages">
                                             <property name="maximumSize">
@@ -2394,15 +2436,100 @@ gridline-color: rgb(255, 255, 255);
                                                </property>
                                               </widget>
                                              </item>
-                                             <item alignment="Qt::AlignHCenter">
-                                              <widget class="QPushButton" name="removeStud_pushButton">
-                                               <property name="font">
-                                                <font>
-                                                 <pointsize>12</pointsize>
-                                                </font>
-                                               </property>
-                                               <property name="styleSheet">
-                                                <string notr="true">#removeStud_pushButton{
+                                             <item>
+                                              <widget class="QWidget" name="retrieveStud_widget" native="true">
+                                               <layout class="QVBoxLayout" name="verticalLayout_72">
+                                                <property name="spacing">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="leftMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="topMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="rightMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="bottomMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <item alignment="Qt::AlignHCenter">
+                                                 <widget class="QPushButton" name="retrieveStud_pushButton">
+                                                  <property name="font">
+                                                   <font>
+                                                    <pointsize>12</pointsize>
+                                                   </font>
+                                                  </property>
+                                                  <property name="styleSheet">
+                                                   <string notr="true">#retrieveStud_pushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(227, 151, 0);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+#retrieveStud_pushButton:hover{
+	background-color: rgb(227, 192, 109);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+#retrieveStud_pushButton:pressed{
+	background-color: rgb(167, 108, 0);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}</string>
+                                                  </property>
+                                                  <property name="text">
+                                                   <string>Retrieve Account</string>
+                                                  </property>
+                                                  <property name="icon">
+                                                   <iconset resource="res.qrc">
+                                                    <normaloff>:/icons/icons/rotate-ccw.svg</normaloff>:/icons/icons/rotate-ccw.svg</iconset>
+                                                  </property>
+                                                  <property name="iconSize">
+                                                   <size>
+                                                    <width>25</width>
+                                                    <height>25</height>
+                                                   </size>
+                                                  </property>
+                                                 </widget>
+                                                </item>
+                                               </layout>
+                                              </widget>
+                                             </item>
+                                             <item>
+                                              <widget class="QWidget" name="removeStud_widget" native="true">
+                                               <layout class="QVBoxLayout" name="verticalLayout_73">
+                                                <property name="spacing">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="leftMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="topMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="rightMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <property name="bottomMargin">
+                                                 <number>0</number>
+                                                </property>
+                                                <item alignment="Qt::AlignHCenter">
+                                                 <widget class="QPushButton" name="removeStud_pushButton">
+                                                  <property name="font">
+                                                   <font>
+                                                    <pointsize>12</pointsize>
+                                                   </font>
+                                                  </property>
+                                                  <property name="styleSheet">
+                                                   <string notr="true">#removeStud_pushButton{
 	color: rgb(255, 255, 255);
 	background-color: rgb(195, 0, 0);
 	padding-left: 10px;
@@ -2424,20 +2551,23 @@ gridline-color: rgb(255, 255, 255);
 	padding-top: 10px;
 	padding-right: 10px;
 }</string>
-                                               </property>
-                                               <property name="text">
-                                                <string>Remove Account</string>
-                                               </property>
-                                               <property name="icon">
-                                                <iconset resource="res.qrc">
-                                                 <normaloff>:/icons/icons/trash-2.svg</normaloff>:/icons/icons/trash-2.svg</iconset>
-                                               </property>
-                                               <property name="iconSize">
-                                                <size>
-                                                 <width>25</width>
-                                                 <height>25</height>
-                                                </size>
-                                               </property>
+                                                  </property>
+                                                  <property name="text">
+                                                   <string>Remove Account</string>
+                                                  </property>
+                                                  <property name="icon">
+                                                   <iconset resource="res.qrc">
+                                                    <normaloff>:/icons/icons/trash-2.svg</normaloff>:/icons/icons/trash-2.svg</iconset>
+                                                  </property>
+                                                  <property name="iconSize">
+                                                   <size>
+                                                    <width>25</width>
+                                                    <height>25</height>
+                                                   </size>
+                                                  </property>
+                                                 </widget>
+                                                </item>
+                                               </layout>
                                               </widget>
                                              </item>
                                             </layout>
@@ -3948,7 +4078,7 @@ in Post-Assessment Test</string>
                                    <property name="geometry">
                                     <rect>
                                      <x>0</x>
-                                     <y>-1</y>
+                                     <y>0</y>
                                      <width>642</width>
                                      <height>513</height>
                                     </rect>
@@ -4020,6 +4150,48 @@ color: rgb(255, 255, 255);</string>
 </string>
                                       </property>
                                       <layout class="QVBoxLayout" name="verticalLayout_64">
+                                       <item>
+                                        <widget class="QWidget" name="widget_22" native="true">
+                                         <layout class="QVBoxLayout" name="verticalLayout_65">
+                                          <property name="spacing">
+                                           <number>0</number>
+                                          </property>
+                                          <property name="leftMargin">
+                                           <number>0</number>
+                                          </property>
+                                          <property name="topMargin">
+                                           <number>0</number>
+                                          </property>
+                                          <property name="rightMargin">
+                                           <number>0</number>
+                                          </property>
+                                          <property name="bottomMargin">
+                                           <number>0</number>
+                                          </property>
+                                          <item>
+                                           <widget class="QWidget" name="widget_23" native="true">
+                                            <layout class="QHBoxLayout" name="horizontalLayout_13">
+                                             <property name="spacing">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="leftMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="topMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="rightMargin">
+                                              <number>0</number>
+                                             </property>
+                                             <property name="bottomMargin">
+                                              <number>0</number>
+                                             </property>
+                                            </layout>
+                                           </widget>
+                                          </item>
+                                         </layout>
+                                        </widget>
+                                       </item>
                                        <item>
                                         <widget class="QStackedWidget" name="teacherListMenuPages">
                                          <property name="maximumSize">
@@ -4324,15 +4496,100 @@ gridline-color: rgb(255, 255, 255);
                                                       </property>
                                                      </widget>
                                                     </item>
-                                                    <item alignment="Qt::AlignHCenter">
-                                                     <widget class="QPushButton" name="removeTeach_pushButton">
-                                                      <property name="font">
-                                                       <font>
-                                                        <pointsize>12</pointsize>
-                                                       </font>
-                                                      </property>
-                                                      <property name="styleSheet">
-                                                       <string notr="true">#removeTeach_pushButton{
+                                                    <item>
+                                                     <widget class="QWidget" name="retrieveTeach_widget" native="true">
+                                                      <layout class="QVBoxLayout" name="verticalLayout_80">
+                                                       <property name="spacing">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <property name="leftMargin">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <property name="topMargin">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <property name="rightMargin">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <property name="bottomMargin">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <item alignment="Qt::AlignHCenter">
+                                                        <widget class="QPushButton" name="retrieveTeach_pushButton">
+                                                         <property name="font">
+                                                          <font>
+                                                           <pointsize>12</pointsize>
+                                                          </font>
+                                                         </property>
+                                                         <property name="styleSheet">
+                                                          <string notr="true">#retrieveTeach_pushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(227, 151, 0);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+#retrieveTeach_pushButton:hover{
+	background-color: rgb(227, 192, 109);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+#retrieveTeach_pushButton:pressed{
+	background-color: rgb(167, 108, 0);
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}</string>
+                                                         </property>
+                                                         <property name="text">
+                                                          <string>Retrieve Account</string>
+                                                         </property>
+                                                         <property name="icon">
+                                                          <iconset resource="res.qrc">
+                                                           <normaloff>:/icons/icons/rotate-ccw.svg</normaloff>:/icons/icons/rotate-ccw.svg</iconset>
+                                                         </property>
+                                                         <property name="iconSize">
+                                                          <size>
+                                                           <width>25</width>
+                                                           <height>25</height>
+                                                          </size>
+                                                         </property>
+                                                        </widget>
+                                                       </item>
+                                                      </layout>
+                                                     </widget>
+                                                    </item>
+                                                    <item>
+                                                     <widget class="QWidget" name="removeTeach_widget" native="true">
+                                                      <layout class="QVBoxLayout" name="verticalLayout_77">
+                                                       <property name="spacing">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <property name="leftMargin">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <property name="topMargin">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <property name="rightMargin">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <property name="bottomMargin">
+                                                        <number>0</number>
+                                                       </property>
+                                                       <item alignment="Qt::AlignHCenter">
+                                                        <widget class="QPushButton" name="removeTeach_pushButton">
+                                                         <property name="font">
+                                                          <font>
+                                                           <pointsize>12</pointsize>
+                                                          </font>
+                                                         </property>
+                                                         <property name="styleSheet">
+                                                          <string notr="true">#removeTeach_pushButton{
 	color: rgb(255, 255, 255);
 	background-color: rgb(195, 0, 0);
 	padding-left: 10px;
@@ -4354,20 +4611,23 @@ gridline-color: rgb(255, 255, 255);
 	padding-top: 10px;
 	padding-right: 10px;
 }</string>
-                                                      </property>
-                                                      <property name="text">
-                                                       <string>Remove Account</string>
-                                                      </property>
-                                                      <property name="icon">
-                                                       <iconset resource="res.qrc">
-                                                        <normaloff>:/icons/icons/trash-2.svg</normaloff>:/icons/icons/trash-2.svg</iconset>
-                                                      </property>
-                                                      <property name="iconSize">
-                                                       <size>
-                                                        <width>25</width>
-                                                        <height>25</height>
-                                                       </size>
-                                                      </property>
+                                                         </property>
+                                                         <property name="text">
+                                                          <string>Remove Account</string>
+                                                         </property>
+                                                         <property name="icon">
+                                                          <iconset resource="res.qrc">
+                                                           <normaloff>:/icons/icons/trash-2.svg</normaloff>:/icons/icons/trash-2.svg</iconset>
+                                                         </property>
+                                                         <property name="iconSize">
+                                                          <size>
+                                                           <width>25</width>
+                                                           <height>25</height>
+                                                          </size>
+                                                         </property>
+                                                        </widget>
+                                                       </item>
+                                                      </layout>
                                                      </widget>
                                                     </item>
                                                    </layout>
@@ -4528,7 +4788,7 @@ background-color: rgb(117, 171, 181);
                 <item>
                  <widget class="QStackedWidget" name="rightMenuPages">
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page_4">
                    <layout class="QVBoxLayout" name="verticalLayout_14">

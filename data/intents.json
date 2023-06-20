@@ -51,20 +51,20 @@
   {
    "item": [
     {
-     "tag": "question_40_Answer",
+     "tag": "question_41_Answer",
      "patterns": [
-      "(x - 7)^2 = 12(y - 6)",
-      "(x - 7)^2 = 12(y - 6)"
+      "(5, 0) x = -5",
+      "(5, 0) x = -5"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "question_41_Answer",
+     "tag": "question_40_Answer",
      "patterns": [
-      "(5, 0) x = -5",
-      "(5, 0) x = -5"
+      "(x - 7)^2 = 12(y - 6)",
+      "(x - 7)^2 = 12(y - 6)"
      ],
      "responses": [
       "correct"
@@ -75,20 +75,20 @@
   {
    "item": [
     {
-     "tag": "question_40_Solution",
+     "tag": "question_41_Solution",
      "patterns": [
-      "2c = 9 - 3 = 6, c = 3. (7, 6)",
-      "k = (9 + 3) / 2 = 6 p = (9 - 6) / 2 = 1.5 (x - 7)^2 = 4(1.5)(y - 6) (x - 7)^2 = 6(y - 6) (x - 7)^2 = 6y - 36 (x - 7)^2 = 12(y - 6)"
+      "(0, 0) 4c = 20 c = 5",
+      "(x - h)^2 = 4p(y - k) (0, 0) 4p = 20 p = 5 (5, 0) x = -5"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "question_41_Solution",
+     "tag": "question_40_Solution",
      "patterns": [
-      "(0, 0) 4c = 20 c = 5",
-      "(x - h)^2 = 4p(y - k) (0, 0) 4p = 20 p = 5 (5, 0) x = -5"
+      "2c = 9 - 3 = 6, c = 3. (7, 6)",
+      "k = (9 + 3) / 2 = 6 p = (9 - 6) / 2 = 1.5 (x - 7)^2 = 4(1.5)(y - 6) (x - 7)^2 = 6(y - 6) (x - 7)^2 = 6y - 36 (x - 7)^2 = 12(y - 6)"
      ],
      "responses": [
       "correct"
@@ -243,20 +243,20 @@
   {
    "item": [
     {
-     "tag": "question_35_Answer",
+     "tag": "question_25_Answer",
      "patterns": [
-      "x= -1/2 y=2",
-      "x= -1/2 y=2"
+      "y=2 x=-1/2",
+      "y=2 x=-1/2"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "question_25_Answer",
+     "tag": "question_35_Answer",
      "patterns": [
-      "y=2 x=-1/2",
-      "y=2 x=-1/2"
+      "x= -1/2 y=2",
+      "x= -1/2 y=2"
      ],
      "responses": [
       "correct"
@@ -267,20 +267,20 @@
   {
    "item": [
     {
-     "tag": "question_35_Solution",
+     "tag": "question_25_Solution",
      "patterns": [
-      "2(x^2-y)=2(3) 2x^2-2y=6 2x^2\u22122y=6 -2x^2+6y=14 2y=-2 y=1 x^2-y=3 x^2-(1)=3 x^2=4 x=+/-2",
-      "2(x^2 - y) = 2(3) 2x^2 - 2y = 6 2x^2 - 2y = 6 2x^2 + 6y = 14 (2x^2 + 6y) - (2x^2 - 2y) = 14 - 6 8y = 8 y = 1 x^2 - 1 = 3 x^2 = 4 x = +/-2 "
+      "2x-3=-7 (-2)(2x-3y)=(-2)(-7) -4x+6y=14 4x+7y=12 13y=26 y=2 x=-1/2",
+      "4(2x + 7) = 4(3y) 2(4x + 7y) = 2(12) 8x + 28 = 12y 8x + 14y = 24 (8x + 28) - (8x + 14y) = 12y - 24 28 - 14y = 12y - 24 -14y - 12y = -24 - 28  -26y = -52 y = 2 2x + 7 = 3(2) 2x + 7 = 6  2x = 6 - 7  2x = -1 x = -1/2"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "question_25_Solution",
+     "tag": "question_35_Solution",
      "patterns": [
-      "2x-3=-7 (-2)(2x-3y)=(-2)(-7) -4x+6y=14 4x+7y=12 13y=26 y=2 x=-1/2",
-      "4(2x + 7) = 4(3y) 2(4x + 7y) = 2(12) 8x + 28 = 12y 8x + 14y = 24 (8x + 28) - (8x + 14y) = 12y - 24 28 - 14y = 12y - 24 -14y - 12y = -24 - 28  -26y = -52 y = 2 2x + 7 = 3(2) 2x + 7 = 6  2x = 6 - 7  2x = -1 x = -1/2"
+      "2(x^2-y)=2(3) 2x^2-2y=6 2x^2\u22122y=6 -2x^2+6y=14 2y=-2 y=1 x^2-y=3 x^2-(1)=3 x^2=4 x=+/-2",
+      "2(x^2 - y) = 2(3) 2x^2 - 2y = 6 2x^2 - 2y = 6 2x^2 + 6y = 14 (2x^2 + 6y) - (2x^2 - 2y) = 14 - 6 8y = 8 y = 1 x^2 - 1 = 3 x^2 = 4 x = +/-2 "
      ],
      "responses": [
       "correct"
@@ -435,20 +435,20 @@
   {
    "item": [
     {
-     "tag": "question_26_Answer",
+     "tag": "question_50_Answer",
      "patterns": [
-      "(x+4)^2/5-(y-3)^2/4=1",
-      "(x+4)^2/5-(y-3)^2/4=1"
+      "(0, 5)(0, -5)",
+      "0,5 0,-5"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "question_50_Answer",
+     "tag": "question_26_Answer",
      "patterns": [
-      "(0, 5)(0, -5)",
-      "0,5 0,-5"
+      "(x+4)^2/5-(y-3)^2/4=1",
+      "(x+4)^2/5-(y-3)^2/4=1"
      ],
      "responses": [
       "correct"
@@ -458,16 +458,6 @@
   },
   {
    "item": [
-    {
-     "tag": "question_26_Solution",
-     "patterns": [
-      "4(x^2+8x)-5(y^2-6y)=1 4(x^2+8x+16)-5(y^2-6y+9)=1+4(16)-5(9) 4(x+4)^2-5(y-3)^2=20 (x+4)^2/5-(y-3)^2/4=1",
-      "4x^2 - 5y^2 + 32x + 30y = 1 4(x^2 + 8x) - 5y^2 + 30y = 1 4(x^2 + 8x + 16) - 5y^2 + 30y = 1 + 4(16) 4(x + 4)^2 - 5y^2 + 30y = 1 + 64 4(x + 4)^2 - 5(y^2 - 6y) = 65 4(x + 4)^2 - 5(y^2 - 6y + 9) = 65 - 5(9) 4(x + 4)^2 - 5(y - 3)^2 = 20 4(x + 4)^2 / 20 - 5(y - 3)^2 / 20 = 1 (x + 4)^2 / 5 - (y - 3)^2 / 4 = 1 (x + 4)^2 / 5 - (y - 3)^2 / 4 = 1"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
     {
      "tag": "question_50_Solution",
      "patterns": [
@@ -477,21 +467,21 @@
      "responses": [
       "correct"
      ]
+    },
+    {
+     "tag": "question_26_Solution",
+     "patterns": [
+      "4(x^2+8x)-5(y^2-6y)=1 4(x^2+8x+16)-5(y^2-6y+9)=1+4(16)-5(9) 4(x+4)^2-5(y-3)^2=20 (x+4)^2/5-(y-3)^2/4=1",
+      "4x^2 - 5y^2 + 32x + 30y = 1 4(x^2 + 8x) - 5y^2 + 30y = 1 4(x^2 + 8x + 16) - 5y^2 + 30y = 1 + 4(16) 4(x + 4)^2 - 5y^2 + 30y = 1 + 64 4(x + 4)^2 - 5(y^2 - 6y) = 65 4(x + 4)^2 - 5(y^2 - 6y + 9) = 65 - 5(9) 4(x + 4)^2 - 5(y - 3)^2 = 20 4(x + 4)^2 / 20 - 5(y - 3)^2 / 20 = 1 (x + 4)^2 / 5 - (y - 3)^2 / 4 = 1 (x + 4)^2 / 5 - (y - 3)^2 / 4 = 1"
+     ],
+     "responses": [
+      "correct"
+     ]
     }
    ]
   },
   {
    "item": [
-    {
-     "tag": "question_33_Answer",
-     "patterns": [
-      "(6,9)(-6,-9)",
-      "(6,9)(-6,-9)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
     {
      "tag": "question_30_Answer",
      "patterns": [
@@ -501,26 +491,36 @@
      "responses": [
       "correct"
      ]
+    },
+    {
+     "tag": "question_33_Answer",
+     "patterns": [
+      "(6,9)(-6,-9)",
+      "(6,9)(-6,-9)"
+     ],
+     "responses": [
+      "correct"
+     ]
     }
    ]
   },
   {
    "item": [
     {
-     "tag": "question_33_Solution",
+     "tag": "question_30_Solution",
      "patterns": [
-      "y=x+3 x^2+(x+3)^2 = 117 x^2+x^2+6x+9=117 2x^2+6x+9-117=0 2x^2+6x-108=0 2(x^2+3x-54)=0 2(x+9)(x-6)=0 x=6 x=-9 y=6+3=9 y=-9+3=-6",
-      "y = x + 3 x^2 + (x + 3)^2 = 117 x^2 + (x^2 + 6x + 9) = 117 2x^2 + 6x + 9 = 117 2x^2 + 6x - 108 = 0 x^2 + 3x - 54 = 0 (x + 9)(x - 6) = 0 x = -9 x = 6 x = -9 y = -9 + 3 y = -6 x = 6 y = 6 + 3 y = 9 (-9, -6) (6, 9)"
+      "x-y=14 y=x-14 x^2+y=6 x^2+(x-14)=6 x^2+x-14-6=0 x^2+x-20=0 (x+5)(x-4)=0 x=-5 x=4 x=-5 y=x-14=-19 x=4 y=x-14=-10",
+      "x = y + 14 (y + 14)^2 + y = 6 y^2 + 28y + 196 + y = 6 y^2 + 29y + 196 = 6 y^2 + 29y + 190 = 0  y = (-b +/- V(b^2 - 4ac)) / (2a) y = (-29 +/- V(29^2 - 4(1)(190))) / (2(1)) y = (-29 +/- V(841 - 760)) / 2  y = (-29 +/- V81) / 2  y = (-29 +/- 9) / 2 y = -19 x = -19 + 14 = -5 y = -10 x = -10 + 14 = 4 (4, -10) (-5, -19)"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "question_30_Solution",
+     "tag": "question_33_Solution",
      "patterns": [
-      "x-y=14 y=x-14 x^2+y=6 x^2+(x-14)=6 x^2+x-14-6=0 x^2+x-20=0 (x+5)(x-4)=0 x=-5 x=4 x=-5 y=x-14=-19 x=4 y=x-14=-10",
-      "x = y + 14 (y + 14)^2 + y = 6 y^2 + 28y + 196 + y = 6 y^2 + 29y + 196 = 6 y^2 + 29y + 190 = 0  y = (-b +/- V(b^2 - 4ac)) / (2a) y = (-29 +/- V(29^2 - 4(1)(190))) / (2(1)) y = (-29 +/- V(841 - 760)) / 2  y = (-29 +/- V81) / 2  y = (-29 +/- 9) / 2 y = -19 x = -19 + 14 = -5 y = -10 x = -10 + 14 = 4 (4, -10) (-5, -19)"
+      "y=x+3 x^2+(x+3)^2 = 117 x^2+x^2+6x+9=117 2x^2+6x+9-117=0 2x^2+6x-108=0 2(x^2+3x-54)=0 2(x+9)(x-6)=0 x=6 x=-9 y=6+3=9 y=-9+3=-6",
+      "y = x + 3 x^2 + (x + 3)^2 = 117 x^2 + (x^2 + 6x + 9) = 117 2x^2 + 6x + 9 = 117 2x^2 + 6x - 108 = 0 x^2 + 3x - 54 = 0 (x + 9)(x - 6) = 0 x = -9 x = 6 x = -9 y = -9 + 3 y = -6 x = 6 y = 6 + 3 y = 9 (-9, -6) (6, 9)"
      ],
      "responses": [
       "correct"
@@ -579,20 +579,20 @@
   {
    "item": [
     {
-     "tag": "question_2_Answer",
+     "tag": "00",
      "patterns": [
-      "center=(7,-1) radius=6",
-      "c=(7,-1) r=6"
+      "2",
+      "two"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "00",
+     "tag": "question_2_Answer",
      "patterns": [
-      "2",
-      "two"
+      "center=(7,-1) radius=6",
+      "c=(7,-1) r=6"
      ],
      "responses": [
       "correct"
@@ -623,20 +623,20 @@
   {
    "item": [
     {
-     "tag": "question_2_Solution",
+     "tag": "0000",
      "patterns": [
-      "x^2-14x+y^2+2y=-14 x^2-14x+49+y^2+2y+1=-14+49+1 (x-7)^2+(y+1)^2=36",
-      "(x - h)^2 + (y - k)^2 = r^2 x^2 + y^2 - 14x + 2y = -14 (-7)^2 = 49 (1)^2 = 1 x^2 - 14x + 49 + y^2 + 2y + 1 = -14 + 49 + 1 (x - 7)^2 + (y + 1)^2 = 36 (7, -1), 6"
+      "00",
+      "00"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "0000",
+     "tag": "question_2_Solution",
      "patterns": [
-      "00",
-      "00"
+      "x^2-14x+y^2+2y=-14 x^2-14x+49+y^2+2y+1=-14+49+1 (x-7)^2+(y+1)^2=36",
+      "(x - h)^2 + (y - k)^2 = r^2 x^2 + y^2 - 14x + 2y = -14 (-7)^2 = 49 (1)^2 = 1 x^2 - 14x + 49 + y^2 + 2y + 1 = -14 + 49 + 1 (x - 7)^2 + (y + 1)^2 = 36 (7, -1), 6"
      ],
      "responses": [
       "correct"
@@ -667,16 +667,6 @@
   {
    "item": [
     {
-     "tag": "question_4_Answer",
-     "patterns": [
-      "vertex=(-3,4) focus=1.2",
-      "(-3,4) 1.2"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
      "tag": "question_3_Answer",
      "patterns": [
       "vertex=(-4,-6) focus=1.25",
@@ -695,21 +685,21 @@
      "responses": [
       "correct"
      ]
+    },
+    {
+     "tag": "question_4_Answer",
+     "patterns": [
+      "vertex=(-3,4) focus=1.2",
+      "(-3,4) 1.2"
+     ],
+     "responses": [
+      "correct"
+     ]
     }
    ]
   },
   {
    "item": [
-    {
-     "tag": "question_4_Solution",
-     "patterns": [
-      "5x^2+30x=-24y+51 5(x^2+6x+9)=-24+51+5(9) 5(x+3)^2=-24y+96=-24(y-4) (x+3)^2=-(24/5)(y-4)",
-      "5x^2 + 30x + 24y = 51 x = -30 / (2 * 5) = -30 / 10 = -3 5(-3)^2 + 30(-3) + 24y = 51 45 - 90 + 24y = 51 -45 + 24y = 51 24y = 51 + 45 24y = 96 y = 96 / 24 y = 4 5x^2 + 30x + 24y = 51 (-3, 4) 24y = -5x^2 - 30x + 51 y = (-5/24)x^2 - (5/4)x + (51/24) a = -5/24 p = 1 / (4a) p = 1 / (4 * (-5/24)) p = 6/5"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
     {
      "tag": "question_3_Solution",
      "patterns": [
@@ -729,11 +719,31 @@
      "responses": [
       "correct"
      ]
+    },
+    {
+     "tag": "question_4_Solution",
+     "patterns": [
+      "5x^2+30x=-24y+51 5(x^2+6x+9)=-24+51+5(9) 5(x+3)^2=-24y+96=-24(y-4) (x+3)^2=-(24/5)(y-4)",
+      "5x^2 + 30x + 24y = 51 x = -30 / (2 * 5) = -30 / 10 = -3 5(-3)^2 + 30(-3) + 24y = 51 45 - 90 + 24y = 51 -45 + 24y = 51 24y = 51 + 45 24y = 96 y = 96 / 24 y = 4 5x^2 + 30x + 24y = 51 (-3, 4) 24y = -5x^2 - 30x + 51 y = (-5/24)x^2 - (5/4)x + (51/24) a = -5/24 p = 1 / (4a) p = 1 / (4 * (-5/24)) p = 6/5"
+     ],
+     "responses": [
+      "correct"
+     ]
     }
    ]
   },
   {
    "item": [
+    {
+     "tag": "question_44_Answer",
+     "patterns": [
+      "f1(-4, 0) f2(4, 0)",
+      "(-4, 0) (4, 0)"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
     {
      "tag": "question_6_Answer",
      "patterns": [
@@ -755,16 +765,6 @@
      ]
     },
     {
-     "tag": "question_44_Answer",
-     "patterns": [
-      "f1(-4, 0) f2(4, 0)",
-      "(-4, 0) (4, 0)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
      "tag": "precalAnswer2",
      "patterns": [
       "123",
@@ -778,6 +778,16 @@
   },
   {
    "item": [
+    {
+     "tag": "question_44_Solution",
+     "patterns": [
+      "a^2 = 25 b^2 = 9 a = 5 b = 3 c = Va^2 - b^2 = 4",
+      "(x^2/a^2) + (y^2/b^2) = 1 a^2 = 25 b^2 = 9 a = 5 b = 3 c = V(5^2 - 3^2) = V(25 - 9) = V(16) = 4 (4, 0) (-4, 0)"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
     {
      "tag": "question_6_Solution",
      "patterns": [
@@ -799,16 +809,6 @@
      ]
     },
     {
-     "tag": "question_44_Solution",
-     "patterns": [
-      "a^2 = 25 b^2 = 9 a = 5 b = 3 c = Va^2 - b^2 = 4",
-      "(x^2/a^2) + (y^2/b^2) = 1 a^2 = 25 b^2 = 9 a = 5 b = 3 c = V(5^2 - 3^2) = V(25 - 9) = V(16) = 4 (4, 0) (-4, 0)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
      "tag": "precalSolution2",
      "patterns": [
       "12x + 35y = 1",
@@ -823,20 +823,20 @@
   {
    "item": [
     {
-     "tag": "question_7_Answer",
+     "tag": "question_48_Answer",
      "patterns": [
-      "(0,-5) (0,5)",
-      "0,-5 0,5"
+      "y = -0.4x y = 0.4x",
+      "y = -0.4x y = 0.4x"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "question_48_Answer",
+     "tag": "question_7_Answer",
      "patterns": [
-      "y = -0.4x y = 0.4x",
-      "y = -0.4x y = 0.4x"
+      "(0,-5) (0,5)",
+      "0,-5 0,5"
      ],
      "responses": [
       "correct"
@@ -857,20 +857,20 @@
   {
    "item": [
     {
-     "tag": "question_7_Solution",
+     "tag": "question_48_Solution",
      "patterns": [
-      "b^2=25 b=v25 b=5",
-      "(y - h)^2/a^2 - (x - k)^2/b^2 = 1 a^2 = 25 b^2 = 64 a = 5 b = 8 y^2/25 - x^2/64 = 1 (0, 5) (0, -5)."
+      "x^2/a^2-y^2/b^2=1 y = -(b/a)x y = (b/a)x a^2 = 25 a = V25 = 5 b^2 = 4 b = V4 = 2 b/a = 2/5 = 0.4",
+      "x^2/25 - y^2/4 = 1 (x - h)^2/a^2 - (y - k)^2/b^2 = 1 (h, k) = (0, 0) a^2 = 25 a = 5 b^2 = 4 b = 2 y = 0 +/- (2/5)(x - 0) y = +/- (2/5)x  x^2/25 - y^2/4 = 1 y = (2/5)x y = -(2/5)x"
      ],
      "responses": [
       "correct"
      ]
     },
     {
-     "tag": "question_48_Solution",
+     "tag": "question_7_Solution",
      "patterns": [
-      "x^2/a^2-y^2/b^2=1 y = -(b/a)x y = (b/a)x a^2 = 25 a = V25 = 5 b^2 = 4 b = V4 = 2 b/a = 2/5 = 0.4",
-      "x^2/25 - y^2/4 = 1 (x - h)^2/a^2 - (y - k)^2/b^2 = 1 (h, k) = (0, 0) a^2 = 25 a = 5 b^2 = 4 b = 2 y = 0 +/- (2/5)(x - 0) y = +/- (2/5)x  x^2/25 - y^2/4 = 1 y = (2/5)x y = -(2/5)x"
+      "b^2=25 b=v25 b=5",
+      "(y - h)^2/a^2 - (x - k)^2/b^2 = 1 a^2 = 25 b^2 = 64 a = 5 b = 8 y^2/25 - x^2/64 = 1 (0, 5) (0, -5)."
      ],
      "responses": [
       "correct"
@@ -890,6 +890,36 @@
   },
   {
    "item": [
+    {
+     "tag": "question_12_Answer",
+     "patterns": [
+      "(2,5),(3,7)",
+      "2,5 3,7"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_13_Answer",
+     "patterns": [
+      "(-6,6),(4,6)",
+      "-6,6 4,6"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_31_Answer",
+     "patterns": [
+      "(-2,5) (7,-22)",
+      "(-2,5) (7,-22)"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
     {
      "tag": "question_11_Answer",
      "patterns": [
@@ -911,40 +941,10 @@
      ]
     },
     {
-     "tag": "question_12_Answer",
-     "patterns": [
-      "(2,5),(3,7)",
-      "2,5 3,7"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
-     "tag": "question_31_Answer",
-     "patterns": [
-      "(-2,5) (7,-22)",
-      "(-2,5) (7,-22)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
      "tag": "question_15_Answer",
      "patterns": [
       "x=2, y=0",
       "(2,0)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
-     "tag": "question_13_Answer",
-     "patterns": [
-      "(-6,6),(4,6)",
-      "-6,6 4,6"
      ],
      "responses": [
       "correct"
@@ -954,6 +954,36 @@
   },
   {
    "item": [
+    {
+     "tag": "question_12_Solution",
+     "patterns": [
+      "-x^2+y+3x=7 y=x^2-3x+7 5=-y-x^2+7x y=x^2+7x-5 x^2-3x+7=-x^2+7x-5 2x^2-10x12=0 2(x^2-5x+6)=0 2(x-2)(x-3)=0 x=2,x=3 y=x^2-3x+7 y=(2)^2-3(2)+7=5 y=x^2-3x+7 y=(3)^2-3(3)+7=7",
+      "-x^2 + y + 3x = 7 y = x^2 - 3x + 7 5 = -y -x^2 + 7x y = -x^2 + 7x - 5 x^2 - 3x + 7 = -x^2 + 7x - 5 2x^2 - 10x + 12 = 0 x^2 - 5x + 6 = 0  (x - 2)(x - 3) = 0 x = 2 x = 3 y = (2)^2 - 3(2) + 7 y = 4 - 6 + 7 y = 5 y = (3)^2 - 3(3) + 7 y = 9 - 9 + 7 y = 7"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_13_Solution",
+     "patterns": [
+      "4(6)=x^2+2x 0=x^2+2x=24 0=(x+6)(x-4) x=-6,4 4y=(-6)^2+2(-6) 4y=36-12 4y=24 y=6 4y=(4)^2+2(4) 4y=16+8 4y=24 y=6",
+      "V(y^2) = V36 y = +/-6 4(6) = x^2 + 2x 24 = x^2 + 2x x^2 + 2x - 24 = 0 (x - 4)(x + 6) = 0 x = 4 x = -6 (4, 6) (-6, 6)"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_31_Solution",
+     "patterns": [
+      "-x^2+2x+13 y=x^2-8x-15 x^2-8x-15 2x^2-10x-28=0 2(x^2-5x-14)=0 2(x+2)(x-7)=0 x=-2,x=7 (-2)^2 - 8(-2)-15=5 (7)^2-8(7)-15=-2",
+      "y = 13 - x^2 + 2x y = x^2 - 8x - 15 13 - x^2 + 2x = x^2 - 8x - 15 2x^2 - 10x + 28 = 0 x^2 - 5x + 14 = 0 x = (-(-5) +/- V((-5)^2 - 4(1)(14))) / (2(1)) x = (5 +/- V(25 + 56)) / 2 x = (5 +/- V81) / 2 x = (5 +/- 9) / 2 x1 = (5 + 9) / 2 = 7 x2 = (5 - 9) / 2 = -2  x = 7 y = 13 - (7)^2 + 2(7) y = 13 - 49 + 14 y = -22 x = -2 y = 13 - (-2)^2 + 2(-2) y = 13 - 4 - 4 y = 5 (7, -22) (-2, 5)"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
     {
      "tag": "question_11_Solution",
      "patterns": [
@@ -975,40 +1005,10 @@
      ]
     },
     {
-     "tag": "question_12_Solution",
-     "patterns": [
-      "-x^2+y+3x=7 y=x^2-3x+7 5=-y-x^2+7x y=x^2+7x-5 x^2-3x+7=-x^2+7x-5 2x^2-10x12=0 2(x^2-5x+6)=0 2(x-2)(x-3)=0 x=2,x=3 y=x^2-3x+7 y=(2)^2-3(2)+7=5 y=x^2-3x+7 y=(3)^2-3(3)+7=7",
-      "-x^2 + y + 3x = 7 y = x^2 - 3x + 7 5 = -y -x^2 + 7x y = -x^2 + 7x - 5 x^2 - 3x + 7 = -x^2 + 7x - 5 2x^2 - 10x + 12 = 0 x^2 - 5x + 6 = 0  (x - 2)(x - 3) = 0 x = 2 x = 3 y = (2)^2 - 3(2) + 7 y = 4 - 6 + 7 y = 5 y = (3)^2 - 3(3) + 7 y = 9 - 9 + 7 y = 7"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
-     "tag": "question_31_Solution",
-     "patterns": [
-      "-x^2+2x+13 y=x^2-8x-15 x^2-8x-15 2x^2-10x-28=0 2(x^2-5x-14)=0 2(x+2)(x-7)=0 x=-2,x=7 (-2)^2 - 8(-2)-15=5 (7)^2-8(7)-15=-2",
-      "y = 13 - x^2 + 2x y = x^2 - 8x - 15 13 - x^2 + 2x = x^2 - 8x - 15 2x^2 - 10x + 28 = 0 x^2 - 5x + 14 = 0 x = (-(-5) +/- V((-5)^2 - 4(1)(14))) / (2(1)) x = (5 +/- V(25 + 56)) / 2 x = (5 +/- V81) / 2 x = (5 +/- 9) / 2 x1 = (5 + 9) / 2 = 7 x2 = (5 - 9) / 2 = -2  x = 7 y = 13 - (7)^2 + 2(7) y = 13 - 49 + 14 y = -22 x = -2 y = 13 - (-2)^2 + 2(-2) y = 13 - 4 - 4 y = 5 (7, -22) (-2, 5)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
      "tag": "question_15_Solution",
      "patterns": [
       "9(2)^2+4y^2=36 36+4y^2=36 y=0",
       "9(x)^2 + 4(y)^2 = 36 x = 2 9(2)^2 + 4(y)^2 = 36 36 + 4(y)^2 = 36 4(y)^2 = 0 y^2 = 0 y=0"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
-     "tag": "question_13_Solution",
-     "patterns": [
-      "4(6)=x^2+2x 0=x^2+2x=24 0=(x+6)(x-4) x=-6,4 4y=(-6)^2+2(-6) 4y=36-12 4y=24 y=6 4y=(4)^2+2(4) 4y=16+8 4y=24 y=6",
-      "V(y^2) = V36 y = +/-6 4(6) = x^2 + 2x 24 = x^2 + 2x x^2 + 2x - 24 = 0 (x - 4)(x + 6) = 0 x = 4 x = -6 (4, 6) (-6, 6)"
      ],
      "responses": [
       "correct"
@@ -1019,40 +1019,20 @@
   {
    "item": [
     {
-     "tag": "question_19_Answer",
-     "patterns": [
-      "(0,-4)(-2v3,2)(2v3,2)",
-      "(0,-4)(-2v3,2)(2v3,2)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
-     "tag": "question_16_Answer",
-     "patterns": [
-      "(5,3),(5,-3),(-5,3),(-5,-3)",
-      "5,3 5,-3 -5,3 -5,-3"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
-     "tag": "question_20_Answer",
-     "patterns": [
-      "(0,-3)(-v5,2)(v5,2)",
-      "(0,-3)(-v5,2)(v5,2)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
      "tag": "question_34_Answer",
      "patterns": [
       "(-2, -4) (-2,4) (2,-4) (2,4)",
       "(-2, -4),(-2,4),(2,-4),(2,4)"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_19_Answer",
+     "patterns": [
+      "(0,-4)(-2v3,2)(2v3,2)",
+      "(0,-4)(-2v3,2)(2v3,2)"
      ],
      "responses": [
       "correct"
@@ -1077,46 +1057,46 @@
      "responses": [
       "correct"
      ]
+    },
+    {
+     "tag": "question_16_Answer",
+     "patterns": [
+      "(5,3),(5,-3),(-5,3),(-5,-3)",
+      "5,3 5,-3 -5,3 -5,-3"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_20_Answer",
+     "patterns": [
+      "(0,-3)(-v5,2)(v5,2)",
+      "(0,-3)(-v5,2)(v5,2)"
+     ],
+     "responses": [
+      "correct"
+     ]
     }
    ]
   },
   {
    "item": [
     {
-     "tag": "question_19_Solution",
-     "patterns": [
-      "x^2+y^2=16 - x^2-2y=8 x^2+y^2-(x^2-2y)=16-8 y^2+2y=8 y=2 y=-4 x=2v3 x=-2v3 x=0",
-      "x^2 + y^2 - (x^2 - 2y) = 16 - 8 y^2 + 2y = 8 y^2 + 2y = 8: y = 2, y = -4 y = 2, y = -4 x^2 + y^2 = 16 x^2 + y^2 = 16 2 x = 2V3, x = -2V3 x^2 + y^2 = 16 -4: x = 0 (0, -4) (-2V3, 2) (2V3, 2)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
-     "tag": "question_16_Solution",
-     "patterns": [
-      "(x^2+y^2=34)2 2x^2+2y^2=68 2x^2+2y^2=68 + (x^2-2y=7) 3x^2=75 3x^2=75 x^2=25 x=+/-5 y^2=34-x^2 y^2=34-25 y^2=9 y=+/-3",
-      "x^2 + y^2 - x^2 + 2y^2 = 27 3y^2 = 27 y^2 = 9 y = +/- 3 y = 3 x^2 + 3^2 = 34 x^2 + 9 = 34 x^2 = 25 x = +/-5 y = 3 x^2 + (-3)^2 = 34 x^2 + 9 = 34 x^2 = 25 x = +/-5 (5, 3) (-5, 3) (5, -3) (-5, -3)"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
-     "tag": "question_20_Solution",
-     "patterns": [
-      "x^2+y^2=9 - x^2-y=3 x^2+y-(x^2-y)=9-3 y=2 y=3 x=v5 x=-v5 x=0",
-      "(x^2 + y^2) - (x^2 - y) = 9 - 3 x^2 + y^2 - x^2 + y = 6 y^2 + y = 6 y^2 + y - 6 = 0 (y + 3)(y - 2) = 0 y = -3 y = 2 y = -3 x^2 + (-3)^2 = 9 x^2 + 9 = 9 x^2 = 0 x = 0  y = 2 x^2 + 2^2 = 9 x^2 + 4 = 9 x^2 = 5 x = +/- V5"
-     ],
-     "responses": [
-      "correct"
-     ]
-    },
-    {
      "tag": "question_34_Solution",
      "patterns": [
       "x^2 + y^2 = 20 + x^2 - y^2 = -12 x^2 + y^2 + (x^2 - y^2) = 20 + (-12 ) 2x^2 = 8 x = 2, x = -2 y = 4, y = -4  y = 4, y = -4",
       "(x^2 + y^2) - (x^2 - y^2) = 20 - (-12) 2y^2 = 32 y^2 = 16 y = +/-4 x^2 + 16 = 20 x^2 = 4 x = +/- 2"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_19_Solution",
+     "patterns": [
+      "x^2+y^2=16 - x^2-2y=8 x^2+y^2-(x^2-2y)=16-8 y^2+2y=8 y=2 y=-4 x=2v3 x=-2v3 x=0",
+      "x^2 + y^2 - (x^2 - 2y) = 16 - 8 y^2 + 2y = 8 y^2 + 2y = 8: y = 2, y = -4 y = 2, y = -4 x^2 + y^2 = 16 x^2 + y^2 = 16 2 x = 2V3, x = -2V3 x^2 + y^2 = 16 -4: x = 0 (0, -4) (-2V3, 2) (2V3, 2)"
      ],
      "responses": [
       "correct"
@@ -1137,6 +1117,26 @@
      "patterns": [
       "15x-10y=-5 8x-10y=28 (15x+10y)+(8x-10y)=-5+28 15x+10y+8x-107=23 23x=23 x=1 3x+2y=-1 3(1)+2y=-1 2y=-4 y=-2 x=1 y=-2",
       "4(3x + 2y) = 4(-1) 3(4x - 5y) = 3(14) 12x + 8y = -4 12x - 15y = 42 (12x + 8y) - (12x - 15y) = -4 - 42 23y = -46 y = -2 3x + 2(-2) = -1 3x - 4 = -1 3x = 3 x = 1 (1, -2)"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_16_Solution",
+     "patterns": [
+      "(x^2+y^2=34)2 2x^2+2y^2=68 2x^2+2y^2=68 + (x^2-2y=7) 3x^2=75 3x^2=75 x^2=25 x=+/-5 y^2=34-x^2 y^2=34-25 y^2=9 y=+/-3",
+      "x^2 + y^2 - x^2 + 2y^2 = 27 3y^2 = 27 y^2 = 9 y = +/- 3 y = 3 x^2 + 3^2 = 34 x^2 + 9 = 34 x^2 = 25 x = +/-5 y = 3 x^2 + (-3)^2 = 34 x^2 + 9 = 34 x^2 = 25 x = +/-5 (5, 3) (-5, 3) (5, -3) (-5, -3)"
+     ],
+     "responses": [
+      "correct"
+     ]
+    },
+    {
+     "tag": "question_20_Solution",
+     "patterns": [
+      "x^2+y^2=9 - x^2-y=3 x^2+y-(x^2-y)=9-3 y=2 y=3 x=v5 x=-v5 x=0",
+      "(x^2 + y^2) - (x^2 - y) = 9 - 3 x^2 + y^2 - x^2 + y = 6 y^2 + y = 6 y^2 + y - 6 = 0 (y + 3)(y - 2) = 0 y = -3 y = 2 y = -3 x^2 + (-3)^2 = 9 x^2 + 9 = 9 x^2 = 0 x = 0  y = 2 x^2 + 2^2 = 9 x^2 + 4 = 9 x^2 = 5 x = +/- V5"
      ],
      "responses": [
       "correct"
