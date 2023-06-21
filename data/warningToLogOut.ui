@@ -53,7 +53,7 @@ color: #fff
          <item>
           <widget class="QStackedWidget" name="logoutUpdatePages">
            <property name="currentIndex">
-            <number>5</number>
+            <number>4</number>
            </property>
            <widget class="QWidget" name="page">
             <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -507,7 +507,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget">
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="page_3">
                       <layout class="QVBoxLayout" name="verticalLayout_49">
@@ -1050,7 +1050,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_5">
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="page_13">
                       <layout class="QVBoxLayout" name="verticalLayout_52">
@@ -1077,7 +1077,7 @@ p, li { white-space: pre-wrap; }
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Pressing &amp;quot;Delete&amp;quot; will remove &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;the account immediately.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Pressing &amp;quot;Archive&amp;quot; will remove &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;the account immediately.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -1114,7 +1114,7 @@ p, li { white-space: pre-wrap; }
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Id doesn't exists&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Email doesn't exists&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -1151,7 +1151,7 @@ p, li { white-space: pre-wrap; }
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00ff00;&quot;&gt;Deleted successfully&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00ff00;&quot;&gt;Archived successfully&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -1318,7 +1318,7 @@ p, li { white-space: pre-wrap; }
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Account already deleted.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Account already archived.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -1356,7 +1356,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_6">
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="page_17">
                       <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -1420,7 +1420,7 @@ QPushButton#removeAdmin_pushButton:pressed{
 }</string>
                             </property>
                             <property name="text">
-                             <string>Delete</string>
+                             <string>Archive</string>
                             </property>
                            </widget>
                           </item>
@@ -2397,7 +2397,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_9">
                      <property name="currentIndex">
-                      <number>4</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="page_24">
                       <layout class="QVBoxLayout" name="verticalLayout_60">
@@ -2424,7 +2424,7 @@ p, li { white-space: pre-wrap; }
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Pressing &amp;quot;Delete&amp;quot; will remove the &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;lesson file immediately.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;Pressing &amp;quot;Archive&amp;quot; will remove the &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;lesson file immediately.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -2498,7 +2498,7 @@ p, li { white-space: pre-wrap; }
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00ff00;&quot;&gt;Deleted successfully&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00ff00;&quot;&gt;Archived successfully&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -2646,7 +2646,7 @@ p, li { white-space: pre-wrap; }
                           </font>
                          </property>
                          <property name="text">
-                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;File already deleted.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff6767;&quot;&gt;File already archived.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::RichText</enum>
@@ -2684,7 +2684,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_10">
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="page_28">
                       <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -2748,7 +2748,7 @@ QPushButton#delete_pdf_pushButton:pressed{
 }</string>
                             </property>
                             <property name="text">
-                             <string>Delete</string>
+                             <string>Archive</string>
                             </property>
                            </widget>
                           </item>

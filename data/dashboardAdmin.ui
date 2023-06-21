@@ -2553,7 +2553,7 @@ gridline-color: rgb(255, 255, 255);
 }</string>
                                                   </property>
                                                   <property name="text">
-                                                   <string>Remove Account</string>
+                                                   <string>Archive Account</string>
                                                   </property>
                                                   <property name="icon">
                                                    <iconset resource="res.qrc">
@@ -4078,7 +4078,7 @@ in Post-Assessment Test</string>
                                    <property name="geometry">
                                     <rect>
                                      <x>0</x>
-                                     <y>0</y>
+                                     <y>-1</y>
                                      <width>642</width>
                                      <height>513</height>
                                     </rect>
@@ -4613,7 +4613,7 @@ gridline-color: rgb(255, 255, 255);
 }</string>
                                                          </property>
                                                          <property name="text">
-                                                          <string>Remove Account</string>
+                                                          <string>Archive Account</string>
                                                          </property>
                                                          <property name="icon">
                                                           <iconset resource="res.qrc">
